@@ -1,0 +1,27 @@
+{
+  "name": "blockly-document-chinese",
+  "version": "1.0.0",
+  "description": "Blockly documents chinese version",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tortorse/blockly-document-chinese.git"
+  },
+  "keywords": [
+    "blockly"
+  ],
+  "author": "tortorse",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/tortorse/blockly-document-chinese/issues"
+  },
+  "homepage": "https://github.com/tortorse/blockly-document-chinese#readme",
+  "devDependencies": {
+    "vuepress": "^1.8.2"
+  }
+}
