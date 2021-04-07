@@ -1,16 +1,54 @@
 # 入门
 
-本文档面向希望创建将Blockly作为代码编辑器的应用程序的开发人员。这里假设用户已经熟悉Blockly的用法，并且人们对HTML和JavaScript有基本的了解。
+本文档面向希望创建将Blockly作为代码编辑器的应用程序的开发人员。这里假设用户已经熟悉 Blockly 的用法，并且人们对 HTML 和 JavaScript 有基本的了解。
 
 ## 总览
-Blockly旨在轻松安装程序到您的Web应用程序中。首先由用户拖动块，然后由Blockly生成代码，最后在您的应用程序使用该代码执行某些操作。从您的应用程序的角度来看，Blockly只是一个文本区域，用户可以在其中键入语法上完美的JavaScript，Python，PHP，Lua，Dart或其他语言。
+Blockly 被设计成可以轻松安装到您的 Web 应用程序中。用户拖动块，Blockly 生成代码，您的应用程序使用该代码执行某些操作。从您的应用程序的角度来看，Blockly 只是一个文本区域，用户可以在其中键入语法上完美的 JavaScript，Python，PHP，Lua，Dart 或其他语言。
 
+Blockly 是 100％ 的客户端，不需要服务器的任何支持（除非有人想使用云存储功能）。 没有第三方依赖（除非有人想重新编译内核）。 一切都是开源的。
 ## 获取源代码
-首先，从GitHub下载源代码。如果您知道如何使用Git或Subversion，我们强烈建议您从我们的存储库进行同步，以便您的代码保持最新。
 
-获得代码后，使用浏览器访问 demos/fixed/index.html并验证是否可以拖动块。
+### 推荐使用: npm
 
-## 在页面中注入Blockly
+Blockly 已在 [npm](https://www.npmjs.com/package/blockly) 和 [yarn](https://yarnpkg.com/package/blockly) 上发布。 我们建议通过 npm 获取 Blockly，因为：
+
+- 可以随时获取最新版本的 Blockly
+- 鼓励 [使用插件](/guides/plugins/overview) 而非脏补丁
+
+如果您已经在使用 npm，则可以通过以下方式安装 Blockly
+
+```bash
+npm install --save blockly
+```
+您可以使用以下代码在应用程序代码中引用 Blockly：
+
+```javascript
+import Blockly from 'blockly';
+```
+
+这将导入默认软件包。 有关更多信息，请参阅程序包 [自述文件](https://www.npmjs.com/package/blockly)，以及结合 [Node](https://github.com/google/blockly-samples/tree/master/examples/blockly-node) 与 [webpack](https://github.com/google/blockly-samples/tree/master/examples/blockly-webpack) 使用 Blockly 的示例。
+
+### Unpkg
+
+如果您的项目未使用包管理器，但又不想自己拷贝代码，则可以使用 unpkg。
+
+```html
+<script src="https://unpkg.com/blockly/blockly.min.js"></script>
+```
+Unpkg 会获取已发布代码的最新版本，因此使用此方法将不会有任何版本控制。 它非常适合演示或快速实验，我们在许多代码实验室中都使用它。
+
+### GitHub
+
+您还可以从 GitHub 复制整个源代码。 但是，您将必须定期手动同步到我们的代码仓库，以便接收最新的更新和对 Blockly 的修复。
+
+首先，从 GitHub 下载源代码。 如果您知道如何使用 Git 或 Subversion，我们强烈建议您从存储库中进行同步，以使您的代码保持最新状态。
+
+
+获得代码后，将浏览器指向 `demos/fixed/index.html` 并验证是否可以拖动块。
+
+在您的应用程序代码中，您可以使用以下方式加载 Blockly：
+## 在页面中注入 Blockly
+
 验证Blockly安装无误后，使用固定大小的div将Blockly注入网页中。详见下一章《固定工作区域》
 
 更高级的网页可能希望允许Blockly调整大小以填充页面。详见下一章《调整工作区域》
