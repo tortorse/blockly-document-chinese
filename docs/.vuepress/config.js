@@ -22,7 +22,7 @@ module.exports = {
               path: "/guides/configure/fixed-size",
             },
             {
-              title: "可调整大小的工作区",
+              title: "可调整尺寸的工作区",
               path: "/guides/configure/resizable",
             },
             {

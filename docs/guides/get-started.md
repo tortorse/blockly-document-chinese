@@ -44,62 +44,71 @@ Unpkg 会获取已发布代码的最新版本，因此使用此方法将不会�
 首先，从 GitHub 下载源代码。 如果您知道如何使用 Git 或 Subversion，我们强烈建议您从存储库中进行同步，以使您的代码保持最新状态。
 
 
+- [下载 zip](https://github.com/google/blockly/zipball/master)
+- [下载 TAR Ball](https://github.com/google/blockly/tarball/master)
+- [GitHub](https://github.com/google/blockly)
+
 获得代码后，将浏览器指向 `demos/fixed/index.html` 并验证是否可以拖动块。
 
 在您的应用程序代码中，您可以使用以下方式加载 Blockly：
-## 在页面中注入 Blockly
 
-验证Blockly安装无误后，使用固定大小的div将Blockly注入网页中。详见下一章《固定工作区域》
+```html
+<script src="blockly_compressed.js"></script>
+```
 
-更高级的网页可能希望允许Blockly调整大小以填充页面。详见下一章《调整工作区域》
+您可能还需要引入其他文件，这些文件将在下一节链接的“注入 Blockly”指南中进行说明。
 
-## 组件
-前述示例中使用的Blockly.inject行包含“名称-值”对作为第二个参数，这些参数可用于配置。支持一下选项：
+## 注入 Blockly
 
-| 名称 | 类型 | 描述 |
-| --- | --- | :-----:|
-| collapse | 布尔型 | 允许折叠或展开块。如果工具箱具有类别，则默认为true，否则为false。 |
-| comments | 布尔型 | 允许块有注释。如果工具箱具有类别，则默认为true，否则为false。 |
-| css | 布尔型 | 如果为false，请不要注入CSS（提供CSS成为文档的责任）。默认为true。 |
-| disable | 布尔型 | 允许禁用块。如果工具箱具有类别，则默认为true，否则为false。 |
-| grid | 对象 | 配置可以捕捉到块的网格。详见《网格》...... |
-| horizontalLayout | 布尔型 | 如果true工具箱是水平的，如果false则工具箱是垂直的。默认为false。 |
-| maxBlocks | 数值型 | 可以创建的最大块数。对学生练习很有用。默认为无限。 |
-| maxInstances | 对象 | 从块类型映射到可以创建的该类型的最大块数。未声明的类型默认为Infinity。 |
-| media | 字符串 | 从页面（或框架）到Blockly媒体目录的路径，默认是“https://blockly-demo.appspot.com/static/media/” |
-| move | 对象 | 配置用户如何在工作区中移动的行为。详见《移动》 |
-| oneBasedIndex | 布尔型 | 如果true则列表和字符串操作应该从1开始索引，如果false索引从0开始。默认为true。 |
-| readOnly | 布尔型 | 如果为true，则阻止用户编辑。隐藏工具箱和垃圾桶。默认为false。 |
-| rtl | 布尔型 | 如果为true，则镜像编辑器（对于阿拉伯语或希伯来语语言环境）。请参阅RTL演示。默认为false。 |
-| scrollbars | 布尔型 | 设置工作空间是否可滚动。如果工具箱具有类别，则默认为true，否则为false。 |
-| sounds | 布尔型 | 如果为false，则不播放声音（例如，单击和删除）。默认为true。 |
-| theme | Blockly.Theme | 如果未提供主题，则默认为经典主题。 详见《主题》|
-| toolbox | XML nodes 或 字符串 | 用户可用的类别和块的树结构。请参阅下面的详细信息。 |
-| toolboxPosition | 字符串 | 如果“start”工具箱位于顶部（如果是水平）或左侧（如果是垂直和LTR）或右侧（如果是垂直和RTL）。如果“end”工具箱位于对面。默认为“start”。 |
-| trashcan | 布尔型 | 显示或隐藏垃圾桶。如果工具箱具有类别，则默认为true，否则为false。 |
-| maxTrashcanContents | 数值型 | 将显示在垃圾箱弹出窗口中的最大已删除项目数。 '0'禁用该功能。默认为'32'。 |
-| zoom | 对象 | 配置缩放行为。详见《缩放》... |
+验证Blockly安装无误后，使用固定大小的 `div` 将 Blockly 注入网页中。
 
-最重要的选项是工具箱。这是一个XML树，它指定工具箱中可用的块（侧边菜单）、它们的分组方式以及是否有类别。详见《定义toolbox》。
+→ 详细信息见 [注入固定尺寸的 Blockly...](/guides/configure/fixed-size)
 
-除了Blockly附带的默认块之外，还需要构建自定义块来调用Web应用程序的API。一个例子是迷宫游戏，它有自定义的移动块。详见《创建自定义块》。
+更高级的网页可能希望允许 Blockly 调整大小以填充页面。
+
+→ 详细信息见 [注入可调整尺寸的 Blockly...](/guides/configure/resizable)
+
+## 配置
+
+Blockly 是高度可配置的。 例如，您可以在工作空间上设置主题或渲染器，将工作空间设置为 RTL(自右向左) 模式，或从各种缩放和滚动模式中进行选择。
+
+通过在注入 Blockly 工作区时传递配置结构，可以完成每个工作区的配置。
+
+→ 详细信息见 [配置工作区...](/guides/configure/configuration_struct)
+
+
+## 定义块
+
+除了 Blockly 随附的默认块之外，还需要构建自定义块来调用您自己的 Web应用程序的API。 一个例子就是这个[迷宫游戏](https://blockly.games/maze)，它具有自定义的移动块。
+
+→ 详细信息见 [创建自定义块...](/guides/create-custom-blocks/overview)
 
 ## 代码生成器
-Blockly不是一种编程语言，不能“运行”一个Blockly程序。相反，Blockly可以将用户的程序转换为JavaScript，Python，PHP，Dart或其他语言。详见《代码生成器》。
+
+Blockly 不是一种编程语言，无法“运行” Blockly 程序。 相反，Blockly 可以将用户的程序转换为 JavaScript，Python，PHP，Dart 或其他某种语言。
+
+→ 详细信息见 [代码生成器...](/guides/configure/code-generators)
 
 ## 导入和导出块
-如果您的应用程序需要保存并存储用户的块并在以后访问时恢复它们，请使用此调用导出到XML：
-```
+
+如果您的应用程序需要保存和存储用户的块并在以后访问时恢复它们，请使用此调用导出到 XML：
+
+```javascript
 var xml = Blockly.Xml.workspaceToDom(workspace);
 var xml_text = Blockly.Xml.domToText(xml);
 ```
-这将生成一个包含用户块的XML的最小（但很难看）的字符串。如果希望获得更可读（但更大）的字符串，请改用Blockly.Xml.domToPrettyText。
 
-从XML字符串恢复到块也很简单：
-```
+这将产生一个最小（但难看）的字符串，其中包含用户块的 XML。 如果希望获取更易读（但更大）的字符串，请改用 `Blockly.Xml.domToPrettyText`。
+
+从 XML 字符串还原到块很简单：
+
+```javascript
 var xml = Blockly.Xml.textToDom(xml_text);
 Blockly.Xml.domToWorkspace(xml, workspace);
 ```
 
 ## 云存储
-Blockly附带可选的云存储功能。它使用户能够保存，加载，共享和发布他们的程序。如果您的项目托管在App Engine上，则可以利用此服务。详见《云存储》。
+
+Blockly 带有可选的云存储功能。 它使用户可以保存，加载，共享和发布他们的程序。 如果您的项目托管在 App Engine 上，则可以利用此服务。
+
+→ 详细信息见 [云存储...](//guides/configure/cloud-storage)
