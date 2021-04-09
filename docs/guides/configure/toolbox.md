@@ -239,49 +239,162 @@ var category = toolbox.getToolboxItemById('categoryId');
 
 我们提供了一种通过 JSON 和 XML 工具箱定义来自定义一个分类上不同的类的方法。 以下 CSS 类可以被改变。
 
+- container - 分类父级 div 的类。默认为 `blocklyToolboxCategory`。
 
+- row - 包含分类标签和图表组的 div 类. 默认为 `blocklyTreeRow`。
 
+- icon - 分类图标的类。默认为 `blocklyTreeIcon`。
+
+- label - 分类标签的类。 默认为 `blocklyTreeLabel`。
+
+- selected - 分类被选中时添加的类。 默认为 `blocklyTreeSelected`。
+
+- openicon - 当嵌套的分类打开时被添加的类。默认为 `blocklyTreeIconOpen`。
+
+- closedicon - 当嵌套的分类关闭时被添加的类。 默认为 `blocklyTreeIconClosed`。
+
+这些中的任何一个都可以使用 XML 或 JSON 进行设置。 在 XML 中，只需在上面的名称之一前面加上 “css-” 即可更改类。
+
+:::: tabs
+::: tab XML
+```xml
+<category name="..." css-container="yourClassName"></category>
+```
+:::
+::: tab JSON
+```json
+{
+  "kind": "category",
+  "name": "...",
+  "cssConfig": {
+    "container": "yourClassName"
+  }
+}
+```
+:::
+::::
+
+### 禁用某个分类
+
+禁用某个分类将不允许用户点击该分类，如果用户使用键盘操作工具箱，则将跳过该分类。 在 `blocklyToolboxCategory` div 上设置的 CSS 属性可让您控制已禁用分类的外观，如下所示。
+
+```javascript
+var category = toolbox.getToolboxItems()[0];
+category.setDisabled('true');
+```
+
+```html
+<style>
+  .blocklyToolboxCategory[disabled="true"] {
+    opacity: .5;
+  }
+</style>
+
+```
+
+### 显示/隐藏分类
+
+分类可以在首次注入工具箱时隐藏，也可以在之后通过 JavaScript 隐藏。
+
+:::: tabs
+::: tab XML
+```xml
+<category name="..." hidden="true"></category>
+```
+:::
+::: tab JSON
+```json
+{
+  "kind": "category",
+  "name": "...",
+  "hidden": "true"
+}
+```
+:::
+::: tab JavaScript
+```javascript
+var category = toolbox.getToolboxItems()[0];
+category.hide();
+```
+:::
+::::
 ## 动态分类
 
-有两类具有特殊行为。变量和函数类别定义为没有内容，但具有'custom'属性 'VARIABLE'或'PROCEDURE'分别。这些类别将使用适当的块自动填充。
-```HTML
+有两种具有特殊行为的分类。变量和函数分类被定义为没有内容，但其具有 `custom` 属性分别为 `VARIABLE` 或 `PROCEDURE`。这些分类将使用适当的块自动填充。
+
+:::: tabs
+::: tab XML
+```xml
 <category name="Variables" custom="VARIABLE"></category>
 <category name="Functions" custom="PROCEDURE"></category>
 ```
+:::
+::: tab JSON
+```json
+{
+  "kind": "category",
+  "name": "Variables",
+  "custom": "VARIABLE"
+},
+{
+  "kind": "category",
+  "name": "Functions",
+  "custom": "PROCEDURE"
+}
+```
+:::
+::::
 
-开发人员还可以使用该custom属性创建动态填充的弹出类别。例如，要创建具有自定义颜色块集的弹出按钮：
-* 使用自定义属性创建类别。
-    ```
-    <category name="Colours" custom="COLOUR_PALETTE"></category>
-    ```
-* 定义回调以提供类别内容。此回调应该在工作空间中返回并返回XML块元素的数组。
-    ```JavaScript
-    /**
-     * Construct the blocks required by the flyout for the colours category.
-    * @param {!Blockly.Workspace} workspace The workspace this flyout is for.
-    * @return {!Array.<!Element>} Array of XML block elements.
-    */
-    myApplication.coloursFlyoutCallback = function(workspace) {
+*注意：在整个 Blockly 代码库中都使用了“过程”一词，但是此后发现“函数”一词更容易为学生所理解。 抱歉没能匹配。*
+
+开发人员还可以使用 `custom` 属性创建动态填充的弹出分类。例如，要创建带有一组自定义色块的弹出按钮，请执行以下操作：
+
+- 使用自定义属性创建分类。
+
+  ```xml
+  <category name="Colours" custom="COLOUR_PALETTE"></category>
+  ```
+
+- 定义一个回调以提供分类的内容。 此回调应接收工作空间并返回 XML 块元素的数组。
+
+  ```JavaScript
+  /**
+   * Construct the blocks required by the flyout for the colours category.
+   * @param {!Blockly.Workspace} workspace The workspace this flyout is for.
+   * @return {!Array.<!Element>} Array of XML block elements.
+   */
+  myApplication.coloursFlyoutCallback = function(workspace) {
     // Returns an array of hex colours, e.g. ['#4286f4', '#ef0447']
     var colourList = myApplication.getPalette();
     var xmlList = [];
     if (Blockly.Blocks['colour_picker']) {
-        for (var i = 0; i < colourList.length; i++) {
+      for (var i = 0; i < colourList.length; i++) {
         var blockText = '<block type="colour_picker">' +
             '<field name="COLOUR">' + colourList[i] + '</field>' +
             '</block>';
         var block = Blockly.Xml.textToDom(blockText);
         xmlList.push(block);
-        }
+      }
     }
     return xmlList;
-    };
-    ```
-* 在工作区上注册回调。
-    ```JavaScript
-    myWorkspace.registerToolboxCategoryCallback(
+  };
+  ```
+- 在工作区上注册回调。
+
+  ```javascript
+  myWorkspace.registerToolboxCategoryCallback(
     'COLOUR_PALETTE', myApplication.coloursFlyoutCallback);
-    ```
+  ```
+
+### 类型化变量
+
+如果使用类型化变量，则需要将变量类型添加到变量字段中。
+
+```xml
+<block type="vars_set">
+  <field name="VAR_SET" variabletype="panda"></field>
+</block>
+```
 ## 树类别
 类别可以嵌套在其他类别中。这里有两个顶级类别（'Core'和'Custom'），每个类别包含两个子类别，每个子类别包含块：
 ```XML
