@@ -1,8 +1,17 @@
 # 工具箱
-工具箱是用户可以创建新块的侧边菜单。工具箱的结构使用XML指定，XML可以是节点树，也可以是字符串表示。
-将此XML注入到页面中时，会将其传递给Blockly。如果您不想手动输入XML，我们建议您查看[Blockly Developer Tools](https://developers.google.cn/blockly/guides/create-custom-blocks/blockly-developer-tools)。有了它，您可以构建一个工具箱并使用可视化界面自动生成其工具箱XML。
+
+工具箱表现为侧边菜单，用户可以从中创建新块。使用 XML 或 JSON 指定工具箱的结构。 当该工具箱定义被注入到页面中时，它将被传递给 Blockly。
+
+::: tip 提示
+有关如何自定义工具箱的更多信息，请参见 [自定义块状工具箱代码实验室](https://blocklycodelabs.dev/codelabs/custom-toolbox/index.html?index=..%2F..index#0)。
+:::
+
+## XML
+
+如果使用 XML，则可以使用节点树或字符串形式创建工具箱。 如果您不喜欢手动输入 XML，建议您使用 [Blockly Developer Tools](https://developers.google.com/blockly/guides/create-custom-blocks/blockly-developer-tools)。 使用它，您可以构造一个工具箱并使用可视化界面自动生成其工具箱 XML。
 
 这是一个使用节点树的最小示例：
+
 ```XML
 <xml id="toolbox" style="display: none">
   <block type="controls_if"></block>
@@ -13,7 +22,9 @@
       {toolbox: document.getElementById('toolbox')});
 </script>
 ```
-以下是使用字符串表示的相同示例：
+
+以下是使用字符串形式的相同示例：
+
 ```HTML
 <script>
   var toolbox = '<xml>';
@@ -23,14 +34,45 @@
   var workspace = Blockly.inject('blocklyDiv', {toolbox: toolbox});
 </script>
 ```
-以上两者都创建了具有两个块的相同工具箱：
+
+## JSON
+
+从[2020年9月的发布版本](https://github.com/google/blockly/releases/tag/3.20200924.0)开始，还可以使用 JSON 定义工具箱。
+
+上述示例使用 JSON 表示：
+
+```json
+{
+  "kind": "flyoutToolbox",
+  "contents": [
+    {
+      "kind": "block",
+      "type": "controls_if"
+    },
+    {
+      "kind": "block",
+      "type": "controls_whileUntil"
+    }
+  ]
+}
+```
+
+::: warning 警告
+如果用户决定使用 **blockxml** 定义块（有关 **blockxml** 的更多信息，请参见下面的 [文档](/guides/configure/toolbox#json_2)），当用户第一次打开包含超过 100 个块的分类时，由于从字符串到 xml 到 block 的转换开销，将会对性能产生影响。我们计划在不久的将来重新审视此事。
+:::
+
+以上所有示例均使用两个块创建相同的工具箱：
+
 ![toolbox-minimal](./toolbox-minimal.png)
 
-如果存在少量块，则可以显示它们而没有任何类别（如上面的最小示例中所示）。在此简单模式下，所有可用块都显示在工具箱中，主工作区上没有滚动条，并且不需要垃圾桶。
+如果存在少量块，则可以显示它们而没有任何分类（如上面的最小示例中所示）。在此简单模式下，所有可用块都显示在工具箱中，主工作区上没有滚动条，并且不需要垃圾桶。
 
 ## 分类
 
-工具箱中的块可以按类别组织。这里有两个类别（'Control'和'Logic'），每个类别包含三个块：
+工具箱中的块可以按分类组织。这里有两个类别（'Control' 和 'Logic'），每个类别包含三个块：
+
+:::: tabs
+::: tab XML
 ```XML
 <xml id="toolbox" style="display: none">
   <category name="Control">
@@ -45,13 +87,96 @@
   </category>
 </xml>
 ```
-下面是生成的工具箱，单击“逻辑”类别，以便可以看到弹出窗口中的三个逻辑块：
+:::
+::: tab JSON
+```json
+{
+  "kind": "categoryToolbox",
+  "contents": [
+    {
+      "kind": "category",
+      "name": "Control",
+      "contents": [
+        {
+          "kind": "block",
+          "type": "controls_if"
+        },
+        {
+          "kind": "block",
+          "type": "controls_whileUntil"
+        },
+        {
+          "kind": "block",
+          "type": "controls_for"
+        }
+      ]
+    },
+    {
+      "kind": "category",
+      "name": "Logic",
+      "contents": [
+        {
+          "kind": "block",
+          "type": "logic_compare"
+        },
+        {
+          "kind": "block",
+          "type": "logic_operation"
+        },
+        {
+          "kind": "block",
+          "type": "logic_boolean"
+        }
+      ]
+    }
+  ]
+}
+```
+:::
+::::
+
+下面是生成的工具箱，单击 'Logic' 类别，以便可以看到弹出窗口中的三个逻辑块：
+
 ![toolbox-categories](./toolbox-categories.png)
 
-类别的存在改变了Blockly的UI以支持更大的应用程序。出现滚动条，允许无限大的工作空间。上下文菜单包含更多高级选项，例如添加注释或折叠块。可以使用配置选项覆盖所有这些功能。
+分类的存在改变了 Blockly 的 UI 以支持更大的应用程序。出现滚动条，允许无限大的工作空间。上下文菜单包含更多高级选项，例如添加注释或折叠块。使用 [配置选项](/guides/get-started.html#配置) 可以覆盖所有这些功能。
 
-可以使用可选的颜色属性为每个类别指定颜色。请注意英国拼写。颜色是定义色调的数字（0-360）。
-```XML
+### 访问分类
+
+可以使用分类的 id 从工具箱中检索类别。 分类 id 可以在定义工具箱时定义。
+
+设置分类的 id：
+
+:::: tabs
+::: tab XML
+```xml
+<category name="..." toolboxitemid="categoryId"></category>
+```
+:::
+::: tab JSON
+```json
+{
+  "kind": "category",
+  "name": "...",
+  "toolboxitemid": "categoryId"
+}
+```
+:::
+::::
+
+从工具箱访问分类：
+
+```javascript
+var category = toolbox.getToolboxItemById('categoryId');
+```
+
+### 颜色
+
+可以使用可选的 `colour` 属性为每个分类分配一种颜色。 请注意英式拼写。`colour` 的值是定义色调的数字（0-360）。
+
+:::: tabs
+::: tab XML
+```xml
 <xml id="toolbox" style="display: none">
   <category name="Logic" colour="210">...</category>
   <category name="Loops" colour="120">...</category>
@@ -61,19 +186,63 @@
   <category name="Functions" colour="290" custom="PROCEDURE"></category>
 </xml>
 ```
+:::
+::: tab JSON
+```json
+{
+  "contents": [
+    {
+      "kind": "category",
+      "name": "Logic",
+      "colour": "210"
+    },
+    {
+      "kind": "category",
+      "name": "Loops",
+      "colour": "120"
+    }
+  ]
+}
+```
+:::
+::::
 
-此颜色显示为类别左侧的矩形，并作为当前所选类别的突出显示：
+该颜色显示为分类左侧的矩形，并作为当前所选类别的高亮色：
+
 ![toolbox-colours](./toolbox-colours.png)
 
-## 主题
-如果您已经开始使用Blockly主题，那么您将需要添加categorystyle属性而不是color属性，如下所示。
-```
+### 主题
+
+如果您已经开始使用 Blockly 主题，那么您将需要添加 `categorystyle` 属性而不是 `colour` 属性，如下所示。
+
+:::: tabs
+::: tab XML
+```xml
 <category name="Logic" categorystyle="logic_category">
 </category>
 ```
-有关主题的更多信息，请查看《主题》。
+:::
+::: tab JSON
+```json
+{
+  "kind": "category",
+  "name": "Logic",
+  "categorystyle": "logic_category"
+}
+```
+:::
+::::
 
-## 动态类别
+有关主题的更多信息，请查看 [主题](/guides/configure/themes)。
+
+### 分类 CSS
+
+我们提供了一种通过 JSON 和 XML 工具箱定义来自定义一个分类上不同的类的方法。 以下 CSS 类可以被改变。
+
+
+
+## 动态分类
+
 有两类具有特殊行为。变量和函数类别定义为没有内容，但具有'custom'属性 'VARIABLE'或'PROCEDURE'分别。这些类别将使用适当的块自动填充。
 ```HTML
 <category name="Variables" custom="VARIABLE"></category>
@@ -227,7 +396,7 @@ XML可以包含自定义块或块组。下面是四个块：
 更多信息请参阅《变量》
 
 ## 分离器
-在任意两个类别之间添加<sep> </ sep>标记将创建一个分隔符。
+在任意两个类别之间添加`<sep> </ sep>`标记将创建一个分隔符。
 
 ![toolbox-separator](./toolbox-separator.png)
 

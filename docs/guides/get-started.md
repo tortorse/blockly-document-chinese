@@ -111,4 +111,4 @@ Blockly.Xml.domToWorkspace(xml, workspace);
 
 Blockly 带有可选的云存储功能。 它使用户可以保存，加载，共享和发布他们的程序。 如果您的项目托管在 App Engine 上，则可以利用此服务。
 
-→ 详细信息见 [云存储...](//guides/configure/cloud-storage)
+→ 详细信息见 [云存储...](/guides/configure/cloud-storage)

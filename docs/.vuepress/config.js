@@ -1,5 +1,8 @@
 module.exports = {
   title: "Blockly",
+  plugins: [
+    'vuepress-plugin-element-tabs-less'
+  ],
   themeConfig: {
     nav: [
       { text: "首页", link: "/" },
