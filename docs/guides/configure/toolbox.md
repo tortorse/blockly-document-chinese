@@ -395,9 +395,13 @@ category.hide();
   <field name="VAR_SET" variabletype="panda"></field>
 </block>
 ```
-## 树类别
-类别可以嵌套在其他类别中。这里有两个顶级类别（'Core'和'Custom'），每个类别包含两个子类别，每个子类别包含块：
-```XML
+## 分类树
+
+分类可以嵌套在其他分类中。这里有两个顶级分类（'Core' 和 'Custom'），每个分类包含两个子分类，每个子类别包含块：
+
+:::: tabs
+::: tab XML
+```xml
 <xml id="toolbox" style="display: none">
   <category name="Core">
     <category name="Control">
@@ -423,20 +427,139 @@ category.hide();
   </category>
 </xml>
 ```
-请注意，类别可以包含子类别和块。在上面的例子中，'Custom'有两个子类别（'Move'和'Turn'），以及它自己的一个块（'start'）。
-
-## 扩展
-默认情况下，加载Blockly时会显示折叠类别，但可以使用扩展类别。
-```HTML 
-<category name="..." expanded="true">
+:::
+::: tab JSON
+```json
+{
+  "kind": "categoryToolbox",
+  "contents": [
+    {
+      "kind": "category",
+      "name": "Core",
+      "contents": [
+        {
+          "kind": "category",
+          "name": "Control",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "controls_if"
+            },
+            {
+              "kind": "block",
+              "type": "controls_whileUntil"
+            }
+          ]
+        },
+        {
+          "kind": "category",
+          "name": "Logic",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "logic_compare"
+            },
+            {
+              "kind": "block",
+              "type": "logic_operation"
+            },
+            {
+              "kind": "block",
+              "type": "logic_boolean"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "category",
+      "name": "Custom",
+      "contents": [
+        {
+          "kind": "block",
+          "type": "start"
+        },
+        {
+          "kind": "category",
+          "name": "Move",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "move_forward"
+            },
+            {
+              "kind": "block",
+              "type": "move_backward"
+            }
+          ]
+        },
+        {
+          "kind": "category",
+          "name": "Turn",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "turn_left"
+            },
+            {
+              "kind": "block",
+              "type": "turn_right"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 ```
+:::
+::::
 
-## 块分组
-XML可以包含自定义块或块组。下面是四个块：
-1. 一个简单的 logic_boolean 块：![true](./true.png)
-2. 一个已修改为显示数字42而不是默认值0的math_number块：![42](./42.png)
-3. 一个controls_for块，它连接了三个math_number块：![count-with](./count-with.png)
-4. 一个math_arithmetic块，它连接了两个math_number阴影块：![1plus1](./1plus1.png)
+请注意，分类可以包含子分类和块。在上面的例子中，'Custom' 有两个子分类（'Move' 和 'Turn'），以及它自己的一个块（'start'）。
+
+## 展开
+
+默认情况下，当 Blockly 被加载时，分类会以折叠方式显示，但分类可以用以下方式展开：
+
+:::: tabs
+::: tab XML
+```xml
+<category name="..." expanded="true"></category>
+```
+:::
+::: tab JSON
+```json
+{
+  "kind": "category",
+  "name": "...",
+  "expanded": "true"
+}
+```
+:::
+::::
+
+
+## 预设块
+
+工具箱定义可以包含将字段设置为默认值的块，或者包含已经连接在一起的块。
+
+下面是四个块：
+1. 一个简单的无预设值的 `logic_boolean` 块：
+
+    ![true](./true.png)
+
+2. 经过修改以显示数字 42 而不是默认值 0 的 `math_number` 块：
+
+    ![42](./42.png)
+
+
+3. 一个 `controls_for` 块，具有三个与之相连的 `math_number` 块：
+
+    ![count-with](./count-with.png)
+
+4. 一个 `math_arithmetic` 块，其中连接了两个 `math_number` [影子块](/guides/configure/toolbox#影子块)：
+
+    ![1plus1](./1plus1.png)
 
 以下是在工具箱中生成这四个块的代码：
 ```HTML
@@ -480,42 +603,98 @@ XML可以包含自定义块或块组。下面是四个块：
   </block>
 </xml>
 ```
-这些自定义块或组的XML与Blockly的XML保存格式相同。因此，为这些块构造XML的最简单方法是使用Code应用程序构建块，然后切换到XML选项卡并复制结果。工具箱会忽略x，y和id属性，并且可能会将其删除。
+这些预设或连接块的 XML 与 Blockly 的 XML 保存格式相同。 因此，为此类块构造 XML 的最简单方法是使用 [代码应用程序](https://blockly-demo.appspot.com/static/demos/code/index.html) 来构建块，然后切换到 XML 选项卡并复制结果。 `x`，`y` 和 `id` 属性将被工具箱忽略，并且可能会被删除。
 
-## 阴影块
-阴影块是占位符块，可执行多种功能：
-* 它们指示其父块的默认值。
-* 它们允许用户直接键入值，而无需获取数字或字符串块。
-* 与常规块不同，如果用户在其上放置块，则会替换它们。
-* 它们告知用户预期的值类型。
+### JSON
 
-无法直接使用代码应用程序构建阴影块。相反，可以使用常规块，然后将XML中的<block ...>和</ block>更改为<shadow ...>和</ shadow>。
+可以使用 `blockxml` 属性在 JSON 中指定预设块和连接块。 有关应使用什么 XML 字符串的更多信息，请查看 [上面的部分](/guides/configure/web/toolbox#预设块)。
 
-    注意：阴影块可能不包含变量字段或具有不是阴影的子项。
+```json
+{
+  "kind": "block",
+  "blockxml": "<block type='math_number'><field name='NUM'>42</field></block>"
+}
+```
+
+仅在更改字段值或将块连接在一起时才需要。 如果您不需要执行上述任何一项操作，则可以简单地使用 `type`。
+
+```json
+{
+  "kind": "block",
+  "type": "math_number"
+}
+```
+
+## 影子块
+
+影子块是执行以下功能的占位符块：
+
+- 它们指示其父块的默认值。
+
+- 它们允许用户直接键入值，而无需获取数字或字符串块。
+
+- 与常规块不同，如果用户在其上放置块，则会替换它们。
+
+- 它们告知用户预期的值类型。
+
+无法使用代码应用程序直接构造影子块。 相反，可以使用常规块，然后将XML中的 `<block ...>` 和 `</ block>` 更改为 `<shadow ...>` 和 `</ shadow>`。
+
+::: tip 注意
+影子块可能不包含变量字段或具有不是影子块的子项。
+:::
 
 ## 变量
-大多数字段都很容易在工具箱中设置，只需要名称属性及其值。
-```HTML
+
+大多数字段都很容易在工具箱中设置，只需要 `name` 属性及其 `value`。
+```xml
 <field name="NUM">1</field>
 ```
-但是，变量具有其他可选属性，这些属性会影响它们的创建方式。变量字段可以具有id和variabletype。请注意，variabletype不使用驼峰式命名。
-```HTML
+但是，变量具有其他可选属性，这些属性会影响变量的创建方式。 变量字段可以具有 `id` 和 `variabletype`。 请注意，`variabletype` 不使用 camelCase(驼峰式命名)。
+
+```xml
 <field name="VAR" id=".n*OKd.u}2UD9QFicbEX" variabletype="Panda">Bai Yun</field>
 ```
-如果设置了id，那么在创建块时，variabletype（如果设置）和值必须匹配具有该id的任何现有变量。如果不存在具有该id的变量，则将创建新变量。通常，id不应包含在工具箱XML中。省略id允许变量在具有相同值和variabletype的情况下引用现有变量。
+如果设置了 `id`，则在创建块时，`variabletype`（如果已设置）和 `value` 必须与具有该 `id` 的任何现有变量匹配。 如果不存在具有该 `id` 的变量，则将创建一个新变量。 通常，该 `id` 不应包含在您的工具箱 XML 中。 如果变量具有相同的 `value` 和 `variabletype`，则省略 `id` 可使变量引用现有变量。
 
-如果设置了variabletype，则将使用该类型创建变量。如果未设置variabletype，则变量将具有默认的''类型。如果使用类型变量，则必须设置variabletype，因为Blockly不会推断类型。
+果设置了 `variabletype`，则将使用该类型创建变量。 如果未设置 `variabletype`，则变量将具有默认的 `''` 类型。 如果使用 `variabletype`，则必须设置变量类型，因为 Blockly 不会推断类型。
 
-更多信息请参阅《变量》
+→ 更多信息请参阅 [变量](/guides/create-custom-blocks/variables)。
 
-## 分离器
-在任意两个类别之间添加`<sep> </ sep>`标记将创建一个分隔符。
+## 分隔符
+
+Adding a separator between any two categories will create a line and extra space between the two categories.
+
+You can change the class for the separator in your JSON or XML toolbox definition.
+
+在任何两个分类之间添加分隔符将在这两个类别之间创建一行并留出额外的空间。
+
+您可以在 JSON 或 XML 工具箱定义中更改分隔符的类。
+
+:::: tabs
+::: tab XML
+```xml
+<sep css-container="yourClassName"></sep>
+```
+:::
+::: tab JSON
+```json
+{
+  "kind": "sep",
+  "cssConfig": {
+    "container": "yourClassName"
+  }
+}
+```
+:::
+::::
 
 ![toolbox-separator](./toolbox-separator.png)
 
-默认情况下，每个块与其下邻居分开24个像素。可以使用'gap'属性更改此分隔，该属性将替换默认间隙。
+在任意两个块之间添加分隔符将在两个块之间创建间隙。 默认情况下，每个块与其下相邻块相距 24 个像素。 可以使用 'gap' 属性更改此间距，该属性将替换默认间距。
 
-```XML
+:::: tabs
+::: tab XML
+```xml
 <xml id="toolbox" style="display: none">
   <block type="math_number"></block>
   <sep gap="32"></sep>
@@ -528,14 +707,50 @@ XML可以包含自定义块或块组。下面是四个块：
   </block>
 </xml>
 ```
-调整块之间的间隙允许在工具箱中创建逻辑块组。
+:::
+::: tab JSON
+```json
+{
+  "kind": "flyoutToolbox",
+  "contents": [
+    {
+      "kind": "block",
+      "type":"math_number"
+    },
+    {
+      "kind": "sep",
+      "gap": "32"
+    },
+    {
+      "kind": "block",
+      "blockxml": "<block type='math_arithmetic'><field name='OP'>ADD</field></block>"
+    },
+    {
+      "kind": "sep",
+      "gap": "8"
+    },
+    {
+      "kind": "block",
+      "blockxml": "<block type='math_arithmetic'><field name='OP'>MINUS</field></block>"
+    }
+  ]
+}
+```
+:::
+::::
+
+
+调整块之间的间距可以允许在工具箱中创建逻辑组的块。
 
 ![toolbox-gap](./toolbox-gap.png)
 
 ## 按钮和标签
-您可以在任何可以将块放入工具箱的位置放置按钮或标签。
 
-```XML
+您可以在工具箱中可以放置块的任何地方放置按钮或标签。
+
+:::: tabs
+::: tab XML
+```xml
 <xml id="toolbox" style="display: none">
   <block type="logic_operation"></block>
   <label text="A label" web-class="myLabelStyle"></label>
@@ -544,34 +759,108 @@ XML可以包含自定义块或块组。下面是四个块：
   <button text="A button" callbackKey="myFirstButtonPressed"></button>
   <block type="logic_boolean"></block>
 </xml>
-
-<style>
-.myLabelStyle>.blocklyFlyoutLabelText {
-  font-style: italic;
-  fill: green;
+```
+:::
+::: tab JSON
+```json
+{
+  "kind": "flyoutToolbox",
+  "contents": [
+    {
+      "kind": "block",
+      "type":"logic_operation"
+    },
+    {
+      "kind": "label",
+      "text": "A label",
+      "web-class": "myLabelStyle"
+    },
+    {
+      "kind": "label",
+      "text": "Another label"
+    },
+    {
+      "kind": "block",
+      "type": "logic_negate"
+    },
+    {
+      "kind": "button",
+      "text": "A button",
+      "callbackKey": "myFirstButtonPressed"
+    },
+    {
+      "kind": "block",
+      "type": "logic_boolean"
+    }
+  ]
 }
-</style>
+```
+:::
+::::
+
+```html
+    <style>
+    .myLabelStyle>.blocklyFlyoutLabelText {
+      font-style: italic;
+      fill: green;
+    }
+    </style>
 ```
 ![label-and-button](./label-and-button.png)
 
 您可以指定要应用于按钮或标签的CSS类名称。在上面的示例中，第一个标签使用自定义样式，而第二个标签使用默认样式。
 
 按钮应该有回调函数，而标签不需要。要为给定按钮设置回调函数，使用
+
 ```JavaScript
 yourWorkspace.registerButtonCallback(yourCallbackKey, yourFunction).
 ```
-您的函数应该接受点击的按钮作为参数。变量类别中的“创建变量...”按钮是带回调函数的按钮的一个很好的示例。
+您的函数应接受点击的按钮作为参数。 变量类别中的 “创建变量...” 按钮是带有回调的按钮的一个很好的例子。
+## 禁用
 
-## 禁用项
-可以使用可选的disabled属性单独禁用工具箱中的块：
-```XML
+可以使用可选的 `disabled` 属性单独禁用工具箱中的块：
+
+:::: tabs
+::: tab XML
+```xml
 <xml id="toolbox" style="display: none">
   <block type="math_number"></block>
   <block type="math_arithmetic"></block>
   <block type="math_single" disabled="true"></block>
 </xml>
 ```
-禁用块可用于限制用户的选择。也许高级块可能会在某些成就后解锁。
+:::
+::: tab JSON
+```json
+{
+  "kind": "flyoutToolbox",
+  "contents": [
+    {
+      "kind": "block",
+      "type":"math_number"
+    },
+    {
+      "kind": "block",
+      "type": "math_arithmetic"
+    },
+    {
+      "kind": "block",
+      "type": "math_single",
+      "disabled": "true"
+    }
+  ]
+}
+```
+:::
+::::
+
+
+禁用块可用于限制用户的选择。 也许在取得某些成就之后，可以解锁高级块。
+
+```javascript
+Blockly.selected.setEnabled(true);
+```
+
 ![toolbox-disabled](./toolbox-disabled.png)
 
 ## 更改工具箱
@@ -579,12 +868,19 @@ yourWorkspace.registerButtonCallback(yourCallbackKey, yourFunction).
 ```JavaScript
 workspace.updateToolbox(newTree);
 ```
-与初始配置期间的情况一样，newTree可以是节点树或字符串表示。唯一的限制是模式不能改变;也就是说，如果最初定义的工具箱中有类别，则新工具箱也必须具有类别（尽管类别可能会更改）。同样，如果最初定义的工具箱没有任何类别，则新工具箱可能没有任何类别。
+与初始配置期间的情况一样，`newTree` 可以是节点树或字符串表达或 JSON 对象。唯一的限制是不能更改模式;也就是说，如果最初定义的工具箱中有分类，则新工具箱也必须具有分类（尽管分类可能会更改）。同样，如果最初定义的工具箱没有任何分类，则新工具箱可能没有任何分类。
 
-请注意，此时更新工具栏会导致一些小的UI重置：
+可以通过以下方式更新单个分类的内容：
 
-* 在具有类别的工具箱中，弹出按钮在打开时将关闭。
-* 在没有类别的工具箱中，用户更改的任何字段（例如下拉列表）将恢复为默认值。
-* 任何工具箱长到超出页面时，将使其滚动条跳到顶部。
+```javascript
+var category = toolbox.getToolboxItems()[0];
+category.updateFlyoutContents(flyoutContents);
+```
 
-这是一个包含类别和块组的树的[现场演示](https://blockly-demo.appspot.com/static/demos/toolbox/index.html)。
+其中 flyoutContents 可以是使用 JSON 定义的块列表，节点树或字符串表达。
+
+请注意，此时更新工具箱会导致一些次要的 UI 重置：
+
+- 在没有类别的工具箱中，用户更改的任何字段（例如下拉列表）将恢复为默认值。
+
+这是一个包含分类和块组的分类树 [在线示例](https://blockly-demo.appspot.com/static/demos/toolbox/index.html)。
