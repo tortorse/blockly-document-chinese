@@ -1,13 +1,14 @@
 # 主题
 
-主题是一种定制blockly外观的方法。目前，我们支持在块和类别上自定义某些样式。我们创建主题的主要目标是使开发人员能够创建更易于访问的blocly体验。
+主题是自定义 Blockly 外观的一种方式。当前，我们支持通过 Themes 类自定义块颜色，分类颜色和某些组件。 对于任何其他组件，我们在注入 div 上提供主题名称作为类。 这使用户可以通过 CSS 更改任何不受支持的组件的外观。 我们创建主题的主要目标是使开发人员能够创建更易于访问的 Blockly 体验。
 
-然而，强大的力量带来了巨大的责任。如果没有特别需要控制块的所有三个样式值（块颜色，边框颜色和阴影块颜色），我们强烈建议用户坚持使用块颜色。可能很难想出能够很好地结合在一起的颜色，因此最简单的入门方法仍然是使用色调定义颜色并允许块状地计算边框和阴影块的颜色。
+但是，强大的力量伴随着巨大的责任。 如果没有特别需要控制块的所有三个样式值（块颜色，边框颜色和影子块颜色），我们强烈建议用户坚持使用 Blockly [颜色](/guides/create-custom-blocks/block-colour)。 很难找到可以很好地搭配使用的颜色，因此最简单的入门方法仍然是使用色调定义颜色，并允许 Blockly 计算边框和影子块的颜色。
 
 ## 块样式
 
-块样式目前由四个字段组成：colourPrimary，colourSecondary，colourTertiary和hat。
-<img src="./ColourExplanation.png" width = "300" height = "200" alt="ColourExplanation" align=center>
+块样式目前由四个字段组成：colourPrimary，colourSecondary，colourTertiary和 hat。
+
+<img src="./ColourExplanation.png" width="450" alt="带有箭头的箭头指向原色，副色和第三色的块">
 
 ```json
 {
@@ -17,19 +18,19 @@
 }
 ```
 
-原色（必需） - 用作块的背景色，可以用色调或十六进制值定义。
+**主色**（必需） - 用作块的背景色，可以用色调或十六进制值定义。
 
-辅助颜色（可选） - 如果块是阴影块，则使用此颜色。必须将其定义为十六进制值。
+**辅助颜色**（可选） - 如果影子块，则使用此颜色。必须将其定义为十六进制值。
 
-三级颜色（可选） - 这是块的边框颜色。在主题之前，边框颜色由光明和黑暗路径组成，以便创建投影效果。当定义第三颜色时，它仅使用一条路径来创建平面外观（参见下图）。必须将此值定义为十六进制值。
+**三级颜色**（可选） - 在 [thrasos](/reference/js/Blockly.thrasos.Renderer) 和 [zelos](/reference/js/Blockly.zelos.Renderer) 渲染器中，这是块的边框颜色。 在 [geras](/reference/js/Blockly.geras.Renderer) 渲染器中，第三色会更改块高光的颜色。
 
-<img src="BorderExplanation.png" width = "300" height = "100" align=center>
+![显示不同渲染器的边框](./RendererBorders.png)
 
-帽子（可选） - 当用户想要将帽子添加到其块时使用。目前，此值的唯一选项是“上限”。用户可以找出在帽子和他们是用来做什么的详细信息在[这里](https://developers.google.com/blockly/guides/create-custom-blocks/block-paradigms#event_driven_program)。
+**帽子**（可选） - 当用户想要向其块中添加帽子时使用。 当前，此值的唯一选项是“ cap”。 用户可以在[这里](/guides/create-custom-blocks/block-paradigms#事件驱动程序)找到有关帽子及其用途的更多信息。
 
-## 类别风格
+## 分类样式
 
-类别样式目前仅包含颜色属性。
+分类样式目前仅包含颜色属性。
 
 ```json
 {
@@ -37,9 +38,51 @@
 }
 ```
 
-颜色（必填） - 这是弹出按钮上类别的颜色。该值可以定义为十六进制值或色调。通常这些颜色应与该类别中大多数块的colourPrimary相同。这使用户可以轻松地分辨哪些块属于哪个类别。
+**Colour**（必填） - 是弹出菜单上分类的颜色。 此值可以定义为十六进制值或色调。 通常，这些颜色应与类别中大多数图块的 colourPrimary 相同。 这使用户可以轻松分辨出哪些块属于哪个分类。
 
-<img src="CategoryColours.png" width=200px>
+<img src="./CategoryColours.png" width="278" >
+
+## 组件样式
+
+我们目前支持更改以下组件的颜色：
+
+- `workspaceBackgroundColour`: 工作区背景色
+
+- `toolboxBackgroundColour`: 工具箱背景色
+
+- `toolboxForegroundColour`: 工具箱分类文字颜色
+
+- `flyoutBackgroundColour`: 弹出窗背景颜色
+
+- `flyoutForegroundColour`: 弹出床文本标签颜色
+
+- `flyoutOpacity`: 弹出床透明度
+
+- `scrollbarColour`: 滚动条颜色
+
+- `scrollbarOpacity`: 滚动条透明度
+
+- `insertionMarkerColour`: 插入标记颜色（不接受颜色名称）
+
+- `insertionMarkerOpacity`: 插入标记透明度
+
+- `markerColour`: 键盘导航模式下显示的标记的颜色
+
+- `cursorColour`: 键盘导航模式下显示的光标颜色
+
+通过使用 CSS 中的主题名称，可以更改大多数其他组件。 但是，如果有一个您要更改的组件尚未包含在此列表中，并且无法使用 CSS 进行更改，请在 [此处](https://github.com/google/blockly/issues/new/choose) 提出问题，以获取更多信息。
+
+## 字体样式
+
+字体样式是一个对象，它包含字体家族，字重和尺寸。
+
+```json
+{
+    "family": "Georgia, serif",
+    "weight": "bold",
+    "size": 12
+}
+```
 
 ## 使用主题
 
