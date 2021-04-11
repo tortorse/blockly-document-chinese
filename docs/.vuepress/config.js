@@ -57,7 +57,7 @@ module.exports = {
               path: "/guides/configure/cloud-storage",
             },
             {
-              title: "主题样式",
+              title: "主题",
               path: "/guides/configure/themes",
             },
             {
