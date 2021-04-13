@@ -84,19 +84,23 @@
 }
 ```
 
+## 起始帽子(Start Hats)
+
+在 [块样式](/guides/configure/themes#块样式) 上定义起始帽子可以使用户精确控制要在其上放置帽子的块。 将其直接设置在主题上将在所有没有先前或输出连接的块上添加一个“帽子”。 有关帽子及其用途的更多信息，请参见 [此处](/guides/create-custom-blocks/block-paradigms#事件驱动程序)。
+
 ## 使用主题
 
-为了向您的块应用程序添加主题，需要完成三个步骤：
+为了向您的 Blockly 应用程序添加主题，需要完成三个步骤：
 
-* 创建一个主题
-* 添加样式名称
-* 设置你的主题
+- 创建一个主题
+- 添加样式名称
+- 设置你的主题
 
 ### 创建一个主题
 
-主题当前既包含块样式的地图，也包含类别样式的地图。
+当前主题有一个名称，一个块样式的配置(map)，一个类别样式的配置(map)和一个组件样式的配置(map)。
 
-示例块样式图
+**块样式示例**
 
 ```json
 {
@@ -113,7 +117,7 @@
 }
 ```
 
-示例类别样式图
+**分类样式示例**
 
 ```json
 {
@@ -126,58 +130,113 @@
 }
 ```
 
-创建主题
+**组件样式示例**
 
-```js
-var theme = Blockly.Theme(blockStyles, categoryStyles);
+```json
+{
+   "workspaceBackgroundColour": "#1e1e1e",
+   "toolboxBackgroundColour": "#333"
+}
 ```
 
+**创建主题**
+
+可以使用构造函数或使用 defineTheme 来创建主题。 使用 defineTheme 可以轻松扩展现有主题并使用单个对象设置所有值。
+
+```javascript
+var theme = Blockly.Theme.defineTheme('themeName', {
+  'base': oldTheme,
+  'blockStyles': blockStyles,
+  'categoryStyles': categoryStyles,
+  'componentStyles': componentStyles,
+  'fontStyle': fontStyle,
+  'startHats': true
+});
+```
+
+在 [此处](https://github.com/google/blockly/blob/master/core/theme/dark.js#L17) 可以找到使用 `defineTheme` 的示例。
+
 ### 添加样式名称
-现在我们已经创建了一个主题，我们需要将样式的名称添加到块和类别定义中。
+现在我们已经创建了一个主题，我们需要将样式的名称添加到块和分类定义中。
 
-分类
-对于类别，只需将样式标记添加到xml即可。
+**分类**
 
-```html
+对于分类，只需将样式标记添加到 xml 即可。
+
+```xml
 <category name="Logic" categorystyle="logic_category">
 </category>
 ```
 
-块
-如何定义块确定了如何添加样式名称。你可以找到更多的块定义在这里。
+**块**
 
-JSON:
+如何定义块决定了如何添加样式名称。 您可以在 [此处](/guides/configure/custom-blocks) 找到有关块定义的更多信息。
 
+:::: tabs
+::: tab JSON
 ```json
 "style":"logic_blocks"
 ```
-
-JAVASCRIPT:
-
-```js
+:::
+::: tab JavaScript
+```javascript
  this.setStyle('logic_blocks')
 ```
+:::
+::::
 
 ### 设置你的主题
 
-现在您已经创建了一个主题并将其连接到您的块和类别，现在是时候告诉我们要使用哪个主题了。
+现在您已经创建了一个主题并将其连接到您的块和分类，现在该告诉 Blockly 使用哪个主题了。
 
-块状选项
-设置初始主题的最佳方法是options.theme在您的注入调用中包含。
+#### Blockly 选项
 
-```
+设置初始主题的最佳方法是在注入调用中包含 `options.theme`。 用户可以提供主题(theme)对象或 JSON 对象。
+
+##### Theme
+
+```javascript
 {
-    theme: Blockly.Theme(blockStyles, categoryStyles)
+    theme: Blockly.Theme.defineTheme('themeName', {
+        'blockStyles': blockStyles,
+        'categoryStyles': categoryStyles,
+        'componentStyles': componentStyles
+    })
 }
 ```
 
-有关选项的更多信息，请[点击此处](https://developers.google.com/blockly/guides/get-started/web#configuration)。如果没有提供主题，则默认为经典主题，可在此处的主题文件夹中找到。
+```json
+{
+   theme: {
+      'blockStyles' : {
+         "list_blocks": {
+            "colourPrimary": "#4a148c",
+            "colourSecondary":"#AD7BE9",
+            "colourTertiary":"#CDB6E9"
+         }
+      },
+      'categoryStyles' : {
+         "list_category": {
+            "colour": "#4a148c"
+         }
+      },
+      'componentStyles' : {
+         'workspaceBackgroundColour': '#1e1e1e'
+      }
+   }
+}
+```
 
-### Blockly Set主题
-如果您想动态更改主题（例如，在允许用户从下拉菜单中选择主题的情况下），则可以调用 Blockly.setTheme(theme)。
+有关选项的更多信息，请参见 [此处](/guides/get-started.html#配置)。 如果未提供主题，则默认为经典主题，可以在此处的主题文件夹中找到。
+
+### Blockly 设置主题
+
+如果要动态更改主题（例如，在允许用户从下拉菜单中选择主题的情况下），则可以调用 `yourWorkspace.setTheme(theme)`。
 
 ## 创建块样式脚本
-此脚本将采用色调或十六进制值的映射，并将为它们计算seocndary和tert颜色。该脚本可以在theme_script文件夹中找到 。
 
-## 无障碍
-我们目前添加了高对比度主题以提高可读性。此样式尚未最终确定，可能会发生变化。在未来，我们希望为具有不同类型色盲的人添加其他主题。
+该脚本将获取色调或十六进制值的映射，并将计算它们的第二和第三颜色。 该脚本可以在 [theme_script](https://github.com/google/blockly/tree/master/theme_scripts) 文件夹中找到。
+
+## 辅助功能
+
+我们目前添加了一个高对比度主题，以提高可读性。 此风格**尚未**最终确定，可能会发生变化。 我们还针对不同种类的色觉不足添加了 Deuteranopia / Pritanopia 和 Tritanopia 主题。
