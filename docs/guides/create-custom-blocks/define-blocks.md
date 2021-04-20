@@ -1,17 +1,21 @@
 # 定义块
 
-块定义描述块的外观和行为，包括文本，颜色，形状以及它可以连接的其他块。
+块定义描述了块的外观和行为，包括文本，颜色，形状以及它可以连接的其他块。
 
-定义自定义块后，每个平台都会以不同的方式加载这些定义，详细介绍了 Web和 Android特定的配置指南。
+::: tip 注意
+可以使用 [Blockly 开发者工具](/guides/create-custom-blocks/blockly-developer-tools) 定义大多数块，而不是手动创建下面的代码。
+:::
 
-## JSON格式与JavaScript API
-Blockly有两种定义块的方法：JSON对象和JavaScript函数。JSON格式是跨平台的，因此可以使用相同的代码在Web，Android和iOS上定义块。此外，JSON格式旨在简化开发具有不同单词排序的语言时的本地化过程。JSON格式是定义块的首选方法。
+## JSON 格式与 JavaScript API
 
-但是，JSON格式无法直接定义高级功能，如mutator或验证器。这些必须用平台的本机代码，JavaScript，Java或Swift编写，通常作为 扩展。
+Blockly 有两种定义块的方式：JSON 对象和 JavaScript 函数。 JSON 格式旨在简化在开发具有不同单词顺序的语言时的 [本地化过程](/guides/create-custom-blocks/localize-blocks)。 JSON 格式是定义块的首选方法。
 
-使用Blockly的原始JavaScript实现的应用程序也可以直接将块定义写入较低级别的Blockly API函数调用，如下面的各种JavaScript示例所示。
+但是，JSON 格式无法直接定义高级功能，例如变形器或验证器。 这些必须通过平台原生代码: JavaScript，Java 或 Swift 编写，通常作为 [扩展](/guides/create-custom-blocks/extensions) 实现。
 
-JSON格式：
+使用 Blockly 的原始 JavaScript 实现的应用程序也可以直接将块定义写入较低级别的 Blockly API 函数调用，如下面的各种 JavaScript 示例所示。
+
+:::: tabs
+::: tab JSON
 ```json
 {
   "type": "string_length",
@@ -29,9 +33,9 @@ JSON格式：
   "helpUrl": "http://www.w3schools.com/jsref/jsref_length_string.asp"
 }
 ```
-
-JAVASCRIPT格式：
-```js
+:::
+::: tab JavaScript
+```javascript
 Blockly.Blocks['string_length'] = {
   init: function() {
     this.appendValueInput('VALUE')
@@ -43,18 +47,23 @@ Blockly.Blocks['string_length'] = {
     this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp');
   }
 };
-//该init函数创建块的形状。在此函数的上下文中，关键字this是正在创建的实际块。
 ```
+`init` 函数创建块的形状。 在此功能的上下文中，关键字 `this` 是正在创建的实际块。
+:::
+::::
 
-两个示例都加载相同的'string_length'块。
 
-![](text-length.png)
+两个示例都加载相同的 'string_length' 块。
 
-在Web上，使用该initJson函数加载JSON格式。这也允许在Blockly网页中混合使用这两种格式。最好尽可能使用JSON定义块，并仅将JavaScript用于JSON不支持的块定义部分。
+![](./text-length.png)
+
+在 Web 上，使用 `initJson` 函数加载 JSON 格式。这也允许在 Blockly 网页中混合使用这两种格式。最好尽可能使用 JSON 定义块，并仅将 JavaScript 用于 JSON 不支持的块定义部分。
 
 下面是一个主要使用JSON定义的块的示例，但是使用JavaScript API进行扩展以提供动态工具提示。
 
-```js
+:::: tabs
+::: tab JavaScript
+```javascript
 var mathChangeJson = {
   "message0": "change %1 by %2",
   "args0": [
@@ -78,56 +87,76 @@ Blockly.Blocks['math_change'] = {
   }
 };
 ```
+:::
+::::
 
 ## 块颜色
 
-块的主要颜色由JSON colour属性， block.setColour(..)函数或使用主题定义块样式定义。
+块的主色由 JSON `colour` 属性，[block.setColour(...)](https://developers.google.com/blockly/reference/js/Blockly.Block#setColour) 函数定义，或通过使用 [主题](/guides/configure/web/themes) 并定义块样式来定义。
 
+:::: tabs
+::: tab JSON
 ```json
 {
   // ...,
   "colour": 160,
 }
 ```
-```js
+:::
+::: tab JavaScript
+```javascript
 init: function() {
   // ...
   this.setColour(160);
 }
 ```
+:::
+::::
 
-## 声明连接
+有关更多详细信息，请参见 [块颜色指南](/guides/create-custom-blocks/block-colour)。
 
-用户可以使用nextStatement和 previousStatement连接器创建块序列。在Blockly的标准布局中，这些连接位于顶部和底部，并且块垂直堆叠。
+## 语句连接
 
-具有前置连接器的块不能具有输出连接器，反之亦然。术语语句块指的是没有值输出的块。语句块通常具有前置连接和后续连接。
+用户可以使用 `nextStatement` 和 `previousStatement` 连接器创建块序列。在 Blockly 的标准布局中，这些连接位于顶部和底部，并且块垂直堆叠。
 
-nextStatement并且previousStatement可以键入连接 ，但标准块不使用此功能。
+具有前置连接器的块不能具有输出连接器，反之亦然。术语 *语句块* 指的是没有值输出的块。语句块通常具有前置连接和后续连接。
+
+`nextStatement` 和 `previousStatement` 可以配置[类型](/guides/create-custom-blocks/type-checks) ，但标准块不使用此功能。
 
 ### 后续连接
-在块的底部创建一个接口，以便其他语句可以堆叠在它下面。具有后续连接但没有前置连接的块通常表示事件，并且可以配置为使用帽子进行渲染 。
 
-![](set-next-statement.png)
+在块的底部创建一个接口，以便其他语句可以堆叠在它下面。具有后续连接但没有前置连接的块通常表示事件，并且可以配置为使用 [帽子](/guides/create-custom-blocks/block-paradigms.html#事件驱动程序) 进行渲染 。
 
+![](./set-next-statement.png)
+
+:::: tabs
+::: tab JSON
+无类型:
 ```json
-
 {
   ...,
   "nextStatement": null,
 }
-
+```
+有类型(罕见):
+```json
 {
   "nextStatement": "Action",
   ...
 }
 ```
-```js
-//无类型：
+:::
+::: tab JavaScript
+无类型:
+```javascript
 this.setNextStatement(true);  // false implies no next connector, the default
-
-//键入（罕见）：
+```
+有类型(罕见):
+```javascript
 this.setNextStatement(true, 'Action');
 ```
+:::
+::::
 
 ### 前置连接
 
@@ -135,80 +164,96 @@ this.setNextStatement(true, 'Action');
 
 具有前置连接的块不能具有输出连接。
 
-![](set-previous-statement.png)
+![](./set-previous-statement.png)
 
-```json
+:::: tabs
+::: tab JSON
 无类型：
+```json
 {
   ...,
   "previousStatement": null,
 }
-
-键入（罕见）：
+```
+有类型(罕见):
+```json
 {
   "previousStatement": "Action",
   ...
 }
 ```
-```js
-//无类型：
+:::
+::: tab JavaScript
+无类型：
+```javascript
 this.setPreviousStatement(true);  // false implies no previous connector, the default
-
-//键入（罕见）：
-this.setPreviousStatement(true, 'Action');
 ```
+有类型(罕见):
+```javascript
+this.setPreviousStatement(true);  // false implies no previous connector, the default
+```
+:::
+::::
 
 ## 块输出
 
-块可以具有单个输出，表示为前缘上的公拼图连接器。输出连接到值输入。具有输出的块通常称为值块。
+一个块可以具有单个输出，表示为边缘上的凸形拼图连接器。输出连接到值输入。 具有输出的块通常称为 *值* 块。
 
-![](set-output.png)
+![](./set-output.png)
 
-```json
+:::: tabs
+::: tab JSON
 无类型：
+```json
 {
   // ...,
   "output": null,
 }
-
-类型：
+```
+有类型:
+```json
 {
   // ...,
   "output": "Number",
 }
 ```
-```js
-//无类型：
+:::
+::: tab JavaScript
+```javascript
 init: function() {
   // ...
   this.setOutput(true);
 }
-
-//类型：
+```
+有类型:
+```javascript
 init: function() {
   // ...
   this.setOutput(true, 'Number');
 }
 ```
+:::
+::::
 
-具有输出连接器的块也不能具有先前的语句缺口。
-
+具有输出连接器的块也不能具有前置语句槽口。
 ## 块输入
 
-块具有一个或多个输入，其中每个输入是可以在连接中结束的标签和字段序列。有三种类型的输入，匹配连接类型：
+块具有一个或多个输入，其中每个输入是可以在连接中结束的标签和 [字段](/guides/create-custom-blocks/define-blocks.html#字段) 序列。有三种类型的输入，匹配连接类型：
 
-* 值输入：连接到一个输出连接一个的 值块。阿math_arithmetic块（加法，减法）是具有两个值输入一个块的一个例子。
-* 声明输入：连接到 先前连接一个的语句块。while循环的嵌套部分是语句输入的示例。
-* 虚拟输入：没有块连接。当块配置为使用外部值输入时，类似于换行符。
+- **值输入**：连接到一个 [输出连接](/guides/create-custom-blocks/define-blocks.html#块输出) 的 *值块*。`math_arithmetic` 块（加法，减法）是具有两个值输入一个块的例子。
+- **语句输入**：连接到 [前置连接](/guides/create-custom-blocks/define-blocks.html#语句连接) 一个的 *语句块*。while 循环的嵌套部分是语句输入的示例。
+- **虚拟输入**：没有块连接。当块配置为使用外部值输入时，其作用类似于换行符。
 
-![](input-types.png)
+![](./input-types.png)
 
-JSON格式和JavaScript API使用略有不同的模型来描述其输入。
+JSON 格式和 JavaScript API 使用略有不同的模型来描述其输入。
 
-### JSON中的输入和字段
+### JSON 中的输入和字段
 
-JSON定义块被构造为插消息字符串的序列（message0，message1，...），其中每一内插标记（%1，%2，...）是一个字段或一输入端（因此在输入连接器呈现，消息内）在匹配的JSON argsN数组中。此格式旨在简化国际化。
+JSON 定义的块被构造为一系列插值消息字符串（`message0`，`message1`，...），其中每个插值标记（`％1`，`％2`，...）是字段或输入端（因此，输入连接器在消息中的呈现位置）在匹配的JSON `argsN` 数组中。 此格式旨在简化国际化。
 
+:::: tabs
+::: tab JSON
 ```json
 {
   "message0": "set %1 to %2",
@@ -226,72 +271,82 @@ JSON定义块被构造为插消息字符串的序列（message0，message1，...
   ]
 }
 ```
-![](variables-set.png)
+:::
+::::
+![](./variables-set.png)
 
-插值令牌必须args0完全匹配数组：没有重复，没有遗漏。令牌可以以任何顺序存在，这允许不同的语言改变块的布局。
+插值标记必须与 `args0` 数组完全匹配：无重复，无遗漏。 标记可以以任何顺序出现，这允许不同的语言更改块的布局。
 
-插值标记两侧的文本是空白修剪的。使用该字符的文本%（例如，在引用百分比时）应该使用， %%以便它不被解释为插值标记。
+插值标记两侧的文本是修剪空白的。使用该字符文本 `%`（例如，在引用百分比）时应该使用 `%%` 以便它不被解释为插值标记。
 
 参数的顺序和参数类型定义块的形状。更改其中一个字符串可以完全更改块的布局。这在具有与英语不同的单词顺序的语言中尤为重要。考虑一种假设的语言，其中"set %1 to %2"（如上例所示）需要反过来说"put %2 in %1"。更改此一个字符串（并保持JSON的其余部分不变）将导致以下块：
 
-![](variables-put.png)
+参数的顺序和参数类型定义块的形状。更改这些字符串之一可以完全更改块的布局。 这对于与英语具有不同词序的语言尤其重要。考虑一种假设的语言，其中“`set ％1 to ％2`”（如上例中使用的）需要颠倒为说“`put %2 in %1`”。 更改此字符串（并使其余 JSON 保持不变）将产生以下块：
+
+![](./variables-put.png)
 
 Blockly自动更改字段的顺序，创建虚拟输入，并从外部输入切换到内部输入。
 
-1. ARGS
-    每个消息字符串与args相同数字的数组配对。例如，message0顺其自在args0。插值标记（%1,, %2......）指的是args数组的项目。每个对象都有一个 type字符串。其余参数因类型而异：
+#### 参数(ARGS)
 
-    * 领域：
-        * field_input
-        * field_dropdown
-        * field_checkbox
-        * field_colour
-        * field_number
-        * field_angle
-        * field_variable
-        * field_date
-        * field_label
-        * field_image.
-    * 输入：
-        * input_value
-        * input_statement
-        * input_dummy
+每个消息字符串均与相同编号的 `args` 数组配对。 例如，`message0` 与 `args0` 一起使用。 插值标记（`％1`，`％2`，...）引用 `args` 数组的项。每个对象都有一个 `type` 字符串。 其余参数取决于类型：
 
-    每个对象也可能有一个alt字段。在Blockly无法识别对象的情况下type，则alt在该位置使用该对象。例如，如果将一个名为new的字段field_time添加到Blockly，则使用此字段的块可用于为旧版本的Blockly alt定义field_input回退：
+- [字段(Fields)](/guides/create-custom-blocks/define-blocks.html#字段):
+    - `field_input`
+    - `field_dropdown`
+    - `field_checkbox`
+    - `field_colour`
+    - `field_number`
+    - `field_angle`
+    - `field_variable`
+    - `field_date`
+    - `field_label`
+    - `field_image`.
 
-    ```json
+- [输入(Inputs)](/guides/create-custom-blocks/define-blocks.html#块输入)：
+    - `input_value`
+    - `input_statement`
+    - `input_dummy`
+
+每个对象也可能都有一个 `alt` 字段。 如果 Blockly 无法识别对象的 `type`，则使用 `alt` 对象代替它。 例如，如果将一个名为 `field_time` 的新字段添加到 Blockly，则使用此字段的块可以使用 `alt` 来为较早版本的 Blockly 定义 `field_input` 备选项：
+
+:::: tabs
+::: tab JSON
+```json
+{
+  "message0": "sound alarm at %1",
+  "args0": [
     {
-    "message0": "sound alarm at %1",
-    "args0": [
+      "type": "field_time",
+      "name": "TEMPO",
+      "hour": 9,
+      "minutes": 0,
+      "alt":
         {
-        "type": "field_time",
-        "name": "TEMPO",
-        "hour": 9,
-        "minutes": 0,
-        "alt":
-            {
-            "type": "field_input",
-            "name": "TEMPOTEXT",
-            "text": "9:00"
-            }
+          "type": "field_input",
+          "name": "TEMPOTEXT",
+          "text": "9:00"
         }
-    ]
     }
-    ```
+  ]
+}
+```
+:::
+::::
 
-    一个alt对象可以有自己的alt对象，从而允许链接。最终，如果Blockly无法在args0数组中创建对象（在尝试任何alt对象之后），则只需跳过该对象。
+一个 `alt` 对象可以有自己的 `alt`对象，从而允许链接。最终，如果 Blockly 无法在 `args0` 数组中创建对象（尝试使用任何 `alt` 对象之后），则该对象将被跳过。
 
-    如果message字符串以文本或输入未包含的字段结尾，则虚拟输入将自动添加到块的末尾 。因此，如果块上的最后一个输入是虚拟输入，那么它可以从args数组中省略，并且不需要插值message。自动添加拖尾虚拟输入允许转换器更改 message而无需修改其余的JSON。请参阅本页前面的"set %1 to %2"（无虚拟输入）和"put %2 in %1"（虚拟输入添加）示例 。
+如果 `message` 字符串以文本或输入未包含的字段结尾，则虚拟输入将自动添加到块的末尾 。因此，如果块上的最后一个输入是虚拟输入，那么它可以从 `args` 数组中省略，并且不需要插到 `message` 中。自动添加尾随虚拟输入允许转换器更改 `message` 而无需修改其余的 JSON。请参阅本页前面的"`set %1 to %2`"（无虚拟输入）和"`put %2 in %1`"（虚拟输入添加）示例 。
 
-2. lastDummyAlign0
+#### lastDummyAlign0
 
-    在极少数情况下，自动创建的尾随虚拟输入需要与"RIGHT"或对齐"CENTRE"。如果未指定，则为默认值"LEFT"。
+在极少数情况下，自动创建的尾随虚拟输入需要与 `“RIGHT”` 或 `“CENTRE”` 对齐。如果未指定，则默认值为 `“LEFT”`。
 
-    在下面的例子message0是"send email to %1 subject %2 secure %3" 和Blockly自动添加用于第三行的伪输入。设置 lastDummyAlign0为"RIGHT"强制此行右对齐。
+在下面的例子message0是"send email to %1 subject %2 secure %3" 和Blockly自动添加用于第三行的伪输入。设置 lastDummyAlign0为"RIGHT"强制此行右对齐。
 
-    ![](send-email.png)
+![](send-email.png)
 
-    在设计RTL（阿拉伯语和希伯来语）块时，左右颠倒。因此"RIGHT"会将字段对齐到左侧。
+在设计RTL（阿拉伯语和希伯来语）块时，左右颠倒。因此"RIGHT"会将字段对齐到左侧。
 
 3. message1, args1, lastDummyAlign1
 
