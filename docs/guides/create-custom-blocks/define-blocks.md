@@ -287,7 +287,7 @@ JSON 定义的块被构造为一系列插值消息字符串（`message0`，`mess
 
 Blockly自动更改字段的顺序，创建虚拟输入，并从外部输入切换到内部输入。
 
-#### 参数(ARGS)
+#### 参数(Args)
 
 每个消息字符串均与相同编号的 `args` 数组配对。 例如，`message0` 与 `args0` 一起使用。 插值标记（`％1`，`％2`，...）引用 `args` 数组的项。每个对象都有一个 `type` 字符串。 其余参数取决于类型：
 
@@ -342,43 +342,48 @@ Blockly自动更改字段的顺序，创建虚拟输入，并从外部输入切�
 
 在极少数情况下，自动创建的尾随虚拟输入需要与 `“RIGHT”` 或 `“CENTRE”` 对齐。如果未指定，则默认值为 `“LEFT”`。
 
-在下面的例子message0是"send email to %1 subject %2 secure %3" 和Blockly自动添加用于第三行的伪输入。设置 lastDummyAlign0为"RIGHT"强制此行右对齐。
+在下面的示例中，`message0` 是 `"send email to %1 subject %2 secure %3"`，并且 Blockly 自动为第三行添加了一个虚拟输入。 将 `lastDummyAlign0` 设置为 `“RIGHT”` 会强制使该行右对齐。
 
-![](send-email.png)
+![](./send-email.png)
 
-在设计RTL（阿拉伯语和希伯来语）块时，左右颠倒。因此"RIGHT"会将字段对齐到左侧。
+在为 RTL（阿拉伯语和希伯来语）设计块时，左右是颠倒的。 因此，`“RIGHT”` 将使字段向左对齐。
 
-3. message1, args1, lastDummyAlign1
+#### message1, args1, lastDummyAlign1
 
-    一些块自然地分成两个或更多个单独的部分。考虑这个有两行的重复块：
+一些块自然地分成两个或更多个单独的部分。考虑这个有两行的 repeat 块：
 
-    ![](repeat.png)
+![](./repeat.png)
 
-    如果使用单个消息描述此块，则message0属性为"repeat %1 times %2 do %3"。这个字符串对于翻译来说很尴尬，很难解释%2替换意味着什么。该%2虚拟输入也不会甚至在一些语言需要的。并且可能有多个块希望共享第二行的文本。更好的方法是让JSON使用多个消息和args属性：
+如果使用单个消息描述此块，则 `message0` 属性为 `"repeat %1 times %2 do %3"`。这个字符串对于翻译来说很尴尬，很难解释 `%2` 替换意味着什么。在某些语言中甚至可能甚至不需要 `％2` 虚拟输入。 并且可能有多个块希望共享第二行的文本。 更好的方法是让 JSON 使用多个消息和参数属性：
 
-    ```json
-    {
-    "type": "controls_repeat_ext",
-    "message0": "repeat %1 times",
-    "args0": [
-        {"type": "input_value", "name": "TIMES", "check": "Number"}
-    ],
-    "message1": "do %1",
-    "args1": [
-        {"type": "input_statement", "name": "DO"}
-    ],
-    "previousStatement": null,
-    "nextStatement": null,
-    "colour": 120
-    }
-    ```
+:::: tabs
+::: tab JSON
+```json
+{
+  "type": "controls_repeat_ext",
+  "message0": "repeat %1 times",
+  "args0": [
+    {"type": "input_value", "name": "TIMES", "check": "Number"}
+  ],
+  "message1": "do %1",
+  "args1": [
+    {"type": "input_statement", "name": "DO"}
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 120
+}
+```
+:::
+::::
 
-    可以以JSON格式定义任意数量的message，args和lastDummyAlign属性，从0开始并按顺序递增。请注意，块工厂无法将消息拆分为多个部分，但手动执行此操作非常简单。
+可以使用 JSON 格式定义任意数量的 `message`，`args` 和 `lastDummyAlign` 属性，从 0 开始并按顺序递增。 请注意，“块工厂”无法将消息拆分为多个部分，但是手动进行很简单。
+### JavaScript 中的输入和字段
 
-### JavaScript中的输入和字段
-
-JavaScript API包含append每种输入类型的方法：
-```js
+JavaScript API包括每种输入类型的 `append` 方法：
+:::: tabs
+::: tab JavaScript
+```javascript
 this.appendDummyInput()
     .appendField('for each')
     .appendField('item')
@@ -390,102 +395,138 @@ this.appendValueInput('LIST')
 this.appendStatementInput('DO')
     .appendField('do');
 ```
+:::
+::::
 
-![](append-input.png)
+![](./append-input.png)
 
-每个方法都可以使用代码生成器使用的标识符字符串。虚拟输入很少需要引用，标识符通常不设置。
+每种方法都可以采用一个标识符字符串，并由代码生成器使用。 虚拟输入很少需要引用，通常未设置标识符。
 
 如上所示，每个方法都通过方法链返回输入对象以进行配置。有三个功能用于配置输入。
 
-1. setCheck
+#### setCheck
+:::: tabs
+::: tab JavaScript
+```javascript
+input.setCheck('Number');
+```
+:::
+::::
+此可选功能用于连接输入的类型检查。 如果给定默认值为 null 的参数，则此输入可以连接到任何块。 有关详细信息，请参见 [类型检查](/guides/create-custom-blocks/type-checks)。
 
-    ```js
-    input.setCheck('Number');
-    ```
-    此可选功能用于连接输入的类型检查。如果给定参数null（默认值），则此输入可以连接到任何块。有关详细信息，请参阅《4.11类型检查》。
+#### setAlign
+:::: tabs
+::: tab JavaScript
+```javascript
+input.setAlign(Blockly.ALIGN_RIGHT);
+```
+:::
+::::
 
-2. setAlign
+此可选功能用于对齐字段（请参见下文）。 可以将三个自描述值作为该函数的参数传递：`Blockly.ALIGN_LEFT`，`Blockly.ALIGN_RIGHT` 和 `Blockly.ALIGN_CENTRE`。 请注意 “centre” 的英文拼写。默认为左对齐。
 
-    ```js
-    input.setAlign(Blockly.ALIGN_RIGHT);
-    ```
-    此可选功能用于对齐字段（见下文）。存在可以作为参数传递给该功能被传入三个自描述值： Blockly.ALIGN_LEFT，Blockly.ALIGN_RIGHT，和Blockly.ALIGN_CENTRE。注意英国拼写的“中心”。左对齐是默认值。
+在为 RTL（阿拉伯语和希伯来语）设计块时，左右是颠倒的。 因此，`Blockly.ALIGN_RIGHT` 会将字段向左对齐。
 
-    在设计RTL（阿拉伯语和希伯来语）块时，左右颠倒。因此Blockly.ALIGN_RIGHT会将字段对齐到左侧。
+#### appendField
 
-3. appendField
+一旦创建了输入并将其附加到带有 `appendInput` 的块中，就可以选择将任意数量的 [字段](/guides/create-custom-blocks/define-blocks.html#字段) 附加到输入中。 这些字段通常用作标签来描述每个输入的用途。
 
-    一旦创建了输入并将其附加到块appendInput，可以选择将任意数量的字段附加到输入。这些字段通常用作标签来描述每个输入的用途。
+:::: tabs
+::: tab JavaScript
+```javascript
+input.appendField('hello');
+```
+:::
+::::
 
-    ```js
-    input.appendField('hello');
-    ```
-    ![](append-field.png)
+![](./append-field.png)
 
-    最简单的字段元素是文本。Blockly的惯例是使用所有小写文本，但专有名称除外（例如Google，SQL）。
+最简单的字段元素是文本。Blockly的惯例是使用小写文本，但专有名称除外（例如Google，SQL）。
 
-    输入行可以包含任意数量的字段元素。appendField 可以将多个调用链接在一起以有效地将多个字段添加到同一输入行。
+输入行可以包含任意数量的字段元素。 可以将多个 `appendField` 调用链接在一起，以有效地将多个字段添加到同一输入行。
 
-    ```js
-    input.appendField('hello')
-         .appendField(new Blockly.FieldLabel('Neil', 'person'));
-    ```
-    ![](append-field-label.png)
+:::: tabs
+::: tab JavaScript
+```javascript
+input.appendField('hello')
+     .appendField(new Blockly.FieldLabel('Neil', 'person'));
+```
+:::
+::::
 
-    该appendField('hello')调用实际上是使用显式FieldLabel构造函数的快捷方式：appendField(new Blockly.FieldLabel('hello'))。人们希望使用构造函数的唯一时间是指定类名，以便可以使用CSS规则对文本进行样式设置。
+![](./append-field-label.png)
+
+该 `appendField('hello')` 调用实际上是显式使用 `FieldLabel` 构造函数的快捷方式：`appendField(new Blockly.FieldLabel('hello'))`。唯一希望使用构造函数的时间是在指定类名称时，以便可以使用 CSS 规则设置文本样式。
 
 ### 内联与外部
 
 块输入可以呈现为外部或内部。
 
-![](set-inputs-inline.png)
+![](./set-inputs-inline.png)
 
-块定义可以指定一个可选的布尔值，控制输入是否为内联。如果false那么任何值输入将是外部的（例如左侧块）。如果true那么任何值输入将是内联的（例如上面的右侧块）。
+块定义可以指定一个可选的布尔值，用于控制输入是否为内联。 如果为 `false`，则任何值输入都将在外部（例如左侧的块）。 如果为 `true`，则任何值输入都将是内联的（例如上面的右侧块）。
 
+:::: tabs
+::: tab JSON
 ```json
 {
   // ...,
   "inputsInline": true
 }
 ```
-```js
+:::
+::: tab JavaScript
+:::
+```javascript
 init: function() {
   // ...
   this.setInputsInline(true);
 }
 ```
+::::
 
-如果没有定义，则Blockly将使用一些启发式方法来猜测哪种模式最佳。假设Blockly做出了正确的选择，将此字段保留为undefined是首选，因为不同的语言翻译可以自动具有不同的模式。请参阅本页前面的"set %1 to %2"（外部输入）和 "put %2 in %1"（内联输入）的JSON示例。
+如果没有定义，则 Blockly 将使用一些启发式方法来猜测哪种模式最佳。假设 Blockly 做出了正确的选择，将此字段保留为 undefined 是首选，因为不同的语言翻译可以自动具有不同的模式。请参阅本页前面的 `"set %1 to %2"`（外部输入）和 `"put %2 in %1"`（内联输入）的 JSON 示例。
 
-当块可能具有诸如数字的小输入时，使用内联输入。如果collapse 启用了配置，则用户可以通过上下文菜单切换此选项（如果工具箱具有类别，则默认为true）。
+当一个块可能有较小的输入（例如数字）时，请使用内联输入。 如果启用了 `collapse` 配置，则用户可以通过上下文菜单切换此选项（如果工具箱具有分类，则默认为`true`）。
 
 ## 字段
 
-字段定义块中的UI元素。这些包括字符串标签，图像和文字数据的输入， 如字符串和数字。最简单的例子是math_number块，可以是field_input（web）或field_number（Android）来键入数字。
+字段定义块中的UI元素。 这些包括字符串标签，图像和 [字面量](https://en.wikipedia.org/wiki/Literal_(computer_programming))（例如字符串和数字）的输入。 最简单的示例是 `math_number` 块，该块使用 `field_input` 来让用户键入数字。
 
-![](math-number.png)
+![](./math-number.png)
 
-Blockly提供了许多内置字段，包括文本输入，颜色选择器和图像。您还可以创建自己的字段,详情参阅《4.14字段》
+Blockly 提供了许多内置字段，包括文本输入，颜色选择器和图像。您还可以创建自己的字段.
+
+→ 更多信息参见 [内置字段](/guides/create-custom-blocks/fields/built-in-fields/overview)
+
+→ 更多信息参见 [创建自定义字段](/guides/create-custom-blocks/fields/customizing-fields/overview)
 
 ## 提示
 
 当用户将鼠标悬停在块上时，工具提示提供即时帮助。如果文本很长，它将自动换行。
 
+:::: tabs
+::: tab JSON
 ```json
 {
   // ...,
   "tooltip": "Tooltip text."
 }
 ```
+:::
+::: tab JavaScript
 ```js
 init: function() {
   this.setTooltip("Tooltip text.");
 }
 ```
+:::
+::::
+在 JavaScript API 中，工具提示也可以定义为函数而不是静态字符串。 这样可以提供动态帮助。 请参见 `math_arithmetic`，以获取根据所选择的下拉选项而变化的工具提示的示例。
 
-在JavaScript API中，工具提示也可以定义为函数而不是静态字符串。这允许动态帮助。请参阅有关math_arithmetic工具提示的示例，该工具提示会根据选择的下拉选项而更改。
-
-```js
+:::: tabs
+::: tab JavaScript
+```javascript
 Blockly.Blocks['math_arithmetic'] = {
   init: function() {
     // ...
@@ -506,35 +547,44 @@ Blockly.Blocks['math_arithmetic'] = {
   }
 };
 ```
+:::
+::::
 
-使用JavaScript API，块可以指定一个函数，而不是静态字符串，它返回工具提示字符串。这允许动态工具提示。请参阅math_arithmetic示例。
+使用JavaScript API，块可以指定一个函数，而不是静态字符串，它返回工具提示字符串。这样就能够允许动态工具提示。请参阅 `math_arithmetic` 示例。
 
 ## 帮助网址
 
-块可以有一个与之关联的帮助页面。通过右键单击块并从上下文菜单中选择“帮助”，可以向Blockly for Web的用户使用此选项。如果此值为则null则菜单将显示为灰色。
+块可以具有与它们关联的帮助页面。 右键单击该块并从上下文菜单中选择“帮助”，这对于 Blockly for Web 用户是可用的。 如果该值为 `null`，则菜单将显示为灰色。
 
+:::: tabs
+::: tab JSON
 ```json
 {
   // ...,
   "helpUrl": "https://en.wikipedia.org/wiki/For_loop"
 }
 ```
-```js
+:::
+::: tab JavaScript
+```javascript
 init: function() {
   // ...
   this.setHelpUrl('https://en.wikipedia.org/wiki/For_loop');
 }
 ```
+:::
+::::
 
-使用JavaScript API，块可以指定一个函数，而不是静态字符串，它返回一个URL字符串，从而允许动态帮助。
-
+使用JavaScript API，块可以指定一个函数，而不是指定返回 URL 字符串的静态字符串，从而可以提供动态帮助。
 ## 更改监听器和验证器
 
-块可以具有更改侦听器函数，这些函数在对工作空间的任何更改时调用（包括与块无关的那些）。这些主要用于设置块的警告文本或工作区外的类似用户通知。
+块可以具有更改侦听器功能，这些更改侦听器功能可在工作空间的任何更改（包括与该块无关的功能）上调用。 这些主要用于设置块的警告文本，或在工作空间外部设置类似的用户通知。
 
-通过使用函数调用setOnChange来添加该函数，如果您计划在所有平台上使用它，则可以在init期间或通过JSON扩展来完成。
+通过使用函数调用 `setOnChange` 来添加该函数，如果您计划在所有平台上使用它，则可以在初始化期间设置或通过 [JSON 扩展](/guides/create-custom-blocks/mutators.html#扩展) 来完成。
 
-```json
+:::: tabs
+::: tab JSON
+```javascript
 {
   // ...,
   "extensions":["warning_on_change"],
@@ -551,7 +601,9 @@ Blockly.Extensions.register('warning_on_change', function() {
   });
 });
 ```
-```js
+:::
+::: tab JavaScript
+```javascript
 Blockly.Blocks['block_type'] = {
   init: function() {
     // Example validation upon block change:
@@ -565,67 +617,86 @@ Blockly.Blocks['block_type'] = {
   }
 }
 ```
+:::
+::::
+系统调用该函数，并传递 [change 事件](/guides/configure/events.html)。 在函数内部，`this` 是指块实例。
 
-系统调用该函数，传入change事件。函数内部this是指块实例。
+由于对任何更改都会调用该函数（如果使用），因此开发人员应确保侦听器快速运行。 还应该警惕可能会级联或循环回到侦听器的工作空间更改。
 
-因为在任何更改时调用该函数，如果使用，开发人员应确保侦听器快速运行。人们也应该警惕可能级联或循环回监听器的工作空间的更改。
+有关示例，请参见 `controls_flow_statements`，`logic_compare` 和 `procedures_ifreturn` 块。
 
-见controls_flow_statements，logic_compare和procedures_ifreturn 为实例块。
+请注意，可编辑字段具有其自己的事件侦听器，用于输入验证和引起副作用。
 
-请注意，可编辑字段具有自己的事件侦听器，用于输入验证可能会导致副作用。
+## 变形器
 
-## 赋值函数
-Mutators允许高级块改变形状，最显着的是由于用户打开一个对话框来添加，删除或重新排列组件。可以通过JSON使用mutator密钥添加Mutators 。
+变形器允许高级块更改形状，最明显的是由于用户打开对话框以添加，删除或重新排列组件。 可以通过 JSON 使用 `mutator` 键添加变形器。
 
+:::: tabs
+::: tab JSON
 ```json
 {
   // ...,
   "mutator":"if_else_mutator"
 }
 ```
+:::
+::::
 
-## 每块配置
+::: tip 注意
+有关 [创建变形器](/guides/create-custom-blocks/mutators) 的更多信息
+:::
 
-块实例具有许多属性，用于配置它们对用户的行为方式。这些可以用于约束工作空间以反映域的某些属性（例如，恰好有一个'开始'事件），或者集中用户的努力（例如，教程）。
+## 块配置
+
+块实例具有许多属性，用于配置它们对用户的行为方式。这些可以用于约束工作区以反映域的某些属性（例如，恰好有一个'开始'事件），或者集中用户精力（例如，教程）。
 
 ### 可删除状态
 
-默认情况下，用户可以删除可编辑工作区上的任何块（不是 readOnly）。有时，使某些块永久固定装置是有用的。例如，教程框架代码。
+默认情况下，用户可以删除可编辑工作区（不是 `readOnly`）上的任何块。有时，使某些块永久固定是有用的。例如，教程框架代码。
 
 ```
 block.setDeletable(false);
 ```
 任何块，包括标记为不可删除的块，都可以通过编程方式删除：
 
-```
+:::: tabs
+::: tab JavaScript(Web)
+```javascript
 block.dispose();
 ```
+:::
+::: tab Java(Android)
+```java
+blocklyController.removeBlockTree(block);
+```
+:::
+::::
 
 ### 可编辑状态
 
 ```
-block.setEditable(false);  
+block.setEditable(false);  // Web or Android
+```
+设置为 false 时，用户将无法更改块的字段（例如，下拉列表和文本输入）。块在可编辑工作区上默认为可编辑。
+
+### 可移动状态
 
 ```
-设置为false时，用户将无法更改块的字段（例如，下拉列表和文本输入）。块在可编辑工作区上默认为可编辑。
-
-### 可动状态
-
-```
-block.setMovable(false); 
+block.setMovable(false);  // Web or Android
 ```
 
-设置为false时，用户将无法直接移动块。作为另一个块的子节点的不可移动块可能不会与该块断开连接，但如果移动父节点，它将与其父节点一起移动。
+设置为 false 时，用户将无法直接移动块。作为另一个块的子节点的不可移动块可能不会与该块断开连接，但如果移动父节点，它将与其父节点一起移动。
 
 块默认为可在可编辑工作区上移动。
 
-任何块（甚至是不可移动的块）一旦在工作空间中就可以以编程方式移动。在JavaScript中，调用block.moveBy(dx, dy)。除非另行指定，否则工作空间上块的起始位置默认为（0,0）。
+任何块（甚至是不可移动的块）一旦处在工作区中就可以以编程方式移动。在 JavaScript 中，调用 `block.moveBy(dx, dy)`。除非另行指定，否则工作空间上块的起始位置默认为（0,0）。
 
-### Block数据
+### Block数据 (Web Only)
+
 ```
 this.data = '16dcb3a4-bd39-11e4-8dfc-aa07a5b093db';  // Web only
 ```
 
-数据是附加到块的可选和任意字符串。当保存为XML时，数据字符串存储在<data></data>标记中，以便可以将其往返回到块。使用数据字符串将块与外部资源相关联或用于任何其他自定义目的。
+数据是附加到块的可选和任意字符串。当保存为 XML 时，数据字符串存储在 `<data></data>` 标记中，以便可以将其往返回到块。使用数据字符串将块与外部资源相关联或用于任何其他自定义目的。
 
 请注意，如果块复制或复制/粘贴，则数据字符串也会重复。不可删除的块无法复制或复制/粘贴。
