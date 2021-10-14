@@ -3,6 +3,7 @@ module.exports = {
   plugins: ['vuepress-plugin-element-tabs-less'],
   dest: 'public',
   themeConfig: {
+    logo: '/logo.svg',
     repo: 'google/blockly',
     docsRepo: 'tortorse/blockly-document-chinese',
     docsDir: 'docs',
