@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Blockly',
+  title: 'Blockly 中文网',
   plugins: ['vuepress-plugin-element-tabs-less'],
   dest: 'public',
   themeConfig: {
