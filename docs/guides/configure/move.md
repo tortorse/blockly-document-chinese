@@ -2,7 +2,7 @@
 
 可以使用三种不同的方法在 Blockly 的主工作区中移动：滚动条，鼠标或鼠标滚轮。
 
-有关移动的设置由 [Blockly 配置](/guides/get-started.html#配置) 的一部分对象来定义。 这是一个例子：
+有关移动的设置由 [Blockly 配置](/guides/get-started.html#配置.html) 的一部分对象来定义。 这是一个例子：
 
 ```javascript
 var workspace = Blockly.inject('blocklyDiv',

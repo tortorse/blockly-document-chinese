@@ -13,7 +13,7 @@
 用于 Web 的 Blockly 通过脚本文件加载。在 `blocks/` 目录中包含几个标准块的示例。假设您的块不适合现有类别，请创建一个新的 JavaScript 文件。这个新的 JavaScript 文件需要包含在编辑器 HTML 文件的`<script ...>` 标签列表中。
     
 ::: tip 提示
-大多数块都可以使用 [Blockly Developer Tools](https://developers.google.com/blockly/guides/create-custom-blocks/blockly-developer-tools) 定义，而不是手动创建下面的代码。
+大多数块都可以使用 [Blockly Developer Tools](https://developers.google.com/blockly/guides/create-custom-blocks/blockly-developer-tools.html) 定义，而不是手动创建下面的代码。
 :::
 
 一个典型的块定义如下所示：
@@ -67,7 +67,7 @@ Blockly.Blocks['string_length'] = {
 
 ![字符串长度块](./text-length.png)
 
-块定义的详细信息可以在 [定义块](/guides/create-custom-blocks/define-blocks) 中找到。
+块定义的详细信息可以在 [定义块](/guides/create-custom-blocks/define-blocks.html) 中找到。
 
 ### JSON 数组
 
@@ -119,7 +119,7 @@ Blockly.defineBlocksWithJsonArray([
   ...
 </xml>
 ```
-在 [工具箱](/guides/configure/toolbox) 中可以看到更多细节。
+在 [工具箱](/guides/configure/toolbox.html) 中可以看到更多细节。
 
 ## 添加生成器函数
 
@@ -135,4 +135,4 @@ Blockly.JavaScript['text_length'] = function(block) {
 ```
 生成器函数引用块进行处理。它将输入（上面的 `VALUE` 输入）呈现为代码字符串，然后将它们连接成更大的表达式。
 
-有关详细信息，请参阅 [使用自定义生成器](/guides/create-custom-blocks/generating-code)。
+有关详细信息，请参阅 [使用自定义生成器](/guides/create-custom-blocks/generating-code.html)。

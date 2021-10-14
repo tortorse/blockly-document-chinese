@@ -23,11 +23,11 @@ Blockly.JavaScript['text_indexOf'] = function(block) {
 
 任何块的代码生成器的首要任务是收集所有参数和字段数据。此任务通常使用几种功能：
 
-- [getFieldValue](/guides/create-custom-blocks/generating-code.html#getfieldvalue)
+- [getFieldValue](/guides/create-custom-blocks/generating-code.html#getfieldvalue.html)
 
-- [valueToCode](/guides/create-custom-blocks/generating-code.html#valuetocode)
+- [valueToCode](/guides/create-custom-blocks/generating-code.html#valuetocode.html)
 
-- [statementToCode](/guides/create-custom-blocks/generating-code.html#statementtocode)
+- [statementToCode](/guides/create-custom-blocks/generating-code.html#statementtocode.html)
 
 ### getFieldValue
 
@@ -59,7 +59,7 @@ Blockly.JavaScript.valueToCode(block, 'FROM', Blockly.JavaScript.ORDER_ADDITION)
 
 第三个参数指定嵌入所需的操作信息的顺序。每个语言生成器都有一个优先顺序列表。该 `valueToCode` 功能需要传递对应于将要施加到所述返回代码的最大权重的顺序值。valueToCode如果需要，可以将代码包装在括号中。有关详细信息，请参阅运算符优先级页面。
 
-第三个参数指定嵌入所需的操作信息的顺序。 每个语言生成器都有一个优先顺序列表。 需要传递 `valueToCode` 函数的顺序值，该顺序值对应于将应用于返回代码的最大作用力。 如果需要，这允许 `valueToCode` 将代码包装在括号中。 有关详细信息，请参阅 [运算符优先级](/guides/create-custom-blocks/operator-precedence) 页面。
+第三个参数指定嵌入所需的操作信息的顺序。 每个语言生成器都有一个优先顺序列表。 需要传递 `valueToCode` 函数的顺序值，该顺序值对应于将应用于返回代码的最大作用力。 如果需要，这允许 `valueToCode` 将代码包装在括号中。 有关详细信息，请参阅 [运算符优先级](/guides/create-custom-blocks/operator-precedence.html) 页面。
 
 请注意，应将 `JavaScript` 更改为适当的语言（`Python`，`PHP`，`Lua`，`Dart` 等）。
 
@@ -100,6 +100,6 @@ var code = argument0 +' '+operator+' '+ argument1;
 return [ code , Blockly.JavaScript.ORDER_ADDITION ];
 ```
 
-每个语言生成器都有一个优先顺序列表。 返回的顺序值指定将代码绑定在一起的最小作用力。 有关详细信息，请参阅 [运算符优先级](/guides/create-custom-blocks/operator-precedence) 页面。
+每个语言生成器都有一个优先顺序列表。 返回的顺序值指定将代码绑定在一起的最小作用力。 有关详细信息，请参阅 [运算符优先级](/guides/create-custom-blocks/operator-precedence.html) 页面。
 
-如果生成的代码要求将子块的代码包含两次，则应 [缓存参数](/guides/create-custom-blocks/caching-arguments) 以提高效率并防止产生副作用。
+如果生成的代码要求将子块的代码包含两次，则应 [缓存参数](/guides/create-custom-blocks/caching-arguments.html) 以提高效率并防止产生副作用。

@@ -8,7 +8,7 @@
 
 ## XML
 
-如果使用 XML，则可以使用节点树或字符串形式创建工具箱。 如果您不喜欢手动输入 XML，建议您使用 [Blockly Developer Tools](https://developers.google.com/blockly/guides/create-custom-blocks/blockly-developer-tools)。 使用它，您可以构造一个工具箱并使用可视化界面自动生成其工具箱 XML。
+如果使用 XML，则可以使用节点树或字符串形式创建工具箱。 如果您不喜欢手动输入 XML，建议您使用 [Blockly Developer Tools](https://developers.google.com/blockly/guides/create-custom-blocks/blockly-developer-tools.html)。 使用它，您可以构造一个工具箱并使用可视化界面自动生成其工具箱 XML。
 
 这是一个使用节点树的最小示例：
 
@@ -58,7 +58,7 @@
 ```
 
 ::: warning 警告
-如果用户决定使用 **blockxml** 定义块（有关 **blockxml** 的更多信息，请参见下面的 [文档](/guides/configure/toolbox#json_2)），当用户第一次打开包含超过 100 个块的分类时，由于从字符串到 xml 到 block 的转换开销，将会对性能产生影响。我们计划在不久的将来重新审视此事。
+如果用户决定使用 **blockxml** 定义块（有关 **blockxml** 的更多信息，请参见下面的 [文档](/guides/configure/toolbox#json_2.html)），当用户第一次打开包含超过 100 个块的分类时，由于从字符串到 xml 到 block 的转换开销，将会对性能产生影响。我们计划在不久的将来重新审视此事。
 :::
 
 以上所有示例均使用两个块创建相同的工具箱：
@@ -139,7 +139,7 @@
 
 ![toolbox-categories](./toolbox-categories.png)
 
-分类的存在改变了 Blockly 的 UI 以支持更大的应用程序。出现滚动条，允许无限大的工作空间。上下文菜单包含更多高级选项，例如添加注释或折叠块。使用 [配置选项](/guides/get-started.html#配置) 可以覆盖所有这些功能。
+分类的存在改变了 Blockly 的 UI 以支持更大的应用程序。出现滚动条，允许无限大的工作空间。上下文菜单包含更多高级选项，例如添加注释或折叠块。使用 [配置选项](/guides/get-started.html#配置.html) 可以覆盖所有这些功能。
 
 ### 访问分类
 
@@ -233,7 +233,7 @@ var category = toolbox.getToolboxItemById('categoryId');
 :::
 ::::
 
-有关主题的更多信息，请查看 [主题](/guides/configure/themes)。
+有关主题的更多信息，请查看 [主题](/guides/configure/themes.html)。
 
 ### 分类 CSS
 
@@ -557,7 +557,7 @@ category.hide();
 
     ![count-with](./count-with.png)
 
-4. 一个 `math_arithmetic` 块，其中连接了两个 `math_number` [影子块](/guides/configure/toolbox#影子块)：
+4. 一个 `math_arithmetic` 块，其中连接了两个 `math_number` [影子块](/guides/configure/toolbox#影子块.html)：
 
     ![1plus1](./1plus1.png)
 
@@ -607,7 +607,7 @@ category.hide();
 
 ### JSON
 
-可以使用 `blockxml` 属性在 JSON 中指定预设块和连接块。 有关应使用什么 XML 字符串的更多信息，请查看 [上面的部分](/guides/configure/web/toolbox#预设块)。
+可以使用 `blockxml` 属性在 JSON 中指定预设块和连接块。 有关应使用什么 XML 字符串的更多信息，请查看 [上面的部分](/guides/configure/web/toolbox#预设块.html)。
 
 ```json
 {
@@ -658,7 +658,7 @@ category.hide();
 
 果设置了 `variabletype`，则将使用该类型创建变量。 如果未设置 `variabletype`，则变量将具有默认的 `''` 类型。 如果使用 `variabletype`，则必须设置变量类型，因为 Blockly 不会推断类型。
 
-→ 更多信息请参阅 [变量](/guides/create-custom-blocks/variables)。
+→ 更多信息请参阅 [变量](/guides/create-custom-blocks/variables.html)。
 
 ## 分隔符
 

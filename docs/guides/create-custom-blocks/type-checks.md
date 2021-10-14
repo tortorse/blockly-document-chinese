@@ -208,4 +208,4 @@ Blockly.Blocks['rodent_list'] = {
 
 ## 自定义类型检查
 
-如果要实现更复杂的类型系统（例如继承），则应实现 [`IConnectionChecker` Interface](/guides/plugins/interfaces/connection_checker) 。
+如果要实现更复杂的类型系统（例如继承），则应实现 [`IConnectionChecker` Interface](/guides/plugins/interfaces/connection_checker.html) 。

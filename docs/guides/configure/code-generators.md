@@ -42,4 +42,4 @@ function myUpdateFunction(event) {
 workspace.addChangeListener(myUpdateFunction);
 ```
 
-查看 [事件](/guides/configure/events) 获取更多信息。
+查看 [事件](/guides/configure/events.html) 获取更多信息。

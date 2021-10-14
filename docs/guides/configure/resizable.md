@@ -12,7 +12,7 @@
 
 ## 注入
 
-注入 Blockly 与 [注入固定尺寸的 Blockly](/guides/configure/fixed-size) 中描述的过程相同。添加脚本，`blocklyDiv`元素，工具箱和注入脚本。
+注入 Blockly 与 [注入固定尺寸的 Blockly](/guides/configure/fixed-size.html) 中描述的过程相同。添加脚本，`blocklyDiv`元素，工具箱和注入脚本。
 
 Blockly 现在应该在页面上运行，而不是位于它应该位于的位置（可能在屏幕外）。
 

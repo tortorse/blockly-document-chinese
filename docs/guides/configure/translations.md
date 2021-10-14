@@ -76,4 +76,4 @@ Blockly.setLocale(CustomEs);
 ## 相关话题
 
 - 从右到左的语言：请参阅 [RTL演示](https://blockly-demo.appspot.com/static/demos/rtl/index.html)
-- [本地化块](/guides/create-custom-blocks/localize-blocks)
+- [本地化块](/guides/create-custom-blocks/localize-blocks.html)

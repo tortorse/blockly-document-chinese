@@ -19,7 +19,7 @@
 ```html
 <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
 ```
-在页面的任意位置添加工具箱的结构（请参阅 [定义工具箱](/guides/configure/toolbox) 以获取更多信息）：
+在页面的任意位置添加工具箱的结构（请参阅 [定义工具箱](/guides/configure/toolbox.html) 以获取更多信息）：
 
 ```xml
 <xml id="toolbox" style="display: none">

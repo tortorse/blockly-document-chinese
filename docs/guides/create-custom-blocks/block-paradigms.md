@@ -80,7 +80,7 @@ for (var i = 0, block; (block = topBlocks[i]); i++) {
 
 一些开发人员喜欢在事件块的顶部添加一个“帽子”，以使它们看起来与其他块不同。这不是 Blockly 的默认外观，但可以通过设置 `Blockly.BlockSvg.START_HAT = true;` ()或添加主题并在 block style 上设置 hat 选项来添加。有关在主题上设置帽子的更多信息，请参见 此处。
 
-一些开发人员喜欢在事件块的顶部添加一个“帽子”，以使它们看起来与其他块不同。 这不是 Blockly 的默认外观，但可以通过设置 `Blockly.BlockSvg.START_HAT = true;`（[自定义渲染器代码实验室-覆盖常量](https://blocklycodelabs.dev/codelabs/custom-renderer/index.html?index=..%2F..index#3)）来添加。 或通过添加主题并在方块样式上设置帽子选项。 有关在主题上设置帽子的更多信息，请参见 [此处](/guides/configure/themes.html#块样式)。
+一些开发人员喜欢在事件块的顶部添加一个“帽子”，以使它们看起来与其他块不同。 这不是 Blockly 的默认外观，但可以通过设置 `Blockly.BlockSvg.START_HAT = true;`（[自定义渲染器代码实验室-覆盖常量](https://blocklycodelabs.dev/codelabs/custom-renderer/index.html?index=..%2F..index#3)）来添加。 或通过添加主题并在方块样式上设置帽子选项。 有关在主题上设置帽子的更多信息，请参见 [此处](/guides/configure/themes.html#块样式.html)。
 
 ![](./event2.png)
 

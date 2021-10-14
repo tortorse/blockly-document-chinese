@@ -26,7 +26,7 @@ var flyoutWorkspace = yourWorkspace.getFlyout().getWorkspace();
 flyoutWorkspace.addChangeListener(onFirstComment);
 ```
 
-块具有另一种侦听事件流的方法。块可以定义一个 `onchange` 函数或使用 [setOnChange](/guides/create-custom-blocks/define-blocks#修改监听器和校验器)，只要块的工作空间发生更改，就会调用该函数。
+块具有另一种侦听事件流的方法。块可以定义一个 `onchange` 函数或使用 [setOnChange](/guides/create-custom-blocks/define-blocks#修改监听器和校验器.html)，只要块的工作空间发生更改，就会调用该函数。
 
 ## 事件类型
 

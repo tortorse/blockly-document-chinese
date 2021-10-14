@@ -12,7 +12,7 @@
 
 ## 块工厂 (Block Factory) 选项卡
 
-“块工厂”(Block Factory)选项卡可帮助您为自定义块创建 [块定义](/guides/create-custom-blocks/define-blocks) 和 [代码生成器](/guides/create-custom-blocks/generating-code)。在此选项卡上，您可以轻松创建，修改和保存自定义块。
+“块工厂”(Block Factory)选项卡可帮助您为自定义块创建 [块定义](/guides/create-custom-blocks/define-blocks) 和 [代码生成器](/guides/create-custom-blocks/generating-code.html)。在此选项卡上，您可以轻松创建，修改和保存自定义块。
 
 ### 定义一个块
 
@@ -60,7 +60,7 @@ Workspace Factory可以轻松配置工作区和工作区中的默认块集。您
 
 ### 构建工具箱
 
-此选项卡有助于为工具箱构建 XML。该材料假定您熟悉 [工具箱](/guides/configure/web/toolbox) 的功能。如果您已在此处编辑了要编辑的工具箱的 XML，则可以通过单击“加载到编辑”来加载它。
+此选项卡有助于为工具箱构建 XML。该材料假定您熟悉 [工具箱](/guides/configure/web/toolbox.html) 的功能。如果您已在此处编辑了要编辑的工具箱的 XML，则可以通过单击“加载到编辑”来加载它。
 
 ### 没有分类的工具箱
 
@@ -87,7 +87,7 @@ Workspace Factory可以轻松配置工作区和工作区中的默认块集。您
 
 某些块应该一起使用或包含默认值。这是通过 [组和影子块](/guides/configure/toolbox.html) 完成的。在编辑器中连接的任何块都将作为一个组添加到工具箱中。通过选择子块并单击“制作阴影”按钮，也可以将附加到另一个块的块更改为阴影块。注意：只有不包含变量的子块可能会更改为阴影块。
 
-如果在其工具箱中包含变量或功能块，请在工具箱中包含“变量”或“功能”类别，以允许用户充分利用该块。了解有关 [“变量”或“函数”分类](/guides/configure/toolbox.html#分类) 的更多信息。
+如果在其工具箱中包含变量或功能块，请在工具箱中包含“变量”或“功能”类别，以允许用户充分利用该块。了解有关 [“变量”或“函数”分类](/guides/configure/toolbox.html#分类.html) 的更多信息。
 
 ### 配置工作区
 
@@ -95,7 +95,7 @@ Workspace Factory可以轻松配置工作区和工作区中的默认块集。您
 
 #### 选择工作区选项
 
-为 [配置选项](/guides/get-started.html#配置) 设置不同的值， 并在预览区域中查看结果。启用 [网格](/guides/configure/grid) 或 [缩放](/guides/configure/zoom) 功能可显示更多选项。此外，切换到使用类别通常需要更复杂的工作空间; 添加第一个类别时会自动添加垃圾桶和滚动条。
+为 [配置选项](/guides/get-started.html#配置) 设置不同的值， 并在预览区域中查看结果。启用 [网格](/guides/configure/grid) 或 [缩放](/guides/configure/zoom.html) 功能可显示更多选项。此外，切换到使用类别通常需要更复杂的工作空间; 添加第一个类别时会自动添加垃圾桶和滚动条。
 
 ![](./configure_workspace.png)
 

@@ -2,7 +2,7 @@
 
 Blockly 的主工作空间可伸缩，既可由用户动态调整，也可由开发人员静态设置。
 
-缩放设置由 [Blockly 配置](/guides/get-started/web#configuration) 的一部分对象来定义。这是一个例子：
+缩放设置由 [Blockly 配置](/guides/get-started/web#configuration.html) 的一部分对象来定义。这是一个例子：
 
 ```javascript
 var workspace = Blockly.inject('blocklyDiv',

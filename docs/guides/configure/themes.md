@@ -2,7 +2,7 @@
 
 主题是自定义 Blockly 外观的一种方式。当前，我们支持通过 Themes 类自定义块颜色，分类颜色和某些组件。 对于任何其他组件，我们在注入 div 上提供主题名称作为类。 这使用户可以通过 CSS 更改任何不受支持的组件的外观。 我们创建主题的主要目标是使开发人员能够创建更易于访问的 Blockly 体验。
 
-但是，强大的力量伴随着巨大的责任。 如果没有特别需要控制块的所有三个样式值（块颜色，边框颜色和影子块颜色），我们强烈建议用户坚持使用 Blockly [颜色](/guides/create-custom-blocks/block-colour)。 很难找到可以很好地搭配使用的颜色，因此最简单的入门方法仍然是使用色调定义颜色，并允许 Blockly 计算边框和影子块的颜色。
+但是，强大的力量伴随着巨大的责任。 如果没有特别需要控制块的所有三个样式值（块颜色，边框颜色和影子块颜色），我们强烈建议用户坚持使用 Blockly [颜色](/guides/create-custom-blocks/block-colour.html)。 很难找到可以很好地搭配使用的颜色，因此最简单的入门方法仍然是使用色调定义颜色，并允许 Blockly 计算边框和影子块的颜色。
 
 ## 块样式
 
@@ -26,7 +26,7 @@
 
 ![显示不同渲染器的边框](./RendererBorders.png)
 
-**帽子**（可选） - 当用户想要向其块中添加帽子时使用。 当前，此值的唯一选项是“ cap”。 用户可以在[这里](/guides/create-custom-blocks/block-paradigms#事件驱动程序)找到有关帽子及其用途的更多信息。
+**帽子**（可选） - 当用户想要向其块中添加帽子时使用。 当前，此值的唯一选项是“ cap”。 用户可以在[这里](/guides/create-custom-blocks/block-paradigms#事件驱动程序.html)找到有关帽子及其用途的更多信息。
 
 ## 分类样式
 
@@ -86,7 +86,7 @@
 
 ## 起始帽子(Start Hats)
 
-在 [块样式](/guides/configure/themes#块样式) 上定义起始帽子可以使用户精确控制要在其上放置帽子的块。 将其直接设置在主题上将在所有没有先前或输出连接的块上添加一个“帽子”。 有关帽子及其用途的更多信息，请参见 [此处](/guides/create-custom-blocks/block-paradigms#事件驱动程序)。
+在 [块样式](/guides/configure/themes#块样式) 上定义起始帽子可以使用户精确控制要在其上放置帽子的块。 将其直接设置在主题上将在所有没有先前或输出连接的块上添加一个“帽子”。 有关帽子及其用途的更多信息，请参见 [此处](/guides/create-custom-blocks/block-paradigms#事件驱动程序.html)。
 
 ## 使用主题
 
@@ -170,7 +170,7 @@ var theme = Blockly.Theme.defineTheme('themeName', {
 
 **块**
 
-如何定义块决定了如何添加样式名称。 您可以在 [此处](/guides/configure/custom-blocks) 找到有关块定义的更多信息。
+如何定义块决定了如何添加样式名称。 您可以在 [此处](/guides/configure/custom-blocks.html) 找到有关块定义的更多信息。
 
 :::: tabs
 ::: tab JSON
@@ -227,7 +227,7 @@ var theme = Blockly.Theme.defineTheme('themeName', {
 }
 ```
 
-有关选项的更多信息，请参见 [此处](/guides/get-started.html#配置)。 如果未提供主题，则默认为经典主题，可以在此处的主题文件夹中找到。
+有关选项的更多信息，请参见 [此处](/guides/get-started.html#配置.html)。 如果未提供主题，则默认为经典主题，可以在此处的主题文件夹中找到。
 
 ### Blockly 设置主题
 

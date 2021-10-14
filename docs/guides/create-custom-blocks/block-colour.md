@@ -47,7 +47,7 @@ Blockly.HSV_VALUE // 0 (inclusive) to 1 (exclusive), defaulting to 0.65
 
 ## 颜色参考
 
-通常，多个块共享相同的颜色，集中颜色定义简化了颜色管理并添加了正确颜色的新块。块颜色可以使用 [字符串表引用](/guides/create-custom-blocks/localize-blocks.html#字符串表) 来完成。
+通常，多个块共享相同的颜色，集中颜色定义简化了颜色管理并添加了正确颜色的新块。块颜色可以使用 [字符串表引用](/guides/create-custom-blocks/localize-blocks.html#字符串表.html) 来完成。
 
 Blockly 在字符串表中包括九个颜色常量，对应于工具箱分类，另外还为动态变量提供了不同的颜色：
 
