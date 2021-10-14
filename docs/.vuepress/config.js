@@ -186,11 +186,6 @@ module.exports = {
                         '/guides/create-custom-blocks/fields/built-in-fields/angle'
                     },
                     {
-                      title: '角',
-                      path:
-                        '/guides/create-custom-blocks/fields/built-in-fields/angle'
-                    },
-                    {
                       title: '复选框',
                       path:
                         '/guides/create-custom-blocks/fields/built-in-fields/checkbox'
