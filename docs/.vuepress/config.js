@@ -2,7 +2,13 @@ module.exports = {
   title: 'Blockly 中文网',
   plugins: [
     'vuepress-plugin-element-tabs-less',
-    ['vuepress-plugin-sitemap', { hostname: 'https://blocklycn.vercel.app' }]
+    ['vuepress-plugin-sitemap', { hostname: 'https://blocklycn.vercel.app' }],
+    [
+      '@vuepress/google-analytics',
+      {
+        ga: 'G-F63Y9YNBV8' // UA-00000000-0
+      }
+    ]
   ],
   dest: 'public',
   themeConfig: {
