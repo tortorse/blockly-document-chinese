@@ -1,6 +1,7 @@
 module.exports = {
   title: 'Blockly',
   plugins: ['vuepress-plugin-element-tabs-less'],
+  dest: 'public',
   themeConfig: {
     repo: 'google/blockly',
     docsRepo: 'tortorse/blockly-document-chinese',
