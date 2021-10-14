@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: /logo.svg
-heroText: Blockly
+heroText: Blockly 中文
 tagline: 用于构建可视化编程编辑器的 JavaScript 库
 actionText: 快速上手 →
 actionLink: /guides/overview
