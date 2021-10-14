@@ -6,7 +6,7 @@ Blockly是一个将可视代码编辑器添加到Web和移动应用程序的库�
 Blockly 适用于开发人员。 用 Blockly 创建的应用程序适用于学生。 如果您是在使用教育性应用程序而不是构建它们，请查看这些 [计算机科学学习机会](https://www.google.com/edu/resources/computerscience/learning/)。
 :::
 
-## 创建一个 Blokcly 应用程序
+## 创建一个 Blockly 应用程序
 
 从用户的角度来看，Blockly 是一种直观的可视化代码构建方式。从开发人员的角度来看，Blockly是一个现成的用户界面，用于创建可视化语言，从而为用户生成正确的代码。 Blockly 可以将块导出为多种编程语言，包括以下流行的选项：
 
