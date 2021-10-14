@@ -14,6 +14,9 @@ module.exports = {
     // 默认为 "Edit this page"
     editLinkText: '在 Github 上编辑此页',
     lastUpdated: '上次更新',
+    sitemap: {
+      hostname: 'https://blocklycn.vercel.app'
+    },
     nav: [
       { text: '首页', link: '/' },
       { text: '指南', link: '/guides/overview' },

@@ -24,5 +24,8 @@
   "devDependencies": {
     "vuepress": "^1.8.2",
     "vuepress-plugin-element-tabs-less": "^0.2.11"
+  },
+  "dependencies": {
+    "vuepress-plugin-sitemap": "^2.3.1"
   }
 }
