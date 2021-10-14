@@ -10,7 +10,7 @@
 
 ## 扩展
 
-扩展是块的自定义配置或行为，可以通过块的 [JSON定义](/guides/create-custom-blocks/define-blocks) 将其应用于块 。使用 `extensions` 键添加块的扩展名。多个扩展可以应用于单个块。
+扩展是块的自定义配置或行为，可以通过块的 [JSON定义](/guides/create-custom-blocks/define-blocks.html) 将其应用于块 。使用 `extensions` 键添加块的扩展名。多个扩展可以应用于单个块。
 
 ```JSON
 {
@@ -57,7 +57,7 @@ Blockly.Extensions.register('parent_tooltip_extension',
 
 ## 注册变形器
 
-就像 [扩展](/guides/create-custom-blocks/extensions) 一样，必须在 Blockly.Extensions 中注册变形器。 Blockly 库提供了一种方便的方法，可以对变形器进行基本验证并处理标准配置。
+就像 [扩展](/guides/create-custom-blocks/extensions.html) 一样，必须在 Blockly.Extensions 中注册变形器。 Blockly 库提供了一种方便的方法，可以对变形器进行基本验证并处理标准配置。
 
 ```js
 Blockly.Extensions.registerMutator(
