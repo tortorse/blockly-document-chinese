@@ -416,6 +416,10 @@ module.exports = {
                 {
                   title: '连接检查',
                   path: '/guides/plugins/interfaces/connection_checker'
+                },
+                {
+                  title: '度量管理',
+                  path: '/guides/plugins/interfaces/metrics_manager'
                 }
               ]
             }
