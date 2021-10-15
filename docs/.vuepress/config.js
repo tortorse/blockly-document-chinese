@@ -2,14 +2,23 @@ module.exports = {
   title: 'Blockly 中文网',
   description: 'Blockly 中文文档站点，包含如何使用及案例分享',
   head: [
-    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['link', { rel: 'icon shortcut', type: 'image/x-icon', href: '/favicon.ico' }],
     ['link', { rel: 'manifest', href: '/manifest.json' }],
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
-    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
+    [
+      'meta',
+      { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }
+    ],
     ['link', { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' }],
-    ['link', { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#3eaf7c' }],
-    ['meta', { name: 'msapplication-TileImage', content: '/mstile-144x144.png' }],
+    [
+      'link',
+      { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#3eaf7c' }
+    ],
+    [
+      'meta',
+      { name: 'msapplication-TileImage', content: '/mstile-144x144.png' }
+    ],
     ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
   ],
   plugins: [
