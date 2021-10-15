@@ -190,7 +190,7 @@ this.setPreviousStatement(true);  // false implies no previous connector, the de
 ```
 有类型(罕见):
 ```javascript
-this.setPreviousStatement(true);  // false implies no previous connector, the default
+this.setPreviousStatement(true, 'Action');
 ```
 :::
 ::::
