@@ -23,7 +23,7 @@ module.exports = {
   ],
   plugins: [
     'vuepress-plugin-element-tabs-less',
-    ['vuepress-plugin-sitemap', { hostname: 'https://blockly.torotrse.com' }],
+    ['vuepress-plugin-sitemap', { hostname: 'https://blockly.tortorse.com' }],
     [
       '@vuepress/google-analytics',
       {
