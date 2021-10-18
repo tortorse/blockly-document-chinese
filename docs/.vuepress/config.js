@@ -67,7 +67,7 @@ module.exports = {
         link: 'https://groups.google.com/forum/#!forum/blockly'
       },
       {
-        text: '主题活动',
+        text: '主题演讲',
         link: 'https://developers.google.com/blockly/summits/summits'
       }
     ],
@@ -188,7 +188,7 @@ module.exports = {
               path: '/guides/create-custom-blocks/type-checks'
             },
             {
-              title: '扩展和变异',
+              title: '扩展和变形器',
               path: '/guides/create-custom-blocks/extensions'
             },
             {
