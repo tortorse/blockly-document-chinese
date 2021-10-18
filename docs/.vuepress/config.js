@@ -67,7 +67,7 @@ module.exports = {
         link: 'https://groups.google.com/forum/#!forum/blockly'
       },
       {
-        text: '主题活动',
+        text: '主题演讲',
         link: 'https://developers.google.com/blockly/summits/summits'
       }
     ],
