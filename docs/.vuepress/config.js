@@ -188,7 +188,7 @@ module.exports = {
               path: '/guides/create-custom-blocks/type-checks'
             },
             {
-              title: '扩展和变异',
+              title: '扩展和变形器',
               path: '/guides/create-custom-blocks/extensions'
             },
             {

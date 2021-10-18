@@ -1,7 +1,7 @@
 <!--
  * @Date: 2021-10-15 14:06:13
  * @LastEditors: tortorse
- * @LastEditTime: 2021-10-15 15:02:08
+ * @LastEditTime: 2021-10-18 09:28:11
  * @FilePath: \blockly-document-chinese\docs\guides\plugins\interfaces\metrics_manager.md
 -->
 # The Metrics Manager 
@@ -59,3 +59,38 @@ The absolute metrics are composed of the `top` and `left` offset of the viewport
 ![The Blockly workspace with a blue line to the right of the toolbox and on top of the workspace.](./absolute_metrics.png)
 ![The Blockly workspace with a horizontal toolbox. There is a blue line on the left of the workspace and below the toolbox.](./absolute_metrics_2.png)
 
+### Content Metrics
+
+`workspace.getMetricsManager().getContentMetrics(opt_getWorkspaceCoordinates);`
+
+The content metrics are composed of the `height`, `width`, `top` and `left` of the bounding box around any blocks or workspace comments.
+
+:::tip 提示
+Content metrics do not take into account block comments, only [workspace comments](https://developers.google.com/blockly/reference/js/Blockly.WorkspaceComment).
+:::
+
+![The Blockly workspace with a blue box around the contents of the workspace.](./content_metrics.png)
+
+### Scroll Metrics
+
+`workspace.getMetricsManager().getScrollMetrics(opt_getWorkspaceCoordinates);`
+
+The scroll metrics are composed of the `height`, `width`, `top` and `left` of the scrollable area. For a movable workspace, the scrollable area is the content area plus some padding.
+
+![The Blockly workspace with a large blue box surrounding it.](./scroll_metrics.png)
+
+## Coordinate Systems
+
+By default, all metrics calculated by the Metrics Manager are returned as pixel coordinates. Where applicable there is the option to get certain metrics in workspace coordinates by passing in true to the metrics methods. For example, `metricsManager.getViewMetrics(true)`.
+
+```
+workspaceCoordinate = pixelCoordinates / workspace.scale
+```
+
+Workspace coordinates are generally used for items that sit on the workspace, such as blocks and workspace comments. Workspace coordinates do not change as the user zooms in and out.
+
+## Overriding Metrics
+
+Developers who wish to provide their own metrics for the workspace can register a substitute metrics manager object that implements the `IMetricsManager` interface or extends `Blockly.MetricsManager`.
+
+An example of this can be found in the [Continuous Toolbox plugin](https://github.com/google/blockly-samples/blob/master/plugins/continuous-toolbox/src/ContinuousMetrics.js) or in the [Fixed Edges plugin](https://github.com/google/blockly-samples/blob/master/plugins/fixed-edges/src/index.js).
