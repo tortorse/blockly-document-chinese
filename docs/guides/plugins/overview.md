@@ -14,8 +14,6 @@
 
 ## 第一方与第三方
 
-Plugins defined in the [blockly-samples](https://github.com/google/blockly-samples) repository are first-party plugins, which means that they are supported by the Blockly team and published under the @blockly scope on npm.
-
 在 [blockly-samples](https://github.com/google/blockly-samples) 存储库中定义的插件是第一方插件，这意味着它们由 Blockly 团队支持，并发布在 npm 的 @blockly 域内。
 
 超赞的第一方插件：
