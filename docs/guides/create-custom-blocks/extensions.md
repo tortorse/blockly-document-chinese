@@ -72,31 +72,34 @@ Blockly.Extensions.registerMutator(
 
 - `opt_blockList`: 一个可选的块列表，用于默认的变形器编辑界面。
 
-## Mixin object
+## Mixin 对象
 
-Mutators on web are just a set of methods that are mixed in to the block's object during initialization. At a minimum, a mutator on a block must add `mutationToDom` and `domToMutation` which specify how to serialize and deserialize the mutation state. Mutations that use the default mutator UI must also implement `decompose` and `compose` to tell the UI how to explode a block into sub-blocks and how to update the mutation from a set of sub-blocks.
+Web 上的变形器只是一组在初始化期间混合到块对象中的方法。至少，一个块上的变形器必须添加 `mutationToDom` 并与 `domToMutation` 用于指定如何序列化和反序列化变形状态。使用默认变形器界面进行变形还必须实现 `decompose` 与 `compose` 用于告诉界面如何将块分解为子块以及如何从一组子块进行变形更新。
 
-The methods on the mixin object will be added to each block instance, so `this` may be used to refer to the block.
+mixin 对象上的方法将添加到每个块实例中，因此 `this` 可以用于引用块。
 
 ### mutationToDom and domToMutation
 
-The XML format used to load, save, copy, and paste blocks automatically captures and restores all data stored in editable fields. However, if the block contains additional information, this information would be lost when the block is saved and reloaded. Each block's XML has an optional mutator element where arbitrary data may be stored.
+用于加载、保存、复制和粘贴块的 XML 格式会自动捕获和恢复存储在可编辑字段中的所有数据。但是，如果块包含附加信息，则在保存和重新加载块时，这些信息将丢失。每个块的 XML 都有一个可选的变形器元素，可以在其中存储任意数据。
 
 :::tip 提示
-The mutationToDom and domToMutation methods are also used by insertion markers. Changing the structure of a block and not implementing these methods can cause errors.
+该 mutationToDom 和 domToMutation 方法也可以通过插入标记来使用。更改块的结构而不实现这些方法可能会导致错误。
 :::
 
-A simple example of this is [math.js](https://github.com/google/blockly/blob/master/blocks/math.js)'s math_number_property block. By default it has one input:
+
+一个简单的例子是 [math.js](https://github.com/google/blockly/blob/master/blocks/math.js) 的 `math_number_property` 块。默认情况下，它有一个输入：
 
 ![](./is-even.png)
 
 If the dropdown is changed to "divisible by", a second input appears:
 
+如果下拉列表更改为“可整除”，则会出现第二个输入：
+
 ![](./is-divisible-by.png)
 
-This is easily accomplished with the use of a change handler on the dropdown menu. The problem is that when this block is created from XML (as occurs when displayed in the toolbox, cloned from the toolbox, copied and pasted, duplicated, or loaded from a saved file) the init function will build the block in its default one-input shape. This results in an error if the XML specifies that some other block needs to be connected to an input that does not exist.
+这可以通过使用下拉菜单上的更改处理程序轻松完成。问题是，当这个块是从 XML 创建的（如在工具箱中显示、从工具箱克隆、复制和粘贴、复制或从保存的文件加载时），init 函数将在其默认的单输入中构建块形状。如果 XML 指定某个其他块需要连接到不存在的输入，则这会导致错误。
 
-Solving this problem simply involves writing a note to the mutator element recording that this block has an extra input:
+解决这个问题只需要向变形器元素写一个注解，记录这个块有一个额外的输入：
 
 ```xml
 <block type="math_number_property">
@@ -105,7 +108,7 @@ Solving this problem simply involves writing a note to the mutator element recor
 </block>
 ```
 
-Saving mutation data is done by adding a `mutationToDom` function to the mixinObj. Here is the example from the `math_number_property` block:
+保存变形数据是通过向 mixinObj 添加一个 `mutationToDom` 函数来完成的。这是 `math_number_property`块中的示例：
 
 ```javascript
 mutationToDom: function() {
@@ -116,9 +119,9 @@ mutationToDom: function() {
 }
 ```
 
-This function is called whenever a block is being written to XML. If the function does not exist or returns null, then no mutation is recorded. If the function exists and returns a 'mutation' XML element, then this element (and any properties or child elements) will be stored at the beginning of the block's XML representation.
+每当将块写入 XML 时都会调用此函数。如果该函数不存在或返回 null，则不会记录任何突变。如果该函数存在并返回一个 “mutation” XML 元素，则该元素（以及任何属性或子元素）将存储在块的 XML 表示形式的开头。
 
-The inverse function is `domToMutation` which is called whenever a block is being restored from XML. Here is the example from the `math_number_property` block:
+`domToMutation` 每当从 XML 恢复块时都会调用逆函数。这是 `math_number_property` 块中的示例：
 
 ```javascript
 domToMutation: function(xmlElement) {
@@ -127,17 +130,19 @@ domToMutation: function(xmlElement) {
 }
 ```
 
-If this function exists, it is passed the block's 'mutation' XML element. The function may parse the element and reconfigure the block based on the element's properties and child elements.
+如果此函数存在，则会传递块的 “变形” XML 元素。该函数可以解析元素并基于元素的属性和子元素重新配置块。
 
-### compose and decompose
+### 组合和分解
 
-Mutation dialogs allow a user to explode a block into smaller sub-blocks and reconfigure them, thereby changing the shape of the original block. The dialog button and the default editing UI is added to a block if both the `compose` and `decompose` methods are defined on the mixinObj. If neither is defined no mutator UI will be created, but events or other code may still cause a mutation. Defining only one of these two functions is an error.
+变形对话框允许用户将一个块分解成更小的子块并重新配置它们，从而改变原始块的形状。如果 mixinObj 上定义了 `compose` 和 `decompose` 方法，则对话框按钮和默认编辑界面元素将添加到块中。如果两者都未定义，则不会创建变形器的界面，但事件或其他代码仍可能导致更改。仅定义这两个函数之一是错误的。
 
 ![](./mutator-annot.png)
 
 See [Mutator editing UI](/guides/create-custom-blocks/extensions.html#mutator_editing_ui) for more details on the editing UI.
 
-When a mutator dialog is opened, the block's `decompose` function is called to populate the mutator's workspace.
+有关编辑器界面的更多详细信息，请参阅 [变形器编辑界面](#变形器编辑界面)。
+
+当一个变形器对话框打开时，块的 `decompose` 函数被调用来填充变形器的工作区。
 
 ```javascript
 decompose: function(workspace) {
@@ -148,9 +153,9 @@ decompose: function(workspace) {
 }
 ```
 
-At a minimum this function must create and initialize a top-level block for the mutator dialog, and return it. This function should also populate this top-level block with any sub-blocks which are appropriate.
+至少这个函数必须为变形器对话框创建和初始化一个顶级块，并返回它。此函数还应使用任何合适的子块填充此顶级块。
 
-When a mutator dialog saves its content, the block's `compose` function is called to modify the original block according to the new settings.
+当变形器对话框保存其内容时，块的`compose` 函数将被调用以根据新设置修改原始块。
 
 ```javascript
 compose: function(topBlock) {
@@ -158,7 +163,7 @@ compose: function(topBlock) {
 }
 ```
 
-This function is passed the top-level block from the mutator's workspace (the same block that was created and returned by the compose function). Typically this function would spider the sub-blocks attached to the top-level block, then update the original block accordingly.
+这个函数将从顶级块的变形器工作区（与 compose 函数创建和返回的块相同）传递下来。通常这个函数会爬取附加到顶级块的子块，然后更新相应地原始块。
 
 ![](./mutator2.png)
 
@@ -198,7 +203,7 @@ Blockly.Extensions.registerMutator('math_is_divisibleby_mutator',
   Blockly.Constants.Math.IS_DIVISIBLE_MUTATOR_EXTENSION);
 ```
 
-## Mutator editing UI
+## 变形器编辑界面
 
 The mutator also needs UI if the user should be able to edit the block's shape. The easiest way to add this is to implement [`compose` and `decompose`](/guides/create-custom-blocks/extensions.html#compose_and_decompose) in your mixin and optionally provide a list of blocks to include in the default editor.
 
