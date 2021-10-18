@@ -163,13 +163,13 @@ compose: function(topBlock) {
 }
 ```
 
-这个函数将从顶级块的变形器工作区（与 compose 函数创建和返回的块相同）传递下来。通常这个函数会爬取附加到顶级块的子块，然后更新相应地原始块。
+这个函数将从顶级块的变形器工作区（与 `compose` 函数创建和返回的块相同）传递下来。通常这个函数会爬取附加到顶级块的子块，然后更新相应地原始块。
 
 ![](./mutator2.png)
 
 ### saveConnections
 
-Ideally the `compose` function would ensure that any blocks already connected to the original block remain connected to the correct inputs, even if the inputs are reordered. To do this, define a `saveConnections` method on your `mixinObj`:
+理想情况下，该 `compose` 功能将确保任何已经连接到原始块的块保持连接到正确的输入，即使输入被重新排序。为此，请在您的 `mixinObj` 上定义一个 `saveConnections` 方法 ：
 
 ```javascript
 /**
@@ -182,13 +182,13 @@ saveConnections: function(containerBlock) {
 }
 ```
 
-If `saveConnections` is defined, the mutator will call it before compose.
+如果 `saveConnections` 已定义，变形器将在 compose 之前调用它。
 
-## Helper function
+## 辅助函数
 
-Along with the mixin a mutator may register a helper function. This function is run on the block after it is instantiated and the mixinObj is added and can be used to add additional triggers or effects to a mutation.
+与 mixin 一起，变形器可以注册一个辅助函数。此函数在实例化并添加 mixinObj 后在块上运行，可用于向变形添加额外的触发器或效果。
 
-One example is the `math_is_divisibleby_mutator` in the [math blocks](https://github.com/google/blockly/blob/develop/blocks/math.js) which checks the dropdown and updates the block to have the correct number of inputs.
+一个例子是 `math_is_divisibleby_mutator` 在 [math blocks](https://github.com/google/blockly/blob/develop/blocks/math.js) 中 ，用于检查下拉列表并更新块以具有正确数量的输入。
 
 ```javascript
 Blockly.Constants.Math.IS_DIVISIBLE_MUTATOR_EXTENSION = function() {
@@ -205,7 +205,7 @@ Blockly.Extensions.registerMutator('math_is_divisibleby_mutator',
 
 ## 变形器编辑界面
 
-The mutator also needs UI if the user should be able to edit the block's shape. The easiest way to add this is to implement [`compose` and `decompose`](/guides/create-custom-blocks/extensions.html#compose_and_decompose) in your mixin and optionally provide a list of blocks to include in the default editor.
+如果用户需要能够编辑块的形状，变形器则需要界面。添加它的最简单方法是在您的 mixin 中实现 [组合和分解](#组合和分解) 以及选择性的提供要包含在默认编辑器中的块列表。
 
 ```javascript
     Blockly.Extensions.registerMutator('controls_if_mutator',
@@ -213,11 +213,12 @@ The mutator also needs UI if the user should be able to edit the block's shape. 
       ['controls_if_elseif', 'controls_if_else']);
 ```
 
-In this case, Blockly will use the default mutator UI and allow the user to add controls_if_elseif and controls_if_else blocks to the stack returned by [`decompose`](/guides/create-custom-blocks/extensions.html#compose_and_decompose).
+在这种情况下，Blockly 将使用默认的变形器界面并允许用户添加 controls_if_elseif 和 controls_if_else 块到由 [分解](#组合和分解) 返回的栈中。
+
 
 ![](./mutator1.png)
 
-### Custom editor UIs
+### 自定义编辑器界面
 
 If your app uses a custom mutator UI, you can also use the `opt_helperFn` to set the custom editor UI on the block with the `setMutator` method.
 
@@ -235,4 +236,5 @@ If your app uses a custom mutator UI, you can also use the `opt_helperFn` to set
 
 ![](./controls-if.png)
 
-The `setMutator` function takes one argument, a new Mutator. The default mutator used by Blockly is implemented in [mutator.js](https://github.com/google/blockly/blob/master/core/mutator.js).
+该 `setMutator` 函数接受一个参数，一个新的变形器。Blockly 使用的默认变形器实现在 [mutator.js](https://github.com/google/blockly/blob/master/core/mutator.js) 中。
+
