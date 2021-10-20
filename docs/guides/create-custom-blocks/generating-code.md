@@ -23,11 +23,11 @@ Blockly.JavaScript['text_indexOf'] = function(block) {
 
 任何块的代码生成器的首要任务是收集所有参数和字段数据。此任务通常使用几种功能：
 
-- [getFieldValue](/guides/create-custom-blocks/generating-code.html#getfieldvalue.html)
+- [getFieldValue](/guides/create-custom-blocks/generating-code.html#getfieldvalue)
 
-- [valueToCode](/guides/create-custom-blocks/generating-code.html#valuetocode.html)
+- [valueToCode](/guides/create-custom-blocks/generating-code.html#valuetocode)
 
-- [statementToCode](/guides/create-custom-blocks/generating-code.html#statementtocode.html)
+- [statementToCode](/guides/create-custom-blocks/generating-code.html#statementtocode)
 
 ### getFieldValue
 
