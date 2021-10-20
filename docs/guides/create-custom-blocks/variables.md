@@ -4,26 +4,30 @@
  * @LastEditTime: 2021-10-20 13:45:26
  * @FilePath: \blockly-document-chinese\docs\guides\create-custom-blocks\variables.md
 -->
-# Variables
+# 变量
 
-Variables are an important programming concept. Blockly supports dynamically typed languages such as Python and JavaScript and with a little extra work, you can add information to support strongly typed languages (or static typed languages) such as Java or C.
+变量是一个重要的编程概念。Blockly 支持动态类型语言，例如 Python 和 JavaScript，并且通过一些额外的工作，您可以添加信息以支持强类型语言（或静态类型语言），例如 Java 或 C。
 
-[Here](https://www.sitepoint.com/typing-versus-dynamic-typing/) is more information on dyamic versus static typed languages.
+[这]((https://www.sitepoint.com/typing-versus-dynamic-typing/))是有关动态类型语言与静态类型语言的更多信息。
 
-Blockly supplies variable fields which are dynamic dropdown boxes that show the names of variables the user has provided. Below is an example of one.
+Blockly 提供变量字段，这些字段是动态下拉框，显示用户提供的变量名称。下面是一个例子。
 
 ![](./variable-dropdown.png)
 
-By default, Blockly allows any type to be assigned to a variable and all of Blockly's provided generators are for dynamically typed languages. If you are using a typed language instead, you can configure Blockly to support it by doing the following:
 
-- [Specify a variable type and its blocks](#typed_variable_blocks), including getters and setters.
+默认情况下，Blockly 允许将任何类型分配给变量，并且 Blockly 提供的所有生成器都用于动态类型语言。如果您使用的是类型化语言，则可以通过执行以下操作来配置 Blockly 以支持它：
 
-- [Configure the toolbox](#add_variables_to_toolbox) to use your variable type and blocks.
 
-- [Define generators](#define_generators) for variables and their blocks.
+- [指定变量类型及其块](#有类型变量块), 包括 getter 和 setter。
 
-## Untyped Variable Blocks
-The most basic blocks for accessing and manipulating a variable are the getter and setter blocks. Let's walk through the getter and setter blocks that Blockly provides.
+- [配置工具箱](#将变量添加到工具箱) 以使用您的变量类型和块。
+
+- 为变量及其块[定义生成器](#定义生成器)。
+
+
+## 无类型变量块
+
+访问和操作变量的最基本块是 getter 和 setter 块。让我们来看看 Blockly 提供的 getter 和 setter 块。
 
 :::: tabs
 ::: tab JSON
@@ -90,15 +94,16 @@ Blockly.Blocks['variables_set'] = {
 :::
 ::::
 
-This creates the following two blocks:
+这将创建以下两个块：
+
 
 ![](./getter-and-setter.png)
 
-An important detail to notice is that by setting the variable getter's "output" to null, the return value can be of any type. Also, notice that variable setter's input does not specify any checks. As a result, the variable can be set to any type of value.
+要注意的一个重要细节是，通过将变量 getter 的“输出”设置为 null，返回值可以是任何类型。另外，请注意变量 setter 的输入没有指定任何检查。因此，变量可以设置为任何类型的值。
 
-## Typed Variable Blocks
+## 有类型变量块
 
-You can add getters and setters that enforce type checking. For example, if you have created a variable of type "Panda", the following definitions create a getter and setter with the appropriate types.
+您可以添加强制类型检查的 getter 和 setter。例如，如果您创建了一个“Panda”类型的变量，以下定义将创建一个具有适当类型的 getter 和 setter。
 
 :::: tabs
 ::: tab JSON
@@ -175,42 +180,43 @@ Blockly.Blocks['variables_set_panda'] = {
 :::
 ::::
 
-This creates two types of blocks, a getter and a setter. Their dropdowns only display variables of type Panda. Their inputs and outputs only accept connections with type Panda. The `defaultType` of the field must be set to one of the values in the variableTypes array. Not setting the `defaultType` while providing a variableTypes array will cause an error to be thrown.
+这将创建两种类型的块，getter 和 setter。他们的下拉菜单只显示 Panda 类型的变量。它们的输入和输出只接受 Panda 类型的连接。该defaultType字段必须被设置为在所述值中的一个variableTypes阵列。不设置defaultTypewhile 提供variableTypes数组将导致抛出错误。
 
-By default there is no visual indicator to tell the user which type is being used. One easy way to differentiate variable types is by [colour](/guides/create-custom-blocks/define-blocks.html#块颜色).
+默认情况下，没有视觉指示器来告诉用户正在使用哪种类型。区分变量类型的一种简单方法是通过 [颜色](/guides/create-custom-blocks/define-blocks.html#块颜色)。
 
-:::tip 提示
-The variableTypes key is optional on a field_variable. If it is undefined only variables of the empty string type "" will be shown. To show all variables of any type use "variableTypes": null.
+:::tip 注意
+variableTypes 键在 field_variable 上是可选的。如果未定义，则仅显示空字符串类型 “” 的变量。要显示任何类型的所有变量，请使用 "variableTypes": null。
 :::
 
-## Add Variables to Toolbox
+## 将变量添加到工具箱
 
-To make this new type of variable useful to your users, you need to add a way to create and use the new variables.
+为了使这种新类型的变量对您的用户有用，您需要添加一种创建和使用新变量的方法。
 
-Create a new [dynamic category](/guides/configure/toolbox.html#动态分类) for variables if you do not already have one.
+如果您还没有，请为变量创建一个新的 [动态类别](/guides/configure/toolbox.html#动态分类)。
 
 ![](./variables-category.png)
 
-Add your new getters and setters to the category.
+将新的 getter 和 setter 添加到类别中。
 
 ![](./variables-category-filled.png)
 
-### Create Variable Button
+### 创建变量按钮
 
-Next, your user needs a way to create variables. The simplest way is with a "Create Variable" [button](/guides/configure/toolbox.html#按钮和标签).
 
-When creating the button, make the callback call
+接下来，您的用户需要一种创建变量的方法。最简单的方法是使用“创建变量” [按钮](/guides/configure/toolbox.html#按钮和标签)。
+
+创建按钮时，进行回调调用
 
 ```javascript
 Blockly.Variables.createVariableButtonHandler(button.getTargetWorkspace(), null, 'panda');
 ```
 
-and a Panda typed variable will be created!
+并且会创建一个 Panda 类型的变量！
 
-The easiest way to allow users to create variables of multiple types is to have one "create" button per type (e.g. Create String Variable, Create Number Variable, Create Panda Variable).
+允许用户创建多种类型变量的最简单方法是为每种类型设置一个“创建”按钮（例如创建字符串变量、创建数字变量、创建熊猫变量）。
 
-If you have more than two or three variable types, you can quickly end up with too many buttons. In that case, consider using [@blockly/plugin-typed-variable-modal](https://www.npmjs.com/package/@blockly/plugin-typed-variable-modal) to display a popup from which users can select their desired variable type.
+如果你有两个或三个以上的变量类型，你很快就会有太多的按钮。在这种情况下，请考虑使用 [@blockly/plugin-typed-variable-modal]([@blockly/plugin-typed-variable-modal](https://www.npmjs.com/package/@blockly/plugin-typed-variable-modal)) 显示一个弹出窗口，用户可以从中选择所需的变量类型。
+## 定义生成器
 
-## Define Generators
+最后，您需要为新变量块 [定义生成器](/guides/create-custom-blocks/generating-code.html)。您还可以直接使用 Blockly.Workspace.getAllVariables() 访问变量列表以获取所有类型的所有变量或使用 Blockly.Workspace.getVariablesOfType() 获取特定类型的所有变量。
 
-Finally, you will need to [define generators](/guides/create-custom-blocks/generating-code.html) for your new variable blocks. You can also access the list of variables directly with Blockly.Workspace.getAllVariables() to get all variables of all types or Blockly.Workspace.getVariablesOfType() to get all variables of a specific type.
