@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Blockly 中文网',
+  title: 'Blockly 中文文档',
   description: 'Blockly 中文文档站点，包含如何使用及案例分享',
   head: [
     ['link', { rel: 'icon shortcut', type: 'image/x-icon', href: '/favicon.ico' }],
