@@ -316,10 +316,6 @@ module.exports = {
               path: '/guides/app-integration/running-javascript'
             },
             {
-              title: '生成并运行 JavaScript',
-              path: '/guides/app-integration/running-javascript'
-            },
-            {
               title: '源于 Blockly',
               path: '/guides/app-integration/attribution'
             }
