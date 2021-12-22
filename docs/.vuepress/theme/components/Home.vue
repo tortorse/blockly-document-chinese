@@ -41,8 +41,8 @@
       <div class="policy" v-if="data.policy">
         本页面的部分内容是基于由
         <a href="https://developers.google.com/readme/policies">Google</a>
-        创建和<a href="https://developers.google.com/readme/policies">共享的</a
-        >作品进行的修改，并根据
+        创建和 <a href="https://developers.google.com/readme/policies">共享的</a
+        > 作品进行的修改，并根据
         <a href="https://creativecommons.org/licenses/by/4.0/"
           >知识共享 4.0 署名许可</a
         >
