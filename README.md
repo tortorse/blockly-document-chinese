@@ -47,27 +47,23 @@ Blockly 官方站点: <https://developers.google.com/blockly>
 	  - [x] Anatomy of a Field
 		- [ ] Validators
   	- Built-in Fields
-		
-		  - [ ] Overview
-		  - [ ] Angle
-		  - [ ] Checkbox
-		  - [ ] Colour
-		  - [ ] Date
-		  - [ ] Dropdown
-		  - [ ] Image
-		  - [ ] Label
-		  - [ ] Label (Serializable)
-		  - [ ] Number
-		  - [ ] Text Input
-		  - [ ] Variable
-
-		- Customizing Fields
-
-			- [ ] Overview
-			
-			- [ ] Creating a Custom Field
-			- [ ] Extending an Existing Field
-			- [ ] Upgrading a Custom Field
+      - [ ] Overview
+      - [ ] Angle
+      - [ ] Checkbox
+      - [ ] Colour
+      - [ ] Date
+      - [ ] Dropdown
+      - [ ] Image
+      - [ ] Label
+      - [ ] Label (Serializable)
+      - [ ] Number
+      - [ ] Text Input
+      - [ ] Variable
+	- Customizing Fields
+      - [ ] Overview
+      - [ ] Creating a Custom Field
+      - [ ] Extending an Existing Field
+      - [ ] Upgrading a Custom Field
 - Application Integration
   - [ ] Best Practices
   - [ ] Generating and Running JavaScript
