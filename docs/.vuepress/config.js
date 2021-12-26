@@ -2,7 +2,10 @@ module.exports = {
   title: 'Blockly 中文文档',
   description: 'Blockly 中文文档站点，包含如何使用及案例分享',
   head: [
-    ['link', { rel: 'icon shortcut', type: 'image/x-icon', href: '/favicon.ico' }],
+    [
+      'link',
+      { rel: 'icon shortcut', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
     ['link', { rel: 'manifest', href: '/manifest.json' }],
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
@@ -80,7 +83,24 @@ module.exports = {
           children: [
             {
               title: '注入选项',
-              path: '/guides/configure/configuration_struct'
+              children: [
+                {
+                  title: '配置结构',
+                  path: '/guides/configure/configuration_struct'
+                },
+                {
+                  title: '栅格',
+                  path: '/guides/configure/grid'
+                },
+                {
+                  title: '移动',
+                  path: '/guides/configure/move'
+                },
+                {
+                  title: '缩放',
+                  path: '/guides/configure/zoom'
+                }
+              ]
             },
             {
               title: '固定尺寸的工作区',
@@ -91,10 +111,6 @@ module.exports = {
               path: '/guides/configure/resizable'
             },
             {
-              title: '添加自定义块',
-              path: '/guides/configure/custom-blocks'
-            },
-            {
               title: '工具箱',
               path: '/guides/configure/toolbox'
             },
@@ -103,16 +119,12 @@ module.exports = {
               path: '/guides/configure/code-generators'
             },
             {
-              title: '栅格',
-              path: '/guides/configure/grid'
-            },
-            {
-              title: '缩放',
-              path: '/guides/configure/zoom'
-            },
-            {
               title: '事件',
               path: '/guides/configure/events'
+            },
+            {
+              title: '序列化',
+              path: '/guides/configure/serialization'
             },
             {
               title: '云存储',
@@ -127,16 +139,16 @@ module.exports = {
               path: '/guides/configure/keyboard-nav'
             },
             {
-              title: '移动',
-              path: '/guides/configure/move'
-            },
-            {
               title: '翻译',
               path: '/guides/configure/translations'
             },
             {
               title: '上下文菜单',
               path: '/guides/configure/context-menus'
+            },
+            {
+              title: '添加自定义块',
+              path: '/guides/configure/custom-blocks'
             }
           ]
         },

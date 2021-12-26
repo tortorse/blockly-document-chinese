@@ -5,3 +5,92 @@
 Blockly 中文站点: <https://blockly.tortorse.com>
 
 Blockly 官方站点: <https://developers.google.com/blockly>
+
+## 翻译进度(v0.0.1)
+
+- [x] Overview
+- [x] Get Started
+- Configure Blockly
+  - Injection Options
+    - [x] Configuration Struct
+    - [x] Grid
+    - [x] Move
+    - [x] Zoom
+	- [x] Fixed Size Workspace
+	- [x] Resizable Workspace
+	- [x] Toolbox
+	- [x] Code Generators
+	- [x] Events
+	- [ ] Serialization
+	- [x] Cloud Storage
+	- [x] Themes
+	- [x] Keyboard Navigation
+	- [x] Translations
+	- [x] Context Menus
+	- [x] Add Custom Blocks
+- Create Custom Blocks
+	- [x] Overview
+	- [x] Blockly Developer Tools
+	- [x] Define Blocks
+	- [x] Block Colour
+	- [x] Localize Blocks
+	- [x] Generating Code
+	- [x] Block Paradigms
+	- [x] Style Guide
+	- [x] Operator Precedence
+	- [x] Caching Arguments
+	- [x] Type Checks
+	- [x] Extensions and Mutators
+	- [x] Variables
+  - Fields
+	  - [x] Overview
+	  - [x] Anatomy of a Field
+		- [ ] Validators
+  	- Built-in Fields
+		  - [ ] Overview
+		  - [ ] Angle
+		  - [ ] Checkbox
+		  - [ ] Colour
+		  - [ ] Date
+		  - [ ] Dropdown
+		  - [ ] Image
+		  - [ ] Label
+		  - [ ] Label (Serializable)
+		  - [ ] Number
+		  - [ ] Text Input
+		  - [ ] Variable
+		 - Customizing Fields
+			- [ ] Overview
+			- [ ] Creating a Custom Field
+			- [ ] Extending an Existing Field
+			- [ ] Upgrading a Custom Field
+- Application Integration
+  - [ ] Best Practices
+  - [ ] Generating and Running JavaScript
+  - [ ] Attributing Blockly
+- Modify Blockly
+  - Contributing
+    - [ ] Overview
+    - [ ] Writing a Good Issue
+    - [ ] Writing a Good PR
+    - [ ] The Code Review Process
+    - [ ] Writing a Codelab
+    - [ ] Adding a Plugin
+    - [ ] Issue Labels
+    - [ ] Blockly-samples Repository Structure
+  - [ ] Development Setup
+  - [ ] Forking Blockly
+  - [ ] Building
+  - [ ] Advanced Compilation
+  - [ ] Translating
+  - [ ] Unit Testing
+  - [ ] Style Guide
+ - Plugins
+     - [x] Overview
+     - [ ] Using Blockly APIs
+     - [ ] Debugging
+     - [ ] Naming Conventions
+  - Interfaces
+        - [ ] Overview
+        - [ ] Connection Checker
+        - [x] Metrics Manager
