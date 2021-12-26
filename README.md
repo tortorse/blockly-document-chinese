@@ -86,11 +86,11 @@ Blockly 官方站点: <https://developers.google.com/blockly>
   - [ ] Unit Testing
   - [ ] Style Guide
  - Plugins
-     - [x] Overview
-     - [ ] Using Blockly APIs
-     - [ ] Debugging
-     - [ ] Naming Conventions
+    - [x] Overview
+    - [ ] Using Blockly APIs
+    - [ ] Debugging
+    - [ ] Naming Conventions
   - Interfaces
-        - [ ] Overview
-        - [ ] Connection Checker
-        - [x] Metrics Manager
+    - [ ] Overview
+    - [ ] Connection Checker
+    - [x] Metrics Manager
