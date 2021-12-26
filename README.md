@@ -59,7 +59,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
 		  - [ ] Number
 		  - [ ] Text Input
 		  - [ ] Variable
-		 - Customizing Fields
+		- Customizing Fields
 			- [ ] Overview
 			- [ ] Creating a Custom Field
 			- [ ] Extending an Existing Field
