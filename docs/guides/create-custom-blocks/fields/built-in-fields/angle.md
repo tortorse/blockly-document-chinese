@@ -49,7 +49,7 @@ Blockly.Blocks['example_angle'] = {
 :::
 ::::
 
-The angle constructor takes in an optional value and an optional [validator](#creating_an_angle_validator). Zero is used as the default value if no value is given or the given value does not cast to a number.
+The angle constructor takes in an optional value and an optional [validator](#creating-an-angle-validator). Zero is used as the default value if no value is given or the given value does not cast to a number.
 
 ## Serialization
 
