@@ -4,15 +4,15 @@ An angle field stores a number as its value, and a string as its text. Its value
 
 #### Angle field
 
-![](./on_block.png)
+![](./angle/on_block.png)
 
 #### Angle field with editor
 
-![](./with_editor.png)
+![](./angle/with_editor.png)
 
 #### Collapsed angle field
 
-![](./collapsed.png)
+![](./angle/collapsed.png)
 
 ## Creation
 
@@ -93,7 +93,7 @@ Note: This does not affect the text input portion of the angle field, so if you 
 
 Here is an example with a `ROUND` value of 70:
 
-![Angle field with a ROUND value of 70](./round_70.gif)
+![Angle field with a ROUND value of 70](./angle/round_70.gif)
 
 Angle field with a ROUND value of 70
 
@@ -107,11 +107,11 @@ The `Blockly.FieldAngle.CLOCKWISE` property changes which direction makes the an
 
 #### CLOCKWISE set to true
 
-![Angle field with CLOCKWISE set to true](./clockwise_true.gif)
+![Angle field with CLOCKWISE set to true](./angle/clockwise_true.gif)
 
 #### CLOCKWISE set to false
 
-![Angle field with CLOCKWISE set to false](./clockwise_false.gif)
+![Angle field with CLOCKWISE set to false](./angle/clockwise_false.gif)
 
 The `CLOCKWIS` Eproperty defaults to `false`, meaning counter-clockwise motion will make the angle increase.
 
@@ -125,9 +125,9 @@ The `Blockly.FieldAngle.OFFSET` property sets where 0 degrees is located. By def
 Note: The direction of the offsetting is always counter clockwise, independent of the [CLOCKWISE](#directionality) property.
 :::
 
-![Angle picker zero at right](./offset_right.png)
+![Angle picker zero at right](./angle/offset_right.png)
 
-![Angle picker zero at top](./offset_top.png)
+![Angle picker zero at top](./angle/offset_top.png)
 
 The `OFFSET` property defaults to 0, meaning zero degrees is aligned with the positive x-axis.
 
@@ -137,7 +137,7 @@ This is a global property so it will modify all angle fields when set.
 
 The `Blockly.FieldAngle.WRAP` property sets the range of values. The range of values is equal to `(-360 + WRAP, WRAP)`. This means that a `WRAP` value of 360 will give a range of `(0, 359.9)` and a `WRAP` value of 180 will give a range of `(-179.9, 180)`.
 
-![Angle picker with wrap value of 180](./wrap.gif)
+![Angle picker with wrap value of 180](./angle/wrap.gif)
 
 The `WRAP` property defaults to 360, meaning the range of the field is `(0, 359.9)`.
 
@@ -147,9 +147,9 @@ This is a global property so it will modify all angle fields when set.
 
 The `Blockly.FieldAngle.HALF` property changes the size of the angle picker. This value defines the radius of the outer circle in pixels.
 
-![Angle picker with default editor size](./offset_right.png)
+![Angle picker with default editor size](./angle/offset_right.png)
 
-![Angle picker with large editor](./editor_large.png)
+![Angle picker with large editor](./angle/editor_large.png)
 
 The `HALF` property defaults to 50.
 
@@ -172,7 +172,7 @@ Blockly.FieldAngle.CLOCKWISE = false;
 Blockly.FieldAngle.OFFSET = 0;
 ```
 
-![Angle picker configured as a protractor](./protractor.gif)
+![Angle picker configured as a protractor](./angle/protractor.gif)
 
 ### Compass
 
@@ -183,7 +183,7 @@ Blockly.FieldAngle.CLOCKWISE = true;
 Blockly.FieldAngle.OFFSET = 90;
 ```
 
-![Angle picker configured as a compass](./compass.gif)
+![Angle picker configured as a compass](./angle/compass.gif)
 
 ## Creating an angle validator
 
@@ -200,6 +200,6 @@ return Math.round(newValue / 30) \* 30;
 }
 ```
 
-![Angle picker with a validator](./validator.gif)
+![Angle picker with a validator](./angle/validator.gif)
 
 Note how the angle field's [ROUND](#snapping) property is still set to 15, so the graphical elements of the field display multiples of 15, rather than 30.
