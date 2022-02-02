@@ -94,3 +94,13 @@ Blockly 官方站点: <https://developers.google.com/blockly>
     - [ ] Overview
     - [ ] Connection Checker
     - [x] Metrics Manager
+
+## 术语
+ - Blockly
+ - block
+ - handler
+ - UI
+ - building
+ - field
+ - cursor
+ - anatomy
