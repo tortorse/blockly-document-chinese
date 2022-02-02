@@ -1,6 +1,7 @@
 module.exports = {
   title: 'Blockly 中文文档',
-  description: 'Blockly 中文文档站点，Blockly 二次开发文档, 包含如何使用及案例分享',
+  description:
+    'Blockly 中文文档站点，Blockly 二次开发文档, 包含如何使用及案例分享',
   head: [
     [
       'link',
@@ -76,8 +77,14 @@ module.exports = {
     ],
     sidebar: {
       '/guide': [
-        '/guides/overview',
-        '/guides/get-started',
+        {
+          title: ' 总览',
+          path: '/guides/overview'
+        },
+        {
+          title: '入门',
+          path: '/guides/get-started'
+        },
         {
           title: '配置 Blockly',
           children: [
