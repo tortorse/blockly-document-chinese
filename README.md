@@ -43,27 +43,27 @@ Blockly 官方站点: <https://developers.google.com/blockly>
 	- [x] Extensions and Mutators 扩展和变形器 (粗翻)
 	- [x] Variables 变量 (粗翻)
   - Fields
-	  - [x] Overview
-	  - [x] Anatomy of a Field
-		- [ ] Validators
+	  - [x] Overview (粗翻)
+	  - [x] Anatomy of a Field (粗翻)
+		- [ ] Validators (部分原文)
   	- Built-in Fields
-      - [ ] Overview
-      - [ ] Angle
-      - [ ] Checkbox
-      - [ ] Colour
-      - [ ] Date
-      - [ ] Dropdown
-      - [ ] Image
-      - [ ] Label
-      - [ ] Label (Serializable)
-      - [ ] Number
-      - [ ] Text Input
-      - [ ] Variable
+      - [ ] Overview (原文)
+      - [ ] Angle (原文)
+      - [ ] Checkbox (原文)
+      - [ ] Colour (原文)
+      - [ ] Date (原文)
+      - [ ] Dropdown (原文)
+      - [ ] Image (原文)
+      - [ ] Label (原文)
+      - [ ] Label (Serializable) (原文)
+      - [ ] Number (原文)
+      - [ ] Text Input (原文)
+      - [ ] Variable (原文)
 	- Customizing Fields
-      - [ ] Overview
-      - [ ] Creating a Custom Field
-      - [ ] Extending an Existing Field
-      - [ ] Upgrading a Custom Field
+      - [ ] Overview (原文)
+      - [ ] Creating a Custom Field (原文)
+      - [ ] Extending an Existing Field (原文)
+      - [ ] Upgrading a Custom Field (原文)
 - Application Integration
   - [ ] Best Practices
   - [ ] Generating and Running JavaScript
@@ -86,14 +86,14 @@ Blockly 官方站点: <https://developers.google.com/blockly>
   - [ ] Unit Testing
   - [ ] Style Guide
  - Plugins
-    - [x] Overview
+    - [x] Overview (粗翻)
     - [ ] Using Blockly APIs
     - [ ] Debugging
     - [ ] Naming Conventions
-  - Interfaces
-    - [ ] Overview
-    - [ ] Connection Checker
-    - [x] Metrics Manager
+    - Interfaces
+      - [ ] Overview
+      - [ ] Connection Checker (原文)
+      - [x] Metrics Manager (粗翻)
 
 ## 术语
  - Blockly
