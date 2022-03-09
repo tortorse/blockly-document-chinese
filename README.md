@@ -65,7 +65,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
       - [ ] Extending an Existing Field (原文)
       - [ ] Upgrading a Custom Field (原文)
 - Application Integration
-  - [ ] Best Practices
+  - [ ] Best Practices(原文)
   - [ ] Generating and Running JavaScript
   - [ ] Attributing Blockly
 - Modify Blockly
