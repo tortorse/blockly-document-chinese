@@ -222,6 +222,8 @@ Blockly.Extensions.registerMutator('math_is_divisibleby_mutator',
 
 If your app uses a custom mutator UI, you can also use the `opt_helperFn` to set the custom editor UI on the block with the `setMutator` method.
 
+如果您的应用程序使用自定义的变形器界面，您还可以使用 `opt_helperFn` 通过 `setMutator` 方法在块上设置自定义编辑器的界面。
+
 ```javascript
     // declare the helper function
     var myMutatorFn = function() {
