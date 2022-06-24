@@ -67,7 +67,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
 - Application Integration
   - [ ] Best Practices(原文)
   - [ ] Generating and Running JavaScript(原文)
-  - [ ] Attributing Blockly
+  - [ ] Attributing Blockly(原文)
 - Modify Blockly
   - Contributing
     - [ ] Overview
