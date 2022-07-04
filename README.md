@@ -70,7 +70,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
   - [ ] Attributing Blockly(原文)
 - Modify Blockly
   - Contributing
-    - [ ] Overview
+    - [ ] Overview (原文)
     - [ ] Writing a Good Issue
     - [ ] Writing a Good PR
     - [ ] The Code Review Process
@@ -96,12 +96,12 @@ Blockly 官方站点: <https://developers.google.com/blockly>
       - [x] Metrics Manager (粗翻)
 
 ## 术语
- - Blockly
- - block
- - handler
- - UI
- - building
- - field
- - cursor
- - anatomy
- - fork
+ - Blockly 不翻译
+ - block 块，指 Blockly 中的每一个块状结构
+ - handler 句柄，但前端里面一般指特定的处理函数
+ - UI 用户界面，
+ - building 构建、建设
+ - field 字段
+ - cursor 游标、光标
+ - anatomy 解析、剖析
+ - fork 分叉、副本化
