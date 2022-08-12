@@ -87,8 +87,8 @@ Blockly 官方站点: <https://developers.google.com/blockly>
   - [ ] Style Guide
  - Plugins
     - [x] Overview (粗翻)
-    - [x] Using Blockly APIs (原文)
-    - [x] Debugging
+    - [ ] Using Blockly APIs (原文)
+    - [ ] Debugging (原文)
     - [ ] Naming Conventions
     - Interfaces
       - [ ] Overview
