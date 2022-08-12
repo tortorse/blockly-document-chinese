@@ -422,7 +422,7 @@ module.exports = {
               path: '/guides/plugins/naming'
             },
             {
-              title: '接口定义',
+              title: '接口',
               children: [
                 {
                   title: '总览',
