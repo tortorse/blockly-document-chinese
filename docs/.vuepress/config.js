@@ -418,7 +418,7 @@ module.exports = {
               path: '/guides/plugins/debugging'
             },
             {
-              title: '命名转换',
+              title: '命名约定',
               path: '/guides/plugins/naming'
             },
             {
