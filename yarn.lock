@@ -8300,11 +8300,6 @@ vuepress-plugin-element-tabs-less@^0.2.11:
     less-loader "^6.2.0"
     resize-observer-polyfill "^1.5.1"
 
-vuepress-plugin-google-adsense@^0.2.1:
-  version "0.2.1"
-  resolved "https://npm.oneitfarm.com/vuepress-plugin-google-adsense/-/vuepress-plugin-google-adsense-0.2.1.tgz#04bd7e421542992d193bf15951dc882bcd561e0f"
-  integrity sha512-6t6jLEPf1NISBsHxIzCYe4SfXlkk5I9MRR94GfV1HTMEyblYXEEGAra60FOWvoq2leB4rshdasabUp56PzunwA==
-
 vuepress-plugin-sitemap@^2.3.1:
   version "2.3.1"
   resolved "https://npm.oneitfarm.com/vuepress-plugin-sitemap/-/vuepress-plugin-sitemap-2.3.1.tgz#51298aca77a5de96396fdbd1103e1637dd61ae6a"

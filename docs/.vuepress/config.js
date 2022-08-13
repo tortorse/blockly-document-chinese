@@ -23,7 +23,17 @@ module.exports = {
       'meta',
       { name: 'msapplication-TileImage', content: '/mstile-144x144.png' }
     ],
-    ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
+    ['meta', { name: 'msapplication-TileColor', content: '#000000' }],
+    [
+      [
+        'script',
+        {
+          'data-ad-client': 'ca-pub-3005478615102931',
+          async: true,
+          src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+        }
+      ]
+    ]
   ],
   plugins: [
     'vuepress-plugin-element-tabs-less',
@@ -32,12 +42,6 @@ module.exports = {
       '@vuepress/google-analytics',
       {
         ga: 'UA-210262342-1' // UA-00000000-0
-      }
-    ],
-    [
-      'vuepress-plugin-google-adsense',
-      {
-        adClient: 'ca-pub-3005478615102931'
       }
     ],
     [
