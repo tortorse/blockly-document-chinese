@@ -27,9 +27,10 @@ module.exports = {
     [
       'script',
       {
-        'data-ad-client': 'ca-pub-3005478615102931',
         async: true,
-        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+        src:
+          'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3005478615102931',
+        crossorigin: 'anonymous'
       }
     ]
   ],
