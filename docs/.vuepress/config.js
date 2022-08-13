@@ -35,11 +35,17 @@ module.exports = {
       }
     ],
     [
-      '@vuepress/pwa',
+      'vuepress-plugin-google-adsense',
+      {
+        adClient: 'ca-pub-3005478615102931'
+      }
+    ],
+    [
+      ('@vuepress/pwa',
       {
         serviceWorker: true,
         updatePopup: true
-      }
+      })
     ]
   ],
   dest: 'public',
