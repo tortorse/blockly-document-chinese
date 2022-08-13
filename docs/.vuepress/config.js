@@ -33,14 +33,6 @@ module.exports = {
       }
     ]
   ],
-  locales: {
-    '/': {
-      lang: 'zh-Hans', // 将会被设置为 <html> 的 lang 属性
-      title: 'Blockly 中文文档',
-      description:
-        'Blockly 中文文档站点，Blockly 二次开发文档, 包含如何使用及案例分享'
-    }
-  },
   plugins: [
     'vuepress-plugin-element-tabs-less',
     ['vuepress-plugin-sitemap', { hostname: 'https://blockly.tortorse.com' }],
