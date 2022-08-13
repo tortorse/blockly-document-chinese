@@ -25,14 +25,12 @@ module.exports = {
     ],
     ['meta', { name: 'msapplication-TileColor', content: '#000000' }],
     [
-      [
-        'script',
-        {
-          'data-ad-client': 'ca-pub-3005478615102931',
-          async: true,
-          src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
-        }
-      ]
+      'script',
+      {
+        'data-ad-client': 'ca-pub-3005478615102931',
+        async: true,
+        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+      }
     ]
   ],
   plugins: [
