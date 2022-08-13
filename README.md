@@ -71,9 +71,9 @@ Blockly 官方站点: <https://developers.google.com/blockly>
 - Modify Blockly
   - Contributing
     - [ ] Overview (原文)
-    - [ ] Writing a Good Issue
-    - [ ] Writing a Good PR
-    - [ ] The Code Review Process
+    - [ ] Writing a Good Issue (原文)
+    - [ ] Writing a Good PR (原文)
+    - [ ] The Code Review Process (原文)
     - [ ] Writing a Codelab
     - [ ] Adding a Plugin
     - [ ] Issue Labels
@@ -89,9 +89,9 @@ Blockly 官方站点: <https://developers.google.com/blockly>
     - [x] Overview (粗翻)
     - [ ] Using Blockly APIs (原文)
     - [ ] Debugging (原文)
-    - [ ] Naming Conventions
+    - [ ] Naming Conventions (原文)
     - Interfaces
-      - [ ] Overview
+      - [ ] Overview (原文)
       - [ ] Connection Checker (原文)
       - [x] Metrics Manager (粗翻)
 
