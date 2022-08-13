@@ -74,9 +74,9 @@ Blockly 官方站点: <https://developers.google.com/blockly>
     - [ ] Writing a Good Issue (原文)
     - [ ] Writing a Good PR (原文)
     - [ ] The Code Review Process (原文)
-    - [ ] Writing a Codelab
-    - [ ] Adding a Plugin
-    - [ ] Issue Labels
+    - [ ] Writing a Codelab (原文)
+    - [ ] Adding a Plugin (原文)
+    - [ ] Issue Labels (原文)
     - [ ] Blockly-samples Repository Structure
   - [ ] Development Setup
   - [ ] Forking Blockly
@@ -99,7 +99,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
  - Blockly 不翻译
  - block 块，指 Blockly 中的每一个块状结构
  - handler 句柄，但前端里面一般指特定的处理函数
- - UI 用户界面，
+ - UI 用户界面
  - building 构建、建设
  - field 字段
  - cursor 游标、光标

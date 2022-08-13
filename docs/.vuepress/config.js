@@ -369,6 +369,10 @@ module.exports = {
                 {
                   title: '添加一个插件',
                   path: '/guides/modify/contribute/add_a_plugin'
+                },
+                {
+                  title: '问题标签',
+                  path: '/guides/modify/contribute/issue_labels'
                 }
               ]
             },
