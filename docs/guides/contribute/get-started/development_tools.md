@@ -37,7 +37,7 @@ Blockly 使用一些工具和库进行开发，包括 Git、npm 和 Closure Comp
 
 ### ESLint
 
-【ESLint](https://eslint.org/)是一个静态分析器，可以发现 JavaScript 代码的问题。我们使用它在我们的代码库中定义和强制执行一致的样式。代码的小问题（缺少分号、间距不一致等）通常称为*lint*。当您向我们发送拉取请求时，ESLint 会自动运行。您也可以在本地运行它。
+[ESLint](https://eslint.org/)是一个静态分析器，可以发现 JavaScript 代码的问题。我们使用它在我们的代码库中定义和强制执行一致的样式。代码的小问题（缺少分号、间距不一致等）通常称为*lint*。当您向我们发送拉取请求时，ESLint 会自动运行。您也可以在本地运行它。
 
 **入门**：在 Blockly 核心和 blockly-samples 中，您都可以使用`npm run lint`. 许多代码编辑器还集成了 ESLint 以在您键入时显示问题。
 
