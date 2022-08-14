@@ -1,11 +1,13 @@
 # 入门
 
-本文档面向希望创建将Blockly作为代码编辑器的应用程序的开发人员。这里假设用户已经熟悉 Blockly 的用法，并且人们对 HTML 和 JavaScript 有基本的了解。
+本文档面向希望创建将 Blockly 作为代码编辑器应用程序的开发人员。这里假设用户已经熟悉 Blockly 的用法，并且人们对 HTML 和 JavaScript 有基本的了解。
 
 ## 总览
+
 Blockly 被设计成可以轻松安装到您的 Web 应用程序中。用户拖动块，Blockly 生成代码，您的应用程序使用该代码执行某些操作。从您的应用程序的角度来看，Blockly 只是一个文本区域，用户可以在其中键入语法上完美的 JavaScript，Python，PHP，Lua，Dart 或其他语言。
 
 Blockly 是 100％ 的客户端，不需要服务器的任何支持（除非有人想使用云存储功能）。 没有第三方依赖（除非有人想重新编译内核）。 一切都是开源的。
+
 ## 获取源代码
 
 ### 推荐使用: npm
@@ -20,6 +22,7 @@ Blockly 已在 [npm](https://www.npmjs.com/package/blockly) 和 [yarn](https://y
 ```bash
 npm install --save blockly
 ```
+
 您可以使用以下代码在应用程序代码中引用 Blockly：
 
 ```javascript
@@ -35,6 +38,7 @@ import Blockly from 'blockly';
 ```html
 <script src="https://unpkg.com/blockly/blockly.min.js"></script>
 ```
+
 Unpkg 会获取已发布代码的最新版本，因此使用此方法将不会有任何版本控制。 它非常适合演示或快速实验，我们在许多代码实验室中都使用它。
 
 ### GitHub
@@ -42,7 +46,6 @@ Unpkg 会获取已发布代码的最新版本，因此使用此方法将不会�
 您还可以从 GitHub 复制整个源代码。 但是，您将必须定期手动同步到我们的代码仓库，以便接收最新的更新和对 Blockly 的修复。
 
 首先，从 GitHub 下载源代码。 如果您知道如何使用 Git 或 Subversion，我们强烈建议您从存储库中进行同步，以使您的代码保持最新状态。
-
 
 - [下载 zip](https://github.com/google/blockly/zipball/master)
 - [下载 TAR Ball](https://github.com/google/blockly/tarball/master)
@@ -60,7 +63,7 @@ Unpkg 会获取已发布代码的最新版本，因此使用此方法将不会�
 
 ## 注入 Blockly
 
-验证Blockly安装无误后，使用固定大小的 `div` 将 Blockly 注入网页中。
+验证 Blockly 安装无误后，使用固定大小的 `div` 将 Blockly 注入网页中。
 
 → 详细信息见 [注入固定尺寸的 Blockly...](/guides/configure/fixed-size.html)
 
@@ -76,10 +79,9 @@ Blockly 是高度可配置的。 例如，您可以在工作空间上设置主�
 
 → 详细信息见 [配置工作区...](/guides/configure/configuration_struct.html)
 
-
 ## 定义块
 
-除了 Blockly 随附的默认块之外，还需要构建自定义块来调用您自己的 Web应用程序的API。 一个例子就是这个[迷宫游戏](https://blockly.games/maze)，它具有自定义的移动块。
+除了 Blockly 随附的默认块之外，还需要构建自定义块来调用您自己的 Web 应用程序的 API。 一个例子就是这个[迷宫游戏](https://blockly.games/maze)，它具有自定义的移动块。
 
 → 详细信息见 [创建自定义块...](/guides/create-custom-blocks/overview.html)
 

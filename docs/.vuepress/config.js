@@ -87,7 +87,7 @@ module.exports = {
     sidebar: {
       '/guide': [
         {
-          title: ' 总览',
+          title: '总览',
           path: '/guides/overview'
         },
         {
@@ -165,6 +165,38 @@ module.exports = {
             {
               title: '添加自定义块',
               path: '/guides/configure/custom-blocks'
+            },
+            {
+              title: '高阶定制',
+              children: [
+                {
+                  title: '使用 Blockly API',
+                  path: '/guides/configure/advanced/using_blockly_apis'
+                },
+                {
+                  title: '分叉副本',
+                  path: '/guides/configure/advanced/forking_blockly'
+                },
+                {
+                  title: '使用接口',
+                  children: [
+                    {
+                      title: '总览',
+                      path: '/guides/configure/advanced/interfaces/overview'
+                    },
+                    {
+                      title: '连接检查器',
+                      path:
+                        '/guides/configure/advanced/interfaces/connection_checker'
+                    },
+                    {
+                      title: '度量管理器',
+                      path:
+                        '/guides/configure/advanced/interfaces/metrics_manager'
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -196,7 +228,7 @@ module.exports = {
               path: '/guides/create-custom-blocks/generating-code'
             },
             {
-              title: '块范例',
+              title: '块范式',
               path: '/guides/create-custom-blocks/block-paradigms'
             },
             {
@@ -247,7 +279,7 @@ module.exports = {
                         '/guides/create-custom-blocks/fields/built-in-fields/overview'
                     },
                     {
-                      title: '角',
+                      title: '角度',
                       path:
                         '/guides/create-custom-blocks/fields/built-in-fields/angle'
                     },
@@ -344,110 +376,115 @@ module.exports = {
               path: '/guides/app-integration/running-javascript'
             },
             {
-              title: '源于 Blockly',
+              title: '源自 Blockly',
               path: '/guides/app-integration/attribution'
             }
           ]
         },
         {
-          title: '修改 Blockly',
+          title: '共建 Blockly',
           children: [
             {
-              title: '贡献',
+              title: '总览',
+              path: '/guides/contribute/'
+            },
+            {
+              title: '入门',
               children: [
                 {
                   title: '总览',
-                  path: '/guides/modify/contributing'
+                  path: '/guides/contribute/get-started/'
+                },
+                {
+                  title: '开发工具',
+                  path: '/guides/contribute/get-started/development_tools'
                 },
                 {
                   title: '提一个好 issue',
-                  path: '/guides/modify/contribute/write_a_good_issue'
+                  path: '/guides/contribute/get-started/write_a_good_issue'
                 },
+
                 {
                   title: '提一个好的合并请求',
-                  path: '/guides/modify/contribute/write_a_good_pr'
+                  path: '/guides/contribute/get-started/write_a_good_pr'
+                },
+                {
+                  title: '提交信息',
+                  path: '/guides/contribute/get-started/commits'
                 },
                 {
                   title: '代码评审过程',
-                  path: '/guides/modify/contribute/pr_review_process'
-                },
-                {
-                  title: '写一个好的代码实验室',
-                  path: '/guides/modify/contribute/write_a_codelab'
-                },
-                {
-                  title: '添加一个插件',
-                  path: '/guides/modify/contribute/add_a_plugin'
+                  path: '/guides/contribute/get-started/pr_review_process'
                 },
                 {
                   title: '问题标签',
-                  path: '/guides/modify/contribute/issue_labels'
+                  path: '/guides/contribute/get-started/issue_labels'
+                },
+                {
+                  title: '使用训练场',
+                  path: '/guides/contribute/get-started/playground'
                 }
               ]
             },
             {
-              title: '开发设置',
-              path: '/guides/modify/development_setup'
-            },
-            {
-              title: '副本化 Blockly',
-              path: '/guides/modify/forking_blockly'
-            },
-            {
-              title: '构建',
-              path: '/guides/modify/building'
-            },
-            {
-              title: '编译进阶',
-              path: '/guides/modify/advanced'
-            },
-            {
-              title: '翻译',
-              path: '/guides/modify/translating'
-            },
-            {
-              title: '单元测试',
-              path: '/guides/modify/unit-testing'
-            },
-            {
-              title: '风格指南',
-              path: '/guides/modify/style-guide'
-            }
-          ]
-        },
-        {
-          title: '插件',
-          children: [
-            {
-              title: '总览',
-              path: '/guides/plugins/overview'
-            },
-            {
-              title: '使用 Blockly 的 API',
-              path: '/guides/plugins/using_blockly_apis'
-            },
-            {
-              title: '调试',
-              path: '/guides/plugins/debugging'
-            },
-            {
-              title: '命名约定',
-              path: '/guides/plugins/naming'
-            },
-            {
-              title: '接口',
+              title: '为核心做贡献',
               children: [
                 {
                   title: '总览',
-                  path: '/guides/plugins/interfaces/overview'
+                  path: '/guides/contribute/core/'
                 },
                 {
-                  title: '连接检查',
-                  path: '/guides/plugins/interfaces/connection_checker'
+                  title: '风格指南',
+                  path: '/guides/contribute/core/style_guide'
                 },
                 {
-                  title: '度量管理',
-                  path: '/guides/plugins/interfaces/metrics_manager'
+                  title: '构建',
+                  path: '/guides/contribute/core/building'
+                },
+                {
+                  title: '进阶编译',
+                  path: '/guides/contribute/core/advanced'
+                },
+                {
+                  title: '翻译',
+                  path: '/guides/contribute/core/translating'
+                },
+                {
+                  title: '单元测试',
+                  path: '/guides/contribute/core/unit_testing'
+                }
+              ]
+            },
+            {
+              title: '贡献样例',
+              children: [
+                {
+                  title: '总览',
+                  path: '/guides/contribute/samples/'
+                },
+                {
+                  title: '代码仓库文件结构',
+                  path: '/guides/contribute/samples/repository_structure'
+                },
+                {
+                  title: '插件概述',
+                  path: ''
+                },
+                {
+                  title: '添加插件',
+                  path: ''
+                },
+                {
+                  title: '命名约定',
+                  path: '/guides/contribute/samples/naming'
+                },
+                {
+                  title: '调试',
+                  path: '/guides/contribute/samples/debugging'
+                },
+                {
+                  title: '编写代码实验室',
+                  path: '/guides/contribute/samples/write_a_codelab'
                 }
               ]
             }
