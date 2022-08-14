@@ -468,11 +468,11 @@ module.exports = {
                 },
                 {
                   title: '插件概述',
-                  path: ''
+                  path: '/guides/contribute/samples/plugin_overview'
                 },
                 {
                   title: '添加插件',
-                  path: ''
+                  path: '/guides/contribute/samples/add_a_plugin'
                 },
                 {
                   title: '命名约定',
