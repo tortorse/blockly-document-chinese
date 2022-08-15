@@ -30,7 +30,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
     - [x] Add Custom Blocks 添加自定义块
     - Advanced Customization
       - [ ] Using Blockly APIs (原文)
-      - [x] Forking Blockly
+      - [x] Forking Blockly (粗翻)
       - Using Interfaces
         - [ ] Overview (原文)
         - [ ] Connection Checker (原文)
@@ -93,9 +93,9 @@ Blockly 官方站点: <https://developers.google.com/blockly>
     - [x] Translating (粗翻)
     - [x] Unit Testing
   - Contributing to Samples
-    - [x] Overview
-    - [x] Blockly-samples Repository Structure
-    - [x] Plugin Overview
+    - [x] Overview (粗翻)
+    - [x] Blockly-samples Repository Structure (粗翻)
+    - [x] Plugin Overview (粗翻)
     - [ ] Adding a Plugin (原文)
     - [ ] Naming Conventions (原文)
     - [ ] Debugging (原文)
