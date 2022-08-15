@@ -1,4 +1,4 @@
-# 高级编译
+# 进阶编译
 
 常规[构建过程](/guides/modify/web/building)使用 Google 的在线 JavaScript 编译器将 Blockly 减少到六个文件，总计约 720kb（压缩后为 160kb）。或者，可以在“高级编译”模式下使用 Google 的离线 JavaScript 编译器，它具有许多优点：
 
