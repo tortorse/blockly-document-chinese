@@ -35,7 +35,6 @@ Blockly 官方站点: <https://developers.google.com/blockly>
         - [ ] Overview (原文)
         - [ ] Connection Checker (原文)
         - [x] Metrics Manager (粗翻)
-        
 - Create Custom Blocks 创建自定义块
   - [x] Overview 总览 (粗翻)
   - [x] Blockly Developer Tools Blockly 开发者工具 (粗翻) 
@@ -76,7 +75,6 @@ Blockly 官方站点: <https://developers.google.com/blockly>
   - [ ] Generating and Running JavaScript(原文)
   - [ ] Attributing Blockly(原文)
 - Contributing to Blockly
-
   - [x] overview (粗翻)
   - Get started
     - [x] Overview (粗翻)
@@ -86,7 +84,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
     - [x] Commit Message Guide (粗翻)
     - [ ] The Code Review Process (原文)
     - [ ] Issue Labels (原文)
-    - [x] Using the Playground
+    - [ ] Using the Playground
   - Contributing to Core
     - [x] Overview (粗翻)
     - [x] Style Guide (粗翻)
