@@ -84,14 +84,14 @@ Blockly 官方站点: <https://developers.google.com/blockly>
     - [x] Commit Message Guide (粗翻)
     - [ ] The Code Review Process (原文)
     - [ ] Issue Labels (原文)
-    - [ ] Using the Playground
+    - [x] Using the Playground
   - Contributing to Core
     - [x] Overview (粗翻)
     - [x] Style Guide (粗翻)
     - [x] Building (粗翻)
     - [x] Advanced Compilation (粗翻)
     - [x] Translating (粗翻)
-    - [ ] Unit Testing
+    - [x] Unit Testing
   - Contributing to Samples
     - [x] Overview
     - [x] Blockly-samples Repository Structure
