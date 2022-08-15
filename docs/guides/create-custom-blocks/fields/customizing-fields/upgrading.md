@@ -245,7 +245,7 @@ CustomFields.UpgradeField.prototype.showEditor_ = function() {
 
 ### 文字\_
 
-我们建议您永远不要直接访问`text_`字段或更新其属性。相反，请使用 [getText](/reference/js/Blockly.Field#getText)函数访问字段的用户可读文本，并使用 [setValue](/reference/js/Blockly.Field#setValue)函数更新字段的存储值。
+我们建议您永远不要直接访问`text_`字段或更新其属性。相反，请使用 [getText](https://developers.google.com/blockly/reference/js/Blockly.Field#getText)函数访问字段的用户可读文本，并使用 [setValue](/reference/js/Blockly.Field#setValue)函数更新字段的存储值。
 
 有关字段值与其文本的更多信息，请参阅 [字段剖析](/guides/create-custom-blocks/fields/anatomy-of-a-field)。
 
