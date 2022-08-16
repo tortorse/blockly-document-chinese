@@ -69,7 +69,7 @@ module.exports = {
       { text: '指南', link: '/guides/overview' },
       {
         text: '参考',
-        link: 'https://developers.google.com/blockly/reference/overview'
+        link: '/reference/overview'
       },
       {
         text: '样例',
@@ -80,7 +80,7 @@ module.exports = {
         link: 'https://groups.google.com/forum/#!forum/blockly'
       },
       {
-        text: '主题演讲',
+        text: '峰会',
         link: 'https://developers.google.com/blockly/summits/summits'
       }
     ],
