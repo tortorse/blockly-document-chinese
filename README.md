@@ -29,7 +29,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
     - [x] Context Menus 上下文菜单 (粗翻)
     - [x] Add Custom Blocks 添加自定义块
     - Advanced Customization
-      - [ ] Using Blockly APIs (原文)
+      - [x] Using Blockly APIs (粗翻)
       - [x] Forking Blockly (粗翻)
       - Using Interfaces
         - [ ] Overview (原文)
