@@ -28,7 +28,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
     - [x] Translations 翻译 (粗翻)
     - [x] Context Menus 上下文菜单 (粗翻)
     - [x] Add Custom Blocks 添加自定义块
-    - Advanced Customization
+    - [ ] Advanced Customization
       - [x] Using Blockly APIs (粗翻)
       - [x] Forking Blockly (粗翻)
       - Using Interfaces
@@ -65,11 +65,12 @@ Blockly 官方站点: <https://developers.google.com/blockly>
     - [ ] Label (Serializable) (原文)
     - [ ] Number (原文)
     - [ ] Text Input (原文)
-    - [ ] Variable (原文) - Customizing Fields
-    - [ ] Overview (原文)
-    - [ ] Creating a Custom Field (原文)
-    - [ ] Extending an Existing Field (原文)
-    - [ ] Upgrading a Custom Field (原文)
+    - [ ] Variable (原文) 
+    - [ ] Customizing Fields (原文)
+      - [ ] Overview (原文)
+      - [ ] Creating a Custom Field (原文)
+      - [ ] Extending an Existing Field (原文)
+      - [ ] Upgrading a Custom Field (原文)
 - Application Integration
   - [ ] Best Practices(原文)
   - [ ] Generating and Running JavaScript(原文)

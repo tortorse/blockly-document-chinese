@@ -17,8 +17,8 @@ Blockly 是开源的，主要由一个小团队维护。我们欢迎核心团队
 这些是您在进行更改时将遵循的一般步骤。
 
 1.  [按照工具](/guides/contribute/get-started/development_tools) 部分中的链接**安装**Git 和 Node 。
-2.  **分叉并克隆存储库。**[GitHub 有一个关于fork a repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo#fork-an-example-repository)的精彩教程 。要将其应用于块状，只需将 **octocat/Spoon-Knife**的每个实例替换为**google/blockly**或 **google/blockly-samples**，具体取决于您要在哪个存储库中工作。
-3.  **同步你的分叉。**GitHub 也提供了 [同步 fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork)的教程 。
+2.  **复刻并克隆存储库。**[GitHub 有一个关于fork a repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo#fork-an-example-repository)的精彩教程 。要将其应用于块状，只需将 **octocat/Spoon-Knife**的每个实例替换为**google/blockly**或 **google/blockly-samples**，具体取决于您要在哪个存储库中工作。
+3.  **同步你的复刻。**GitHub 也提供了 [同步 fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork)的教程 。
 4.  **查看主分支。**在块状核心中，这是`develop` 分支。在块状样本中，这是`master`分支。
 5.  `npm install`通过在根目录中运行来**安装**依赖项和构建工具。
 6.  `git checkout -b myBranchName`通过在终端中运行来**创建一个新分支。**这个名字应该可以帮助你记住你在做什么。
