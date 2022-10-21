@@ -32,7 +32,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
       - [x] Using Blockly APIs (粗翻)
       - [x] Forking Blockly (粗翻)
       - Using Interfaces
-        - [ ] Overview (原文)
+        - [x] Overview (粗翻)
         - [ ] Connection Checker (原文)
         - [x] Metrics Manager (粗翻)
 - Create Custom Blocks 创建自定义块

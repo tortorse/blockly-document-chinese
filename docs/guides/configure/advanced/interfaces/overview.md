@@ -1,9 +1,9 @@
-# Interfaces in Blockly
+# Blockly 中的接口
 
-In Blockly, interfaces describe functions that an object must implement in order to replace the default object.
+在 Blockly 中，接口描述了对象为了替换默认对象而必须实现的功能。
 
-You don't need to inherit from a particular class in order to implement the interface. You can do whatever you want under the hood, as long as you provide the correct functions and adhere to any requirements described in comments on the interface. However, a common pattern for plugins is to extend the default class and only override the functions you want to change.
+您不需要从特定类继承来实现接口。只要您提供正确的功能并遵守界面注释中描述的任何要求，您就可以在后台做任何您想做的事情。但是，插件的一个常见模式是扩展默认类，并且只覆盖您想要更改的功能。
 
-To indicate to the type checker that you implement a specific interface, annotate your class with `@implements {InterfaceName}`.
+要向类型检查器指示您实现了特定接口，请使用`@implements {InterfaceName}`.
 
-Blockly's interfaces are defined in [core/interfaces](https://github.com/google/blockly/tree/master/core/interfaces).
+Blockly 的接口定义在[core/interfaces](https://github.com/google/blockly/tree/master/core/interfaces).

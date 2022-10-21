@@ -1,9 +1,3 @@
-<!--
- * @Date: 2021-04-07 16:08:49
- * @LastEditors: tortorse
- * @LastEditTime: 2021-10-18 09:44:05
- * @FilePath: \blockly-document-chinese\docs\guides\plugins\interfaces\connection_checker.md
--->
 # The Connection Checker
 
 A major benefit of using Blockly is that it ensures the generated code is syntactically correct.
