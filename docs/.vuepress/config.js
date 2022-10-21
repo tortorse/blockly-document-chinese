@@ -174,7 +174,7 @@ module.exports = {
                   path: '/guides/configure/advanced/using_blockly_apis'
                 },
                 {
-                  title: '分叉副本',
+                  title: '复刻',
                   path: '/guides/configure/advanced/forking_blockly'
                 },
                 {

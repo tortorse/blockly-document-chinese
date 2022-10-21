@@ -111,4 +111,4 @@ Blockly 官方站点: <https://developers.google.com/blockly>
 - field 字段
 - cursor 游标、光标
 - anatomy 解析、剖析
-- fork 分叉、副本化
+- fork 复刻、分叉、副本化
