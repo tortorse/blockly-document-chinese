@@ -97,7 +97,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
         - [ ] [Klingon](./docs/guides/contribute/core/klingon.md) (原文)
       - [x] [Unit Testing 单元测试](./docs/guides/contribute/core/unit_testing.md)
     - Contributing to Samples 贡献样例
-      - [x] Overview (粗翻)
+      - [x] [Overview 总览](./docs/guides/contribute/samples/README.md) (粗翻)
       - [ ] [Repository Structure 代码仓库文件结构](./docs/guides/contribute/samples/repository_structure.md)
         <!-- - [x] Blockly-samples Repository Structure (粗翻) -->
       - [x] [Plugin Overview 插件总览](./docs/guides/contribute/samples/plugin_overview.md) (粗翻)
