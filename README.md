@@ -22,7 +22,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
     - [x] [Toolbox 工具箱](./docs/guides/configure/toolbox.md) (粗翻)
     - [x] [Code Generators 代码生成器](./docs/guides/configure/code-generators.md) (粗翻)
     - [x] [Events 事件](./docs/guides/configure/events.md) (粗翻)
-    - [ ] [Serialization 序列化](./docs/guides/configure/serialization.md) (原文)
+    - [x] [Serialization 序列化](./docs/guides/configure/serialization.md) (粗翻)
     - [x] [Themes 主题](./docs/guides/configure/themes.md) (粗翻)
     - [x] [Keyboard Navigation 键盘导航](./docs/guides/configure/keyboard-nav.md) (粗翻)
     - [x] [Translations 翻译](./docs/guides/configure/translations.md) (粗翻)
