@@ -23,7 +23,16 @@ module.exports = {
       'meta',
       { name: 'msapplication-TileImage', content: '/mstile-144x144.png' }
     ],
-    ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
+    ['meta', { name: 'msapplication-TileColor', content: '#000000' }],
+    [
+      'script',
+      {
+        async: true,
+        src:
+          'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3005478615102931',
+        crossorigin: 'anonymous'
+      }
+    ]
   ],
   plugins: [
     'vuepress-plugin-element-tabs-less',
