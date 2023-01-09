@@ -447,7 +447,16 @@ module.exports = {
                 },
                 {
                   title: '翻译',
-                  path: '/guides/contribute/core/translating'
+                  children: [
+                    {
+                      title: '总览',
+                      path: '/guides/contribute/core/translating'
+                    },
+                    {
+                      title: '克林贡语',
+                      path: '/guides/contribute/core/klingon'
+                    }
+                  ]
                 },
                 {
                   title: '单元测试',
