@@ -33,7 +33,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
       - [x] [Forking 复刻](./docs/guides/configure/advanced/forking_blockly.md)(粗翻)
       - Using Interfaces
         - [x] [Overview 总览](./docs/guides/configure/advanced/interfaces/overview.md) (粗翻)
-        - [ ] [Connection Checker 连接检查器](./docs/guides/configure/advanced/interfaces/connection_checker.md) (原文)
+        - [x] [Connection Checker 连接检查器](./docs/guides/configure/advanced/interfaces/connection_checker.md) (粗翻)
         - [x] [Metrics Manager 度量管理器](./docs/guides/configure/advanced/interfaces/metrics_manager) (粗翻)
           <!-- - [x] Cloud Storage 云存储 (粗翻) -->
   - Create Custom Blocks 创建自定义块
