@@ -53,7 +53,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
     - Fields
       - [x] [Overview 总览](./docs/guides/create-custom-blocks/fields/overview.md) (粗翻)
       - [x] [Anatomy of a Field 字段解析](./docs/guides/create-custom-blocks/fields/anatomy-of-a-field.md) (粗翻)
-      - [ ] [Validators 校验器](./docs/guides/create-custom-blocks/fields/validators.md) (部分原文)
+      - [x] [Validators 校验器](./docs/guides/create-custom-blocks/fields/validators.md) (粗翻)
       - Built-in Fields 内置字段
         - [ ] [Overview 总览](./docs/guides/create-custom-blocks/fields/built-in-fields/overview.md) (原文)
         - [ ] [Angle 角度](./docs/guides/create-custom-blocks/fields/built-in-fields/angle.md)(原文)

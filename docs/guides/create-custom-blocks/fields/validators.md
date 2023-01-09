@@ -1,19 +1,16 @@
-## 校验器 
+## 校验器
 
-校验器是一个函数，它接收字段的新值，然后对其进行操作。它们是自定义字段的简单方法。它们允许您在字段值更改、修改输入或限制可接受的值时触发功能。
+验证程序是一种接受字段新值并对其执行操作的函数。它们是自定义自定义字段的一种简单方式。它们允许您在字段值发生更改时触发功能、修改输入或限制可接受的值。
 
 一些常见的例子：
 
-- 限制文本字段只接受字母。
-
-- 要求文本字段非空。
-
-- 要求未来的日期。
-
+- 将文本字段限制为仅接受字母。
+- 要求文本字段不得为空。
+- 要求将来的日期。
 - 根据下拉菜单修改块的形状。
 
 ::: tip 提示
-注意：校验器修改字段的 *[值而不是它的 text](/guides/create-custom-blocks/fields/anatomy-of-a-field.html#值)*。
+**注意**：校验器修改字段的 _[值而不是它的 text](/guides/create-custom-blocks/fields/anatomy-of-a-field.html#值)_。
 :::
 
 ## 校验器的类型
@@ -22,7 +19,7 @@
 
 **类校验器**是字段类型类定义的一部分，通常用于限制字段允许的值类型（例如数字字段只接受数字字符）。类校验器对传递给字段的所有值（包括传递给构造函数的值）运行。
 
-有关类校验器的更多信息，请参阅创建自定义字段中的[实现类校验器](/guides/create-custom-blocks/fields/customizing-fields/creating.html#实现类校验器) 部分。
+有关类校验器的更多信息，请参阅创建自定义字段中的 [实现类校验器](/guides/create-custom-blocks/fields/customizing-fields/creating.html#实现类校验器) 部分。
 
 **本地校验器**是在字段构建时定义的。本地校验器对传递给字段的所有值运行，但传递给构造函数的值除外。这意味着它们继续运行：
 
@@ -34,18 +31,18 @@
 
 - 用户更改的值。
 
-类验证器在本地验证器之前运行，因为它们就像看门人。他们在传递之前确保值的类型正确。
+类校验器在本地校验器之前运行，因为它们就像看门人。他们在传递之前确保值的类型正确。
 
 有关值验证序列和一般值的更多信息，请参阅「值」。
 
-## 注册本地验证器
+## 注册本地校验器
 
-本地验证器可以通过两种方式注册：
+本地校验器可以通过两种方式注册：
 
 - 直接添加到字段的构造函数中。
 
 ::: tip 提示
-注意：字段构造函数的签名可能因字段类型而异。
+**注意**：字段构造函数的签名可能因字段类型而异。
 :::
 
 ```javascript
@@ -56,8 +53,9 @@ Blockly.Blocks['validator_example'] = {
       return newValue.replace(/\a/g, '');
     };
 
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldTextInput('default', validator));
+    this.appendDummyInput().appendField(
+      new Blockly.FieldTextInput('default', validator)
+    );
   }
 };
 ```
@@ -80,23 +78,23 @@ Blockly.Blocks['validator_example'] = {
 };
 ```
 
-上述任何一种方法都可以包装在 [扩展](/guides/create-custom-blocks/extensions.html#扩展) 中，以支持 JSON 格式。
+上述任何一种方法都可以包装在 [扩展程序](/guides/create-custom-blocks/extensions.html#扩展) 中，以支持 JSON 格式。
 
-The field's value may be very different depending on the type of field being validated (e.g. a number field will store a number, while a text input field will store a string) so it is best to read the documentation for your specific field before creating a validator.
+此字段的值可能会因要验证的字段的类型而有很大差异（例如，数字字段将存储数字，而文本输入字段将存储字符串），因此最好先阅读特定字段的文档，然后再创建验证器。
 
 ::: tip 提示
-Note: Only editable fields accept validators, so be sure to check the specific field's documentation.
+**注意**：只有可修改字段接受验证器，因此请务必查看特定字段的文档。
 :::
 
 ## 返回值
 
-The return value of the validator determines what the field does next. There are three possibilities:
+验证程序的返回值决定了字段接下来将执行的操作。它有三种可能性：
 
-**Modified Return Value**
+**修改后的返回值**
 
-A modified or different value, which then becomes the field's new value. This is often used to clean up a value, such as by removing trailing whitespace.
+修改后的值或不同的值，这些值随后会成为字段的新值。 这通常用于清理值，例如移除尾随空格。
 
-Example of a Modifying Validator:
+修改验证器示例：
 
 ```javascript
 // Remove all 'a' characters from the text input's value.
@@ -107,11 +105,11 @@ var validator = function(newValue) {
 
 ![Text input field with a modifying validator](./modifying_validator.gif)
 
-## Null Return Value
+## Null 返回值
 
-Null, which means the given value is invalid. In most cases the field will ignore the input value. The exact behaviour is specified by the field's doValueInvalid_ [function](/guides/create-custom-blocks/fields/customizing-fields/creating.html#handling_invalid_values).
+Null，表示给定的值无效。在大多数情况下，该字段将忽略输入值。确切行为由该字段的 `doValueInvalid_` [函数](/guides/create-custom-blocks/fields/customizing-fields/creating.html#handling_invalid_values)指定。
 
-Example of a Nulling Validator:
+Null 验证器示例：
 
 ```javascript
 // Any value containing a 'b' character is invalid.  Other values are valid.
@@ -125,11 +123,11 @@ var validator = function(newValue) {
 
 ![Text input field with a nulling validator](./nulling_validator.gif)
 
-**Undefined Return Value**
+**未定义的返回值**
 
-Undefined (or no return statement) or the input value, which means that the input value should become the field's new value. These types of validators generally act as change listeners.
+未定义（或无返回语句）或输入值，这意味着输入值应成为字段的新值。这些类型的验证器通常充当变更监听器。
 
-Example of a Listener Validator:
+监听器验证工具示例：
 
 ```javascript
 // Log the new value to console.
@@ -138,21 +136,21 @@ var validator = function(newValue) {
 };
 ```
 
-Note once again how the display text does not necessarily reflect the field's value.
+请再次注意，显示文本不一定反映字段的*值*。
 
-## Value of this
+## this 的值
 
-Inside of a validator `this` refers to the field, not the block. If you need to access the block inside of a validator use the `getSourceBlock` function. You can also use the [bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind) function to set the context within which the validator is called.
+在验证器内部，`this` 指的是字段，而不是块。如果您需要访问验证器内的块，请使用 `getSourceBlock` 函数。您还可以使用 [bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind) 函数来设置调用验证器的上下文。
 
-Sample code using `getSourceBlock`:
+使用 `getSourceBlock` 的示例代码：
 
 ```javascript
 Blockly.Blocks['colour_match'] = {
   init: function() {
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldColour(
-            null, this.validate
-        ), 'COLOUR');
+    this.appendDummyInput().appendField(
+      new Blockly.FieldColour(null, this.validate),
+      'COLOUR'
+    );
     this.setColour(this.getFieldValue('COLOUR'));
   },
 
@@ -162,15 +160,15 @@ Blockly.Blocks['colour_match'] = {
 };
 ```
 
-Sample code using [bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind)]:
+使用 [bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind) 的示例代码：
 
 ```javascript
 Blockly.Blocks['colour_match'] = {
   init: function() {
-    this.appendDummyInput()
-      .appendField(new Blockly.FieldColour(
-          null, this.validate.bind(this)
-      ), 'COLOUR');
+    this.appendDummyInput().appendField(
+      new Blockly.FieldColour(null, this.validate.bind(this)),
+      'COLOUR'
+    );
     this.validate(this.getFieldValue('COLOUR'));
   },
 
@@ -179,4 +177,3 @@ Blockly.Blocks['colour_match'] = {
   }
 };
 ```
-
