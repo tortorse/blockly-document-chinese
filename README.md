@@ -56,7 +56,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
       - [x] [Validators 校验器](./docs/guides/create-custom-blocks/fields/validators.md) (粗翻)
       - Built-in Fields 内置字段
         - [x] [Overview 总览](./docs/guides/create-custom-blocks/fields/built-in-fields/overview.md) (粗翻)
-        - [ ] [Angle 角度](./docs/guides/create-custom-blocks/fields/built-in-fields/angle.md)(原文)
+        - [x] [Angle 角度](./docs/guides/create-custom-blocks/fields/built-in-fields/angle.md)(原文)
         - [ ] [Checkbox 复选框](./docs/guides/create-custom-blocks/fields/built-in-fields/checkbox.md)(原文)
         - [ ] [Colour 颜色](./docs/guides/create-custom-blocks/fields/built-in-fields/colour.md)(原文)
         - [ ] [Date 日期](./docs/guides/create-custom-blocks/fields/built-in-fields/date.md)(原文)

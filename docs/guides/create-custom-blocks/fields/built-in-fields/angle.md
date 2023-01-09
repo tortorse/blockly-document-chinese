@@ -1,20 +1,20 @@
-# Angle fields
+# 角度字段集
 
-An angle field stores a number as its value, and a string as its text. Its value is a number between 0 and 360 (this range can be [changed](#range)), while its text could be any string entered into its editor.
+角度字段存储数字作为值，将字符串作为文本存储。其值是一个 0 到 360 之间的数字（可以[更改](#范围)），而其文本可以是输入到编辑器中的任何字符串。
 
-#### Angle field
+#### 角度字段
 
 ![](./angle/on_block.png)
 
-#### Angle field with editor
+#### 包含编辑器的角度字段
 
 ![](./angle/with_editor.png)
 
-#### Collapsed angle field
+#### 折叠角度字段
 
 ![](./angle/collapsed.png)
 
-## Creation
+## 创建
 
 ::::tabs
 ::: tab JSON
@@ -49,14 +49,13 @@ Blockly.Blocks['example_angle'] = {
 :::
 ::::
 
-The angle constructor takes in an optional value and an optional [validator](#creating-an-angle-validator). Zero is used as the default value if no value is given or the given value does not cast to a number.
-
-## Serialization
+角度构造函数接受一个可选值和一个可选 [校验器](#创建角度校验器)。如果未指定值或给定值未转换为数字，则使用零作为默认值。
+## 序列化
 
 :::: tabs
 ::: tab JSON
 
-The JSON for an angle field looks like so:
+角度字段的 JSON 如下所示：
 
 ```json
 {
@@ -66,106 +65,104 @@ The JSON for an angle field looks like so:
 }
 ```
 
-Where `FIELDNAME` is a string referencing an angle field, and the value is the value to apply to the field. The value follows the same rules as the constructor value.
+其中 `FIELDNAME` 是引用角度字段的字符串，值是应用于该字段的值。该值遵循与构造函数值相同的规则。
 :::
 ::: tab XML
 
-The XML for an angle field looks like so:
+角度字段的 XML 如下所示：
 
 ```xml
 <field name="FIELDNAME">0</field>
 ```
 
-Where the `name` attribute contains a string referencing an angle field, and the inner text is the value to apply to the field. The inner text value follows the same rules as the constructor value.
+其中 `name` 属性包含引用角度字段的字符串，内部文本是要应用于该字段的值。内部文本值遵循与构造函数值相同的规则。
 
 :::
 ::::
 
-## Customization
+## 自定义
 
-### Snapping
+### 吸附
 
-The `Blockly.FieldAngle.ROUND` property changes what values the angle picker "snaps" to when using a mouse.
+`Blockly.FieldAngle.ROUND` 属性用于更改使用鼠标时角度选择器“吸附”的值。
 
 ::: tip
-Note: This does not affect the text input portion of the angle field, so if you want to ensure that the angle value is rounded, use a [validator](#creating_an_angle_validator).
+**注意**：这不会影响角度字段的文本输入部分，因此，如果您想确保角度值经过舍入处理，请使用[验证工具](#创建角度校验器)。
 :::
 
-Here is an example with a `ROUND` value of 70:
+下面是一个 `ROUND` 值为 70 的示例：
 
 ![Angle field with a ROUND value of 70](./angle/round_70.gif)
 
-Angle field with a ROUND value of 70
+`ROUND` 属性默认为 15。如果要停用紧贴功能，请将其设置为 0。
 
-The `ROUND` property defaults to 15. Set it to 0 if you want to disable snapping.
+这是一个全局属性，因此会在设置时修改所有角度字段。
 
-This is a global property, so it will modify all angle fields when set.
+### 方向
 
-### Directionality
+`Blockly.FieldAngle.CLOCKWISE` 属性会更改使角度值增加的方向。将此值设为 `true` 会使选择器在顺时针移动时增加角度，如果将其设置为 `false`，则会在逆时针移动时增加角度。
 
-The `Blockly.FieldAngle.CLOCKWISE` property changes which direction makes the angle value increase. Setting this value to `true` makes the angle increase as the selector is moved clockwise, setting it to `false` makes the angle increase as it is moved counter-clockwise.
-
-#### CLOCKWISE set to true
+#### CLOCKWISE 设置为 true
 
 ![Angle field with CLOCKWISE set to true](./angle/clockwise_true.gif)
 
-#### CLOCKWISE set to false
+#### CLOCKWISE 设置为 false
 
 ![Angle field with CLOCKWISE set to false](./angle/clockwise_false.gif)
 
-The `CLOCKWIS` Eproperty defaults to `false`, meaning counter-clockwise motion will make the angle increase.
+`CLOCKWISE` 属性默认为 `false`，这意味着逆时针移动会使角度增加。
 
-This is a global property, so it will modify all angle fields when set.
+这是一个全局属性，因此会在设置时修改所有角度字段。
 
-### Zero position
+### 零位
 
-The `Blockly.FieldAngle.OFFSET` property sets where 0 degrees is located. By default zero degrees is aligned with the positive x-axis (towards the right) and then this property "offsets" that position by a number of degrees.
+`Blockly.FieldAngle.OFFSET` 属性用于设置 0 度位置。默认情况下，零度与正 x 轴（向右）对齐，然后此属性按该位置“偏移”一定数量。
 
 :::tip
-Note: The direction of the offsetting is always counter clockwise, independent of the [CLOCKWISE](#directionality) property.
+**注意**：偏移的方向始终为逆时针，与 [CLOCKWISE](#方向) 属性无关。
 :::
 
 ![Angle picker zero at right](./angle/offset_right.png)
 
 ![Angle picker zero at top](./angle/offset_top.png)
 
-The `OFFSET` property defaults to 0, meaning zero degrees is aligned with the positive x-axis.
+`OFFSET` 属性默认为 0，表示零度与正 X 轴对齐。
 
-This is a global property so it will modify all angle fields when set.
+这是一个全局属性，因此会在设置时修改所有角度字段。
 
-### Range
+### 范围
 
-The `Blockly.FieldAngle.WRAP` property sets the range of values. The range of values is equal to `(-360 + WRAP, WRAP)`. This means that a `WRAP` value of 360 will give a range of `(0, 359.9)` and a `WRAP` value of 180 will give a range of `(-179.9, 180)`.
+`Blockly.FieldAngle.WRAP` 属性可设置值的范围。值的范围等于 `(-360 + WRAP, WRAP)`。也就是说，`WRAP` 值为 360 表示范围为 `(0, 359.9)`，`WRAP` 值为 180 表示范围为 `(-179.9, 180)`。
 
 ![Angle picker with wrap value of 180](./angle/wrap.gif)
 
-The `WRAP` property defaults to 360, meaning the range of the field is `(0, 359.9)`.
+`WRAP` 属性默认为 360，这意味着该字段的范围为 `(0, 359.9)`。
 
-This is a global property so it will modify all angle fields when set.
+这是一个全局属性，因此会在设置时修改所有角度字段。
 
-### Angle picker size
+### 角度选择器大小
 
-The `Blockly.FieldAngle.HALF` property changes the size of the angle picker. This value defines the radius of the outer circle in pixels.
+`Blockly.FieldAngle.HALF` 属性用于更改角度选择器的大小。该值定义了外圈的半径（以像素为单位）。
 
 ![Angle picker with default editor size](./angle/offset_right.png)
 
 ![Angle picker with large editor](./angle/editor_large.png)
 
-The `HALF` property defaults to 50.
+`HALF` 属性默认为 50。
 
-This is a global property so it will modify all angle fields when set.
+这是一个全局属性，因此会在设置时修改所有角度字段。
 
 :::tip
-Note: The size of the angle picker is not affected by the scale of the workspace.
+**注意**：角度选择器的大小不受工作区缩放的影响。
 :::
 
-## Common modes
+## 常用模式
 
-The [direction](#directionality) and [zero position](#zero_position) can be used together to create some fun combinations. Here are two common ones:
+结合使用 [方向](#方向) 和 [零位置](#零位) 可以创建一些有趣的组合。下面是两种常用的方法：
 
-### Protractor
+### 量角器
 
-0 degrees is right, 90 degrees is up.
+0 度向右，90 度向上。
 
 ```javascript
 Blockly.FieldAngle.CLOCKWISE = false;
@@ -174,9 +171,9 @@ Blockly.FieldAngle.OFFSET = 0;
 
 ![Angle picker configured as a protractor](./angle/protractor.gif)
 
-### Compass
+### 罗盘
 
-0 degrees is up, 90 degrees is right.
+0 度向上，90 度向右。
 
 ```javascript
 Blockly.FieldAngle.CLOCKWISE = true;
@@ -185,14 +182,14 @@ Blockly.FieldAngle.OFFSET = 90;
 
 ![Angle picker configured as a compass](./angle/compass.gif)
 
-## Creating an angle validator
+## 创建角度校验器
 
 :::tip
-Note: For information on validators in general see Validators.
+**注意**：如需查看有关校验器的一般信息，请参阅 [校验器](/guides/create-custom-blocks/fields/validators)。
 :::
-An angle field's value is a number, so any validators must accept a number and return a number, `null`, or `undefined`.
+角度字段的值是数字，因此任何校验器都必须接受数字并返回数字 `null`、`undefined`。
 
-Here is an example of a validator that forces the value to be a multiple of 30:
+以下是一个强制将值设为 30 的倍数的校验器示例：
 
 ```javascript
 function(newValue) {
@@ -202,4 +199,4 @@ return Math.round(newValue / 30) \* 30;
 
 ![Angle picker with a validator](./angle/validator.gif)
 
-Note how the angle field's [ROUND](#snapping) property is still set to 15, so the graphical elements of the field display multiples of 15, rather than 30.
+请注意，角度字段的 [ROUND](#吸附) 属性仍然设置为 15，因此该字段的图形元素会显示 15 的倍数，而不是 30。
