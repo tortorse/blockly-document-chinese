@@ -58,7 +58,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
         - [x] [Overview 总览](./docs/guides/create-custom-blocks/fields/built-in-fields/overview.md) (粗翻)
         - [x] [Angle 角度](./docs/guides/create-custom-blocks/fields/built-in-fields/angle.md)(原文)
         - [x] [Checkbox 复选框](./docs/guides/create-custom-blocks/fields/built-in-fields/checkbox.md)(原文)
-        - [ ] [Colour 颜色](./docs/guides/create-custom-blocks/fields/built-in-fields/colour.md)(原文)
+        - [x] [Colour 颜色](./docs/guides/create-custom-blocks/fields/built-in-fields/colour.md)(原文)
         - [ ] [Date 日期](./docs/guides/create-custom-blocks/fields/built-in-fields/date.md)(原文)
         - [ ] [Dropdown 下拉菜单](./docs/guides/create-custom-blocks/fields/built-in-fields/dropdown.md)(原文)
         - [ ] [Image 图片](./docs/guides/create-custom-blocks/fields/built-in-fields/image.md)(原文)

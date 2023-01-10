@@ -1,20 +1,20 @@
-# Colour fields
+# 颜色字段
 
-A colour field stores a string as its `value`, and a string as its `text`. Its `value` is a string with the format `#rrggbb`, while its `text` may be a string with the format `#rgb` if possible.
+颜色字段将字符串存储为其 `value`，并将字符串存储为其 `text`。其 `value` 是格式为 `#rrggbb` 的字符串，而其 `text` 可能的是格式为 `#rgb` 的字符串（如果可能）。
 
-#### Colour field
+#### 颜色字段
 
 ![](./colour/on_block.png)
 
-#### Colour field with editor open
+#### 打开编辑器时显示的颜色字段
 
 ![](./colour/with_editor.png)
 
-#### Colour field on collapsed block
+#### 收起的块上的颜色字段
 
 ![](./colour/collapsed.png)
 
-## Creation
+## 创建
 
 :::: tabs
 ::: tab JSON
@@ -87,37 +87,30 @@ Blockly.Blocks['example_colour'] = {
 :::
 ::::
 
-The colour constructor takes in the following:
+颜色构造函数接受以下内容：
 
-- an optional `value`
-
-- an optional [validator](#creating_a_colour_validator)
-
-- an optional map of options, including:
-
+- 可选的 `value`
+- 可选的[校验器](/guides/configure/advanced/interfaces/connection_checker#creating_a_colour_validator)
+- 可选的选项映射，包括：
   - `colourOptions`
-
   - `colourTitles`
-
   - `columns`
 
-The `value` should be a string in the format `#rrggbb`. If no `value` is given or the given `value` is invalid, the first entry in the default colours array will be used.
+`value` 应该是 `#rrggbb` 格式的字符串。如果未指定 `value` 或指定的 `value` 无效，则使用默认颜色数组中的第一个条目。
 
-The following options can also be set in JSON:
+您还可以在 JSON 中设置以下选项：
 
 - `colourOptions`
-
 - `colourTitles`
-
 - `columns`
 
-Or they can be set using [JavaScript hooks](#editor_options).
+或者，您可以使用 [JavaScript 钩子](#editor_options)对其进行设置。
 
-## Serialization
+## 序列化
 
 :::: tabs
 ::: tab JSON
-The JSON for a colour field looks like so:
+颜色字段的 JSON 如下所示：
 
 ```json
 {
@@ -127,31 +120,31 @@ The JSON for a colour field looks like so:
 }
 ```
 
-Where `FIELDNAME` is a string referencing a colour field, and the value is the value to apply to the field. The value follows the same rules as the constructor value.
+其中 `FIELDNAME` 是引用颜色字段的字符串，值是应用于该字段的值。该值遵循与构造函数值相同的规则。
 
 :::
 ::: tab XML
-The XML for an colour field looks like so:
+颜色字段的 XML 如下所示：
 
 ```xml
 <field name="FIELDNAME">#ff0000</field>
 ```
 
-The `field` node's `name` attribute contains a string referencing a colour field, and the node's inner text is the value to apply to the field. The inner text value follows the same rules as the constructor value.
+`field` 节点的 `name` 属性包含引用颜色字段的字符串，而节点的内部文本是应用于该字段的值。内部文本值遵循与构造函数值相同的规则。
 
-Note that after being deserialized and reserialized all of the inner text values will be in the format `#rrggbb`. This is sometimes important when diff-ing workspaces.
+请注意，在反序列化和重新序列化后，所有内部文本值都将采用 `#rrggbb` 格式。这在区分工作区时有时很重要。
 :::
 ::::
 
-## Customization
+## 自定义
 
-### Editor options
+### 编辑器选项
 
-The [setColours](https://developers.google.com/blockly/reference/js/Blockly.FieldColour#setColours) function can be used to set the colour options of a colour field. It takes in an array of colour strings, which must be defined in `#rrggbb` format, and an optional array of tooltips. If the tooltip array is not provided, the default tooltip array will be used.
+[setColours](https://developers.google.com/blockly/reference/js/Blockly.FieldColour#setColours) 函数可用于设置颜色字段的颜色选项。它接受一组颜色字符串（必须以 `#rrggbb` 格式定义）和一个可选的提示数组。如果未提供提示数组，则系统会使用默认提示数组。
 
-Tooltips and colours are matched based on array index, not based on value. If the colours array is longer than the tooltip array, the tooltips for the extra colours will be their `#rrggbb` value.
+提示和颜色是根据数组索引（而不是值）进行匹配的。如果 colours 数组比提示数组长，则额外颜色的提示将是其 `#rrggbb` 值。
 
-The [setColumns](https://developers.google.com/blockly/reference/js/Blockly.FieldColour#setColours) function sets the number of columns in the colour picker.
+[setColumns](https://developers.google.com/blockly/reference/js/Blockly.FieldColour#setColumns) 函数会设置颜色选择器中的列数。
 
 :::: tabs
 ::: tab JSON
@@ -182,7 +175,7 @@ Blockly.Extensions.register('set_colours_extension', function() {
 });
 ```
 
-This is done using a JSON extension.
+此操作使用 JSON [扩展程序](/guides/create-custom-blocks/extensions)完成。
 
 :::
 ::: tab JavaScript
@@ -208,7 +201,7 @@ Blockly.Blocks['example_colour'] = {
 
 ![Customized colour field editor](./colour/customized.png)
 
-Optionally, the default colours, tooltips, and columns can be overridden globally. This means they will affect all colours fields, rather than a specific field.
+或者，可以全局替换默认颜色、提示和列。这意味着，它们会影响所有颜色字段，而不是特定字段。
 
 ```javascript
 Blockly.FieldColour.COLOURS = [
@@ -230,14 +223,14 @@ Blockly.FieldColour.TITLES = [
 Blockly.FieldColour.COLUMNS = 3;
 ```
 
-## Creating a colour validator
+## 创建颜色校验器
 
 :::tip
-Note: For information on validators in general see Validators.
+**注意**：如需查看有关校验器的一般信息，请参阅 [校验器](https://developers.google.com/blockly/guides/create-custom-blocks/fields/validators)。
 :::
-A colour field's value is a `#rrggbb` format string, so any validators must accept a `#rrggbb` format string, and return a `#rrggbb` format string, `null`, or `undefined`.
+颜色字段的值为 `#rrggbb` 格式字符串，因此任何验证工具都必须接受 `#rrggbb` 格式的字符串，并返回 `#rrggbb` 格式的字符串、`null` 或 `undefined`。
 
-Here is an example of a validator that changes the colour of the block to match the colour of the field.
+下面是一个验证器示例，它会更改代码块的颜色以匹配字段的颜色。
 
 ```javascript
 function(newValue) {
@@ -246,6 +239,6 @@ function(newValue) {
 }
 ```
 
-#### Block changing colour based on its colour field
+#### 根据颜色字段阻止更改颜色
 
 ![](./colour/validator.gif)
