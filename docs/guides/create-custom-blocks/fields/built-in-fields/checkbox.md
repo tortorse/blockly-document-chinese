@@ -1,16 +1,16 @@
-# Checkbox fields
+# 复选框字段
 
-A checkbox field stores a string as its value, and a string as its text. Its value is either `'TRUE'` or `'FALSE'`, and its text is either `'true'` or `'false'`.
+复选框字段存储字符串作为其值，存储字符串作为其文本。其值为 `'TRUE'` 或 `'FALSE'`，并且其文本为 `'true'` 或 `'false'`。
 
-#### Checkbox field
+#### 复选框字段
 
 ![](./checkbox/on_block.png)
 
-#### Checkbox field on collapsed block
+#### 收起的块上的复选框字段
 
 ![](./checkbox/collapsed.png)
 
-## Creation
+## 创建
 
 ::::tabs
 ::: tab JSON
@@ -45,13 +45,13 @@ Blockly.Blocks['example_checkbox'] = {
 :::
 ::::
 
-The checkbox constructor takes in an optional value and an optional [validator](#creating_a_checkbox_validator). The optional value should be either `'TRUE'`, `'FALSE'`, or a boolean, otherwise it will default to `false`.
+复选框构造函数会接收一个可选值和一个可选的 [校验器](/guides/configure/advanced/interfaces/connection_checker#creating_a_checkbox_validator)。可选值应为 `'TRUE'`、`'FALSE'` 或布尔值，否则默认值为 `false`。
 
-## Serialization
+## 序列化
 
 :::: tabs
 ::: tab JSON
-
+复选框字段的 JSON 如下所示：
 ```json
 {
   "fields": {
@@ -60,53 +60,52 @@ The checkbox constructor takes in an optional value and an optional [validator](
 }
 ```
 
-Where `FIELDNAME` is a string referencing a checkbox field, and the value is the value to apply to the field. The value must be a boolean.
+其中 `name` 属性包含引用复选框字段的字符串，而内部文本是要应用于该字段的值。内部文本值遵循与构造函数值相同的规则。
 :::
 ::: tab XML
-The XML for a checkbox field looks like so:
+复选框字段的 XML 如下所示：
 
 ```xml
 <field name="FIELDNAME">TRUE</field>
 ```
 
-or
+或
 
 ```xml
 <field name="FIELDNAME">true</field>
 ```
-
 :::tip
-Note: Quotes do not need to be applied to the inner text.
+注意：无需对内部文本应用引号。
 :::
-Where the `name` attribute contains a string referencing an checkbox field, and the inner text is the value to apply to the field. The inner text value follows the same rules as the constructor value.
+其中 `name` 属性包含引用复选框字段的字符串，而内部文本是要应用于该字段的值。内部文本值遵循与构造函数值相同的规则。
 
-Note that after being deserialized and reserialized all of the inner text values will be in caps ('TRUE' or 'FALSE'). This is sometimes important when diffing workspaces.
+请注意，在反序列化和重新序列化后，所有内部文本值都将处于上限值（`'TRUE'` 或 `'FALSE'`）。这在区分工作区时有时很重要。
 :::
 ::::
 
-## Customization
+## 自定义
 
-### Checkmark character
+### 对勾标记字符
 
-The `Blockly.FieldCheckbox.CHECK_CHAR` property can be used to change what the checkmark looks like. The value should be a string containing a unicode character.
+`Blockly.FieldCheckbox.CHECK_CHAR` 属性可用于更改对勾标记的外观。该值应为包含 Unicode 字符的字符串。
 
 ![Checkbox field with heart instead of check](./checkbox/customized.png)
 
-The `CHECK_CHAR` property defaults to '\u2713' or ✓.
+`CHECK_CHAR` 属性默认为 '\\u2713' 或 ✓。
 
-This is a global property, so it will modify all checkbox fields when set.
+这是一个全局属性，因此会在设置时修改所有复选框字段。
 
-## Creating a checkbox validator
+## 创建复选框验证程序
 
 :::tip
-Note: For information on validators in general see Validators.
+**注意**：如需查看有关校验器的一般信息，请参阅 [校验器](/guides/create-custom-blocks/fields/validators)。
 :::
-A checkbox field's value is either `'TRUE'` or `'FALSE'` so a validator should accept those values (i.e. a string) and return `'TRUE'`, `'FALSE'`, `null`, or `undefined`.
+复选框字段的值为 `'TRUE'` 或 `'FALSE'`，因此验证工具应接受这些值（即字符串），并返回 `'TRUE'`、`'FALSE'`、`null` 或 `undefined`。
 
 :::warning
-Caution: the getValueBoolean method should not be used inside of validators, because it returns based on the current value, not the new value.
+**注意**：不应在验证程序中使用 `getValueBoolean` 方法，因为它会根据当前值（而非新值）返回结果。
 :::
-Here's an example of a validator that hides or shows a text input field based on whether the checkbox is checked:
+以下是一个验证工具示例，该验证程序根据复选框是否已选中来隐藏或显示文本输入字段：
 
 ```javascript
   validate: function(newValue) {
@@ -127,6 +126,6 @@ Here's an example of a validator that hides or shows a text input field based on
   }
 ```
 
-#### Checkbox field with a validator
+#### 包含验证器的复选框字段
 
 ![](./checkbox/validator.gif)
