@@ -1,24 +1,24 @@
-# Date fields
+# 日期字段
 
-A date field stores a string as its `value`, and a string as its `text`. Its `value` and `text` both have the format `YYYY-MM-DD`.
+日期字段将字符串存储为 its `value`，将字符串存储为 its `text`。它`value`和`text`两者都具有格式`YYYY-MM-DD`。
 
-#### Date field
+#### 日期字段
 
 ![](./date/on_block.png)
 
-#### Date field with editor open
+#### 编辑器打开的日期字段
 
 ![](./date/with_editor.png)
 
-#### Date field on collapsed block
+#### 折叠块上的日期字段
 
 ![](./date/collapsed.png)
 
 :::warning
-Warning: The date field is no longer part of the core Blockly library. We now publish it as an npm package named [@blockly/field-date](https://www.npmjs.com/package/@blockly/field-date).
+警告：日期字段不再是核心 Blockly 库的一部分。我们现在将其发布为名为[@blockly/field-date 的 npm 包](https://www.npmjs.com/package/@blockly/field-date)
 :::
 
-## Creation
+## 创建
 
 ::::tabs
 ::: tab JSON
@@ -53,28 +53,28 @@ Blockly.Blocks['example_date'] = {
 :::
 ::::
 
-The date field constructor takes in an optional `value` and an optional [validator](#creating-a-date-validator). The `value` should be a string in the format `YYYY-MM-DD`. Otherwise the current (today's) date will be used.
+日期字段构造函数接受一个可选的`value`和一个可选的 [校验器](#创建日期验证器)。`value`应该是格式中的字符串`YYYY-MM-DD`。否则将使用当前（今天）日期。
 
-## Serialization and XML
+## 序列化和 XML
 
-The XML for a date field looks like so:
+日期字段的 XML 如下所示：
 
 ```xml
 <field name="FIELDNAME">2020-02-20</field>
 ```
 
-The `field` node's `name` attribute contains a string referencing a date field, and the node's inner text is the value to apply to the field. The inner text value follows the same rules as the constructor value.
-
-## Creating a date validator
+`field`节点的属性`name`包含引用日期字段的字符串，节点的内部文本是应用于该字段的值。内部文本值遵循与构造函数值相同的规则。
+## 创建日期验证器
 
 ::: tip
-Note: For information on validators in general see Validators.
+**注意：** 有关验证器的一般信息，请参阅验证器。
 :::
-A date field's value is a `YYYY-MM-DD` format string, so any validators must accept a `YYYY-MM-DD` format string, and return a `YYYY-MM-DD` format string, `null`, or `undefined`.
 
-Note when validating a date it may be useful to use Closure's [date class](https://google.github.io/closure-library/api/goog.date.Date.html).
+日期字段的值是`YYYY-MM-DD`格式字符串，因此任何验证器都必须接受`YYYY-MM-DD`格式字符串，并返回`YYYY-MM-DD`格式字符串`null`、 或`undefined`。
 
-Here is an example of a validator that only accepts weekdays:
+[请注意，在验证日期时，使用 Closure 的日期类](https://google.github.io/closure-library/api/goog.date.Date.html)可能会有用 [（打开新窗口）](https://google.github.io/closure-library/api/goog.date.Date.html).
+
+下面是一个只接受工作日的验证器示例：
 
 ```javascript
 function(newValue) {
