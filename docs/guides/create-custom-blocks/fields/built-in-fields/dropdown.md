@@ -1,24 +1,24 @@
-# Dropdown fields
+# 下拉菜单字段
 
-The dropdown field stores a string as its value and a string as its text. The value is a language-neutral key that will be used for accessing the text and will not get translated when Blockly is switched between languages. The text is a human-readable string that will be displayed to the user.
+下拉菜单字段存储一个字符串作为其值，并存储一个字符串作为其文本。该值是一个语言中性键，将用于访问文本，不会在 Blockly 之间切换语言时进行翻译。该文本是用户可理解的字符串。
 
-#### Dropdown field
+#### 下拉菜单字段
 
 ![](./dropdown/on_block.png)
 
-#### Dropdown field with editor open
+#### 打开编辑器的下拉字段
 
 ![](./dropdown/with_editor.png)
 
-#### Dropdown field on collapsed block
+#### 收起的块上的下拉字段
 
 ![](./dropdown/collapsed.png)
 
-## Creation
+## 创建
 
-The dropdown constructor takes in a menu generator and an optional [validator](#creating-a-dropdown-validator). The menu generator has lots of flexibility, but it is essentially an array of options, each option containing a human-readable part, and a language-neutral string.
+下拉菜单构造函数可接受菜单生成器和可选的 [校验器](#creating_a_dropdown_validator)。菜单生成器具有很大的灵活性，但本质上是选项数组，每个选项都包含一个人类可读懂的部分和一个语言中性字符串。
 
-### Simple text dropdowns
+### 简单的文本下拉菜单
 
 ![Open dropdown with two text options](./dropdown/with_editor.png)
 
@@ -64,13 +64,13 @@ Blockly.Blocks['example_dropdown'] = {
 :::
 ::::
 
-Keeping the human-readable information separate from the language-neutral key allows the dropdown menu's setting to be preserved between languages. For instance an English version of a block may define `[['left', 'LEFT'], ['right', 'RIGHT]]` while a German version of the same block would define `[['links', 'LEFT'], ['rechts', 'RIGHT]]`.
+通过让人类可读的信息与语言中立键分开，可以在不同语言之间保留下拉菜单的设置。例如，英语版本的块可以定义 `[['left', 'LEFT'], ['right', 'RIGHT]]`，而相同块的德语版本可以定义 `[['links', 'LEFT'], ['rechts', 'RIGHT]]`。
 
-### Image dropdowns
+### 图片下拉菜单
 
-Options in a dropdown menu may also be images instead of text. Image objects are specified with `src`, `width`, `height`, and `alt` properties.
+下拉菜单中的选项可能是图片，而不是文本。映像对象通过 `src`、`width`、`height` 和 `alt` 属性指定。
 
-Note that although a dropdown can have a mix of text options and image options, an individual option cannot currently contain both an image and text.
+请注意，尽管某个下拉列表可以同时包含文本选项和图片选项，但单个选项目前不能同时包含图片和文字。
 
 ![Dropdown field containing images and text](./dropdown/with_images.png)
 
@@ -123,7 +123,7 @@ Blockly.Blocks['image_dropdown'] = {
 :::
 ::::
 
-### Dynamic dropdowns
+### 动态下拉列表
 
 ![Dropdown field with days of the week](./dropdown/dynamic.png)
 ::::tabs
@@ -160,7 +160,7 @@ Blockly.Extensions.register('dynamic_menu_extension', function() {
   );
 });
 ```
-
+此操作使用 JSON [扩展程序](/guides/create-custom-blocks/extensions) 完成。
 :::
 ::: tab JavaScript
 
@@ -187,17 +187,17 @@ Blockly.Blocks['dynamic_dropdown'] = {
 
 :::
 ::::
-A dropdown can also be provided with a function instead of a list of static options, which allows the options to be dynamic. The function should return an array of options in the same `[human-readable-value, language-neutral-key]` format as static options. Every time the dropdown is clicked the function is run and the options are recalculated.
+系统还可以为函数提供下拉菜单，而不是静态列表，从而使选项可以动态变化。该函数应返回一个采用静态选项的 `[human-readable-value, language-neutral-key]` 格式的选项数组。每次点击下拉菜单，系统都会运行函数并重新计算选项。
 
 :::tip
-Note: Prefix/suffix matching does not occur for dynamic dropdowns.
+**注意**：动态下拉菜单不会发生 [前缀后缀匹配](#前缀后缀匹配)。
 :::
 
-## Serialization
+## 序列化
 
 ::::tabs
 ::: tab JSON
-The JSON for a dropdown field looks like so:
+下拉菜单字段的 JSON 如下所示：
 
 ```json
 {
@@ -207,45 +207,45 @@ The JSON for a dropdown field looks like so:
 }
 ```
 
-Where `FIELDNAME` is a string referencing an dropdown field, and the value is the value to apply to the field. The value should be a language-neutral option key.
+其中 `FIELDNAME` 是引用下拉菜单字段的字符串，值是应用于该字段的值。该值应为中性选项键。
 :::
 ::: tab XML
-The XML for a dropdown field looks like so:
+下拉菜单字段的 XML 如下所示：
 
 ```xml
 <field name="FIELDNAME">LANGUAGE-NEUTRAL-KEY</field>
 ```
 
-Where the field's `name` attribute contains a string referencing a dropdown field, and the inner text is the value to apply to the field. The inner text should be a valid language-neutral option key.
+其中，字段的 `name` 属性包含引用下拉菜单字段的字符串，内部文本是应用于该字段的值。内部文本应为有效的语言中性选项键。
 
 :::
 ::::
 
-## Customization
+## 自定义
 
-### Dropdown arrow
+### 下拉箭头
 
-The `Blockly.FieldDropdown.ARROW_CHAR` property can be used to change the unicode character representing the dropdown arrow.
+`Blockly.FieldDropdown.ARROW_CHAR` 属性可用于更改表示下拉箭头的 Unicode 字符。
 
 ![Dropdown field with custom arrow](./dropdown/customized_arrow.png)
 
-The `ARROW_CHAR` property defaults to `\u25BC` (▼) on Android and \u25BE (▾) otherwise.
+`ARROW_CHAR` 属性在 Android 上默认为 `\u25BC` (▼)，在其他情况下默认为 `\u25BE` (▾)。
 
-This is a global property, so it will modify all dropdown fields when set.
+这是一个全局属性，因此会在设置时修改所有下拉菜单字段。
 
-### Menu height
+### 菜单高度
 
-The `Blockly.FieldDropdown.MAX_MENU_HEIGHT_VH` property can be used to change the maximum height of the menu. It is defined as a percentage of the viewport height, the viewport being the window.
+`Blockly.FieldDropdown.MAX_MENU_HEIGHT_VH` 属性可用于更改菜单的最大高度。它定义为视口高度的百分比，视口就是窗口。
 
-The `MAX_MENU_HEIGHT_VH` property defaults to 0.45.
+`MAX_MENU_HEIGHT_VH` 属性默认为 0.45。
 
-This is a global property, so it will modify all dropdown fields when set.
+这是一个全局属性，因此会在设置时修改所有下拉菜单字段。
 
-## Prefix/suffix matching
+## 前缀后缀匹配
 
-If all the dropdown menu options share common prefix and/or suffix words, these words are automatically factored out and inserted as static text. For example, here are two ways to create the same block (this first without suffix matching, and the second with):
+如果所有下拉菜单选项共用相同的前缀和/或后缀字词，系统会自动分离这些字词并将其作为静态文本插入。例如，您可以通过以下两种方法创建相同的块（第一种方式没有后缀匹配，第二种方式使用后缀）：
 
-Without suffix matching:
+没有后缀匹配：
 ::::tabs
 ::: tab JSON
 
@@ -287,7 +287,7 @@ Blockly.Blocks['dropdown_no_matching'] = {
 :::
 ::::
 
-With suffix matching:
+使用后缀匹配时：
 
 ::::tabs
 ::: tab JSON
@@ -332,22 +332,24 @@ Blockly.Blocks['dropdown_with_matching'] = {
 ::::
 ![Dropdown field with "hello" as a label and "world", "computer" as options](./dropdown/prefix_matched.png)
 
-One advantage of this approach is that the block is easier to translate into other languages. The earlier code has the strings `'hello'`, `'world'`, and `'computer'`, whereas the revised code has the strings `'hello world'` and `'hello computer'`. Translators have a much easier time translating phrases than words in isolation.
+这种方法的一个优势是，该代码块更易于翻译成其他语言。之前的代码具有字符串 `'hello'`、`'world'` 和 `'computer'`，而修改后的代码具有字符串 `'hello world'` 和 `'hello computer'`。译员翻译短语的时间要比单独翻译短语容易得多。
 
-Another advantage of this approach is that word order often changes between languages. Imagine a language that used `'world hello'` and `'computer hello'`. The suffix matching algorithm will detect the common `'hello'` and display it after the drop-down.
+这种方法的另一个优势是，字词顺序往往因语言而异。假设某个语言使用 `'world hello'` 和 `'computer hello'`。后缀匹配算法会检测通用 `'hello'`，并在下拉菜单后面显示该匹配项。
 
-However, sometimes the prefix/suffix matching fails. There are some cases where two words should always go together and the prefix should not be factored out. For example `'drive red car'` and `'drive red truck'` should arguably only have `'drive'` factored out, not `'drive red'`. The Unicode non-breaking space `'\u00A0'` may be used in place of a regular space to suppress the prefix/suffix matcher. Thus the above example can be fixed with `'drive red\u00A0car'` and `'drive red\u00A0truck'`.
+但是，前缀/后缀匹配有时会失败。在某些情况下，两个单词应始终组合在一起，并且不应考虑前缀。例如，`'drive red car'` 和 `'drive red truck'` 应该只有 `'drive'` 被分解，而没有 `'drive red'`。Unicode 不间断空格 `'\u00A0'` 可以代替常规空格来抑制前缀/后缀匹配器。因此，可以使用 `'drive red\u00A0car'` 和 `'drive red\u00A0truck'` 修复上面的示例。
 
-Another place where prefix/suffix matching fails is in languages that do not separate individual words with spaces. Chinese is a good example. The string `'訪問中國'` means `'visit China'`, note the lack of spaces between words. Collectively, the last two characters `('中國'`) are the word for `'China'`, but if split they would mean `'centre'` and `'country'` respectively. To make prefix/suffix matching work in languages such as Chinese, just insert a space where the break should be. For example `'訪問 中國'` and `'訪問 美國'` would result in `"visit [China/USA]"`, whereas `'訪問 中 國'` and `'訪問 美 國'` would result in `"visit [centre/beautiful] country"`.
+前缀/后缀匹配失败的另一个位置是语言，不以空格分隔各个字词。中文就是一个很好的例子。字符串 `'訪問中國'` 表示 `'visit China'`，请注意字词之间缺少空格。后两个字符 (`'中國'`) 共同表示 `'China'` 的单词，但如果拆分，这两个符号分别表示 `'centre'` 和 `'country'`。为了使前缀/后缀匹配在中文等语言中正常工作，只需在空格处插入一个空格即可。例如，`'訪問 中國'` 和 `'訪問 美國'` 会生成 `"visit [China/USA]"`，而 `'訪問 中 國'` 和 `'訪問 美 國'` 会生成 `"visit [centre/beautiful] country"`。
 
-## Creating a dropdown validator
+## 创建下拉菜单校验器
 
 :::tip
-Note: For information on validators in general see Validators.
+**注意**：如需查看有关校验器的一般信息，请参阅 [校验器](/guides/create-custom-blocks/fields/validators)。
 :::
-A dropdown field's value is a language-neutral string, so any validators must accept a string and return a string _that is an available option_, `null`, or `undefined`.
+下拉菜单字段的值是与语言无关的字符串，因此任何验证工具都必须接受字符串并返回字符串_这是一个可用选项_、`null` 或 `undefined`。
 
-For example, you could define a dropdown field with three options and a validator like this:
+如果校验器返回任何其他内容，Blockly 的行为将处于未定义状态，并且程序可能会崩溃。
+
+例如，您可以使用三个选项和一个校验器定义下拉菜单字段，如下所示：
 
 ```javascript
 validate: function(newValue) {
@@ -368,7 +370,7 @@ init: function() {
 }
 ```
 
-`validate` always returns the value it was passed, but it calls the helper function `updateConnection` which adds or removes inputs based on the dropdown value:
+`validate` 始终返回所传递的值，但它会调用辅助函数 `updateConnection`，该函数会根据下拉菜单值添加或移除输入：
 
 ```javascript
 updateConnections: function(newValue) {
