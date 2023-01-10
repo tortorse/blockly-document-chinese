@@ -8292,10 +8292,10 @@ vuepress-plugin-container@^2.0.2:
     "@vuepress/shared-utils" "^1.2.0"
     markdown-it-container "^2.0.0"
 
-vuepress-plugin-element-tabs-less@^0.2.11:
-  version "0.2.11"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-element-tabs-less/-/vuepress-plugin-element-tabs-less-0.2.11.tgz#241fb1095506dcc29b7fed606028fa9d3e302c2d"
-  integrity sha512-z2lyTIre1WbZix0c6DULosfl4wLw/l1D6UILA1899P0z+XMdDd7kEQUQcNaP6HFyZrHVzNNq/UXkVG4ONZqzng==
+vuepress-plugin-element-tabs-less@^0.2.12:
+  version "0.2.12"
+  resolved "https://registry.npmjs.org/vuepress-plugin-element-tabs-less/-/vuepress-plugin-element-tabs-less-0.2.12.tgz#c1951c1b650454b93bdff788d9036a9dcce2b99d"
+  integrity sha512-0fxpfKqBeu8KL0WyeNwkWdYwA6tAWLKPrEQ9aBIEty3GAhKZ635WMcWzsKxDAycynNhNYVsVPIZli69ELndk8A==
   dependencies:
     less-loader "^6.2.0"
     resize-observer-polyfill "^1.5.1"

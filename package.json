@@ -25,7 +25,7 @@
     "@vuepress/plugin-google-analytics": "^1.8.2",
     "@vuepress/plugin-pwa": "^1.8.2",
     "vuepress": "^1.9.7",
-    "vuepress-plugin-element-tabs-less": "^0.2.11",
+    "vuepress-plugin-element-tabs-less": "^0.2.12",
     "vuepress-plugin-sitemap": "^2.3.1"
   }
 }
