@@ -60,7 +60,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
         - [x] [Checkbox 复选框](./docs/guides/create-custom-blocks/fields/built-in-fields/checkbox.md)(原文)
         - [x] [Colour 颜色](./docs/guides/create-custom-blocks/fields/built-in-fields/colour.md)(原文)
         - [x] [Date 日期](./docs/guides/create-custom-blocks/fields/built-in-fields/date.md)(粗翻)
-        - [ ] [Dropdown 下拉菜单](./docs/guides/create-custom-blocks/fields/built-in-fields/dropdown.md)(原文)
+        - [x] [Dropdown 下拉菜单](./docs/guides/create-custom-blocks/fields/built-in-fields/dropdown.md)(原文)
         - [ ] [Image 图片](./docs/guides/create-custom-blocks/fields/built-in-fields/image.md)(原文)
         - [ ] [Label 标签](./docs/guides/create-custom-blocks/fields/built-in-fields/label.md)(原文)
         - [ ] [Label 可序列化标签(Serializable)](./docs/guides/create-custom-blocks/fields/built-in-fields/label-serializable.md) (原文)
