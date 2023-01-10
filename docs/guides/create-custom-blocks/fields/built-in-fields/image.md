@@ -1,16 +1,16 @@
-# Image fields
+# 图片字段
 
-An image field stores a string as its value, and a string as its text. Its value is the src of the image, while its text is an alt string describing/representing the image.
+图片字段存储字符串作为其值，存储字符串作为其文本。其值是图片的 src，而其文本是描述/表示图片的替代字符串。
 
-#### Image field
+#### 图片字段
 
 ![](./image/on_block.png)
 
-#### Image field on collapsed block
+#### 展开前块上的图片字段
 
 ![](./image/collapsed.png)
 
-## Creation
+## 创建
 
 :::: tabs
 ::: tab JSON
@@ -54,31 +54,31 @@ Blockly.Blocks['example_image'] = {
 :::
 ::::
 
-The image constructor takes in:
+图片构造函数可接受：
 
-| Parameter          | Description                                                                                                                                                                |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| src                | A string that points to a raster image file.                                                                                                                               |
-| width              | Must cast to a non-zero number.                                                                                                                                            |
-| height             | Must cast to a non-zero number.                                                                                                                                            |
-| opt_alt (Optional) | A string that accurately describes/represents the image. If it is null or undefined an empty string will be used.                                                          |
-| opt_onClick        | (Optional) A function to call when the field is clicked.                                                                                                                   |
-| opt_flipRtl        | (Optional) A boolean. If true, the image is flipped across the vertical axis when in right-to-left mode. Defaults to false. Useful for "turn left" and "turn right" icons. |
+| 参数          | 说明                                                                                                                |
+| ------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `src`         | 指向 [光栅图片](https://developer.mozilla.org/en-US/docs/Glossary/raster_image)文件的字符串。                       |
+| `width`       | 必须转换为非零数字。                                                                                                |
+| `height`      | 必须转换为非零数字。                                                                                                |
+| `opt_alt`     | （可选）可准确描述/表示图片的字符串。如果值是 `null` 或 `undefined`，将使用空字符串。                               |
+| `opt_onClick` | （可选）在用户点击字段时调用的函数。                                                                                |
+| `opt_flipRtl` | （可选）布尔值。如果为 `true`，则在从右到左模式下，图片会沿垂直轴翻转。默认值为 `false`。适用于“左转”和“向右”图标。 |
 
-## Serialization
+## 序列化
 
-Image fields are not serializable.
+映像字段不可序列化。
 
-## Click handler
+## 点击处理程序
 
 :::tip
-Note: For information on validators in general see [Validators](/guides/create-custom-blocks/fields/validators.html#校验器).
+**注意**：如需查看有关校验器的一般信息，请参阅[校验器](/guides/create-custom-blocks/fields/validators)。
 :::
-The image field does not accept a validator; instead it explicitly accepts a function that is called whenever the field is clicked. This means that images can act like buttons that exist on blocks.
+图片字段不接受验证器，而是明确接受每当用户点击字段时都会调用的函数。也就是说，图片可以像按钮一样存在于按钮上。
 
-The on click handler can be set in the [JavaScript Constructor](#creation) or using the [setOnClickHandler](https://developers.google.com/blockly/reference/js/Blockly.FieldImage#setOnClickHandler) function.
+*点击处理程序*可通过 [JavaScript 构造函数](#创建) 或使用 [setOnClickHandler](https://developers.google.com/blockly/reference/js/Blockly.FieldImage#setOnClickHandler) 函数进行设置。_
 
-Here is an example of an on click handler that collapses the block when called.
+以下是一个在调用时收起代码块的点击处理程序示例。
 
 ```javascript
 function() {
