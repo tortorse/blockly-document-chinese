@@ -45,7 +45,7 @@ Blockly.Blocks['example_checkbox'] = {
 :::
 ::::
 
-复选框构造函数会接收一个可选值和一个可选的 [校验器](/guides/configure/advanced/interfaces/connection_checker#creating_a_checkbox_validator)。可选值应为 `'TRUE'`、`'FALSE'` 或布尔值，否则默认值为 `false`。
+复选框构造函数会接收一个可选值和一个可选的[验证器](#创建复选框验证程序)。可选值应为 `'TRUE'`、`'FALSE'` 或布尔值，否则默认值为 `false`。
 
 ## 序列化
 
