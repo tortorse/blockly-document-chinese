@@ -64,7 +64,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
         - [x] [Image 图片](./docs/guides/create-custom-blocks/fields/built-in-fields/image.md)(原文)
         - [x] [Label 标签](./docs/guides/create-custom-blocks/fields/built-in-fields/label.md)(原文)
         - [x] [Label 可序列化标签(Serializable)](./docs/guides/create-custom-blocks/fields/built-in-fields/label-serializable.md) (原文)
-        - [ ] [Number 数字](./docs/guides/create-custom-blocks/fields/built-in-fields/number.md)(原文)
+        - [x] [Number 数字](./docs/guides/create-custom-blocks/fields/built-in-fields/number.md)(原文)
         - [ ] [Text Input 文本输入](./docs/guides/create-custom-blocks/fields/built-in-fields/text-input.md)(原文)
         - [ ] [Variable 变量](./docs/guides/create-custom-blocks/fields/built-in-fields/variable.md)(原文)
       - Customizing Fields 自定义字段 (原文)
