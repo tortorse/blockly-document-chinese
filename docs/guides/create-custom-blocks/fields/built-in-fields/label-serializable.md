@@ -1,16 +1,16 @@
-# Serializable label fields
+# 可序列化标签字段 
 
-Serializable labels work exactly the same as normal labels except they also serialize to XML. They should only be used if you are editing the content of a label programmatically, and wish it to serialize to XML.
+可序列化标签的工作原理与 [普通标签](/guides/create-custom-blocks/fields/built-in-fields/label) 完全相同，只是还将其序列化为 XML 格式。只有在您要以编程方式修改标签的内容，并且希望将其序列化为 XML 格式时，才应使用这些标签。
 
-#### Serializable label field
+#### 可序列化标签字段
 
 ![](./label-serializable/on_block.png)
 
-#### Serializable label field on a collapsed block
+#### 收起的块上的可序列化标签字段
 
 ![](./label-serializable/collapsed.png)
 
-## Creation
+## 创建
 
 :::: tabs
 ::: tab JSON
@@ -45,13 +45,15 @@ Blockly.Blocks['example_serializable_label'] = {
 
 :::
 ::::
-The serializable label field takes in an optional value, and an optional css class string. Both default to an empty string.
+可序列化标签字段接受一个可选值和一个可选的 css 类字符串。两者均默认为空字符串。
 
-## Serialization
+
+## 序列化
 
 :::: tabs
 ::: tab JSON
-The JSON for a serializable label field looks like so:
+可序列化标签字段的 JSON 如下所示：
+
 
 ```json
 {
@@ -61,19 +63,19 @@ The JSON for a serializable label field looks like so:
 }
 ```
 
-Where `FIELDNAME` is a string referencing a serializable label field, and the value is the value to apply to the field. The value follows the same rules as the constructor value.
+其中 `FIELDNAME` 是引用可序列化标签字段的字符串，值是应用于该字段的值。该值遵循与构造函数值相同的规则。
 :::
 ::: tab XML
-The XML for a serializable label field looks like so:
+可序列化标签字段的 XML 如下所示：
 
 ```xml
 <field name="FIELDNAME">text</field>
 ```
 
-The `field` node's `name` attribute contains a string referencing a serializable label field, and the node's inner text is the value to apply to the field.
+`field` 节点的 `name` 属性包含引用可序列化标签字段的字符串，而节点的内部文本是应用于该字段的值。
 :::
 ::::
 
-## Validators
+## 校验器
 
-Serializable label fields do not support validators, because they are not editable by a user.
+可序列化标签字段不支持校验器，因为它们不可修改。
