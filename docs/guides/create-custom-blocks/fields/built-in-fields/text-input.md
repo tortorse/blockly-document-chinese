@@ -1,20 +1,20 @@
-# Text input fields
+# 文本输入字段
 
-A text input field stores a string as its value and a string as its text. Its value is always a valid string, while its text could be any string entered into its editor.
+文本输入字段将字符串存储为其值，将字符串存储为文本。其值始终是有效的字符串，而其文本可以是输入到编辑器中的任何字符串。
 
-#### Text input field
+#### 文本输入字段
 
 ![](./text-input/on_block.png)
 
-#### Text input field with editor open
+#### 打开编辑器的文本输入字段
 
 ![](./text-input/with_editor.png)
 
-#### Text input field on collapsed block
+#### 收起块上的文本输入字段
 
 ![](./text-input/collapsed.png)
 
-## Creation
+## 创建
 
 :::: tabs
 ::: tab JSON
@@ -49,15 +49,15 @@ Blockly.Blocks['example_textinput'] = {
 
 :::
 ::::
-The text input constructor takes in an optional value and an optional [validator](#creating-a-text-input-validator). The value should cast to a string. If it is `null` or `undefined`, an empty string will be used.
+文本输入构造函数可接收可选值和可选的 [校验器](#创建文本输入校验器)。该值应转换为字符串。如果值为 `null` 或 `undefined`，则使用空字符串。
 
-The JSON definition also allows you to set the [spellcheck](#spellcheck) option.
+JSON 定义还允许您设置 [拼写检查](#拼写检查) 选项。
 
-## Serialization and XML
+## 序列化和 XML
 
 :::: tabs
 ::: tab JSON
-The JSON for a text input field looks like so:
+文本输入字段的 JSON 如下所示：
 
 ```json
 {
@@ -67,43 +67,40 @@ The JSON for a text input field looks like so:
 }
 ```
 
-Where `FIELDNAME` is a string referencing a text input field, and the value is the value to apply to the field. The value follows the same rules as the constructor value.
+其中 `FIELDNAME` 是引用文本输入字段的字符串，值是应用于该字段的值。该值遵循与构造函数值相同的规则。
 
 :::
 ::: tab XML
-The XML for a text input field looks like so:
+文本输入字段的 XML 如下所示：
 
 ```xml
 <field name="FIELDNAME">text</field>
 ```
 
-Where the field's `name` attribute contains a string referencing a text input field, and the inner text is the value to apply to the field. The inner text value follows the same rules as the constructor value.
+其中，字段的 `name` 属性包含引用文本输入字段的字符串，内部文本是要应用于该字段的值。内部文本值遵循与构造函数值相同的规则。
 
 :::
 ::::
 
-## Customization
+## 自定义
 
-### Spellcheck
+### 拼写检查
 
-The [setSpellcheck](https://developers.google.com/blockly/reference/js/Blockly.FieldTextInput#setSpellcheck) function can be used to set whether the field spellchecks its input text or not.
+设置 [拼写检查](https://developers.google.com/blockly/reference/js/Blockly.FieldTextInput#setSpellcheck) 功能可用于设置相应字段是否对输入文本进行拼写检查。
 
-### Text input fields with and without spellcheck
+### 包含和不带拼写检查的文本输入字段
 
 ![](./text-input/spellcheck.gif)
 
-Spellchecking is on by default.
+拼写检查默认处于开启状态。
 
-This applies to individual fields. If you want to modify all fields change the `Blockly.FieldTextInput.prototype.spellcheck_` property.
+这适用于单个字段。如果要修改所有字段，请更改 `Blockly.FieldTextInput.prototype.spellcheck_` 属性。
 
-## Creating a text input validator
+## 创建文本输入校验器
 
 :::tip
-Note: For information on validators in general see [Validators](/guides/create-custom-blocks/fields/validators).
+**注意**：如需查看有关校验器的一般信息，请参阅 [校验器](/guides/create-custom-blocks/fields/validators)。
 :::
-A text input field's value is a string, so any validators must accept a string and return a string, `null`, or `undefined`.
-
-Here is an example of a validator that removes all 'a' characters from the string:
 
 ```javascript
 function(newValue) {
