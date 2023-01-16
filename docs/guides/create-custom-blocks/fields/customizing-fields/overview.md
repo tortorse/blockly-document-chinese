@@ -1,10 +1,12 @@
-# Customizing fields 
-While Blockly provides many useful fields, your application may have a specialized case. Here are a few steps to take when customizing fields:
+# 自定义字段 
+虽然 Blockly 提供许多有用的字段，但您的应用可能具有特殊情况。以下是自定义字段的几个步骤：
 
-  1. Read the documentation of any fields similar to what you require; they may provide a useful interface for customization. For example, [dropdowns](/guides/create-custom-blocks/fields/built-in-fields/dropdown) have a lot of hidden functionality.
+  1. 请阅读与所需字段类似的任何字段的文档；它们可能会提供有用的自定义界面。例如，[下拉菜单](/guides/create-custom-blocks/fields/built-in-fields/dropdown) 有许多隐藏的功能。
 
-  2. Consider using a [validator](/guides/create-custom-blocks/fields/validators) to solve your problem. Validators allow you to only accept certain values, modify input, or trigger functionality when a field's value changes.
+  2. 考虑使用 [校验器](/guides/create-custom-blocks/fields/validators) 来解决您的问题。校验器仅允许您接受某些值、修改输入或在字段的值发生更改时触发功能。
 
-  3. Consider [extending a field](/guides/create-custom-blocks/fields/customizing-fields/extending). If there is a field that represents the value type you require, but you want to modify its [editor](/guides/create-custom-blocks/fields/anatomy-of-a-field.html#编辑器显示), its [appearance](/guides/create-custom-blocks/fields/anatomy-of-a-field.html#块上显示), or the [text](/guides/create-custom-blocks/fields/customizing-fields/creating#text) it displays, you can [create a subclass](/guides/create-custom-blocks/fields/customizing-fields/extending#subclassing) that inherits the bulk of the functionality, while overriding the specific parts you want to change.
+  3. 考虑[扩展字段](/guides/create-custom-blocks/fields/customizing-fields/extending)。 如果存在表示所需值类型的字段，但想修改其 [编辑器](/guides/create-custom-blocks/fields/anatomy-of-a-field.html#编辑器显示)、其 [外观](/guides/create-custom-blocks/fields/anatomy-of-a-field.html#块上显示) 或显示的[文本](/guides/create-custom-blocks/fields/customizing-fields/creating#text)，则可以[创建一个子类](/guides/create-custom-blocks/fields/customizing-fields/extending#subclassing)，该子类会继承大部分功能，同时替换您想要更改的特定部分。
 
-  4. [Create a new field type](/guides/create-custom-blocks/fields/customizing-fields/creating). While this is the most powerful option, it is also the most time consuming, and should generally only be used if you need to store a new value type.
+  4. [创建新的字段类型](/guides/create-custom-blocks/fields/customizing-fields/creating)。 虽然这是最强大的选项，但它最耗时，因此通常只有在需要存储新的值类型时才应使用。
+
+  
