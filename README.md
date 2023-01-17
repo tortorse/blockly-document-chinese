@@ -69,7 +69,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
         - [x] [Variable 变量](./docs/guides/create-custom-blocks/fields/built-in-fields/variable.md)(粗翻)
       - Customizing Fields 自定义字段 (原文)
         - [x] [Overview 总览](./docs/guides/create-custom-blocks/fields/customizing-fields/overview) (粗翻)
-        - [ ] [Creating a Custom Field 创建自定义字段](./docs/guides/create-custom-blocks/fields/customizing-fields/creating) (原文)
+        - [x] [Creating a Custom Field 创建自定义字段](./docs/guides/create-custom-blocks/fields/customizing-fields/creating) (粗翻)
         - [ ] [Extending an Existing Field 扩展已有字段](./docs/guides/create-custom-blocks/fields/customizing-fields/extending.md) (原文)
         - [ ] [Upgrading a Custom Field 升级自定义字段](./docs/guides/create-custom-blocks/fields/customizing-fields/upgrading.md) (原文)
   - Application Integration 应用集成
@@ -118,3 +118,4 @@ Blockly 官方站点: <https://developers.google.com/blockly>
 - cursor 游标、光标
 - anatomy 解析、剖析
 - fork 复刻、分叉、副本化
+- widget 不翻译
