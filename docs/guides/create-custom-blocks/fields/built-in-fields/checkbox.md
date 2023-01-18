@@ -98,7 +98,7 @@ Blockly.Blocks['example_checkbox'] = {
 ## 创建复选框验证程序
 
 :::tip
-**注意**：如需查看有关校验器的一般信息，请参阅 [校验器](/guides/create-custom-blocks/fields/validators)。
+**注意**：如需查看有关校验器的一般信息，请参阅 [校验器](/guides/create-custom-blocks/fields/validators.html)。
 :::
 复选框字段的值为 `'TRUE'` 或 `'FALSE'`，因此验证工具应接受这些值（即字符串），并返回 `'TRUE'`、`'FALSE'`、`null` 或 `undefined`。
 
