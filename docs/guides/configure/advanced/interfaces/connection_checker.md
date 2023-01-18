@@ -2,7 +2,7 @@
 
 使用 Blockly 的一个主要好处是，它可以确保生成的代码在语法上是正确的。
 
-连接检查器是一个对象，可强制执行 Blockly 关于哪些连接兼容的规则。默认情况下，该检查工具会应用一个简单的类型系统，如 [类型检查](/guides/create-custom-blocks/type-checks) 页面中所述。
+连接检查器是一个对象，可强制执行 Blockly 关于哪些连接兼容的规则。默认情况下，该检查工具会应用一个简单的类型系统，如 [类型检查](/guides/create-custom-blocks/type-checks.html) 页面中所述。
 
 ## 检查
 
