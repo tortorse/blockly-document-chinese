@@ -1,22 +1,19 @@
-# Generating and Running JavaScript
+# 生成并运行 JavaScript
 
-Blockly applications often generate JavaScript as their output language, generally to run within a web page (possibly the same, or a embedded WebView). Like any generator, the first step is to include the JavaScript generator.
-
-For web Blockly, include `javascript_compressed.js`, right after `blockly_compressed.js`:
-
-```html
-<script src="blockly_compressed.js"></script>
-<script src="javascript_compressed.js"></script>
-```
-
-To generate JavaScript from the workspace, call:
+Blockly 应用程序通常生成 JavaScript 作为它们的输出语言，通常在网页内运行（可能是类似的，或者是嵌入式 WebView）。与任何生成器一样，第一步就是添加 JavaScript 生成器。
 
 ```javascript
-Blockly.JavaScript.addReservedWords('code');
-var code = Blockly.JavaScript.workspaceToCode(workspace);
+import { javascriptGenerator } from 'blockly/javascript';
 ```
 
-The resulting code can be executed right in the destination web page:
+如需从工作区生成 JavaScript，请调用：
+
+```javascript
+javascriptGenerator.addReservedWords('code');
+var code = javascriptGenerator.workspaceToCode(workspace);
+```
+
+可以直接在目标网页中执行生成的代码：
 
 ```javascript
 try {
@@ -26,18 +23,18 @@ try {
 }
 ```
 
-Basically, the above snippet just generates the code and evals it. However, there are a couple of refinements. One refinement is that the eval is wrapped in a `try/catch` so that any runtime errors are visible, instead of failing quietly. Another refinement is that `code` is added to the list of reserved words so that if the user's code contains a variable of that name it will be automatically renamed instead of colliding. Any local variables should be reserved in this way.
+基本上，上面的代码片段只会生成代码并对其进行评估。不过，也有几个优化需要。其中一项优化是，评估封装在 try/catch 中，以便显示所有运行时错误，而不是静默失败。另一种优化是将 `code` 添加到保留字词列表中，以便在用户的代码包含该名称的变量时，系统会自动重命名该变量，而不是冲突。任何局部变量都应以这种方式保留。
 
-## Highlight Blocks (Web Only)
+## 突出显示文本块
 
-Web applications which run the code within the same page often include highlighting of the currently executing block as the code runs. This may be done on a statement-by-statement level by setting `STATEMENT_PREFIX` prior to generating the JavaScript code:
+在代码运行时突出显示当前执行的代码块有助于用户了解其程序的行为。您可以在生成 JavaScript 代码之前通过设置 `STATEMENT_PREFIX` 在各个语句级别进行突出显示：
 
 ```javascript
-Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
-Blockly.JavaScript.addReservedWords('highlightBlock');
+javascriptGenerator.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
+javascriptGenerator.addReservedWords('highlightBlock');
 ```
 
-Define `highlightBlock` to mark the block on the workspace.
+定义 `highlightBlock` 以在工作区上标记该代码块。
 
 ```javascript
 function highlightBlock(id) {
@@ -45,40 +42,35 @@ function highlightBlock(id) {
 }
 ```
 
-This results in the statement `highlightBlock('123');` being added to before every statement, where `123` is the serial number of the block to be highlighted.
+这会导致每个语句之前都添加语句 `highlightBlock('123');`，其中 `123` 是要突出显示的块的序列号。
 
-## Infinite Loops
+## 无限循环
 
-Although the resulting code is guaranteed to be syntactically correct at all times, it may contain infinite loops. Since solving the [Halting problem](https://en.wikipedia.org/wiki/Halting_problem) is beyond Blockly's scope (!) the best approach for dealing with these cases is to maintain a counter and decrement it every time an iteration is performed. To accomplish this, just set `Blockly.JavaScript.INFINITE_LOOP_TRAP` to a code snippet which will be inserted into every loop and every function. Here is an example:
+虽然生成的代码在语法上始终正确，但它可能包含无限循环。由于解决 [停摆问题](https://en.wikipedia.org/wiki/Halting_problem) 超出了 Blockly 的讨论范围 (!)，处理这些情况的最佳方法是维护一个计数器，并在每次执行迭代时递减。为此，只需将 `javascriptGenerator.INFINITE_LOOP_TRAP` 设置为将插入到每个循环和每个函数中的代码片段。示例如下：
 
 ```javascript
 window.LoopTrap = 1000;
-Blockly.JavaScript.INFINITE_LOOP_TRAP =
+javascriptGenerator.INFINITE_LOOP_TRAP =
   'if(--window.LoopTrap == 0) throw "Infinite loop.";\n';
-var code = Blockly.JavaScript.workspaceToCode(workspace);
+var code = javascriptGenerator.workspaceToCode(workspace);
 ```
 
-## Example
+## 示例
 
-Here is [a live demo](https://blockly-demo.appspot.com/static/demos/generator/index.html) of generating and executing JavaScript.
+这里是生成和执行 JavaScript 的 [实时演示](https://google.github.io/blockly-samples/examples/generator-demo/)。
 
 ## JS-Interpreter
 
-If you are serious about running the user's blocks properly, then the [JS-Interpreter](https://github.com/NeilFraser/JS-Interpreter) project is the way to go. This project is separate from Blockly, but was specifically written for Blockly.
+如果您确实要正确运行用户的代码块，那么 [JS-Interpreter](https://github.com/NeilFraser/JS-Interpreter) 项目是您的不二之选。该项目独立于 Blockly，但专门为 Blockly 编写。
 
-- Execute code at any speed.
+- 以任意速度执行代码。
+- 暂停/继续/单步执行。
+- 在执行过程中突出显示相应块。
+- 与浏览器的 JavaScript 完全隔离。
 
-- Pause/resume/step-through execution.
+### 运行解译器
 
-- Highlight blocks as they execute.
-
-- Completely isolated from browser's JS.
-
-Here is [a live demo](https://blockly-demo.appspot.com/static/demos/generator/index.html) of using Blockly and JS-Interpreter to generate and execute JavaScript.
-
-### Run the Interpreter
-
-First, download the JS-Interpreter from GitHub:
+首先，从 GitHub 下载 JS 解释器：
 
 <img src="./download.png" usemap="#download-links" style="display:block;margin:0 auto;width:282px">
 <map name="download-links">
@@ -87,13 +79,13 @@ First, download the JS-Interpreter from GitHub:
   <area shape="rect" coords="186,0,282,52" href="https://github.com/NeilFraser/JS-Interpreter" alt="View On GitHub">
 </map>
 
-Then add it to your page:
+然后将其添加到您的网页：
 
 ```javascript
 <script src="acorn_interpreter.js"></script>
 ```
 
-The simplest method of calling it is to generate the JavaScript, create the interpreter, and run the code:
+最简单的调用方法是生成 JavaScript、创建解释器并运行代码：
 
 ```javascript
 var code = Blockly.JavaScript.workspaceToCode(workspace);
@@ -101,9 +93,9 @@ var myInterpreter = new Interpreter(code);
 myInterpreter.run();
 ```
 
-### Step the Interpreter
+### 单步解译
 
-In order to execute the code slower, or in a more controlled manner, replace the call to `run` with a loop that steps (in this case one step every 10ms):
+为了减慢执行代码的速度或以更可控的方式执行代码，将对 `run` 的调用替换为一个循环（在此情况下，每 10 毫秒一个步骤）：
 
 ```javascript
 function nextStep() {
@@ -114,11 +106,11 @@ function nextStep() {
 nextStep();
 ```
 
-Note that each step is not a line or a block, it is a semantic unit in JavaScript, which may be extremely fine-grained.
+请注意，每个步骤都不是一行或一个块，而是在 JavaScript 中进行的一个语义单元，因此可能非常精细。
 
-### Add an API
+### 添加 API
 
-The JS-Interpreter is a sandbox that is completely isolated from the browser. Any blocks that perform actions with the outside world require an API added to the interpreter. For a full description, see the [JS-Interpreter documentation](https://neil.fraser.name/software/JS-Interpreter/docs.html). But to start with, here is the API needed to support the alert and prompt blocks:
+JS-Interpreter 是一个与浏览器完全隔离的沙盒。与外部世界执行操作的任何代码块都需要向解释器添加一个 API。有关完整说明，请参阅 [JS-Interpreter 文档](https://neil.fraser.name/software/JS-Interpreter/docs.html)。但首先，我们需要以下 API 来支持提醒和提示块：
 
 ```javascript
 function initApi(interpreter, globalObject) {
@@ -126,29 +118,35 @@ function initApi(interpreter, globalObject) {
   var wrapper = function(text) {
     return alert(arguments.length ? text : '');
   };
-  interpreter.setProperty(globalObject, 'alert',
-      interpreter.createNativeFunction(wrapper));
+  interpreter.setProperty(
+    globalObject,
+    'alert',
+    interpreter.createNativeFunction(wrapper)
+  );
 
   // Add an API function for the prompt() block.
   wrapper = function(text) {
     return prompt(text);
   };
-  interpreter.setProperty(globalObject, 'prompt',
-      interpreter.createNativeFunction(wrapper));
+  interpreter.setProperty(
+    globalObject,
+    'prompt',
+    interpreter.createNativeFunction(wrapper)
+  );
 }
 ```
 
-Then modify your interpreter initialization to pass in the initApi function:
+然后，修改您的解释器初始化以传入 initApi 函数：
 
 ```javascript
 var myInterpreter = new Interpreter(code, initApi);
 ```
 
-The alert and prompt blocks are the only two blocks in the default set of blocks that require a custom API for the interpreter.
+alert 和 prompt 块是默认块集中唯二需要解释器自定义 API 的两个块。
 
-### Connecting highlightBlock()
+### 连接 highlightBlock()
 
-When running in JS-Interpreter, `highlightBlock()` should be executed immediately, outside the sandbox, as the user steps through the program. To do this, create a wrapper function `highlightBlock()` to capture the function argument, and register it as a native function.
+在使用 JS-Interpreter 运行时，随着用户逐步执行程序，`highlightBlock()` 应在沙盒之外立即执行。为此，请创建一个封装容器函数 `highlightBlock()` 来捕获函数参数，并将其注册为原生函数。
 
 ```javascript
 function initApi(interpreter, globalObject) {
@@ -156,13 +154,16 @@ function initApi(interpreter, globalObject) {
   var wrapper = function(id) {
     return workspace.highlightBlock(id);
   };
-  interpreter.setProperty(globalObject, 'highlightBlock',
-      interpreter.createNativeFunction(wrapper));
+  interpreter.setProperty(
+    globalObject,
+    'highlightBlock',
+    interpreter.createNativeFunction(wrapper)
+  );
 }
 ```
 
-More sophisticated applications might wish to repeatedly execute steps without pause until a highlight command is reached, then pause. This strategy simulates line-by-line execution. The example below uses this approach.
+更复杂的应用可能需要反复执行不暂停执行的步骤，直到执行突出显示命令，然后暂停。此策略会模拟逐行执行。以下示例使用了此方法。
 
-### JS-Interpreter Example
+### JS-Interpreter 示例
 
-Here is [a live demo](https://blockly-demo.appspot.com/static/demos/interpreter/step-execution.html) of interpreting JavaScript step by step. And [this demo](https://blockly-demo.appspot.com/static/demos/interpreter/async-execution.html) includes a wait block, a good example to use for other asynchronous behavior (e.g., speech or audio, user input).
+这里是逐步解译 JavaScript 的 [实时演示](https://google.github.io/blockly-samples/examples/interpreter-demo/step-execution.html)。[此演示](https://google.github.io/blockly-samples/examples/interpreter-demo/async-execution.html)包含一个等候块，这是用于其他异步行为（例如，语音或音频、用户输入）的一个很好的例子。
