@@ -1,6 +1,6 @@
 # 创建新的字段类型
 
-在创建新的字段类型之前，请考虑某个 [字段自定义方法](/guides/create-custom-blocks/fields/customizing-fields/overview) 是否符合您的需求。如果您的应用需要存储新的值类型，或者您希望为现有值类型创建新的界面，则可能需要创建新的字段类型。
+在创建新的字段类型之前，请考虑某个 [字段自定义方法](/guides/create-custom-blocks/fields/customizing-fields/overview.html) 是否符合您的需求。如果您的应用需要存储新的值类型，或者您希望为现有值类型创建新的界面，则可能需要创建新的字段类型。
 
 如需创建新字段，请执行以下操作：
 
@@ -13,7 +13,7 @@
 7.  添加其他功能，例如：
 
     - [编辑器](#创建编辑器)。
-    - [更新块上显示](#更新块上显示)：
+    - [更新块上显示](#更新块上显示)。
     - [序列化](#序列化)。
 
 8.  配置字段的其他方面，例如：
@@ -21,13 +21,13 @@
     - [可修改和可序列化的属性](#可修改且可序列化的属性)
     - [光标](#自定义光标)
 
-本部分假定您已阅读并熟悉 [字段解析](/guides/create-custom-blocks/fields/anatomy-of-a-field) 中的内容。
+本部分假定您已阅读并熟悉 [字段解析](/guides/create-custom-blocks/fields/anatomy-of-a-field.html) 中的内容。
 
 如需查看自定义字段的示例，请参阅 [自定义字段演示](https://google.github.io/blockly-samples/examples/pitch-field-demo/)。
 
 ## 实现构造函数
 
-字段的构造函数负责设置字段的初始值以及视需要设置 [本地校验器](/guides/create-custom-blocks/fields/validators)。无论源块是在 JSON 还是 JavaScript 中定义的，在源代码块初始化期间都会调用自定义字段的构造函数。因此，该自定义字段在构建期间无权访问源代码块。
+字段的构造函数负责设置字段的初始值以及视需要设置 [本地校验器](/guides/create-custom-blocks/fields/validators.html)。无论源块是在 JSON 还是 JavaScript 中定义的，在源代码块初始化期间都会调用自定义字段的构造函数。因此，该自定义字段在构建期间无权访问源代码块。
 
 以下代码示例创建了一个名为 `GenericField` 的自定义字段：
 
@@ -43,7 +43,7 @@ class GenericField extends Blockly.Field {
 
 ### 方法署名
 
-字段构造函数通常接受值和本地校验器。该值是可选值，如果您不传递值（或传递未通过类验证的值），系统将使用父类的默认值。对于默认 `Field` 类，该值为 `null`。如果您不想使用该默认值，请务必传递一个合适的值。验证工具参数仅适用于可编辑字段，通常标记为可选。如需详细了解验证程序，请参阅 [校验器文档](/guides/create-custom-blocks/fields/validators)。
+字段构造函数通常接受值和本地校验器。该值是可选值，如果您不传递值（或传递未通过类验证的值），系统将使用父类的默认值。对于默认 `Field` 类，该值为 `null`。如果您不想使用该默认值，请务必传递一个合适的值。验证工具参数仅适用于可编辑字段，通常标记为可选。如需详细了解验证程序，请参阅 [校验器文档](/guides/create-custom-blocks/fields/validators.html)。
 
 ### 结构
 
@@ -51,11 +51,11 @@ class GenericField extends Blockly.Field {
 
 1. 调用继承的超级构造函数（所有自定义字段都应继承自 `Blockly.Field` 或其子类之一），以正确初始化值，并为字段设置本地校验器。
 2. 如果您的字段可序列化，请在构造函数中设置相应的属性。可修改字段必须可序列化，并且默认情况下字段可修改，因此您可能应该将此属性设置为 true，除非您知道它不应可序列化。
-3. 可选：应用其他自定义设置（例如，[标签字段](/guides/create-custom-blocks/fields/built-in-fields/label) 允许传递 css 类，该类随后应用于文本）。
+3. 可选：应用其他自定义设置（例如，[标签字段](/guides/create-custom-blocks/fields/built-in-fields/label.html) 允许传递 css 类，该类随后应用于文本）。
 
 ## JSON 和注册
 
-在 [JSON 块定义](/guides/create-custom-blocks/define-blocks#json_format_versus_javascript_api) 中，字段通过字符串（例如 `field_number`、`field_textinput`）进行描述。Blockly 维护从这些字符串到字段对象的映射，并在构造期间对相应对象调用 `fromJson`。
+在 [JSON 块定义](/guides/create-custom-blocks/define-blocks.html#json-格式与-javascript-api) 中，字段通过字符串（例如 `field_number`、`field_textinput`）进行描述。Blockly 维护从这些字符串到字段对象的映射，并在构造期间对相应对象调用 `fromJson`。
 
 调用 `Blockly.fieldRegistry.register` 以将字段类型添加到此映射中，并传入字段类作为第二个参数：
 
@@ -73,7 +73,7 @@ CustomFields.GenericField.fromJson = function(options) {
 ```
 
 :::tip
-**注意**：目前，使用 JSON 定义时不支持本地校验器。但可以通过 [扩展程序](/guides/create-custom-blocks/extensions) 应用它们。
+**注意**：目前，使用 JSON 定义时不支持本地校验器。但可以通过 [扩展程序](/guides/create-custom-blocks/extensions.html) 应用它们。
 :::
 
 ## 初始化
@@ -90,7 +90,7 @@ CustomFields.GenericField.fromJson = function(options) {
 
 #### 自定义 DOM 构建
 
-如果您的字段是通用文本字段（例如 [Text Input](/guides/create-custom-blocks/fields/built-in-fields/text-input)，则系统会为您处理 DOM 构建。否则，您需要替换 `initView` 函数，以创建未来渲染字段所需的 DOM 元素。
+如果您的字段是通用文本字段（例如 [Text Input](/guides/create-custom-blocks/fields/built-in-fields/text-input.html)，则系统会为您处理 DOM 构建。否则，您需要替换 `initView` 函数，以创建未来渲染字段所需的 DOM 元素。
 
 例如，下拉菜单字段可以同时包含图片和文字。在 `initView` 中，它会创建一个图片元素和一个文本元素。然后，在 `render_` 期间，它会根据所选选项的类型，显示活动元素并隐藏另一个元素。
 
@@ -105,7 +105,7 @@ CustomFields.GenericField.fromJson = function(options) {
 
 #### 添加文本符号
 
-如果要向字段的文本添加符号（例如 [Angle](/guides/create-custom-blocks/fields/built-in-fields/angle) 字段的度数符号），可以直接将符号元素（通常包含在 `<tspan>` 中）附加到字段的 `textElement_`。
+如果要向字段的文本添加符号（例如 [Angle](/guides/create-custom-blocks/fields/built-in-fields/angle.html) 字段的度数符号），可以直接将符号元素（通常包含在 `<tspan>` 中）附加到字段的 `textElement_`。
 
 ### 输入事件
 
@@ -161,7 +161,7 @@ bindEvents_() {
 
 ## 值处理
 
-→ 如需了解字段的值及其文本，请参阅 [字段剖析](/guides/create-custom-blocks/fields/anatomy-of-a-field)。
+→ 如需了解字段的值及其文本，请参阅 [字段剖析](/guides/create-custom-blocks/fields/anatomy-of-a-field.html)。
 
 ### 校验顺序
 
@@ -169,7 +169,7 @@ bindEvents_() {
 
 ### 实现类校验器
 
-字段应仅接受特定值。例如，数字字段应仅接受数字，颜色字段应仅接受颜色等。这可以通过类和本地 [校验器](/guides/create-custom-blocks/fields/validators) 来确保。类验证程序遵循与本地验证程序相同的规则，但前者也在 [构造函数](#实现构造函数) 中运行，因此不应引用源代码块。
+字段应仅接受特定值。例如，数字字段应仅接受数字，颜色字段应仅接受颜色等。这可以通过类和本地 [校验器](/guides/create-custom-blocks/fields/validators.html) 来确保。类验证程序遵循与本地验证程序相同的规则，但前者也在 [构造函数](#实现构造函数) 中运行，因此不应引用源代码块。
 
 如需实现字段的类验证程序，请替换 `doClassValidation_` 函数。
 
@@ -261,7 +261,7 @@ doClassValidation_(newValue) {
 
 在上面的示例中，`newValue` 的每个属性都经过单独验证。然后，在 `doClassValidation_` 函数结束时，如果任何单个属性无效，该值将缓存到 `cacheValidatedValue_` 属性中，然后返回 `null`（无效）。缓存包含单独验证的属性的对象可让 [`doValueInvalid_`](#处理无效值) 函数单独处理它们，只需执行 `!this.cacheValidatedValue_.property` 检查，而无需单独重新验证每个属性。
 
-此多部分值验证模式还可用于[本地校验器](/guides/create-custom-blocks/fields/validators)，但目前无法强制执行此模式。
+此多部分值验证模式还可用于[本地校验器](/guides/create-custom-blocks/fields/validators.html)，但目前无法强制执行此模式。
 
 ### isDirty\_
 
@@ -269,7 +269,7 @@ doClassValidation_(newValue) {
 
 ## 文本
 
-→ 如需了解字段文本的使用位置及其与字段值的不同之处，请参阅 [字段剖析](/guides/create-custom-blocks/fields/anatomy-of-a-field)。
+→ 如需了解字段文本的使用位置及其与字段值的不同之处，请参阅 [字段剖析](/guides/create-custom-blocks/fields/anatomy-of-a-field.html)。
 
 如果字段的文本值与字段的值不同，则应替换 [`getText`](https://developers.google.com/blockly/reference/js/blockly.field_class.gettext_1_method) 函数以提供正确的文本。
 
@@ -512,7 +512,7 @@ updateEditable() {
 
 ## 序列化
 
-[序列化](/guides/configure/web/serialization)是指保存字段的状态，以便稍后重新加载到工作区中。
+[序列化](/guides/configure/web/serialization.html)是指保存字段的状态，以便稍后重新加载到工作区中。
 
 工作区的状态始终包含相应字段的值，但也可能包含其他状态，例如字段界面的状态。例如，如果您的字段是支持用户选择国家/地区的可缩放地图，您也可以序列化缩放级别。
 
