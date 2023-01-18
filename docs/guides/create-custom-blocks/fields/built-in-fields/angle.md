@@ -185,7 +185,7 @@ Blockly.FieldAngle.OFFSET = 90;
 ## 创建角度校验器
 
 :::tip
-**注意**：如需查看有关校验器的一般信息，请参阅 [校验器](/guides/create-custom-blocks/fields/validators)。
+**注意**：如需查看有关校验器的一般信息，请参阅 [校验器](/guides/create-custom-blocks/fields/validators.html)。
 :::
 角度字段的值是数字，因此任何校验器都必须接受数字并返回数字 `null`、`undefined`。
 
