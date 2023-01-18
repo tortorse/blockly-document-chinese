@@ -1,6 +1,6 @@
 # 数字字段
 
-数字字段存储一个数字作为其 `value`，并将一个字符串存储为其 `text`。根据创建时为字段提供的 [约束条件](/guides/create-custom-blocks/fields/built-in-fields/label-serializable#constraints)，其 `value` 始终是有效数字；其文本可以是输入到编辑器中的任何字符串。
+数字字段存储一个数字作为其 `value`，并将一个字符串存储为其 `text`。根据创建时为字段提供的 [约束条件](#约束)，其 `value` 始终是有效数字；其文本可以是输入到编辑器中的任何字符串。
 
 #### 数字字段
 
@@ -119,7 +119,7 @@ Blockly.Blocks['example_number'] = {
 ## 创建数字校验器
 
 :::tip
-**注意**：如需查看有关校验器的一般信息，请参阅 [校验器](https://developers.google.com/blockly/guides/create-custom-blocks/fields/validators)。
+**注意**：如需查看有关校验器的一般信息，请参阅 [校验器](/guides/create-custom-blocks/fields/validators.html)。
 :::
 数字字段的值是一个数字，因此任何验证器都必须接受 `number` 并返回 `number`、`null` 或 `undefined`。
 
