@@ -1,6 +1,6 @@
 # 可序列化标签字段 
 
-可序列化标签的工作原理与 [普通标签](/guides/create-custom-blocks/fields/built-in-fields/label) 完全相同，只是还将其序列化为 XML 格式。只有在您要以编程方式修改标签的内容，并且希望将其序列化为 XML 格式时，才应使用这些标签。
+可序列化标签的工作原理与 [普通标签](/guides/create-custom-blocks/fields/built-in-fields/label.html) 完全相同，只是还将其序列化为 XML 格式。只有在您要以编程方式修改标签的内容，并且希望将其序列化为 XML 格式时，才应使用这些标签。
 
 #### 可序列化标签字段
 
