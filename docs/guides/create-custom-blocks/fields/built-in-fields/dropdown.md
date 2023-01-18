@@ -160,7 +160,7 @@ Blockly.Extensions.register('dynamic_menu_extension', function() {
   );
 });
 ```
-此操作使用 JSON [扩展程序](/guides/create-custom-blocks/extensions) 完成。
+此操作使用 JSON [扩展程序](/guides/create-custom-blocks/extensions.html) 完成。
 :::
 ::: tab JavaScript
 
@@ -343,7 +343,7 @@ Blockly.Blocks['dropdown_with_matching'] = {
 ## 创建下拉菜单校验器
 
 :::tip
-**注意**：如需查看有关校验器的一般信息，请参阅 [校验器](/guides/create-custom-blocks/fields/validators)。
+**注意**：如需查看有关校验器的一般信息，请参阅 [校验器](/guides/create-custom-blocks/fields/validators.html)。
 :::
 下拉菜单字段的值是与语言无关的字符串，因此任何验证工具都必须接受字符串并返回字符串_这是一个可用选项_、`null` 或 `undefined`。
 
