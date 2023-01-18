@@ -96,7 +96,7 @@ Blockly.Blocks['example_variable_typed'] = {
 - **变量类型**应为字符串数组。此属性用于告知字段可存储哪些类型的变量（即要向下拉菜单中添加的变量类型）。如果值为 null 或未定义，则系统接受所有变量类型（并将其添加到下拉列表中）。
 - **默认类型**应为字符串。这将在创建字段的初始变量模型时使用。如果已定义，则应将其包含在变量类型数组中。如果此值为 null 或未定义，则此值默认为空字符串，这意味着初始变量可灵活输入。
 
-→ 如需详细了解严格输入，请参阅 [类型检查](/guides/create-custom-blocks/type-checks)。
+→ 如需详细了解严格输入，请参阅 [类型检查](/guides/create-custom-blocks/type-checks.html)。
 
 ## 序列化
 
@@ -147,7 +147,7 @@ Blockly.Blocks['example_variable_typed'] = {
 ## 创建变量校验器
 
 :::tip
-**注意**：如需查看有关校验器的一般信息，请参阅 [校验器](/guides/create-custom-blocks/fields/validators)。
+**注意**：如需查看有关校验器的一般信息，请参阅 [校验器](/guides/create-custom-blocks/fields/validators.html)。
 :::
 变量字段的值是一个字符串，因此任何校验器都必须接受字符串并返回字符串 `null` 或 `undefined`。
 
