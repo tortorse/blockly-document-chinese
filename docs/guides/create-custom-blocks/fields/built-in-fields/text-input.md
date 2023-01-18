@@ -99,7 +99,7 @@ JSON 定义还允许您设置 [拼写检查](#拼写检查) 选项。
 ## 创建文本输入校验器
 
 :::tip
-**注意**：如需查看有关校验器的一般信息，请参阅 [校验器](/guides/create-custom-blocks/fields/validators)。
+**注意**：如需查看有关校验器的一般信息，请参阅 [校验器](/guides/create-custom-blocks/fields/validators.html)。
 :::
 
 ```javascript
