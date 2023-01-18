@@ -72,7 +72,7 @@ Blockly.Blocks['example_image'] = {
 ## 点击处理程序
 
 :::tip
-**注意**：如需查看有关校验器的一般信息，请参阅[校验器](/guides/create-custom-blocks/fields/validators)。
+**注意**：如需查看有关校验器的一般信息，请参阅[校验器](/guides/create-custom-blocks/fields/validators.html)。
 :::
 图片字段不接受验证器，而是明确接受每当用户点击字段时都会调用的函数。也就是说，图片可以像按钮一样存在于按钮上。
 
