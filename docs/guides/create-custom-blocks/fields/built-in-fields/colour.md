@@ -175,7 +175,7 @@ Blockly.Extensions.register('set_colours_extension', function() {
 });
 ```
 
-此操作使用 JSON [扩展程序](/guides/create-custom-blocks/extensions) 完成。
+此操作使用 JSON [扩展程序](/guides/create-custom-blocks/extensions.html) 完成。
 
 :::
 ::: tab JavaScript
@@ -226,7 +226,7 @@ Blockly.FieldColour.COLUMNS = 3;
 ## 创建颜色校验器
 
 :::tip
-**注意**：如需查看有关校验器的一般信息，请参阅 [校验器](/guides/create-custom-blocks/fields/validators)。
+**注意**：如需查看有关校验器的一般信息，请参阅 [校验器](/guides/create-custom-blocks/fields/validators.html)。
 :::
 颜色字段的值为 `#rrggbb` 格式字符串，因此任何验证工具都必须接受 `#rrggbb` 格式的字符串，并返回 `#rrggbb` 格式的字符串、`null` 或 `undefined`。
 
