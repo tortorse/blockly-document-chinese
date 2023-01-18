@@ -73,7 +73,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
         - [x] [Extending an Existing Field 扩展已有字段](./docs/guides/create-custom-blocks/fields/customizing-fields/extending.md) (粗翻)
         - [x] [Upgrading a Custom Field 升级自定义字段](./docs/guides/create-custom-blocks/fields/customizing-fields/upgrading.md) (粗翻)
   - Application Integration 应用集成
-    - [ ] [Best Practices 最佳实践](./docs/guides/app-integration/best-practices.md)(原文)
+    - [x] [Best Practices 最佳实践](./docs/guides/app-integration/best-practices.md)(原文)
     - [ ] [Generating and Running JavaScript 生成并运行 JavaScript](./docs/guides/app-integration/running-javascript.md)(原文)
     - [ ] [Attributing Blockly 源自 Blockly](./docs/guides/app-integration/attribution.md)(原文)
   - Contributing to Blockly 共建 Blockly

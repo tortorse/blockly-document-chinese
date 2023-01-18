@@ -1,115 +1,118 @@
-# Custom Blocks: Best Practices 
-Over the years the Blockly and Blockly Games team has learned many lessons which are applicable to those developing Blockly-based applications. The following are a collection of mistakes we have made, or mistakes commonly made by others.
+# 自定义块: 最佳实践
 
-These are general lessons we've learned using Blockly's visual style and may not apply to all use cases or designs. Other solutions may exist. This is also not an exhaustive list of problems users may encounter and how to avoid them. Every case is a little bit different and may have its own trade-offs.
+多年来，Blockly 和 Blockly Games 团队学到了许多经验，适用于开发基于 Blockly 的应用。下面列出了我们所犯的一些错误，或其他人经常犯的错误。
 
-## 1. Border Style
+这些都是我们通过 Blockly 的视觉风格学习的常规知识，可能并不适用于所有用例或设计。可能存在其他解决方案。下文并未详尽列出用户可能会遇到的问题，以及如何避免这些问题。每种情况都略有不同，并且可能各有利弊。
 
-In the 2000s the 'Aqua' look was in style and every onscreen object was decorated with highlighting and shadows. In the 2010s the 'Material Design' look is in style and every onscreen object is simplified to a clean, flat, borderless shape. Most block programming environments have highlighting and shadows around each block, so when today's graphic designers see this they invariably strip off these outdated decorations.
+## 1. 边框样式
+
+在 2000 年代，Aqua 的外观非常时尚，屏幕上的每个对象都使用高亮和阴影装饰。在 2010 年代，Material Design 的外观风格时尚，每个屏幕上的对象都简化为干净、平坦、无边框的形状。大多数块编程环境在每个块周围都有突出显示和阴影，因此当今的图形设计师看到这一点时，总是会剥离这些过时的装饰。
 
 ![](./mistakes02.png)
 
-As can be seen in the above example of five blocks (from scriptr.io), these 'outdated decorations' are vital for distinguishing connected blocks that are the same colour.
+从上面的五个块（来自 scriptr.io）中我们可以看到，这些过时的装饰对于区分相同颜色的相连块至关重要。
 
-*Recommendation: If reskinning Blockly, don't let today's fashions break your app.*
+_建议：如果对 Blockly 进行皮肤更换，不要让当今的时尚破坏您的应用。_
 
-## 2. Nesting sub-stacks
-'C'-shaped blocks invariably have a connector on the inside-top, but some environments also have a connector on the inside bottom (e.g. Wonder Workshop) whereas others do not (e.g. Blockly and Scratch). Since most statement blocks have both a top and bottom connector, some users do not immediately see that statements will fit inside a 'C' that does not have a bottom connector.
+## 2. 嵌套子堆栈
+
+“C” 形的形状在内侧始终都有连接器，但有些环境的内侧还有连接器（如 Wonder Workshop），而有些环境则没有（例如 Blockly 和 Scratch）。由于大多数语句块同时具有顶部和底部连接器，因此有些用户不会立即发现语句会生长在没有底部连接器的 “C” 中。
 
 ![](./mistakes03a.png)
 
-Once users figure out that one statement block fits inside a 'C', they then need to figure out that more that one statement will also fit. Some environments nest the first statement's lower connection into the bottom of the 'C' (e.g. Wonder Workshop and Scratch) whereas others leave a small gap (e.g. Blockly). Snug nesting leaves no hint that more blocks can be stacked.
+一旦用户发现某个语句块位于 “C” 中，他们需要知道该语句中也存在一个语句块。一些环境会将第一条语句的较低层嵌套在 “C” 中（例如 Wonder Workshop 和 Scratch），而有些环境则会留有小的空白（例如 Blockly）。舒适的嵌套不会留下任何提示，指出可以堆叠更多块。
 
 ![](./mistakes03b.png)
 
-These two issues interact badly with each other. If an inside bottom connector exists (Wonder Workshop) then the initial statement's connection is made more obvious, but at the expense of the ability to discover stacking. If no inside bottom connector exists (Blockly) then the initial statement's connection is not obvious, but stacking is discoverable. Having no inside bottom connector and nesting the statement's bottom connector (Scratch) fared the worst for discoverability when tested with Blockly.
+这两个问题会相互影响。如果存在内部连接器（Wonder Workshop），则初始语句的连接会更加明显，但会牺牲发现堆栈的能力。如果底部连接器内不存在 (Blockly)，那么初始语句的连接并不明显，但堆栈是可以发现的。使用 Blockly 进行测试时，如果没有底部连接器并且嵌套语句的底部连接器（Scratch）会让用户最难发现它。
 
-Our experience was that the initial statement's connection is a lesser challenge for users than discovering stacking. And once discovered, the former is never forgotten, whereas the latter needs prompting. Blockly tried both the Wonder Workshop and the Scratch approaches until one day a rendering bug occurred which added the small gap. We saw a marked improvement in user studies with Blockly due to this bug (now a 'feature' we are proud of).
+根据我们的经验，相较于发现堆栈，初始声明对用户的挑战较小。一旦发现，前者永远不会忘记，而后者需要提醒。Blockly 曾尝试使用 Wonder Workshop 和 Scratch 所采取的方法，直到有一天发生了渲染错误，导致细微的差距。由于这个错误（现在是我们引以为豪的“功能”），我们看到 Blockly 的用户研究有了显着改善。
 
-*Recommendation: If reskinning Blockly, leave the existing stacking UI.*
+_建议：如果重新换肤 Blockly，请保留现有的堆叠 UI。_
 
-## 3. Symmetric Connections
-Blockly has two different connection types: the horizontal puzzle shapes and the vertical stacking notches. A good user interface should strive to minimize the number of design elements. Accordingly, many designers try to make both connection types look the same (as shown below).
+## 3. 对称连接
+
+Blockly 有两种不同的连接类型：水平拼图形状和垂直堆叠槽口。一个好的用户界面应该尽量减少设计元素的数量。 因此，许多设计人员试图使两种连接类型看起来相同（如下所示）。
 
 ![](./rotate.png)
 
-The result creates confusion among new users as they search for ways to rotate blocks so that they can fit into incompatible connections. Blockly makes programming elements visual and tangible, so one has to be mindful of inadvertantly suggesting user interactions which are not supported.
+结果在新用户中造成混淆，因为他们正在寻找旋转块的方法，以便它们可以适应不兼容的连接。Blockly 使编程元素可视化和有形化，因此必须注意无意中建议不支持的用户交互。
 
-Accordingly, Blockly uses a tightly-fitting puzzle shape for value connections, and a visually distinct alignment notch for statement stacking.
+因此，Blockly 使用紧密贴合的拼图形状来进行值连接，并使用视觉上明显的对齐缺口来进行语句堆叠。
 
-*Recommendation: If reskinning Blockly, ensure horizontal and vertical connections look different.*
+_建议：如果重新换肤 Blockly，确保水平和垂直连接看起来不同。_
 
-## 4. Variable and Function Names
+## 4. 变量和函数名称
 
 ![](./mistakes09.png)
 
-Novice programmers do not expect that `location_X` and `location_x` are different variables. As a result, Blockly follows the lead of BASIC and HTML by making variables and functions case-insensitive. Scratch uses a more subtle approach (as seen to the right) and is case-sensitive for variable names but not for equality checks.
+新手程序员不会期望 `location_X` 和 `location_x` 是不同的变量。 因此，Blockly 通过使变量和函数不区分大小写来效仿 BASIC 和 HTML。 Scratch 使用了一种更微妙的方法（如上图所示），并且对变量名区分大小写，但对相等性检查不区分大小写。
 
-Also, Blockly does not require that variables and functions conform to the typical `[_A-Za-z][_A-Za-z0-9]*` scheme. If one wants to name a variable `List of zip codes` or `רשימת מיקודים `that is perfectly alright.
+此外，Blockly 不要求变量和函数符合典型的 `[_A-Za-z][_A-Za-z0-9]*`方案。 如果有人想命名一个变量 `List of zip codes` 或 `רשימת מיקודים`，那完全没问题。
 
-*Recommendation: Ignore case, allow any names.*
+_建议：不区分大小写，允许使用任何名称。_
 
-## 5. Global Variables
-Novice programmers also have difficulties understanding scope. As a result, Blockly follows the lead of Scratch by making all variables global. The only down-side of global variables is that recursion is trickier (one has to push and pop variables onto a list), but that's a programming technique that's beyond the scope of Blockly's target users.
+## 5. 全局变量
 
-*Recommendation: Scope is out of scope, leave it for later.*
+新手程序员也很难理解作用域。 因此，Blockly 通过将所有变量设为全局变量来效仿 Scratch。 全局变量的唯一缺点是递归比较棘手（必须将变量推入和弹出到列表中），但这是一种超出 Blockly 目标用户范围的编程技术。
 
-## 6. Instructions
+_Recommendation: 超出范围，请保留以备后用。_
 
-Blockly Games is specifically designed to be self-teaching, no teacher or lesson plan needed. To accomplish this, the first version of Blockly Games had instructions on each level. Most students would not read them. We reduced them to a single sentence, increased the font size, and highlighted them in a yellow bubble. Most students would not read them. We created modal popups with the instructions. Most students instinctively closed the popups without reading them, then were lost.
+## 6. 操作说明
+
+Blockly Games 专为自学而设计，无需教师或课程计划。为实现这一目标，Blockly Games 的第一个版本在每个级别都有说明。大多数学生不会阅读它们。我们将它们缩减为一个句子，增加字体大小，并用黄色气泡突出显示它们。大多数学生不会阅读它们。我们按照相关说明创建了模态弹出窗口。大多数学生在没有阅读的情况下本能地关闭了弹出窗口，然后就迷失了。
 
 ![](./mistakes06.png)
 
-Finally we created popups that cannot be closed. They are programmed to monitor the student's actions and only close themselves when the student has performed the required action. These contextually-aware popups are challenging to program, but quite effective. It was also important for them to be in the field of view without interfering with the workspace.
+最后，我们创建了无法关闭的弹出式窗口。这些程序经过编程，可监控学生的操作，且仅在学生执行所需的操作后关闭自己。这些情境感知弹出式窗口对程序而言很困难，但非常有效。另外，在不干扰工作区的情况下，对他们来说也很重要。
 
-*Recommendation: Instructions should be short and persistent, but not obnoxious.*
+_建议：说明应简短而持久，但不要令人心生厌恶_
 
-## 7. Code ownership
+## 7. 代码归属
 
-Exercises designed to teach a specific concept often provide partial solutions which the student needs to modify to reach the desired effect. A class of non-editable, non-movable, non-deletable blocks was created in Blockly to support this. However, students hated these fill-in-the-blank exercises. They have no sense of ownership over the solution.
+旨在教授特定概念的练习通常提供部分解决方案，学生需要对其进行修改以达到预期效果。Blockly 中创建了一类不可编辑、不可移动、不可删除的块来支持这一点。然而，学生们讨厌这些填空题。他们不对此解决方案拥有归属感。
 
 ![](./mistakes07.png)
 
-Designing free-form exercises that teach the same concepts is more challenging. One technique that has proven successful is to use the student's own solution for one exercise as the starting point for the next exercise.
+设计教授相同概念的自由形式练习更具挑战性。一种已被证明成功的方法是使用学生自己的一个练习的解决方案作为下一个练习的起点。
 
-*Recommendation: Don't write code for the user.*
+_建议：不要为用户编写代码。_
 
-8. Workspace layout
+8. 工作区布局
 
-There are two reasonable ways to layout a screen from left to right. One way starts with the toolbar on the left, the workspace in the middle, and the output visualization on the right. This layout is used by version 1 of Scratch, as well as Made with Code.
+从左到右布局屏幕有两种合理的方式。一种方法是从左侧的工具栏、中间的工作区和右侧的可视化输出开始。此布局由 Scratch 的版本 1 以及 Made with Code 使用。
 
 ![](./mistakes08a.png)
 
-The other way starts with the output visualization on the left, the toolbar in the middle, and the workspace on the right. This layout is used by version 2 of Scratch, as well as most Blockly applications.
+另一种方式从左侧的可视化输出开始，中间是工具栏，右侧是工作区。 这种布局被 Scratch 的版本 2 以及大多数 Blockly 应用程序使用。
 
 ![](./mistakes08b.png)
 
-In either case the workspace should stretch to take up available screen size -- users need as much room to program as they can get. As can be seen in the screenshots above, the first layout performs poorly on wide screens since the user's code and the output visualization are separated. Whereas the second layout allows for extra space for larger programs while still keeping all three sections close together.
+在任何一种情况下，工作区都应该伸展以占用可用的屏幕大小——用户需要尽可能多的空间来进行编程。 从上面的屏幕截图可以看出，第一个布局在宽屏幕上表现不佳，因为用户代码和输出可视化是分开的。 而第二种布局允许为更大的程序提供额外的空间，同时仍将所有三个部分保持在一起。
 
-It also makes logical sense for users to first consider the problem they are attempting to solve, then look at the tools that are provided, and only then start programming.
+对于用户来说，首先考虑他们试图解决的问题，然后查看提供的工具，然后才开始编程也是合乎逻辑的。
 
-Of course the entire order needs to be flipped for Arabic and Hebrew translations.
+当然，对于阿拉伯语和希伯来语翻译，整个顺序需要翻转。
 
-In some cases, such as when using a small number of simple blocks, it may make sense for the toolbox to be above or below the workspace. Blockly supports horizontal scrolling in the Toolbox for these cases, but it should be used with care.
+在某些情况下，例如在使用少量简单块时，工具箱位于工作区上方或下方可能是有意义的。 对于这些情况，Blockly 支持工具箱中的水平滚动，但应谨慎使用。
 
-*Recommendation: Place the program visualization next to the toolbar.*
+_建议：将程序可视化放置在工具栏旁边。_
 
-## 9. Exit strategy
+## 9. 退出策略
 
-Block-based programming is often a starting point for programming. In the context of teaching computer programming, it is a gateway drug that gets students addicted, before moving them on to harder things. How long this block-based programming period should last for students is hotly debated, but if your goal is to teach programming it should be temporary.
+基于块的编程通常是编程的起点。在教授计算机编程的背景下，它是一种入门药物，可以让学生上瘾，然后再将他们转移到更难的事情上。关于基于块的编程期应该持续多久，引发了热烈的讨论，但如果你的目标是教授编程，那它应该是暂时的。
 
 Given this, block-based programming environments used for teaching programming must have an off-ramp appropriate to their students. Blockly Games has four strategies:
 
 ![](./mistakes99.png)
 
-1. All text on the blocks (e.g. "if", "while") is lowercase to match text-based programming languages.
+1. 块上的所有文本（例如“if”、“while”）都是小写的，以匹配基于文本的编程语言。
 
-2. The JavaScript version of the student's code is always displayed after each level to increase familiarity.
+2. 每次学习后，系统始终会显示学生代码的 JavaScript 版本，以增加熟悉程度。
 
-3. In the penultimate game the block text is replaced with actual JavaScript (as shown to the right). At this point the student is programming in JavaScript.
+3. 在倒数第二个游戏中，块文本被替换为实际的 JavaScript（如上图所示）。此时，学生正在使用 JavaScript 进行编程。
+4. 在终极游戏中，块编辑器被文本编辑器取代。
 
-4. In the ultimate game the blocks editor is replaced with a text editor.
+用于编程教学的基于块的编程环境需要有一个具体的学生毕业计划。 稳固的退出策略对于安抚那些认为基于块的编程不是“真正的编程”的人也大有帮助。
 
-Block-based programming environments used for teaching programming need to have a concrete plan for graduating their students. A solid exit strategy also goes a long way towards placating those who argue that block-based programming isn't "real programming".
-
-*Recommendation: Consider the user's end goals and design appropriately.*
+_建议：考虑用户的最终目标并适当设计。_
