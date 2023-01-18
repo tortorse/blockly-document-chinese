@@ -22,7 +22,7 @@ JSON 序列化系统由多个序列化器组成。其中提供了块和变量的
 
 JSON 系统具有明确的反序列化顺序，可让您更轻松地防止在保存过程中出现重复状态。
 
-调用 `Blockly.serialization.workspaces.load` 时，系统会按照_优先级_为序列化器提供状态来反序列化。[序列化器](/guides/configure/serialization#serializer_hooks) 部分对此做了进一步说明，其目的是允许序列化器依赖于来自其他系统的状态。
+调用 `Blockly.serialization.workspaces.load` 时，系统会按照_优先级_为序列化器提供状态来反序列化。[序列化器](/guides/configure/serialization#serializer_hooks.html) 部分对此做了进一步说明，其目的是允许序列化器依赖于来自其他系统的状态。
 
 内置序列化器的反序列化顺序如下：
 
@@ -33,7 +33,7 @@ JSON 系统具有明确的反序列化顺序，可让您更轻松地防止在保
 
     b.  **属性是反序列化的。** 这包括可以应用于任何块的属性。例如：x、y、已收起、已停用、数据等。
 
-    c.  **Extra 状态是反序列化的。** 如需了解详情，请参阅 [扩展程序和转变器](/guides/create-custom-blocks/extensions) 文档。
+    c.  **Extra 状态是反序列化的。** 如需了解详情，请参阅 [扩展程序和转变器](/guides/create-custom-blocks/extensions.html) 文档。
 
     d.  **代码块连接到其父项（如果存在）。**
 
@@ -57,7 +57,7 @@ JSON 系统具有明确的反序列化顺序，可让您更轻松地防止在保
 
 ### 块钩子
 
-如需了解如何向块添加额外的序列化内容，请参阅 [扩展程序和变形器](/guides/create-custom-blocks/extensions) 文档。
+如需了解如何向块添加额外的序列化内容，请参阅 [扩展程序和变形器](/guides/create-custom-blocks/extensions.html) 文档。
 
 ### 字段钩子
 
@@ -86,7 +86,7 @@ Blockly.serialization.registry.register(
 - 用于对与序列化器关联的插件/系统的状态执行 `save` 的函数。
 - 用于对状态应用 `clear` 的函数。
 - 用于对状态应用 `load` 的函数。
-- `priority`，用于确定[反序列化顺序](https://developers.google.com/blockly/guides/configure/web/serialization#deserialization_order)。
+- `priority`，用于确定[反序列化顺序](/guides/configure/serialization.html#反序列化顺序)。
     
     您可以根据[内置优先级](https://developers.google.com/blockly/reference/js/blockly.serialization_namespace.priorities_namespace)来确定序列化器的优先级
     
@@ -128,11 +128,11 @@ Blockly.serialization.registry.register(
 
 ### 块钩子
 
-如需了解如何向块添加额外的序列化内容，请参阅[扩展程序和转变器](/guides/create-custom-blocks/extensions)文档。
+如需了解如何向块添加额外的序列化内容，请参阅[扩展程序和转变器](/guides/create-custom-blocks/extensions.html)文档。
 
 ### 字段钩子
 
-如需了解如何对字段进行序列化，请参阅 [自定义字段](/guides/create-custom-blocks/fields/customizing-fields/creating.html#serialization) 文档。
+如需了解如何对字段进行序列化，请参阅 [自定义字段](/guides/create-custom-blocks/fields/customizing-fields/creating.html#序列化) 文档。
 
 ## 在 JSON 和 XML 之间进行选择
 
