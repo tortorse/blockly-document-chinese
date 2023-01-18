@@ -42,13 +42,6 @@ module.exports = {
       {
         ga: 'UA-210262342-1' // UA-00000000-0
       }
-    ],
-    [
-      ('@vuepress/pwa',
-      {
-        serviceWorker: true,
-        updatePopup: true
-      })
     ]
   ],
   dest: 'public',
