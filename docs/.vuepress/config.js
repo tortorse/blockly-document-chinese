@@ -369,7 +369,7 @@ module.exports = {
               path: '/guides/app-integration/running-javascript'
             },
             {
-              title: '源自 Blockly',
+              title: '整体归因',
               path: '/guides/app-integration/attribution'
             }
           ]

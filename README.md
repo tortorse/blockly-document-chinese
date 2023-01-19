@@ -75,7 +75,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
   - Application Integration 应用集成
     - [x] [Best Practices 最佳实践](./docs/guides/app-integration/best-practices.md)(粗翻)
     - [x] [Generating and Running JavaScript 生成并运行 JavaScript](./docs/guides/app-integration/running-javascript.md)(原文)
-    - [ ] [Attributing Blockly 源自 Blockly](./docs/guides/app-integration/attribution.md)(原文)
+    - [x] [Attributing Blockly 整体归因](./docs/guides/app-integration/attribution.md)(原文)
   - Contributing to Blockly 共建 Blockly
     - [x] [overview 总览](./docs/guides/contribute/README.md) (粗翻)
     - Get started 入门
