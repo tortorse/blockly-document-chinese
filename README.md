@@ -93,8 +93,8 @@ Blockly 官方站点: <https://developers.google.com/blockly>
       - [x] [Building 构建 构建](./docs//guides/contribute/core/building.md) (粗翻)
       - [x] [Advanced Compilation 进阶编译](./docs/guides/contribute/core/advanced.md) (粗翻)
       - Translating (粗翻)
-        - [x] [overview 总览](./docs/guides/contribute/core/translating.md)
-        - [x] [Klingon](./docs/guides/contribute/core/klingon.md) (原文)
+        - [x] [overview 总览](./docs/guides/contribute/core/translating.md) (粗翻)
+        - [x] [Klingon](./docs/guides/contribute/core/klingon.md) (粗翻)
       - [x] [Unit Testing 单元测试](./docs/guides/contribute/core/unit_testing.md)
     - Contributing to Samples 贡献样例
       - [x] [Overview 总览](./docs/guides/contribute/samples/README.md) (粗翻)
