@@ -1,29 +1,28 @@
-# Klingon
+# 克林贡语
 
-On 1 April 2014 we released a [Klingon translation of Blockly](https://blockly-demo.appspot.com/static/demos/code/index.html?lang=tlh#ortpyd). Klingon is an unusual choice for a translation, and on this page we wanted to give some context on the hows and whys, as well as how you can help.
+2014 年 4 月 1 日，我们发布了 [Blockly 克林贡语翻译](https://blockly-demo.appspot.com/static/demos/code/index.html?lang=tlh&hl=zh-cn#ortpyd)。在翻译方面，克林贡语并不是一个常见的选项。在本页面中，我们希望提供一些怎么做和为什么的上下文，以及您可以如何提供帮助。
 
 ![](./klingon.png)
 
-## Why?
+## 为什么?
 
-Blockly has been translated into over 40 languages, including RTL languages such as Arabic and Hebrew. We feel that it is important that novice programmers are able to learn the fundamentals of programming in their own language, before making the transition to conventional English-based programming languages.
+Blockly 已被翻译成 40 多种语言，包括阿拉伯语和希伯来语等 RTL 语言。我们认为，新手程序员必须能够先用自己的语言学习编程的基础知识，然后再过渡到传统的英语编程语言。
 
-Klingon is a real language in every sense of the word. It is not just a collection of made-up words thrown together for a movie. Instead, it has been crafted by linguists over the course of decades. The Klingon language has a complicated grammar that is completely unique.
+从任何意义来说，克林贡语都是真实的语言。这不仅仅是一部影片中堆砌的词语。相反，语言是语言学家几十年来创造的。克林贡语的语法十分复杂，而且完全是独一无二的。
 
-Consider word order. English follows the Subject-Verb-Object order ("The cat eats the food."). Hungarian follows the Object-Subject-Verb order ("The food the cat eats."). Hebrew follows the Verb-Subject-Object order ("Eats the cat the food."). Klingon is the most bizarre, with Object-Verb-Subject order ("The food eats the cat."). Supporting Klingon is the ultimate test of Blockly's flexibility. Block inputs need to be reordered, suffix groups need to be added, rules for plurals need to be rethought. Infrastructure improvements made during the course of translating to Klingon help us support all languages.
+考虑字词顺序。英语遵循 Subject-Verb-Object 顺序（“猫吃东西”）。匈牙利人遵循对象-动词顺序（“猫吃的食物”）。希伯来语遵循动词-对象-顺序（“吃猫食物”）。克林贡语是最奇怪的，按“对象-动词-主题”顺序（“食物吃了猫”）。支持克林贡语是 Blockly 的灵活性的极限测试。块输入需要重新排序，需要添加后缀组，需要重新考虑复数规则。在翻译成克林贡语期间进行的基础架构改进有助于我们支持所有语言。
 
-## Who?
+## 谁?
 
-The number of Google employees who are fluent in Klingon is larger than one might expect (and we are hiring). Google's Klingon language group maintains a style guide for terminology so that different applications use a consistent vocabulary.
+精通克林贡语的 Google 员工人数远超预期（我们正在招聘）。Google 的克林贡语语言组维护了术语的风格指南，以便不同的应用使用一致的词汇。
 
-We are always pleased when volunteers come forward to contribute new translations or corrections -- whether for Klingon, or other languages.
+我们随时乐于为志愿者提供新的翻译或更正，无论是克林贡语还是其他语言。
+## 怎么做?
 
-## How?
+[Blockly 的大多数翻译](/guides/contribute/core/translating.html) 是由志愿者使用 Translatewiki 完成的。遗憾的是，克林贡语不在他们的语言矩阵中。因此，克林贡语 贡献者需要手动编辑两个文件：
 
-Most of [Blockly's translations](/guides/contribute/core/translating) are done by volunteers using Translatewiki. Unfortunately, Klingon is not in their language matrix. As a result, Klingon contributors need to edit two files manually:
+[msg/json/tlh.json](https://github.com/google/blockly/blob/master/msg/json/tlh.json) 和 [demos/code/msg/tlh.js](https://github.com/google/blockly/blob/master/demos/code/msg/tlh.js)
 
-[msg/json/tlh.json](https://github.com/google/blockly/blob/master/msg/json/tlh.json) and [demos/code/msg/tlh.js](https://github.com/google/blockly/blob/master/demos/code/msg/tlh.js)
+请参阅每个目录中的 `en` 文件，了解英语短语（包括尚未翻译为克林贡语的短语）。我们非常不希望翻译提示消息或帮助网址，除非它们为克林贡语提供有用的上下文。
 
-See the `en` files in each directory for the English phrases (including those not yet translated to Klingon). We actively do not want tooltip messages or help URLs translated since they offer useful context for those new to Klingon.
-
-All phrases _must_ be manually translated. Bing Translate produces such translations as `"Library" -> "be'nI''a'wI', Datu'"` which actually means `"discover my big sister"`. Clearly this would be an inadvisable phrase to use in a Klingon environment.
+所有短语 _必须_ 手动翻译。Bing Translate 会生成 `"Library" -> "be'nI''a'wI', Datu'"` 这类翻译，实际上表示 `"discover my big sister"`。显然，在克林贡语环境中不建议这样做。
