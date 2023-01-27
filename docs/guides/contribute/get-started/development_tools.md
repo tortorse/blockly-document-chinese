@@ -1,4 +1,4 @@
-# Development tools
+# 开发工具
 
 Blockly 使用一些工具和库进行开发，包括 Git、npm 和 Closure Compiler。本节将提供每个工具的一些基本描述，以及指向您可以找到有关每个工具的更多信息的链接。
 

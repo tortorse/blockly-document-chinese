@@ -1,69 +1,69 @@
-# Writing a Good Pull Request
+# 编写良好的拉取请求
 
-Pull requests are like the life blood of a repository. They keep everything healthy and moving. This page details how to create a PR that is complete and easy to review, which makes it more likely that your PR will get merged.
+拉取请求就像是存储库的生命线。它们让一切都保持健康，并持续运动。本页面详细介绍了如何创建完整且易于审核的 PR，从而使您的 PR 合并的可能性更高。
 
-Here are steps you can take to make sure you create the best PR possible.
+您可以采取以下步骤，确保您尽可能获得最佳的 PR 结果。
 
-1.  [Communicate](/guides/contribute/get-started/write_a_good_issue#communicate-1)
-2.  [Get Set Up](/guides/contribute/get-started/write_a_good_issue#get-set-up)
-3.  [Keep it Small](/guides/contribute/get-started/write_a_good_issue#keep-it-small)
-4.  [Keep it Clean](/guides/contribute/get-started/write_a_good_issue#keep-it-clean)
-5.  [Test your Change](/guides/contribute/get-started/write_a_good_issue#test-your-change)
-6.  [Communicate (pt2)](/guides/contribute/get-started/write_a_good_issue#communicate-2)
+1. [沟通](#沟通)
+2. [开始设置](#二次沟通)
+3. [保持小范围](#保持小范围)
+4. [保持整洁清晰](#保持整洁清晰)
+5. [测试更改](#测试你的变更)
+6. [二次沟通](#二次沟通)
 
-### Communicate
+### 沟通
 
-Before you jump in and start writing code, it's helpful to communicate with the core team so they know what you're interested in.
+在您开始编写代码之前，与核心团队进行沟通很有帮助，这样他们就会知道您对什么感兴趣。
 
-If there is an issue you are interested in, put a comment on the issue saying you're going to start to work on it. This makes sure that we don't have multiple people working on the same thing. A team member will respond to confirm that it's yours.
+如果您对某个问题感兴趣，请在评论中注明您要开始解决的问题。这样可以确保不会有多人同时处理同一件事。团队成员会进行回复，以确认这是否是您本人所为。
 
-If you have an idea which is not covered by an issue, please [write one up](/guides/modify/contribute/write_a_good_issue) before you begin work. This gives the team a chance to discuss how best to build out the change _before_ you start building, which saves you work in the long run.
+如果您有想法未包含在问题中，请在开始工作之前[写一个](/guides/contribute/get-started/write_a_good_issue.html)。这样，该团队就有机会在开始构建之前讨论如何最有效地构建更改，从长远来看可以节省工作量。
 
-### Get Set Up
+### 进行设置
 
-If this is your first time contributing to Blockly or blockly-samples, start at the [development setup](/guides/modify/development_setup) page.
+如果这是您首次为 Blockly 或 blockly-samples 贡献代码，请从 [开发设置](/guides/contribute/get-started/development_tools.html) 页面开始。
 
-### Keep it Small
+### 保持小范围
 
-Always try to keep your changes small and focused. We would much rather review multiple smaller PRs than review one giant PR. Some good rules of thumb are:
+请尽量尝试保持较小的更改并保持专注。我们更倾向于审核多个较小的 PR，而不是审核一个大型 PR。一些好的经验法则：
 
-- **Fix one problem.** Don't try to tackle multiple issues at once.
-- **Limit the scope.** Usually a PR should take < 8hrs (depending on your familiarity with the codebase).
-- **Use commits.** If your PR feels a little big, split the changes into logical groups using git commits.
+- **修正一个问题。** 请勿尝试同时解决多个问题。
+- **限制范围。** 通常，PR 应该不到 8 小时（具体取决于您对代码库的熟悉程度）。
+- **使用提交内容**。 如果 PR 感觉有点大，请使用 Git 提交功能将更改拆分成逻辑组。
 
-### Keep it Clean
+### 保持整洁清晰
 
-Why care about code style? We're in it for the long term, and consistent style makes maintenance easier. Style refers to how you name your variables, but also covers how you structure your code, write comments, and more. Where possible we use tools such as eslint to automate style checks.
+为何关注代码风格？从长远来看，这是我们的一贯目标，一致的风格可以简化维护。风格涉及如何命名变量，但也介绍了如何构建代码、如何编写注释等。我们会尽可能使用 eslint 等工具自动进行样式检查。
 
-In addition to eslint, please follow these guides:
+除了 eslint，请遵循以下指南：
 
-- [Google JavaScript style guide](https://google.github.io/styleguide/jsguide.html).
-- [Commit Message Guide](/guides/contributing/commits)
-- [Guidelines on Using Blockly APIs](/guides/plugins/using_blockly_apis)
-- [Codelab style guide](https://github.com/google/blockly-samples/wiki/Writing-a-Codelab#writing-tips)
+- [Google JavaScript 风格指南](https://google.github.io/styleguide/jsguide.html)。
+- [提交消息指南](/guides/contribute/get-started/commits.html)
+- [Blockly API 使用准则](/guides/configure/advanced/using_blockly_apis.html)
+- [Codelab 风格指南](https://github.com/google/blockly-samples/wiki/Writing-a-Codelab#writing-tips)
 
-### Test your Change
+### 测试更改部分
 
-Before you put up a PR you should always test that your changes are working, so that you don't have to go back and fix things later. Here are some ideas for testing the different categories of projects:
+在发布 PR 之前，您应始终测试更改是否有效，这样您便无需返工并事后解决问题。以下是测试不同类别项目的一些方法：
 
-- For **plugins**: write automated mocha tests covering your changes.
-- For **examples**: manually test all of your demonstrated functionality.
-- For **codelabs**: run through the entire tutorial in a clean environment and test any example code you provide.
+- 对于**插件**：编写覆盖更改的自动化 Mocha 测试。
+- **示例**：手动测试所有已演示的功能。
+- 对于 **Codelab**：在整洁的环境中运行整个教程，并测试您提供的任何示例代码。
 
-### Communicate
+### 二次沟通
 
-This is the last and arguably the most important part of creating a PR: writing the summary.
+这是创建 PR 的最后一个环节，可以说是最重要的环节：撰写摘要。
 
-Writing a great PR summary helps other developers review your changes, making it more likely that it will get accepted faster!
+撰写优质的 PR 摘要有助于其他开发者查看您的更改，提高其被接受的可能性！
 
-Your summary should include things like:
+摘要应包含以下内容：
 
-- What issue your PR is related to.
-- What change your PR adds.
-- How you tested your change.
-- Anything you want reviewers to scrutinize.
-- Any other information you think reviewers need.
+- 您的 PR 相关问题。
+- 您的 PR 添加哪些更改。
+- 您测试更改的方式。
+- 任何您想要评审者仔细审查的内容。
+- 您认为评审人员需要的任何其他信息。
 
-If you follow the PR template when your create your request you should be good to go. Just remember to be as **concise** and **complete** as possible.
+如果您在创建请求时遵循 PR 模板，应该可以顺利完成。请记得尽可能**简洁**且**完整**。
 
-Happy Coding!
+编码愉快！
