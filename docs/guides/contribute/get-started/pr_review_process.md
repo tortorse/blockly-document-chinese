@@ -1,63 +1,76 @@
-# The Code Review Process
-### Goals
+# 代码评审流程
 
-Our review process has several goals:
+### 目标
 
--   **Ensure high quality code**, in both functionality and readability.
--   **Catch bugs**, because bugs happen.
--   **Maintain consistent style** so that it's easy to start working in any part of the codebase.
+我们的评审流程包含多个目标：
 
-All of the code that goes into [blockly-samples](https://www.github.com/google/blockly-samples) and [core Blockly](https://www.github.com/google/blockly) goes through review, whether it's written by community contributors or Blockly team members.
+- 在功能和可读性方面都**确保实现高质量的代码**。
+- **发现 bug**，因为会发生错误。
+- **保持一致的风格**，以便在代码库的任何部分轻松开始工作。
 
-As reviewers, we aim to work with you to make your change as good as possible. We ask that you, as contributors, engage in conversation with us to get your pull requests through review and merged.
+无论是由社区贡献者还是 Blockly 团队成员编写，放入 [blockly-samples](https://www.github.com/google/blockly-samples) 和 [core Blockly](https://www.github.com/google/blockly) 的所有代码都会经过评审。
 
-# The Process
+作为评审者，我们的目标是与您合作，帮助您尽可能改善所做更改。 作为贡献者，请您与我们交流，通过评审并合并您的拉取请求。
 
-The PR review process goes through a few stages:
+# 流程
 
-1.  [Assignment](/guides/contribute/get-started/pr_review_process#assignment)
-2.  [Feedback](/guides/contribute/get-started/pr_review_process#feedback)
-3.  [Discussion](/guides/contribute/get-started/pr_review_process#discussion)
-4.  [Revision](/guides/contribute/get-started/pr_review_process#revision)
-5.  [Repetition](/guides/contribute/get-started/pr_review_process#repeat)
-6.  [Merge!](/guides/contribute/get-started/pr_review_process#merge)
+PR 评审流程分为几个阶段：
 
-## Assignment
+1.  [分配](#分配)
+2.  [反馈](#反馈)
+3.  [讨论](#讨论)
+4.  [修订](#修订)
+5.  [复核](#复核)
+6.  [合并！](#合并)
 
-When your pull request comes in, the on-call member of the Blockly team assigns a reviewer.
+## 分配
 
-Reviewers are chosen based on expertise and to evenly distribute workload.
+拉取请求传入时，Blockly 团队的值班成员会分配评审者。
 
-It may take a few days to get a reviewer assigned, and a few more days to get a review. Don't worry, this is normal.
+评审人员是系统根据专业知识挑选和均匀分配工作负载的。
 
-## Feedback
+分配评审者可能需要几天时间，而获得评审可能需要几天时间。不用担心，这是正常现象。
 
-During the feedback stage a reviewer leaves suggestions for changes on your PR. These could be simple things to make your code conform to the [Google JavaScript style guide](https://google.github.io/styleguide/jsguide.html). Or they could be larger things like asking you to reorganize your function definitions.
+## 反馈
 
-Reviewers are encouraged to use [GitHub's code reviews](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/reviewing-proposed-changes-in-a-pull-request#starting-a-review) (rather than making individual comments) so that you receive a single notification instead of several.
+在反馈阶段，评审者会针对您的 PR 提出更改建议。 这可能很简单，可让您的代码符合 [Google JavaScript 风格指南](https://google.github.io/styleguide/jsguide.html)。 或者，也可能是大型任务，例如要求您重新整理函数定义。
 
-## Discussion
+我们鼓励评审者使用 [GitHub 的代码评审](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/reviewing-proposed-changes-in-a-pull-request#starting-a-review)（而不是逐一评审），以便只收到一条通知，而不是多条通知。
 
-The discussion phase is your chance to respond to the feedback. Maybe one of the review comments wasn't clear: now is your chance to ask for clarification. Or maybe your reviewer requested a change, but you think it will have repercussions: now is your chance to find a compromise.
+## 讨论
 
-**Note:** For this to work, both parties need to go into the discussion with a spirit of **collaboration**. The goal is not to "win" but to make something you're both proud of.
+在讨论阶段，您有机会对反馈进行回复。也许其中一条评审评论不明确：现在是您澄清理由的机会。或者，虽然评审者提出了更改请求，但您认为更改会产生影响：现在是您寻求妥协的机会。
 
-## Revision
+:::tip
+**注意**：为实现上述目标，双方需要本着 **协作** 的精神展开讨论。我们的目标不是“谁胜谁负”，而是让双方都引以为傲。
+:::
 
-The revision phase is where you get to make changes to your PR. Usually these changes are a result of something your reviewer has said in the feedback phase.
+## 修订
 
-Once you have completed your revisions it can be helpful to [tag](https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams) your reviewer asking them to take another look.
+在修改阶段，您可以更改 PR。这些修改通常是评审人员在反馈阶段说过的内容。
 
-**Note:** discussion and revision may happen at the same time.
+完成修订后，加上 [tag](https://help.github.com/zh/github/writing-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams) 以提醒评审人员再看一眼是比较有益的行为。
 
-## Repetition
+:::tip
+**注意**：讨论和修订可能会同时进行。
+:::
+
+## 复核
 
 After the revision phase your reviewer has another chance to give [feedback](/guides/contribute/get-started/pr_review_process#feedback), and the process starts from the beginning.
 
 Often a second review is simple and focuses on nits such as punctuation and code style. But sometimes a second review can be quite big. Your first reviewer may even ask someone else to take a look, to get a fresh perspective.
 
-## Merge!
+在修订阶段结束后，评审者将有机会再次提供 [反馈](#反馈)，并且评审流程会从头开始。
+
+通常，第二次评审非常简单，而且侧重于一些细枝末节（例如标点符号和代码样式）。但有时，第二次评审可能会变得相当大。您的第一位评审者甚至可能会让其他人来看看，以便获得新的视角。
+
+## 合并!
 
 The merge phase is your chance to **celebrate**. You've created a change, discussed and revised it, and finally gotten it merged! This is a grand achievement that many people never start, let alone complete!
 
 Thank you for all of your hard work to make Blockly better. And congratulations!
+
+合并阶段让您有机会 **庆祝** 一下。您创建了一项更改、讨论并进行了修订，最后将其合并！这是一项了不起的成就，许多人从未开始，更不用说完成了！
+
+感谢您付出辛勤努力来改进 Blockly。恭喜！
