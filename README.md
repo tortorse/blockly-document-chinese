@@ -98,7 +98,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
       - [x] [Unit Testing 单元测试](./docs/guides/contribute/core/unit_testing.md)
     - Contributing to Samples 贡献样例
       - [x] [Overview 总览](./docs/guides/contribute/samples/README.md) (粗翻)
-      - [ ] [Repository Structure 代码仓库文件结构](./docs/guides/contribute/samples/repository_structure.md)
+      - [x] [Repository Structure 代码仓库文件结构](./docs/guides/contribute/samples/repository_structure.md) (粗翻)
         <!-- - [x] Blockly-samples Repository Structure (粗翻) -->
       - [x] [Plugin Overview 插件总览](./docs/guides/contribute/samples/plugin_overview.md) (粗翻)
       - [ ] [Adding a Plugin 添加插件](./docs/guides/contribute/samples/add_a_plugin.md) (原文)
