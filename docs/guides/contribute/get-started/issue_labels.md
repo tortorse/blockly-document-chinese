@@ -38,14 +38,6 @@
 - **[Feature request](https://github.com/google/blockly-samples/labels/type%3A%20feature%20request)**：这些问题记录了某人想要添加的功能。这可以应用于整个代码库，也可以应用于单个项目。如果您更喜欢充实设计理念和添加新的功能，这可能最适合您。
 - **[Question](https://github.com/google/blockly-samples/labels/type%3A%20question)**：这些问题记录了某人对代码库的问题。这些问题通常会重定向到 [开发者论坛](https://groups.google.com/forum/?hl=zh-cn#!forum/blockly)，但如果您看到自己能够提供帮助的问题，可随时加入并回复。
 
-### Category
-
-This repository contains a few different kinds of projects, with a few different kinds of target audiences. If you are passionate about tutorials, or love working on plugins, these labels can help you find issues you're interested in.
-
-- **[Codelab](https://github.com/google/blockly-samples/labels/category%3A%20codelab):** These issues relate to Blockly [codelabs](https://developers.google.com/blockly/guides/plugins/samples_repository_structure#codelabs), a suite of interactive tutorials.
-- **[Example](https://github.com/google/blockly-samples/labels/category%3A%20example):** These issues relate to Blockly [examples](https://developers.google.com/blockly/guides/plugins/samples_repository_structure#examples), a set of self-contained demos showcasing how to include and extend Blockly.
-- **[Plugin](https://github.com/google/blockly-samples/labels/category%3A%20plugin):** These issues relate to Blockly [plugins](https://developers.google.com/blockly/guides/plugins/samples_repository_structuree#plugins), a collection of extensions that add functionality Blockly.
-
 ### 类别
 
 此代码库包含几种不同类型的项目，以及几种不同的目标受众。如果您热衷于教程，或者喜欢处理插件，这些标签可以帮助您找到感兴趣的问题。
