@@ -1,69 +1,69 @@
-# Writing a Good Codelab
+# 编写优秀的代码实验室
 
-## Introduction
+## 简介
 
-A codelab is an interactive tutorial written in markdown syntax. We publish our codelabs at [blocklycodelabs.dev](https://www.blocklycodelabs.dev). Codelabs use a mix of natural language, code samples, and screenshots to create a more interesting tutorial experience. The target user of a codelab is following along and running the code as they read.
+代码实验室是以 Markdown 语法编写的互动式教程。我们将在 [blocklycodelabs.dev](https://www.blocklycodelabs.dev) 上发布我们的 Codelab。此 Codelab 会混合使用自然语言、代码示例和屏幕截图，打造更有趣的教程体验。代码实验室的目标是让用户跟随它们进行操作，并在他们阅读时运行代码。
 
-Writing a codelab is a great way to contribute to the community. It's a way to share your knowledge and make life easier for the next developer who runs into the same problem.
+编写代码实验室是为社区做贡献的好方法。通过这种方法，您可以分享您的知识，让下一位遇到同样问题的开发者更轻松地生活。
 
-### What makes a great codelab?
+### 是何造就了出色的代码实验室?
 
-A great codelab is focused and readable. It clearly tell the user what they will build and what they will learn, and it walks the user through writing and understanding code to complete a specific task.
+出色的代码实验室内容重点突出且易读。这样会明确地告知用户他们会构建什么以及要学习什么，并且会引导用户编写和理解代码来完成特定的任务。
 
-### Process
+### 过程
 
-If you have an idea for a codelab, you can tell us about it by making a [feature request](/guides/contribute/get-started/write_a_good_issue#feature-request) in the blockly-samples repository. Include a description of what you want to teach and what you will build in the codelab. We'll discuss and refine the idea. Then you can write it up and [submit a pull request](/guides/contribute/get-started/contribute/write_a_good_pr) for it. Once it's been through [review](/guides/contribute/get-started/pr_review_process), a member of the Blockly team will publish it.
+如果您有关于代码实验室的想法，可以通过在 blockly-samples 代码库中发出 [功能请求](/guides/contribute/get-started/write_a_good_issue#功能请求) 来告知我们。添加您要教授的内容以及您将在此代码实验室中构建的内容说明。我们将讨论并完善您的想法。 然后，您可以编写代码并提交拉取请求。通过审核后，Blockly 团队成员会发布该文件。
 
-## Writing tips
+## 写作提示
 
-The rest of this page is a set of tips and questions to guide you through writing a codelab.
+本页的其余部分包含一组提示和问题，可指导您编写一个代码实验室。
 
-read_more Check out [Technical Writing One](https://developers.google.com/tech-writing/one) for a quick introduction to technical writing.
+请参阅 [技术文案撰写](https://developers.google.com/tech-writing/one) 快速了解技术写作。
 
-### Audience
+### 受众
 
-- Who is the target reader?
-- What do they already know about using Blockly?
-- What are they trying to learn?
+- 目标读者是谁？
+- 关于使用 Blockly，他们知道些什么？
+- 他们想要学习什么？
 
-### Setup
+### 设置
 
-- What is the minimum setup required for the user to run your code?
+- 用户运行您的代码至少需要设置什么？
 
-If helpful, you can publish [starter code](https://github.com/google/blockly-samples/tree/master/examples/context-menu-codelab/starter-code) and [completed code](https://github.com/google/blockly-samples/tree/master/examples/context-menu-codelab/complete-code) in the `examples` directory.
+如果有帮助，您可以在 `examples` 目录中发布 [起始代码](https://github.com/google/blockly-samples/tree/master/examples/context-menu-codelab/starter-code) 和 [已完成的代码](https://github.com/google/blockly-samples/tree/master/examples/context-menu-codelab/complete-code)。
 
-### Structure
+### 结构
 
-As with any writing, start with an outline. This is a good structure for most codelabs:
+就像撰写文案一样，我们先介绍大纲。对于大多数代码实验室而言，这是一个很好的结构：
 
-- Introduction
-  - What you'll learn
-  - What you'll build
-  - What you need to know
-  - Setup instructions
-- Step one: \[Title goes here\]
-  - Explanation/motivation
-  - Code sample
-  - Expected results
-  - (Optional) More explanation
-- ...
-- Step ten: \[Title goes here\]
-- Summary
-  - What you learned
-  - What you built
-  - Additional resources
-  - Link to completed code (if available)
+- 简介
+  - 学习内容
+  - 您将构建的内容
+  - 须知事项
+  - 设置说明
+- 第 1 步：\[在此处输入标题\]
+  - 说明/动机
+  - 代码示例
+  - 预期结果
+  - （可选）更多说明
+- ……
+- 第 10 步：\[在此处输入标题\]
+- 摘要
+  - 所学内容
+  - 构建内容
+  - 其他资源
+  - 已完成代码的链接（如果有）
 
-While you can have more than ten steps, if you're hitting twenty you should consider breaking it into two codelabs.
+虽然您可以拥有超过 10 个步骤，但如果您达到 20 个步骤，则应考虑将其拆分为 2 个代码实验室。
 
-### Writing style
+### 写作风格
 
-- Use a conversational writing style.
-- Use headings to make the organization clear.
-- Use bulleted lists to break up walls of texts.
-- Use images and gifs!
+- 采用对话式写作风格。
+- 使用标题让内容组织更清晰。
+- 使用项目符号列表拆分文本墙。
+- 使用图片和 GIF！
 
-### Code style
+### 代码风格
 
-- You can write in ES5, ES6, or TypeScript, but tell the reader which it is at the beginning.
-- Follow the [Google style guide](https://google.github.io/styleguide/jsguide.html)
+- 您可以使用 ES5、ES6 或 TypeScript 编写代码，但要一开始就告知读者。
+- 遵循 [Google 风格指南](https://google.github.io/styleguide/jsguide.html)

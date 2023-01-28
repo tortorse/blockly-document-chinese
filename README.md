@@ -104,7 +104,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
       - [x] [Adding a Plugin 添加插件](./docs/guides/contribute/samples/add_a_plugin.md) (粗翻)
       - [x] [Naming Conventions 命名规则](./docs/guides/contribute/samples/naming.md) (粗翻)
       - [x] [Debugging 调试](./docs/guides/contribute/samples/debugging.md) (原文)
-      - [ ] [Writing a Codelab 编写代码实验室](./docs/guides/contribute/samples/write_a_codelab) (原文)
+      - [x] [Writing a Codelab 编写代码实验室](./docs/guides/contribute/samples/write_a_codelab) (原文)
 - Reference 参考
 
 ## 术语
