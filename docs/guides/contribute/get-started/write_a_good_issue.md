@@ -1,6 +1,6 @@
-# 撰写优质问题
+# 撰写优质 issue
 
-所有优秀的项目都是以用户反馈为基础的。Blockly 使用 GitHub 问题来跟踪反馈。本页详细介绍了如何编写易于开发者阅读和回复的问题，这样更有可能解决您的 bug 报告/功能请求！
+所有优秀的项目都是以用户反馈为基础的。Blockly 使用 GitHub issue 来跟踪反馈。本页详细介绍了如何编写易于开发者阅读和回复的 issue，这样更有可能解决您的 bug 报告/功能请求！
 
 ## 前期工作
 
@@ -10,13 +10,13 @@
 
 ### 检查是否存在重复内容
 
-在编写 _任何_ 类型的问题之前，最好先查看是否存在匹配的问题。如果有的话，您就不必自行编写代码了！因此，在开始编写之前，请搜索重复或相关问题。
+在编写 _任何_ 类型的 issue 之前，最好先查看是否有已存在 issue 相匹配。如果有的话，您就不必自行编写代码了！因此，在开始编写之前，请搜索重复或相关 issue。
 
 - 在 [blockly-samples](https://github.com/google/blockly-samples/issues?q=is%3Aissue+mySearchHere) 中搜索
 - 在 [Blockly core](https://github.com/google/blockly/issues?q=is%3Aissue+mySearchHere) 中搜索
 - 搜索 [论坛](https://groups.google.com/g/blockly/search?q=mySearchHere&hl=zh-cn)
 
-如果您发现匹配问题，请竖起大拇指或添加备注，详细说明您的想法。这对于 bug 报告和功能请求尤为重要。如果开发者发现某个问题受到了大量关注，就更有可能解决该问题！
+如果您发现匹配问题，请竖起大拇指或添加备注，详细说明您的想法。这对于 bug 报告和功能请求尤为重要。如果开发者发现某个 issue 受到了大量关注，就更有可能解决该问题！
 
 ## 报告 bug
 
@@ -25,9 +25,9 @@
 1. [检查是否存在重复](#检查是否存在重复内容)
 2. [收集证据](#收集证据)
 3. [定位问题](#定位问题)
-4. [重现问题](#确保重现)
+4. [确保重现](#确保重现)
 5. [溯因建议](#溯因建议)
-6. [编写问题！](#写下您的问题)
+6. [编写 issue！](#写下您的问题)
 
 ### 收集证据
 
@@ -62,14 +62,14 @@ bug 只有在可重现时才能修复，因此在提交问题之前，请确保�
 
 如果您认为自己知道 bug 发生的原因，请同时添加这些信息。同样，请尽可能具体说明。
 
-### 写下您的问题！
+### 写下您的 issue！
 
 现在该撰写 bug 报告了。选择您的代码仓库：
 
 - [Blockly core](https://github.com/google/blockly/issues/new?assignees=&labels=type%3A+bug%2C+triage&template=bug_report.md)
 - [Blockly-samples](https://github.com/google/blockly-samples/issues/new?assignees=&labels=type%3A+bug%2C+triage&template=bug_report.md)
 
-请务必填写问题模板的所有部分，包括此处没有详细介绍的部分。
+请务必填写 issue 模板的所有部分，包括此处没有详细介绍的部分。
 
 感谢您报告错误，祝您编写愉快！
 
@@ -77,25 +77,25 @@ bug 只有在可重现时才能修复，因此在提交问题之前，请确保�
 
 - 系统会自动为您的错误报告添加标签。
 - Blockly 团队的值班成员会进行核实，并可能会提出澄清性问题。他们还会添加标签，让我们的 bug 井然有序。
-- 相应问题可能会被标记为 "Help Wanted"，在这种情况下，您可以申领问题并开始解决问题。
-- 该问题可能会被分配给 Blockly 团队成员以解决问题。
-- 该问题可能会标有季度里程碑，以指示何时完成。
-- 此问题可能放置在 Icebox 里程碑中，这意味着我们不打算在可预见的未来对其进行处理。
-  - 出现低频率问题或有已知解决方法的 bug 时，可能会发生这种情况。
-  - 您仍然可以处理 Icebox 问题。
-- 问题可能会被放置在 Bug Bash Backlog 里程碑中，这意味着它不紧急，但我们仍想修复它。
+- 相应 issue 可能会被标记为 "Help Wanted"，在这种情况下，您可以申领它并开始着手解决。
+- 该 issue 可能会被分配给 Blockly 团队成员解决。
+- 该 issue 可能会标有季度里程碑，以指示何时完成。
+- 该 issue 可能放置在 Icebox 里程碑中，这意味着我们不打算在可预见的未来对其进行处理。
+  - 出现低频率 issue 或有已知解决方法的 bug 时，可能会发生这种情况。
+  - 您仍然可以处理 Icebox issue。
+- 该 issue 可能会被放置在 Bug Bash Backlog 里程碑中，这意味着它不紧急，但我们仍想修复它。
   - 在每个季度末，团队都会花几周时间处理从 Bug Bash Backlog 里程碑中提取的错误。
-- 如果需要，问题可能会从 Blockly core 转移到 blockly-samples（或相反的方向）。
-- 该问题可能已关闭。
+- 如果需要，issue 可能会从 Blockly core 转移到 blockly-samples（或相反的方向）。
+- 该 issue 可能已关闭。
 
-## 功能需求
+## 功能请求
 
-有什么你想改变的，让 Blockly 变得更好吗？ 您有关于插件、示例或代码实验室的想法吗？ 也许已经有一个你喜欢的，并且你想出了一个改进它的方法。 如果是这样，那么您来对地方了！ 以下步骤可帮助您创建出色的功能需求并获得响应。
+有什么你想改变的，让 Blockly 变得更好吗？ 您有关于插件、示例或代码实验室的想法吗？ 也许已经有一个你喜欢的，并且你想出了一个改进它的方法。 如果是这样，那么您来对地方了！ 以下步骤可帮助您创建出色的功能请求并获得响应。
 
 1.  [检查是否存在重复](#检查是否存在重复内容)
 2.  [核查需求](#核查需求)
 3.  [收集想法](#收集您的想法)
-4.  [撰写功能请求！](#撰写您的功能需求！)
+4.  [撰写功能请求！](#撰写您的功能请求！)
 
 ### 核查需求
 
@@ -124,22 +124,22 @@ bug 只有在可重现时才能修复，因此在提交问题之前，请确保�
 
 一旦你弄清楚了这些事情，你将获得一个好的功能请求！
 
-### 撰写您的功能需求！
+### 撰写您的功能请求！
 
 现在您已准备好编写您的功能请求。选择您的存储库：
 
 - [Blockly core](https://github.com/google/blockly/issues/new?assignees=&labels=type%3A+feature+request%2C+triage&template=feature_request.md)
 - [Blockly-samples](https://github.com/google/blockly-samples/issues/new?assignees=&labels=type%3A+feature+request%2C+triage&template=feature_request.md)
 
-请务必填写问题模板的所有部分，即使是此处未详细说明的部分。
+请务必填写 issue 模板的所有部分，即使是此处未详细说明的部分。
 
 感谢您有兴趣提交功能请求，祝您写作愉快！
 
 ### 后续操作
 
-- 您的功能需求会自动分类。
+- 您的功能请求会自动分类。
 - Blockly 团队的值班成员会进行核实，并可能会提出澄清性问题。他们还会添加标签，让我们的 bug 井然有序。
 - 该功能可能会标有 "Help Wanted" 字样，在这种情况下，您可以声领该功能并开始处理。
 - 该功能可分配给 Blockly 团队成员以供实现。
 - 您可以根据需要将功能请求从 Blockly core 移至 blockly-samples（或相反的方向）。
-- 功能需求可能会关闭，在这种情况下，您仍然可以选择将其作为第三方插件实现。
+- 功能请求可能会关闭，在这种情况下，您仍然可以选择将其作为第三方插件实现。

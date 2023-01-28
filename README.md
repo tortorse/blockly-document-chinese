@@ -85,7 +85,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
       - [x] [Writing a Good PR 提一个好的合并请求](./docs/guides/contribute/get-started/write_a_good_pr.md) (粗翻)
       - [x] [Commit Message Guide 提交信息指南](./docs/guides/contribute/get-started/commits.md) (粗翻)
       - [x] [Code Review Process 代码评审过程](./docs/guides/contribute/get-started/pr_review_process.md) (粗翻)
-      - [x] [Issue Labels 问题标签](./docs/guides/contribute/get-started/issue_labels.md) (粗翻)
+      - [x] [Issue Labels issue 标签](./docs/guides/contribute/get-started/issue_labels.md) (粗翻)
       - [x] [Using the Playground 使用训练场](./docs/guides/contribute/get-started/playground.md)(粗翻)
     - Contributing to Core 为核心做贡献
       - [x] [Overview 总览](./docs/guides/contribute/core/README.md) (粗翻)
@@ -119,3 +119,4 @@ Blockly 官方站点: <https://developers.google.com/blockly>
 - anatomy 解析、剖析
 - fork 复刻、分叉、副本化
 - widget 不翻译
+- issue 不翻译

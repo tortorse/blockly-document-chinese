@@ -26,7 +26,7 @@ Blockly 最初是用 ES5.1 编写的，符合[旧的当时版本的 Google JavaS
 - 用四个空格缩进换行。
   - 如果一行在多个句法级别中断，则每个级别都应从前一行/句法级别缩进四个空格。
 - 注释以大写字母开始，以句点结束。
-- 使用 TODO 创建 GitHub 问题并使用`TODO(#issueNumber)`.
+- 使用 TODO 创建 GitHub issue 并使用`TODO(#issueNumber)`.
 - [使用 JSDoc](https://developers.google.com/blockly/guides/contribute#jsdoc)注释所有内容。
 
 ## 不可以
@@ -38,7 +38,7 @@ Blockly 最初是用 ES5.1 编写的，符合[旧的当时版本的 Google JavaS
 - 使用格式错误的 JSDoc。
   - 我们的 JSDoc 会自动作为文档的一部分发布。
 - 写`TODO (username)`。
-  - 而是使用 TODO 创建 GitHub 问题并使用 `TODO(#issueNumber)`.
+  - 而是使用 TODO 创建 GitHub issue 并使用 `TODO(#issueNumber)`.
 - 使用`string.startsWith`. 改为使用`Blockly.utils.string.startsWith`。
 
 ## JSDoc

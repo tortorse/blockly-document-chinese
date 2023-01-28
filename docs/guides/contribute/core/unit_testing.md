@@ -134,7 +134,7 @@ suite('Flyout', function() {
 
 每个块都有自己的单元测试。这些测试验证块生成的代码比预期的功能。
 
-1.  `tests/generators/index.html`在 Firefox 或 Safari 中加载。请注意，Chrome 和 Opera 具有阻止从本地“file://”系统加载测试的安全限制（问题[41024](https://code.google.com/p/chromium/issues/detail?id=41024) 和[47416](https://code.google.com/p/chromium/issues/detail?id=47416)）。
+1.  `tests/generators/index.html`在 Firefox 或 Safari 中加载。请注意，Chrome 和 Opera 具有阻止从本地“file://”系统加载测试的安全限制（issue[41024](https://code.google.com/p/chromium/issues/detail?id=41024) 和[47416](https://code.google.com/p/chromium/issues/detail?id=47416)）。
 2.  从下拉菜单中选择系统的相关部分进行测试，然后单击“加载”。块应该出现在工作区中。
 3.  点击“JavaScript”。  
     在 JavaScript 控制台中复制并运行生成的代码。如果输出以“OK”结束，则测试通过。

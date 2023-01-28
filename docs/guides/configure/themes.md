@@ -70,7 +70,7 @@
 
 - `cursorColour`: 键盘导航模式下显示的光标颜色
 
-通过使用 CSS 中的主题名称，可以更改大多数其他组件。 但是，如果有一个您要更改的组件尚未包含在此列表中，并且无法使用 CSS 进行更改，请在 [此处](https://github.com/google/blockly/issues/new/choose) 提出问题，以获取更多信息。
+通过使用 CSS 中的主题名称，可以更改大多数其他组件。 但是，如果有一个您要更改的组件尚未包含在此列表中，并且无法使用 CSS 进行更改，请在 [此处](https://github.com/google/blockly/issues/new/choose) 提出 issue，以获取更多信息。
 
 ## 字体样式
 

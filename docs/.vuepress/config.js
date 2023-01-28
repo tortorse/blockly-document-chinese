@@ -410,7 +410,7 @@ module.exports = {
                   path: '/guides/contribute/get-started/pr_review_process'
                 },
                 {
-                  title: '问题标签',
+                  title: 'issue 标签',
                   path: '/guides/contribute/get-started/issue_labels'
                 },
                 {
