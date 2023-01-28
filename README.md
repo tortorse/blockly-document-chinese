@@ -101,7 +101,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
       - [x] [Repository Structure 代码仓库文件结构](./docs/guides/contribute/samples/repository_structure.md) (粗翻)
         <!-- - [x] Blockly-samples Repository Structure (粗翻) -->
       - [x] [Plugin Overview 插件总览](./docs/guides/contribute/samples/plugin_overview.md) (粗翻)
-      - [ ] [Adding a Plugin 添加插件](./docs/guides/contribute/samples/add_a_plugin.md) (原文)
+      - [x] [Adding a Plugin 添加插件](./docs/guides/contribute/samples/add_a_plugin.md) (粗翻)
       - [ ] [Naming Conventions 命名约定](./docs/guides/contribute/samples/naming.md) (原文)
       - [ ] [Debugging 调试](./docs/guides/contribute/samples/debugging.md) (原文)
       - [ ] [Writing a Codelab 编写代码实验室](./docs/guides/contribute/samples/write_a_codelab) (原文)
