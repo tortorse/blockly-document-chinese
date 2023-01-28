@@ -477,7 +477,7 @@ module.exports = {
                   path: '/guides/contribute/samples/add_a_plugin'
                 },
                 {
-                  title: '命名约定',
+                  title: '命名规则',
                   path: '/guides/contribute/samples/naming'
                 },
                 {

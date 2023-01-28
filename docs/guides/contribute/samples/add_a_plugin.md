@@ -31,7 +31,7 @@ Blockly 团队会在收到建议时进行审核，并关闭 issue 或添加 [sta
 - 测试规划。
 - 讨论核心 Blockly 中的 API 变更。
 - 将大型插件分解为实现步骤。
-- 插件的命名，需基于我们的 [命名约定](/guides/contribute/samples/naming.html)。
+- 插件的命名，需基于我们的 [命名规则](/guides/contribute/samples/naming.html)。
 - 确认满足所有第一方规范。
 
 此讨论一般在 GitHub issue 上发起。插件的范围越小，讨论阶段的速度就越快。较大的插件可能会吸引社区关注并就正确的解决方案积极发表意见。如果你的 issue 涉及上述情况 ，那么恭喜您！您找到了大家关心的东西
