@@ -2,15 +2,15 @@
 
 blockly-samples 存储库包含几个不同类别的项目。此页面旨在帮助您了解不同类别的位置以及类别中的每个项目可能包含的内容。
 
-### 代码实验室
+###  Codelab
 
-Codelabs 是使用 markdown 语法编写并发布在[blocklycodelabs.dev](https://blocklycodelabs.dev)的交互式教程。Codelabs 利用自然语言、代码示例和屏幕截图的组合来创建更有趣的教程体验。目标用户在阅读时跟随并运行代码。
+Codelabs 是使用 markdown 语法编写并发布在 [blocklycodelabs.dev](https://blocklycodelabs.dev) 的交互式教程。Codelabs 利用自然语言、代码示例和屏幕截图的组合来创建更有趣的教程体验。目标用户在阅读时跟随并运行代码。
 
-![自定义渲染器代码实验室的屏幕截图](/static/images/StructureCodelab.png)
+![自定义渲染器 Codelab 的屏幕截图](/static/images/StructureCodelab.png)
 
 [codelabs 目录](https://github.com/google/blockly-samples/blob/master/codelabs) 有一个 [模板](https://github.com/google/blockly-samples/blob/master/codelabs/template.md) 和每个 codelab 一个文件夹。 每个 codelab 文件夹都包含一个 markdown 文件和 codelab 的所有资产（png、gif 等）。
 
-### 例子
+### 示例
 
 示例是独立的示例项目，展示了包含和扩展 Blockly 库的技术。它们通常由一个演示网页和一些支持代码组成。虽然 Codelabs 会引导您逐步构建某些东西，但示例会向您展示完成的产品，并允许您按照自己的步调进行探索。
 

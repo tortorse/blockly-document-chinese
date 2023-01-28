@@ -135,7 +135,7 @@
 
 4. **光标外观**：光标和标记的外观。
 
-有关如何使用这些API的更多信息，请查看 Blockly Keyboard Navigation（即将推出）代码实验室。
+有关如何使用这些API的更多信息，请查看 Blockly Keyboard Navigation（即将推出）Codelab。
 
 如果您有其他需要尝试的领域，我们可能会提供帮助，请填写[表单](https://docs.google.com/forms/d/e/1FAIpQLScGAdh8bWLbH3NnUfmMpgpqRCuZrz7qVBtsg-pVT7hz3E32aQ/viewform?usp=sf_link)。
 

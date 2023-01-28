@@ -485,7 +485,7 @@ module.exports = {
                   path: '/guides/contribute/samples/debugging'
                 },
                 {
-                  title: '编写代码实验室',
+                  title: '编写 Codelab',
                   path: '/guides/contribute/samples/write_a_codelab'
                 }
               ]

@@ -42,7 +42,7 @@
 
 此代码库包含几种不同类型的项目，以及几种不同的目标受众。如果您热衷于教程，或者喜欢处理插件，这些标签可以帮助您找到感兴趣的 issue 。
 
-- **[Codelab](https://github.com/google/blockly-samples/labels/category%3A%20codelab)**：这些 issue 与 Blockly [Codelab](/guides/contribute/samples/repository_structure.html#代码实验室) 相关，这是一套交互式教程。
+- **[Codelab](https://github.com/google/blockly-samples/labels/category%3A%20codelab)**：这些 issue 与 Blockly [Codelab](/guides/contribute/samples/repository_structure.html#Codelab) 相关，这是一套交互式教程。
 - **[Example](https://github.com/google/blockly-samples/labels/category%3A%20example)**：这些 issue 与 Blockly [示例](/guides/contribute/samples/repository_structure.html#例子) 有关，这是一个独立的演示版，展示了如何引入和扩展 Blockly。
 - **[Plugin](https://github.com/google/blockly-samples/labels/category%3A%20plugin)**：这些 issue 与 Blockly [插件](/guides/contribute/samples/repository_structure.html#插件)（一组用于添加 Blockly 功能的扩展程序）相关。
 

@@ -39,7 +39,7 @@ import Blockly from 'blockly';
 <script src="https://unpkg.com/blockly/blockly.min.js"></script>
 ```
 
-Unpkg 会获取已发布代码的最新版本，因此使用此方法将不会有任何版本控制。 它非常适合演示或快速实验，我们在许多代码实验室中都使用它。
+Unpkg 会获取已发布代码的最新版本，因此使用此方法将不会有任何版本控制。 它非常适合演示或快速实验，我们在许多 Codelab 中都使用它。
 
 ### GitHub
 

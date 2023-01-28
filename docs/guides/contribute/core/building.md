@@ -1,4 +1,4 @@
-# 构建块
+# 构建 Blockly
 
 Blockly 由一百多个 JavaScript 文件组成。通过 Internet 加载这些对于最终用户来说是一种缓慢的体验。为了使 Blockly 加载更快，它可以压缩到六个文件，总计约 720kb。
 

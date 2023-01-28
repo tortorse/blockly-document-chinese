@@ -1,6 +1,6 @@
 # 贡献样本
 
-[Blockly 示例](https://github.com/google/blockly-samples)包含与 Blockly 相关的额外内容，这些内容不属于核心存储库，包括插件、代码实验室和示例代码。有关其中每一项的更多详细信息，请参阅 [代码仓结构](/guides/contribute/samples/repository_structure) 页面。
+[Blockly 示例](https://github.com/google/blockly-samples)包含与 Blockly 相关的额外内容，这些内容不属于核心存储库，包括插件、 Codelab 和示例代码。有关其中每一项的更多详细信息，请参阅 [代码仓结构](/guides/contribute/samples/repository_structure) 页面。
 
 ## 需要知道
 

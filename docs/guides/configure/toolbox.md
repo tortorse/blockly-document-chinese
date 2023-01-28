@@ -3,12 +3,12 @@
 工具箱表现为侧边菜单，用户可以从中创建新块。使用 XML 或 JSON 指定工具箱的结构。 当该工具箱定义被注入到页面中时，它将被传递给 Blockly。
 
 ::: tip 提示
-有关如何自定义工具箱的更多信息，请参见 [自定义块状工具箱代码实验室](https://blocklycodelabs.dev/codelabs/custom-toolbox/index.html?index=..%2F..index#0)。
+有关如何自定义工具箱的更多信息，请参见 [自定义 Blockly 工具箱 Codelab](https://blocklycodelabs.dev/codelabs/custom-toolbox/index.html?index=..%2F..index#0)。
 :::
 
 ## XML
 
-如果使用 XML，则可以使用节点树或字符串形式创建工具箱。 如果您不喜欢手动输入 XML，建议您使用 [Blockly Developer Tools](https://developers.google.com/blockly/guides/create-custom-blocks/blockly-developer-tools.html)。 使用它，您可以构造一个工具箱并使用可视化界面自动生成其工具箱 XML。
+如果使用 XML，则可以使用节点树或字符串形式创建工具箱。 如果您不喜欢手动输入 XML，建议您使用 [Blockly 开发者工具](/guides/create-custom-blocks/blockly-developer-tools.html)。使用它，您可以构造一个工具箱并使用可视化界面自动生成其工具箱 XML。
 
 这是一个使用节点树的最小示例：
 
@@ -37,7 +37,7 @@
 
 ## JSON
 
-从[2020年9月的发布版本](https://github.com/google/blockly/releases/tag/3.20200924.0)开始，还可以使用 JSON 定义工具箱。
+从 [2020年9月的发布版本](https://github.com/google/blockly/releases/tag/3.20200924.0) 开始，还可以使用 JSON 定义工具箱。
 
 上述示例使用 JSON 表示：
 
@@ -139,7 +139,7 @@
 
 ![toolbox-categories](./toolbox-categories.png)
 
-分类的存在改变了 Blockly 的 UI 以支持更大的应用程序。出现滚动条，允许无限大的工作空间。上下文菜单包含更多高级选项，例如添加注释或折叠块。使用 [配置选项](/guides/get-started.html#配置.html) 可以覆盖所有这些功能。
+分类的存在改变了 Blockly 的 UI 以支持更大的应用程序。出现滚动条，允许无限大的工作空间。上下文菜单包含更多高级选项，例如添加注释或折叠块。使用 [配置](/guides/get-started.html#配置) 选项可以覆盖所有这些功能。
 
 ### 访问分类
 

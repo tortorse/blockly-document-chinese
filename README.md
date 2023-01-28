@@ -103,8 +103,8 @@ Blockly 官方站点: <https://developers.google.com/blockly>
       - [x] [Plugin Overview 插件总览](./docs/guides/contribute/samples/plugin_overview.md) (粗翻)
       - [x] [Adding a Plugin 添加插件](./docs/guides/contribute/samples/add_a_plugin.md) (粗翻)
       - [x] [Naming Conventions 命名规则](./docs/guides/contribute/samples/naming.md) (粗翻)
-      - [x] [Debugging 调试](./docs/guides/contribute/samples/debugging.md) (原文)
-      - [x] [Writing a Codelab 编写代码实验室](./docs/guides/contribute/samples/write_a_codelab) (原文)
+      - [x] [Debugging 调试](./docs/guides/contribute/samples/debugging.md) (粗翻)
+      - [x] [Writing a Codelab 编写 Codelab](./docs/guides/contribute/samples/write_a_codelab) (粗翻)
 - Reference 参考
 
 ## 术语
@@ -120,3 +120,4 @@ Blockly 官方站点: <https://developers.google.com/blockly>
 - fork 复刻、分叉、副本化
 - widget 不翻译
 - issue 不翻译
+- codelab 不翻译
