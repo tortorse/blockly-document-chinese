@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Blockly documents chinese version",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",

@@ -6,7 +6,7 @@ Blockly 中文站点: <https://blockly.tortorse.com>
 
 Blockly 官方站点: <https://developers.google.com/blockly>
 
-## 翻译进度(v0.0.1)
+## 翻译进度(v0.1.0)
 
 - Guide 指南
   - [x] [Overview 总览](./docs/guides/overview.md) (粗翻)
