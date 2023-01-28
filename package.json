@@ -1,6 +1,6 @@
 {
   "name": "blockly-document-chinese",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Blockly documents chinese version",
   "main": "index.js",
   "scripts": {
