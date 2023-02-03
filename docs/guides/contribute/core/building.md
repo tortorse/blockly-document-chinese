@@ -22,7 +22,7 @@ npm run build
 - 目录的内容`generators/`变为 `javascript_compressed.js`、`python_compressed.js`、`php_compressed.js`和 。` lua_compressed.js``dart_compressed.js `
 - 对文件的任何更改都会`messages.js`映射到`msg/json`文件上，然后`msg/js`重新生成文件。
 
-此脚本的输出位于`build`目录中，该目录未签入到 git。要将此输出复制到顶级构建文件，请运行`npm run checkin:built`. 如果您需要顶级文件来反映您的更改（例如不建议通过文件 url 直接访问 Playground，或者如果您是 Blockly 团队成员准备新版本），您只需要这样做。如果您通过运行其中一个 [训练场](<(/guides/modify/web/playground)>) 来测试 Blockly，或者 您正在对 Blockly 进行例行更改，则不需要这样做。
+此脚本的输出位于`build`目录中，该目录未签入到 git。要将此输出复制到顶级构建文件，请运行`npm run checkin:built`. 如果您需要顶级文件来反映您的更改（例如不建议通过文件 url 直接访问 Playground，或者如果您是 Blockly 团队成员准备新版本），您只需要这样做。如果您通过运行其中一个 [训练场](/guides/contribute/get-started/playground.html) 来测试 Blockly，或者 您正在对 Blockly 进行例行更改，则不需要这样做。
 
 ## 构建脚本
 

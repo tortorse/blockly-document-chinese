@@ -69,4 +69,4 @@ Blockly.Msg.LISTS_REPEAT_TITLE = "إنشئ قائمة مع العنصر  %1 %2 �
 
 构建字符串表的 `.js` 文件是 `build.py` 脚本的一部分。该脚本使用 [`msg/messages.js`](https://github.com/google/blockly/tree/master/msg/messages.js) 中的标识符键和英文翻译来创建新的 [`en.json`](https://github.com/google/blockly/tree/master/msg/json/en.json)。然后，结合 [其他JSON文件](https://github.com/google/blockly/tree/master/msg/json) 中找到的所有翻译，它将为所有语言（包括新的 [`en.js`](https://github.com/google/blockly/tree/master/msg/js/en.js)）重新创建更新的 [JavaScript字符串表](https://github.com/google/blockly/tree/master/msg/js)。
 
-非英语 JSON 文件来自 [TranslateWiki](https://translatewiki.net/wiki/Translating:Blockly) 的合作伙伴。有关如何提供帮助的详细信息，请参见[翻译说明](/guides/modify/translating.html)。
+非英语 JSON 文件来自 [TranslateWiki](https://translatewiki.net/wiki/Translating:Blockly) 的合作伙伴。有关如何提供帮助的详细信息，请参见 [翻译说明](/guides/contribute/core/translating.html)。
