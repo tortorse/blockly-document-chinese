@@ -32,17 +32,31 @@ module.exports = {
           'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3005478615102931',
         crossorigin: 'anonymous'
       }
+    ],
+    [
+      'script',
+      {
+        async: true,
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-VPTYXZPKCQ'
+      }
+    ],
+    [
+      'script',
+      {},
+      [
+        "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-VPTYXZPKCQ');"
+      ]
     ]
   ],
   plugins: [
     'vuepress-plugin-element-tabs-less',
-    ['vuepress-plugin-sitemap', { hostname: 'https://blockly.tortorse.com' }],
-    [
-      '@vuepress/google-analytics',
-      {
-        ga: 'UA-210262342-1' // UA-00000000-0
-      }
-    ]
+    ['vuepress-plugin-sitemap', { hostname: 'https://blockly.tortorse.com' }]
+    // [
+    //   '@vuepress/google-analytics',
+    //   {
+    //     ga: 'UA-210262342-1' // UA-00000000-0
+    //   }
+    // ]
   ],
   dest: 'public',
   themeConfig: {
