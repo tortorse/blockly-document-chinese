@@ -373,6 +373,27 @@ module.exports = {
                   ]
                 }
               ]
+            },
+            {
+              title: '过程',
+              children: [
+                {
+                  title: '总览',
+                  path: '/guides/create-custom-blocks/procedures/overview'
+                },
+                {
+                  title: '使用内置过程块',
+                  path: '/guides/create-custom-blocks/procedures/using-procedures'
+                },
+                {
+                  title: '创建自定义过程块',
+                  path: '/guides/create-custom-blocks/procedures/creating-custom-procedure-blocks'
+                },
+                {
+                  title: '创建自定义过程数据模型',
+                  path: '/guides/create-custom-blocks/procedures/creating-custom-procedure-data-models'
+                }
+              ]
             }
           ]
         },

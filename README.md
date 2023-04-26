@@ -71,10 +71,15 @@ Blockly 官方站点: <https://developers.google.com/blockly>
         - [x] [Multiline Text 多行文本](./docs/guides/create-custom-blocks/fields/built-in-fields/multiline-text-input.md)(粗翻)
         - [x] [Variable 变量](./docs/guides/create-custom-blocks/fields/built-in-fields/variable.md)(粗翻)
       - Customizing Fields 自定义字段
-        - [x] [Overview 总览](./docs/guides/create-custom-blocks/fields/customizing-fields/overview) (粗翻)
+        - [x] [Overview 总览](./docs/guides/create-custom-blocks/fields/customizing-fields/overview.md) (粗翻)
         - [x] [Creating a Custom Field 创建自定义字段](./docs/guides/create-custom-blocks/fields/customizing-fields/creating) (粗翻)
         - [x] [Extending an Existing Field 扩展已有字段](./docs/guides/create-custom-blocks/fields/customizing-fields/extending.md) (粗翻)
         - [x] [Upgrading a Custom Field 升级自定义字段](./docs/guides/create-custom-blocks/fields/customizing-fields/upgrading.md) (粗翻)
+      - Procedures 过程
+        - [x] [Overview 总览](./docs/guides/create-custom-blocks/procedures/overview.md) (粗翻)
+        - [x] [Using built-in procedure blocks 使用内置过程块](./docs/guides/create-custom-blocks/procedures/using-procedures.md) (粗翻)
+        - [x] [Creating custom procedure blocks 创建自定义过程块](./docs/guides/create-custom-blocks/procedures/creating-custom-procedure-blocks.md) (粗翻)
+        - [x] [Creating custom procedure data models 创建自定义过程数据模型](./docs/guides/create-custom-blocks/procedures/creating-custom-procedure-data-models.md) (粗翻)
   - Application Integration 应用集成
     - [x] [Best Practices 最佳实践](./docs/guides/app-integration/best-practices.md)(粗翻)
     - [x] [Generating and Running JavaScript 生成并运行 JavaScript](./docs/guides/app-integration/running-javascript.md)(粗翻)
