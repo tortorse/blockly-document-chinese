@@ -336,6 +336,11 @@ module.exports = {
                         '/guides/create-custom-blocks/fields/built-in-fields/text-input'
                     },
                     {
+                      title: '多行文本',
+                      path:
+                        '/guides/create-custom-blocks/fields/built-in-fields/multiline-text-input'
+                    },
+                    {
                       title: '变量',
                       path:
                         '/guides/create-custom-blocks/fields/built-in-fields/variable'
