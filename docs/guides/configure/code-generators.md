@@ -6,40 +6,83 @@
 
 第一步是引入相关语言的生成器。 Blockly 包括以下生成器：
 
-- [`javascript_compressed.js`](https://raw.githubusercontent.com/google/blockly/master/javascript_compressed.js)
+- JavaScript
+- Python
+- PHP
+- Lua
+- Dart
 
-- [`python_compressed.js`](https://raw.githubusercontent.com/google/blockly/master/python_compressed.js)
+您可以使用以下方法之一导入和使用代码生成器。
 
-- [`php_compressed.js`](https://raw.githubusercontent.com/google/blockly/master/php_compressed.js)
+::::tabs
+::: tab Modules
+```javascript
+import {javascriptGenerator} from 'blockly/javascript';
+import {pythonGenerator} from 'blockly/python';
+import {phpGenerator} from 'blockly/php';
+import {luaGenerator} from 'blockly/lua';
+import {dartGenerator} from 'blockly/dart';
 
-- [`lua_compressed.js`](https://raw.githubusercontent.com/google/blockly/master/lua_compressed.js)
-
-- [`dart_compressed.js`](https://raw.githubusercontent.com/google/blockly/master/dart_compressed.js)
-
-生成器类应该在 `blockly_compressed.js`之后引入。 例如，以下包含了 JavaScript 生成器：
-
+const jsCode = javascriptGenerator.workspaceToCode(workspace);
+const pythonCode = pythonGenerator.workspaceToCode(workspace);
+const phpCode = phpGenerator.workspaceToCode(workspace);
+const luaCode = luaGenerator.workspaceToCode(workspace);
+const dartCode = dartGenerator.workspaceToCode(workspace);
+```
+:::
+::: tab Unpkg
+您必须在引入 Blockly 之后，再引入代码生成器。
+```html
+<script src="https://unpkg.com/blockly"></script>
+<script src="https://unpkg.com/blockly/javascript_compressed"></script>
+<script src="https://unpkg.com/blockly/python_compressed"></script>
+<script src="https://unpkg.com/blockly/php_compressed"></script>
+<script src="https://unpkg.com/blockly/lua_compressed"></script>
+<script src="https://unpkg.com/blockly/dart_compressed"></script>
+```
+```javascript
+const jsCode = Blockly.JavaScript.workspaceToCode(workspace);
+const pythonCode = Blockly.Python.workspaceToCode(workspace);
+const phpCode = Blockly.PHP.workspaceToCode(workspace);
+const luaCode = Blockly.Lua.workspaceToCode(workspace);
+const dartCode = Blockly.Dart.workspaceToCode(workspace);
+```
+:::
+::: Local scripts
+您必须在引入 Blockly 之后，再引入代码生成器。
 ```html
 <script src="blockly_compressed.js"></script>
 <script src="javascript_compressed.js"></script>
+<script src="python_compressed.js"></script>
+<script src="php_compressed.js"></script>
+<script src="lua_compressed.js"></script>
+<script src="dart_compressed.js"></script>
 ```
-
-通过此调用，用户的块可以随时从您的应用程序导出到代码：
-
 ```javascript
-var code = Blockly.JavaScript.workspaceToCode(workspace);
+const jsCode = Blockly.JavaScript.workspaceToCode(workspace);
+const pythonCode = Blockly.Python.workspaceToCode(workspace);
+const phpCode = Blockly.PHP.workspaceToCode(workspace);
+const luaCode = Blockly.Lua.workspaceToCode(workspace);
+const dartCode = Blockly.Dart.workspaceToCode(workspace);
 ```
+:::
+::::
 
-在前两行中，用 Python，PHP，Lua 或 Dart 替换 JavaScript，以切换生成的语言。
 ## 实时生成
 
-生成代码是一种非常快速的操作，因此频繁调用此函数没有任何害处。一个常见的策略是通过为 Blockly 的 change 事件添加一个监听器来实时生成和显示代码：
+生成代码是一个非常快速的操作，因此频繁调用这个函数不会有任何问题。一个常见的策略是通过添加监听器到 Blockly 的 change 事件来实时生成和显示代码：
 
 ```javascript
-function myUpdateFunction(event) {
-  var code = Blockly.JavaScript.workspaceToCode(workspace);
+import {javascriptGenerator} from 'blockly/javascript';
+function updateCode(event) {
+  const code = javascriptGenerator.workspaceToCode(workspace);
   document.getElementById('textarea').value = code;
 }
-workspace.addChangeListener(myUpdateFunction);
+workspace.addChangeListener(updateCode);
 ```
 
 查看 [事件](/guides/configure/events.html) 获取更多信息。
+
+## 自定义代码生成器
+
+如果您想了解有关编写新语言生成器的信息，或者如何为您创建的块生成代码，请参阅[自定义块文档](/guides/create-custom-blocks/generating-code.html)。
