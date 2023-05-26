@@ -1,18 +1,42 @@
 # 工具箱
 
-工具箱表现为侧边菜单，用户可以从中创建新块。使用 XML 或 JSON 指定工具箱的结构。 当该工具箱定义被注入到页面中时，它将被传递给 Blockly。
+工具箱是用户获取块的地方。通常它显示在工作区的一侧。有时它有类别，有时没有。
 
-::: tip 提示
-有关如何自定义工具箱的更多信息，请参见 [自定义 Blockly 工具箱 Codelab](https://blocklycodelabs.dev/codelabs/custom-toolbox/index.html?index=..%2F..index#0)。
+本页面主要关注如何指定工具箱的结构（即它包含哪些类别和块）。如果您想了解有关如何更改工具箱的 UI 的详细信息，请查看 [自定义 Blockly 工具箱 codelab](https://blocklycodelabs.dev/codelabs/custom-toolbox/index.html?index=..%2F..index#0) 和 [2021 Toolbox APIs talk](https://www.youtube.com/watch?v=JJVX_YuKDbo&list=PLSIUOFhnxEiCjoIwJ0jAdwpTZET73CK7d&index=9&t=1s)。
+
+## 格式
+
+Blockly 允许您使用几种不同的格式来指定工具箱的结构。新的推荐格式使用 JSON，而旧格式使用 XML。
+
+![toolbox-minimal](./toolbox-minimal.png)
+
+以下是指定上述工具箱的不同方法：
+
+::::tabs
+::: tab JSON
+从 [2020 年 9 月发布版本](https://github.com/google/blockly/releases/tag/3.20200924.0) 开始，可以使用 JSON 定义工具箱：
+
+```javascript
+var toolbox = {
+  kind: 'flyoutToolbox',
+  contents: [
+    {
+      kind: 'block',
+      type: 'controls_if'
+    },
+    {
+      kind: 'block',
+      type: 'controls_whileUntil'
+    }
+  ]
+};
+var workspace = Blockly.inject('blocklyDiv', { toolbox: toolbox });
+```
+
 :::
+::: tab XML
 
-## XML
-
-如果使用 XML，则可以使用节点树或字符串形式创建工具箱。 如果您不喜欢手动输入 XML，建议您使用 [Blockly 开发者工具](/guides/create-custom-blocks/blockly-developer-tools.html)。使用它，您可以构造一个工具箱并使用可视化界面自动生成其工具箱 XML。
-
-这是一个使用节点树的最小示例：
-
-```XML
+```xml
 <xml id="toolbox" style="display: none">
   <block type="controls_if"></block>
   <block type="controls_whileUntil"></block>
@@ -23,72 +47,32 @@
 </script>
 ```
 
-以下是使用字符串形式的相同示例：
-
-```HTML
-<script>
-  var toolbox = '<xml>';
-  toolbox += '  <block type="controls_if"></block>';
-  toolbox += '  <block type="controls_whileUntil"></block>';
-  toolbox += '</xml>';
-  var workspace = Blockly.inject('blocklyDiv', {toolbox: toolbox});
-</script>
-```
-
-## JSON
-
-从 [2020年9月的发布版本](https://github.com/google/blockly/releases/tag/3.20200924.0) 开始，还可以使用 JSON 定义工具箱。
-
-上述示例使用 JSON 表示：
-
-```json
-{
-  "kind": "flyoutToolbox",
-  "contents": [
-    {
-      "kind": "block",
-      "type": "controls_if"
-    },
-    {
-      "kind": "block",
-      "type": "controls_whileUntil"
-    }
-  ]
-}
-```
-
-::: warning 警告
-如果用户决定使用 **blockxml** 定义块（有关 **blockxml** 的更多信息，请参见下面的 [文档](/guides/configure/toolbox#json_2.html)），当用户第一次打开包含超过 100 个块的分类时，由于从字符串到 xml 到 block 的转换开销，将会对性能产生影响。我们计划在不久的将来重新审视此事。
 :::
+::: tab XML String
 
-以上所有示例均使用两个块创建相同的工具箱：
+```javascript
+var toolbox =
+  '<xml>' +
+  '<block type="controls_if"></block>' +
+  '<block type="controls_whileUntil"></block>' +
+  '</xml>';
+var workspace = Blockly.inject('blocklyDiv', { toolbox: toolbox });
+```
 
-![toolbox-minimal](./toolbox-minimal.png)
-
-如果存在少量块，则可以显示它们而没有任何分类（如上面的最小示例中所示）。在此简单模式下，所有可用块都显示在工具箱中，主工作区上没有滚动条，并且不需要垃圾桶。
+:::
+::::
 
 ## 分类
 
-工具箱中的块可以按分类组织。这里有两个类别（'Control' 和 'Logic'），每个类别包含三个块：
+工具箱中的块可以按类别组织。
+
+![toolbox-categories](./toolbox-categories.png)
+
+以下是您可以定义上述工具箱的方式，它有两个类别（'Control'和'Logic'），每个类别都包含块：
 
 :::: tabs
-::: tab XML
-```XML
-<xml id="toolbox" style="display: none">
-  <category name="Control">
-    <block type="controls_if"></block>
-    <block type="controls_whileUntil"></block>
-    <block type="controls_for">
-  </category>
-  <category name="Logic">
-    <block type="logic_compare"></block>
-    <block type="logic_operation"></block>
-    <block type="logic_boolean"></block>
-  </category>
-</xml>
-```
-:::
 ::: tab JSON
+
 ```json
 {
   "kind": "categoryToolbox",
@@ -132,303 +116,36 @@
   ]
 }
 ```
+
 :::
-::::
-
-下面是生成的工具箱，单击 'Logic' 类别，以便可以看到弹出窗口中的三个逻辑块：
-
-![toolbox-categories](./toolbox-categories.png)
-
-分类的存在改变了 Blockly 的 UI 以支持更大的应用程序。出现滚动条，允许无限大的工作空间。上下文菜单包含更多高级选项，例如添加注释或折叠块。使用 [配置](/guides/get-started.html#配置) 选项可以覆盖所有这些功能。
-
-### 访问分类
-
-可以使用分类的 id 从工具箱中检索类别。 分类 id 可以在定义工具箱时定义。
-
-设置分类的 id：
-
-:::: tabs
 ::: tab XML
-```xml
-<category name="..." toolboxitemid="categoryId"></category>
-```
-:::
-::: tab JSON
-```json
-{
-  "kind": "category",
-  "name": "...",
-  "toolboxitemid": "categoryId"
-}
-```
-:::
-::::
 
-从工具箱访问分类：
-
-```javascript
-var category = toolbox.getToolboxItemById('categoryId');
-```
-
-### 颜色
-
-可以使用可选的 `colour` 属性为每个分类分配一种颜色。 请注意英式拼写。`colour` 的值是定义色调的数字（0-360）。
-
-:::: tabs
-::: tab XML
-```xml
+```XML
 <xml id="toolbox" style="display: none">
-  <category name="Logic" colour="210">...</category>
-  <category name="Loops" colour="120">...</category>
-  <category name="Math" colour="230">...</category>
-  <category name="Colour" colour="20">...</category>
-  <category name="Variables" colour="330" custom="VARIABLE"></category>
-  <category name="Functions" colour="290" custom="PROCEDURE"></category>
-</xml>
-```
-:::
-::: tab JSON
-```json
-{
-  "contents": [
-    {
-      "kind": "category",
-      "name": "Logic",
-      "colour": "210"
-    },
-    {
-      "kind": "category",
-      "name": "Loops",
-      "colour": "120"
-    }
-  ]
-}
-```
-:::
-::::
-
-该颜色显示为分类左侧的矩形，并作为当前所选类别的高亮色：
-
-![toolbox-colours](./toolbox-colours.png)
-
-### 主题
-
-如果您已经开始使用 Blockly 主题，那么您将需要添加 `categorystyle` 属性而不是 `colour` 属性，如下所示。
-
-:::: tabs
-::: tab XML
-```xml
-<category name="Logic" categorystyle="logic_category">
-</category>
-```
-:::
-::: tab JSON
-```json
-{
-  "kind": "category",
-  "name": "Logic",
-  "categorystyle": "logic_category"
-}
-```
-:::
-::::
-
-有关主题的更多信息，请查看 [主题](/guides/configure/themes.html)。
-
-### 分类 CSS
-
-我们提供了一种通过 JSON 和 XML 工具箱定义来自定义一个分类上不同的类的方法。 以下 CSS 类可以被改变。
-
-- container - 分类父级 div 的类。默认为 `blocklyToolboxCategory`。
-
-- row - 包含分类标签和图表组的 div 类. 默认为 `blocklyTreeRow`。
-
-- icon - 分类图标的类。默认为 `blocklyTreeIcon`。
-
-- label - 分类标签的类。 默认为 `blocklyTreeLabel`。
-
-- selected - 分类被选中时添加的类。 默认为 `blocklyTreeSelected`。
-
-- openicon - 当嵌套的分类打开时被添加的类。默认为 `blocklyTreeIconOpen`。
-
-- closedicon - 当嵌套的分类关闭时被添加的类。 默认为 `blocklyTreeIconClosed`。
-
-这些中的任何一个都可以使用 XML 或 JSON 进行设置。 在 XML 中，只需在上面的名称之一前面加上 “css-” 即可更改类。
-
-:::: tabs
-::: tab XML
-```xml
-<category name="..." css-container="yourClassName"></category>
-```
-:::
-::: tab JSON
-```json
-{
-  "kind": "category",
-  "name": "...",
-  "cssConfig": {
-    "container": "yourClassName"
-  }
-}
-```
-:::
-::::
-
-### 禁用某个分类
-
-禁用某个分类将不允许用户点击该分类，如果用户使用键盘操作工具箱，则将跳过该分类。 在 `blocklyToolboxCategory` div 上设置的 CSS 属性可让您控制已禁用分类的外观，如下所示。
-
-```javascript
-var category = toolbox.getToolboxItems()[0];
-category.setDisabled('true');
-```
-
-```html
-<style>
-  .blocklyToolboxCategory[disabled="true"] {
-    opacity: .5;
-  }
-</style>
-
-```
-
-### 显示/隐藏分类
-
-分类可以在首次注入工具箱时隐藏，也可以在之后通过 JavaScript 隐藏。
-
-:::: tabs
-::: tab XML
-```xml
-<category name="..." hidden="true"></category>
-```
-:::
-::: tab JSON
-```json
-{
-  "kind": "category",
-  "name": "...",
-  "hidden": "true"
-}
-```
-:::
-::: tab JavaScript
-```javascript
-var category = toolbox.getToolboxItems()[0];
-category.hide();
-```
-:::
-::::
-## 动态分类
-
-有两种具有特殊行为的分类。变量和函数分类被定义为没有内容，但其具有 `custom` 属性分别为 `VARIABLE` 或 `PROCEDURE`。这些分类将使用适当的块自动填充。
-
-:::: tabs
-::: tab XML
-```xml
-<category name="Variables" custom="VARIABLE"></category>
-<category name="Functions" custom="PROCEDURE"></category>
-```
-:::
-::: tab JSON
-```json
-{
-  "kind": "category",
-  "name": "Variables",
-  "custom": "VARIABLE"
-},
-{
-  "kind": "category",
-  "name": "Functions",
-  "custom": "PROCEDURE"
-}
-```
-:::
-::::
-
-*注意：在整个 Blockly 代码库中都使用了“过程”一词，但是此后发现“函数”一词更容易为学生所理解。 抱歉没能匹配。*
-
-开发人员还可以使用 `custom` 属性创建动态填充的弹出分类。例如，要创建带有一组自定义色块的弹出按钮，请执行以下操作：
-
-- 使用自定义属性创建分类。
-
-  ```xml
-  <category name="Colours" custom="COLOUR_PALETTE"></category>
-  ```
-
-- 定义一个回调以提供分类的内容。 此回调应接收工作空间并返回 XML 块元素的数组。
-
-  ```JavaScript
-  /**
-   * Construct the blocks required by the flyout for the colours category.
-   * @param {!Blockly.Workspace} workspace The workspace this flyout is for.
-   * @return {!Array.<!Element>} Array of XML block elements.
-   */
-  myApplication.coloursFlyoutCallback = function(workspace) {
-    // Returns an array of hex colours, e.g. ['#4286f4', '#ef0447']
-    var colourList = myApplication.getPalette();
-    var xmlList = [];
-    if (Blockly.Blocks['colour_picker']) {
-      for (var i = 0; i < colourList.length; i++) {
-        var blockText = '<block type="colour_picker">' +
-            '<field name="COLOUR">' + colourList[i] + '</field>' +
-            '</block>';
-        var block = Blockly.Xml.textToDom(blockText);
-        xmlList.push(block);
-      }
-    }
-    return xmlList;
-  };
-  ```
-- 在工作区上注册回调。
-
-  ```javascript
-  myWorkspace.registerToolboxCategoryCallback(
-    'COLOUR_PALETTE', myApplication.coloursFlyoutCallback);
-  ```
-
-### 类型化变量
-
-如果使用类型化变量，则需要将变量类型添加到变量字段中。
-
-```xml
-<block type="vars_set">
-  <field name="VAR_SET" variabletype="panda"></field>
-</block>
-```
-## 分类树
-
-分类可以嵌套在其他分类中。这里有两个顶级分类（'Core' 和 'Custom'），每个分类包含两个子分类，每个子类别包含块：
-
-:::: tabs
-::: tab XML
-```xml
-<xml id="toolbox" style="display: none">
-  <category name="Core">
-    <category name="Control">
-      <block type="controls_if"></block>
-      <block type="controls_whileUntil"></block>
-    </category>
-    <category name="Logic">
-      <block type="logic_compare"></block>
-      <block type="logic_operation"></block>
-      <block type="logic_boolean"></block>
-    </category>
+  <category name="Control">
+    <block type="controls_if"></block>
+    <block type="controls_whileUntil"></block>
+    <block type="controls_for">
   </category>
-  <category name="Custom">
-    <block type="start"></block>
-    <category name="Move">
-      <block type="move_forward"></block>
-      <block type="move_backward"></block>
-    </category>
-    <category name="Turn">
-      <block type="turn_left"></block>
-      <block type="turn_right"></block>
-    </category>
+  <category name="Logic">
+    <block type="logic_compare"></block>
+    <block type="logic_operation"></block>
+    <block type="logic_boolean"></block>
   </category>
 </xml>
 ```
+
 :::
+::::
+
+### 嵌套的分类
+
+分类可以嵌套在其他分类中。这里有两个顶级分类（'Core' 和 'Custom'），每个分类包含两个子分类，每个子类别都包含块：
+
+请注意，分类可以包含子分类和块。在上面的例子中，'Custom' 有两个子分类（'Move' 和 'Turn'），以及它自己的一个块（'start'）。
+:::: tabs
 ::: tab JSON
+
 ```json
 {
   "kind": "categoryToolbox",
@@ -512,22 +229,236 @@ category.hide();
   ]
 }
 ```
+
+:::
+::: tab XML
+
+```xml
+<xml id="toolbox" style="display: none">
+  <category name="Core">
+    <category name="Control">
+      <block type="controls_if"></block>
+      <block type="controls_whileUntil"></block>
+    </category>
+    <category name="Logic">
+      <block type="logic_compare"></block>
+      <block type="logic_operation"></block>
+      <block type="logic_boolean"></block>
+    </category>
+  </category>
+  <category name="Custom">
+    <block type="start"></block>
+    <category name="Move">
+      <block type="move_forward"></block>
+      <block type="move_backward"></block>
+    </category>
+    <category name="Turn">
+      <block type="turn_left"></block>
+      <block type="turn_right"></block>
+    </category>
+  </category>
+</xml>
+```
+
 :::
 ::::
 
-请注意，分类可以包含子分类和块。在上面的例子中，'Custom' 有两个子分类（'Move' 和 'Turn'），以及它自己的一个块（'start'）。
+### 动态分类
 
-## 展开
+动态分类是根据每次打开时的函数动态重新填充的类别。
 
-默认情况下，当 Blockly 被加载时，分类会以折叠方式显示，但分类可以用以下方式展开：
+Blockly 允许您通过已注册的字符串键将类别与函数关联来支持此功能。该函数应返回类别内容的定义（包括块、按钮、标签等）。内容可以指定为 JSON 或 XML，但建议使用 JSON。
+
+还要注意，该函数将目标工作区作为参数提供，因此您动态类别中的块可以基于工作区的状态。
 
 :::: tabs
-::: tab XML
-```xml
-<category name="..." expanded="true"></category>
+::: tab JSON
+截至 2021 年 9 月发布版本，您可以在不使用 `blockxml` 的情况下指定块的状态。
+
+```javascript
+// Returns an array of objects.
+var coloursFlyoutCallback = function(workspace) {
+  // Returns an array of hex colours, e.g. ['#4286f4', '#ef0447']
+  var colourList = getPalette();
+  var blockList = [];
+  for (var i = 0; i < colourList.length; i++) {
+    blockList.push({
+      'kind': 'block',
+      'type': 'colour_picker',
+      'fields': {
+        'COLOUR': colourList[i]
+      }
+    });
+  }
+  return blockList;
+};
+
+// Associates the function with the string 'COLOUR_PALETTE'
+myWorkspace.registerToolboxCategoryCallback(
+    'COLOUR_PALETTE', coloursFlyoutCallback);
 ```
 :::
+::: tab Old JSON
+
+在 2021 年 9 月发布之前，您必须使用 `blockxml` 属性来指定块的状态。
+
+```javascript
+// Returns an array of objects.
+var coloursFlyoutCallback = function(workspace) {
+  // Returns an array of hex colours, e.g. ['#4286f4', '#ef0447']
+  var colourList = getPalette();
+  var blockList = [];
+  for (var i = 0; i < colourList.length; i++) {
+    blockList.push({
+      'kind': 'block',
+      'type': 'colour_picker', // Type is optional if you provide blockxml
+      'blockxml': '<block type="colour_picker">' +
+          '<field name="COLOUR">' + colourList[i] + '</field>' +
+          '</block>'
+    });
+  }
+  return blockList;
+};
+
+// Associates the function with the string 'COLOUR_PALETTE'
+myWorkspace.registerToolboxCategoryCallback(
+    'COLOUR_PALETTE', coloursFlyoutCallback);
+```
+:::
+::: tab XML
+```javascript
+// Returns an arry of XML nodes.
+var coloursFlyoutCallback = function(workspace) {
+  // Returns an array of hex colours, e.g. ['#4286f4', '#ef0447']
+  var colourList = getPalette();
+  var blockList = [];
+  for (var i = 0; i < colourList.length; i++) {
+    var block = document.createElement('block');
+    block.setAttribute('type', 'colour_picker');
+    var field = document.createElement('field');
+    field.setAttribute('name', 'COLOUR');
+    field.innerText = colourList[i];
+    block.appendChild(field);
+    blockList.push(block);
+  }
+  return blockList;
+};
+
+// Associates the function with the string 'COLOUR_PALETTE'
+myWorkspace.registerToolboxCategoryCallback(
+    'COLOUR_PALETTE', coloursFlyoutCallback);
+```
+:::
+::::
+
+将动态类别函数与字符串键（也称为注册）相关联后，您可以将此字符串键分配给类别定义的自定义属性，以使该类别成为动态类别。
+
+::::tabs
 ::: tab JSON
+```json
+{
+  "kind": "category",
+  "name": "Colours",
+  "custom": "COLOUR_PALETTE"
+}
+```
+:::
+::: tab XML
+```xml
+<category name="Colours" custom="COLOUR_PALETTE"></category>
+```
+:::
+::::
+
+#### 内置动态类别
+
+Blockly 提供了两个内置的动态类别。其中一个创建变量类别，另一个创建过程（也称为函数）类别。它们的字符串键分别为 `VARIABLE` 和 `PROCEDURE`。您可以像这样将它们添加到您的工具箱中：
+
+::::tabs
+::: tab JSON
+```json
+{
+  "kind": "category",
+  "name": "Variables",
+  "custom": "VARIABLE"
+},
+{
+  "kind": "category",
+  "name": "Functions",
+  "custom": "PROCEDURE"
+}
+```
+:::
+::: tab XML
+```xml
+<category name="Variables" custom="VARIABLE"></category>
+<category name="Functions" custom="PROCEDURE"></category>
+```
+:::
+::::
+
+*注意：在 Blockly 代码库中，使用单词 “procedure” 表示过程和函数，但是学生更容易理解 “function”。对于不匹配的情况我们表示抱歉。*
+
+### 禁用某个分类
+
+禁用某个分类将不允许用户点击该分类，如果用户使用键盘操作工具箱，则将跳过该分类。 
+
+```javascript
+var category = toolbox.getToolboxItems()[0];
+category.setDisabled('true');
+```
+
+当一个类别被禁用时，一个 `'disabled'` 属性会被添加到 DOM 元素中，这允许你控制禁用类别的外观。
+
+```css
+.blocklyToolboxCategory[disabled="true"] {
+  opacity: .5;
+}
+```
+
+### 显示/隐藏分类
+
+分类可以在首次注入工具箱时隐藏，也可以在之后通过 JavaScript 隐藏。
+
+:::: tabs
+::: tab JSON
+
+```json
+{
+  "kind": "category",
+  "name": "...",
+  "hidden": "true"
+}
+```
+
+:::
+::: tab XML
+
+```xml
+<category name="..." hidden="true"></category>
+```
+
+:::
+::: tab JavaScript
+
+```javascript
+var category = toolbox.getToolboxItems()[0];
+category.hide();
+// etc...
+category.show();
+```
+:::
+::::
+
+### 展开
+
+这仅适用于包含其他 [嵌套类别](#嵌套的分类) 的类别。
+
+展开的类别将显示其子类别。默认情况下，嵌套类别是折叠的，需要点击才能展开。
+
+:::: tabs
+::: tab JSON
+
 ```json
 {
   "kind": "category",
@@ -536,33 +467,327 @@ category.hide();
 }
 ```
 :::
+::: tab XML
+
+```xml
+<category name="..." expanded="true"></category>
+```
+:::
 ::::
 
+### 样式
+
+Blockly 提供了一个默认的类别 UI，并提供了一些基本的样式选项。如果您想了解更高级的 UI 样式/配置信息，请查看 [Customizing a Blockly toolbox codelab](https://blocklycodelabs.dev/codelabs/custom-toolbox/index.html?index=..%2F..index#0) 和 [2021 Toolbox APIs talk](https://www.youtube.com/watch?v=JJVX_YuKDbo&list=PLSIUOFhnxEiCjoIwJ0jAdwpTZET73CK7d&index=9&t=1s)。
+
+![toolbox-colours](./toolbox-colours.png)
+
+#### 主题
+
+如果您已经开始使用 Blockly 主题，那么您将需要添加 `categorystyle` 属性而不是 `colour` 属性，如下所示。
+
+[主题](/guides/configure/themes.html) 可以一次性指定工作区的所有颜色，包括类别的颜色。
+
+要使用主题，您必须将类别与特定的类别样式关联起来。
+
+:::: tabs
+::: tab JSON
+
+```json
+{
+  "kind": "category",
+  "name": "Logic",
+  "categorystyle": "logic_category"
+}
+```
+:::
+::: tab XML
+
+```xml
+<category name="Logic" categorystyle="logic_category"></category>
+```
+:::
+::::
+
+#### 颜色
+
+可以使用可选的 `colour` 属性为每个分类分配一种颜色。 请注意英式拼写。`colour` 的值是定义色调的数字（0-360）。
+
+:::: tabs
+::: tab JSON
+
+```json
+{
+  "contents": [
+    {
+      "kind": "category",
+      "name": "Logic",
+      "colour": "210"
+    },
+    {
+      "kind": "category",
+      "name": "Loops",
+      "colour": "120"
+    }
+  ]
+}
+```
+:::
+::: tab XML
+
+```xml
+<xml id="toolbox" style="display: none">
+  <category name="Logic" colour="210">...</category>
+  <category name="Loops" colour="120">...</category>
+  <category name="Math" colour="230">...</category>
+  <category name="Colour" colour="20">...</category>
+  <category name="Variables" colour="330" custom="VARIABLE"></category>
+  <category name="Functions" colour="290" custom="PROCEDURE"></category>
+</xml>
+```
+:::
+::::
+
+请注意，我们还支持使用本地化的 [颜色参考](/guides/create-custom-blocks/block-colour.html#颜色参考)。
+
+#### 分类 CSS
+
+如果您想进行更强大的自定义操作，Blockly 还允许您为默认 UI 的不同元素指定 CSS 类。然后，您可以使用 CSS 对这些元素进行样式设置。
+
+以下元素类型可以应用 CSS 类：
+
+- container - 分类父级 div 的类。默认为 `blocklyToolboxCategory`。
+
+- row - 包含分类标签和图表组的 div 类. 默认为 `blocklyTreeRow`。
+
+- icon - 分类图标的类。默认为 `blocklyTreeIcon`。
+
+- label - 分类标签的类。 默认为 `blocklyTreeLabel`。
+
+- selected - 分类被选中时添加的类。 默认为 `blocklyTreeSelected`。
+
+- openicon - 当嵌套的分类打开时被添加的类。默认为 `blocklyTreeIconOpen`。
+
+- closedicon - 当嵌套的分类关闭时被添加的类。 默认为 `blocklyTreeIconClosed`。
+
+以下是如何使用任一格式指定类的方法：
+
+:::: tabs
+::: tab JSON
+使用 cssConfig 属性来设置特定元素类型的 CSS 类。
+```json
+{
+  "kind": "category",
+  "name": "...",
+  "cssConfig": {
+    "container": "yourClassName"
+  }
+}
+```
+:::
+::: tab XML
+通过在特定元素类型前添加“css-”来设置它的CSS类。
+```xml
+<category name="..." css-container="yourClassName"></category>
+```
+:::
+::::
+
+### 访问分类
+
+有两种方法可以通过编程方式访问类别。您可以通过索引访问它（其中 0 是顶级类别）：
+
+```javascript
+var category = toolbox.getToolboxItems()[0];
+```
+
+或者通过 ID
+
+```javascript
+var category = toolbox.getToolboxItemById('categoryId');
+```
+
+其中ID在工具箱定义中指定:
+
+:::: tabs
+::: tab JSON
+```json
+{
+  "kind": "category",
+  "name": "...",
+  "toolboxitemid": "categoryId"
+}
+```
+:::
+::: tab XML
+
+```xml
+<category name="..." toolboxitemid="categoryId"></category>
+```
+:::
+::::
 
 ## 预设块
 
 工具箱定义可以包含将字段设置为默认值的块，或者包含已经连接在一起的块。
 
 下面是四个块：
+
 1. 一个简单的无预设值的 `logic_boolean` 块：
 
-    ![true](./true.png)
+   ![true](./true.png)
 
 2. 经过修改以显示数字 42 而不是默认值 0 的 `math_number` 块：
 
-    ![42](./42.png)
+   ![42](./42.png)
 
+3) 一个 `controls_for` 块，具有三个与之相连的 `math_number` 块：
 
-3. 一个 `controls_for` 块，具有三个与之相连的 `math_number` 块：
+   ![count-with](./count-with.png)
 
-    ![count-with](./count-with.png)
+4) 一个 `math_arithmetic` 块，其中连接了两个 `math_number` [影子块](/guides/configure/toolbox#影子块.html)：
 
-4. 一个 `math_arithmetic` 块，其中连接了两个 `math_number` [影子块](/guides/configure/toolbox#影子块.html)：
-
-    ![1plus1](./1plus1.png)
+   ![1plus1](./1plus1.png)
 
 以下是在工具箱中生成这四个块的代码：
-```HTML
+
+::::tabs
+::: tab JSON
+从2021年9月版本开始，您可以在不使用 `blockxml` 的情况下指定块的状态。
+```json
+{
+  "kind": "flyoutToolbox",
+  "contents": [
+    {
+      "kind": "block",
+      "type": "logic_boolean"
+    },
+    {
+      "kind": "block",
+      "type": "math_number",
+      "fields": {
+        "NUM": 42
+      }
+    },
+    {
+      "kind": "block",
+      "type": "controls_for",
+      "inputs": {
+        "FROM": {
+          "block": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 1
+            }
+          }
+        },
+        "TO": {
+          "block": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 10
+            }
+          }
+        },
+        "BY": {
+          "block": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 1
+            }
+          }
+        },
+      }
+    },
+    {
+      "kind": "block",
+      "type": "math_arithmetic",
+      "fields": {
+        "OP": "ADD"
+      },
+      "inputs": {
+        "A": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 1
+            }
+          }
+        },
+        "B": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 1
+            }
+          }
+        }
+      }
+    },
+  ]
+}
+```
+:::
+::: tab OldJSON
+在2021年9月版本之前，您必须使用 `blockxml` 属性来指定块的状态。
+```json
+{
+  "kind": "flyoutToolbox",
+  "contents": [
+    {
+      "kind": "block",
+      "type": "logic_boolean"
+    },
+    {
+      "kind": "block",
+      "blockxml":
+          '<block type="math_number">' +
+          '<field name="NUM">42</field>' +
+          '</block>'
+    },
+    {
+      "kind": "block",
+      "blockxml":
+          '<block type="controls_for">' +
+            '<value name="FROM">' +
+              '<block type="math_number">' +
+                '<field name="NUM">1</field>' +
+              '</block>' +
+            '</value>' +
+            '<value name="TO">' +
+              '<block type="math_number">' +
+                '<field name="NUM">10</field>' +
+              '</block>' +
+            '</value>' +
+            '<value name="BY">' +
+              '<block type="math_number">' +
+                '<field name="NUM">1</field>' +
+              '</block>' +
+            '</value>' +
+          '</block>'
+    },
+    {
+      "kind": "block",
+      "blockxml":
+          '<block type="math_arithmetic">' +
+            '<field name="OP">ADD</field>' +
+            '<value name="A">' +
+              '<shadow type="math_number">' +
+                '<field name="NUM">1</field>' +
+              '</shadow>' +
+            '</value>' +
+            '<value name="B">' +
+              '<shadow type="math_number">' +
+                '<field name="NUM">1</field>' +
+              '</shadow>' +
+            '</value>' +
+          '</block>'
+    },
+  ]
+}
+```
+:::
+::: tab XML
+```xml
 <xml id="toolbox" style="display: none">
   <block type="logic_boolean"></block>
 
@@ -603,27 +828,25 @@ category.hide();
   </block>
 </xml>
 ```
-这些预设或连接块的 XML 与 Blockly 的 XML 保存格式相同。 因此，为此类块构造 XML 的最简单方法是使用 [代码应用程序](https://blockly-demo.appspot.com/static/demos/code/index.html) 来构建块，然后切换到 XML 选项卡并复制结果。 `x`，`y` 和 `id` 属性将被工具箱忽略，并且可能会被删除。
+:::
+::::
 
-### JSON
+手动编写这些定义可能有点麻烦。相反，您可以将块加载到工作区中，然后运行以下代码以获取定义。这些调用起作用是因为工具箱使用与序列化系统相同的块格式。
 
-可以使用 `blockxml` 属性在 JSON 中指定预设块和连接块。 有关应使用什么 XML 字符串的更多信息，请查看 [上面的部分](/guides/configure/web/toolbox#预设块.html)。
-
-```json
-{
-  "kind": "block",
-  "blockxml": "<block type='math_number'><field name='NUM'>42</field></block>"
-}
+::::tabs
+::: tab JSON
+```javascript
+console.log(Blockly.serialization.workspaces.save(Blockly.getMainWorkspace()));
 ```
-
-仅在更改字段值或将块连接在一起时才需要。 如果您不需要执行上述任何一项操作，则可以简单地使用 `type`。
-
-```json
-{
-  "kind": "block",
-  "type": "math_number"
-}
+:::
+::: tab XML
+```javascript
+console.log(Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace()));
 ```
+:::
+::::
+
+您也可以删除 x、y 和 id 属性，因为这些属性在工具箱中会被忽略。
 
 ## 影子块
 
@@ -637,46 +860,86 @@ category.hide();
 
 - 它们告知用户预期的值类型。
 
-无法使用代码应用程序直接构造影子块。 相反，可以使用常规块，然后将XML中的 `<block ...>` 和 `</ block>` 更改为 `<shadow ...>` 和 `</ shadow>`。
-
 ::: tip 注意
 影子块可能不包含变量字段或具有不是影子块的子项。
 :::
 
-## 变量
+### 禁用的块
 
-大多数字段都很容易在工具箱中设置，只需要 `name` 属性及其 `value`。
-```xml
-<field name="NUM">1</field>
+禁用的块无法从工具箱中拖动。可以使用可选的 `disabled` 属性单独禁用块。
+
+![toolbox-disabled](./toolbox-disabled.png)
+
+:::: tabs
+::: tab JSON
+```json
+{
+  "kind": "flyoutToolbox",
+  "contents": [
+    {
+      "kind": "block",
+      "type": "math_number"
+    },
+    {
+      "kind": "block",
+      "type": "math_arithmetic"
+    },
+    {
+      "kind": "block",
+      "type": "math_single",
+      "disabled": "true"
+    }
+  ]
+}
 ```
-但是，变量具有其他可选属性，这些属性会影响变量的创建方式。 变量字段可以具有 `id` 和 `variabletype`。 请注意，`variabletype` 不使用 camelCase(驼峰式命名)。
-
+:::
+::: tab XML
 ```xml
-<field name="VAR" id=".n*OKd.u}2UD9QFicbEX" variabletype="Panda">Bai Yun</field>
+<xml id="toolbox" style="display: none">
+  <block type="math_number"></block>
+  <block type="math_arithmetic"></block>
+  <block type="math_single" disabled="true"></block>
+</xml>
 ```
-如果设置了 `id`，则在创建块时，`variabletype`（如果已设置）和 `value` 必须与具有该 `id` 的任何现有变量匹配。 如果不存在具有该 `id` 的变量，则将创建一个新变量。 通常，该 `id` 不应包含在您的工具箱 XML 中。 如果变量具有相同的 `value` 和 `variabletype`，则省略 `id` 可使变量引用现有变量。
+:::
+::::
 
-果设置了 `variabletype`，则将使用该类型创建变量。 如果未设置 `variabletype`，则变量将具有默认的 `''` 类型。 如果使用 `variabletype`，则必须设置变量类型，因为 Blockly 不会推断类型。
+您还可以通过使用 `setEnabled` 的编程方式禁用或启用块。
 
-→ 更多信息请参阅 [变量](/guides/create-custom-blocks/variables.html)。
+## 变量字段
+
+当变量字段在工具箱中和简单序列化时，可能需要以不同的方式指定。
+
+特别是，当变量字段通常序列化为 JSON 时，它们只包含它们所代表的变量的 ID，因为变量的名称和类型是单独序列化的。但是，工具箱不包含该信息，因此需要直接在变量字段中包含它。
+
+```json
+{
+  "kind": "flyoutToolbox",
+  "content": [
+    {
+      "type": "controls_for",
+      "fields": {
+        "VAR": {
+          "name": "index",
+          "type": "Number"
+        }
+      }
+    }
+  ]
+}
+```
 
 ## 分隔符
 
-Adding a separator between any two categories will create a line and extra space between the two categories.
-
-You can change the class for the separator in your JSON or XML toolbox definition.
-
 在任何两个分类之间添加分隔符将在这两个类别之间创建一行并留出额外的空间。
+
+![toolbox-separator](./toolbox-separator.png)
 
 您可以在 JSON 或 XML 工具箱定义中更改分隔符的类。
 
 :::: tabs
-::: tab XML
-```xml
-<sep css-container="yourClassName"></sep>
-```
-:::
 ::: tab JSON
+
 ```json
 {
   "kind": "sep",
@@ -686,28 +949,21 @@ You can change the class for the separator in your JSON or XML toolbox definitio
 }
 ```
 :::
-::::
+::: tab XML
 
-![toolbox-separator](./toolbox-separator.png)
+```xml
+<sep css-container="yourClassName"></sep>
+```
+:::
+::::
 
 在任意两个块之间添加分隔符将在两个块之间创建间隙。 默认情况下，每个块与其下相邻块相距 24 个像素。 可以使用 'gap' 属性更改此间距，该属性将替换默认间距。
 
+![toolbox-gap](./toolbox-gap.png)
+
+这使您可以在工具箱中创建逻辑块的分组。
+
 :::: tabs
-::: tab XML
-```xml
-<xml id="toolbox" style="display: none">
-  <block type="math_number"></block>
-  <sep gap="32"></sep>
-  <block type="math_arithmetic">
-    <field name="OP">ADD</field>
-  </block>
-  <sep gap="8"></sep>
-  <block type="math_arithmetic">
-    <field name="OP">MINUS</field>
-  </block>
-</xml>
-```
-:::
 ::: tab JSON
 ```json
 {
@@ -715,7 +971,7 @@ You can change the class for the separator in your JSON or XML toolbox definitio
   "contents": [
     {
       "kind": "block",
-      "type":"math_number"
+      "type": "math_number"
     },
     {
       "kind": "sep",
@@ -737,30 +993,30 @@ You can change the class for the separator in your JSON or XML toolbox definitio
 }
 ```
 :::
+::: tab XML
+```xml
+<xml id="toolbox" style="display: none">
+  <block type="math_number"></block>
+  <sep gap="32"></sep>
+  <block type="math_arithmetic">
+    <field name="OP">ADD</field>
+  </block>
+  <sep gap="8"></sep>
+  <block type="math_arithmetic">
+    <field name="OP">MINUS</field>
+  </block>
+</xml>
+```
+:::
 ::::
-
-
-调整块之间的间距可以允许在工具箱中创建逻辑组的块。
-
-![toolbox-gap](./toolbox-gap.png)
 
 ## 按钮和标签
 
 您可以在工具箱中可以放置块的任何地方放置按钮或标签。
 
+![label-and-button](./label-and-button.png)
+
 :::: tabs
-::: tab XML
-```xml
-<xml id="toolbox" style="display: none">
-  <block type="logic_operation"></block>
-  <label text="A label" web-class="myLabelStyle"></label>
-  <label text="Another label"></label>
-  <block type="logic_negate"></block>
-  <button text="A button" callbackKey="myFirstButtonPressed"></button>
-  <block type="logic_boolean"></block>
-</xml>
-```
-:::
 ::: tab JSON
 ```json
 {
@@ -768,7 +1024,7 @@ You can change the class for the separator in your JSON or XML toolbox definitio
   "contents": [
     {
       "kind": "block",
-      "type":"logic_operation"
+      "type": "logic_operation"
     },
     {
       "kind": "label",
@@ -796,78 +1052,47 @@ You can change the class for the separator in your JSON or XML toolbox definitio
 }
 ```
 :::
+::: tab XML
+```xml
+<xml id="toolbox" style="display: none">
+  <block type="logic_operation"></block>
+  <label text="A label" web-class="myLabelStyle"></label>
+  <label text="Another label"></label>
+  <block type="logic_negate"></block>
+  <button text="A button" callbackKey="myFirstButtonPressed"></button>
+  <block type="logic_boolean"></block>
+</xml>
+```
+:::
 ::::
 
 ```html
-    <style>
-    .myLabelStyle>.blocklyFlyoutLabelText {
-      font-style: italic;
-      fill: green;
-    }
-    </style>
+<style>
+  .myLabelStyle > .blocklyFlyoutLabelText {
+    font-style: italic;
+    fill: green;
+  }
+</style>
 ```
-![label-and-button](./label-and-button.png)
 
-您可以指定要应用于按钮或标签的CSS类名称。在上面的示例中，第一个标签使用自定义样式，而第二个标签使用默认样式。
+您可以指定要应用于按钮或标签的 CSS 类名称。在上面的示例中，第一个标签使用自定义样式，而第二个标签使用默认样式。
 
 按钮应该有回调函数，而标签不需要。要为给定按钮设置回调函数，使用
 
 ```JavaScript
 yourWorkspace.registerButtonCallback(yourCallbackKey, yourFunction).
 ```
+
 您的函数应接受点击的按钮作为参数。 变量类别中的 “创建变量...” 按钮是带有回调的按钮的一个很好的例子。
-## 禁用
-
-可以使用可选的 `disabled` 属性单独禁用工具箱中的块：
-
-:::: tabs
-::: tab XML
-```xml
-<xml id="toolbox" style="display: none">
-  <block type="math_number"></block>
-  <block type="math_arithmetic"></block>
-  <block type="math_single" disabled="true"></block>
-</xml>
-```
-:::
-::: tab JSON
-```json
-{
-  "kind": "flyoutToolbox",
-  "contents": [
-    {
-      "kind": "block",
-      "type":"math_number"
-    },
-    {
-      "kind": "block",
-      "type": "math_arithmetic"
-    },
-    {
-      "kind": "block",
-      "type": "math_single",
-      "disabled": "true"
-    }
-  ]
-}
-```
-:::
-::::
-
-
-禁用块可用于限制用户的选择。 也许在取得某些成就之后，可以解锁高级块。
-
-```javascript
-Blockly.selected.setEnabled(true);
-```
-
-![toolbox-disabled](./toolbox-disabled.png)
 
 ## 更改工具箱
+
 应用程序可以通过单个函数调用随时更改工具箱中可用的块：
+
 ```JavaScript
 workspace.updateToolbox(newTree);
 ```
+
 与初始配置期间的情况一样，`newTree` 可以是节点树或字符串表达或 JSON 对象。唯一的限制是不能更改模式;也就是说，如果最初定义的工具箱中有分类，则新工具箱也必须具有分类（尽管分类可能会更改）。同样，如果最初定义的工具箱没有任何分类，则新工具箱可能没有任何分类。
 
 可以通过以下方式更新单个分类的内容：
