@@ -383,15 +383,18 @@ module.exports = {
                 },
                 {
                   title: '使用内置过程块',
-                  path: '/guides/create-custom-blocks/procedures/using-procedures'
+                  path:
+                    '/guides/create-custom-blocks/procedures/using-procedures'
                 },
                 {
                   title: '创建自定义过程块',
-                  path: '/guides/create-custom-blocks/procedures/creating-custom-procedure-blocks'
+                  path:
+                    '/guides/create-custom-blocks/procedures/creating-custom-procedure-blocks'
                 },
                 {
                   title: '创建自定义过程数据模型',
-                  path: '/guides/create-custom-blocks/procedures/creating-custom-procedure-data-models'
+                  path:
+                    '/guides/create-custom-blocks/procedures/creating-custom-procedure-data-models'
                 }
               ]
             }
@@ -533,6 +536,88 @@ module.exports = {
           ]
         }
       ]
+    //   '/reference': [
+    //     {
+    //       title: 'Enumerations',
+    //       collapsable: false,
+    //       children: [
+    //         {
+    //           title: 'ConnectionType',
+    //           path: '/reference/js/blockly.connectiontype_enum'
+    //         },
+    //         {
+    //           title: 'inputTypes',
+    //           path: '/reference/js/blockly.inputtypes_enum'
+    //         }
+    //       ]
+    //     },
+    //     {
+    //       title: 'Variables',
+    //     },
+    //     {
+    //       title: 'Type Aliases',
+    //       collapsable: false,
+    //       children: [
+    //         {
+    //           title: 'FieldAngleValidator',
+    //           path: '/reference/js/blockly.fieldanglevalidator_typealias'
+    //         },
+    //         {
+    //           title: 'FieldCheckboxValidator',
+    //           path: '/reference/js/blockly.fieldcheckboxvalidator_typealias'
+    //         },
+    //         {
+    //           title: 'FieldColourValidator',
+    //           path: '/reference/js/blockly.fieldcolourvalidator_typealias'
+    //         },
+    //         {
+    //           title: 'FieldDropdownConfig',
+    //           path: '/reference/js/blockly.fielddropdownconfig_typealias'
+    //         },
+    //         {
+    //           title: 'FieldDropdownValidator',
+    //           path: '/reference/js/blockly.fielddropdownvalidator_typealias'
+    //         },
+    //         {
+    //           title: 'FieldMultilineInputValidator',
+    //           path:
+    //             '/reference/js/blockly.fieldmultilineinputvalidator_typealias'
+    //         },
+    //         {
+    //           title: 'FieldNumberValidator',
+    //           path: '/reference/js/blockly.fieldnumbervalidator_typealias'
+    //         },
+    //         {
+    //           title: 'FieldTextInputConfig',
+    //           path: '/reference/js/blockly.fieldtextinputconfig_typealias'
+    //         },
+    //         {
+    //           title: 'FieldTextInputValidator',
+    //           path: '/reference/js/blockly.fieldtextinputvalidator_typealias'
+    //         },
+    //         {
+    //           title: 'FieldValidator',
+    //           path: '/reference/js/blockly.fieldvalidator_typealias'
+    //         },
+    //         {
+    //           title: 'FieldVariableValidator',
+    //           path: '/reference/js/blockly.fieldvariablevalidator_typealias'
+    //         },
+    //         {
+    //           title: 'MenuGenerator',
+    //           path: '/reference/js/blockly.menugenerator_typealias'
+    //         },
+    //         {
+    //           title: 'MenuGeneratorFunction',
+    //           path: '/reference/js/blockly.menugeneratorfunction_typealias'
+    //         },
+    //         {
+    //           title: 'MenuOption',
+    //           path: '/reference/js/blockly.menuoption_typealias'
+    //         }
+    //       ]
+    //     }
+    //   ]
     }
   }
 };
