@@ -1,6 +1,4 @@
 # Blockly 中文文档
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ftortorse%2Fblockly-document-chinese.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Ftortorse%2Fblockly-document-chinese?ref=badge_shield)
-
 
 > Blockly 是一个将可视代码编辑器添加到 Web 和移动应用程序的库。 Blockly 编辑器使用互锁的图形块来表示代码概念，如变量，逻辑表达式，循环等。它使得用户可以不必关注语法细节就能直接按照编程原则进行编程。
 
