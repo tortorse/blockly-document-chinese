@@ -127,7 +127,3 @@ Blockly 官方站点: <https://developers.google.com/blockly>
 - widget 不翻译
 - issue 不翻译
 - codelab 不翻译
-
-
-## License
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ftortorse%2Fblockly-document-chinese.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Ftortorse%2Fblockly-document-chinese?ref=badge_large)
