@@ -36,16 +36,6 @@ flyoutWorkspace.addChangeListener(onFirstComment);
 
 请参阅 [参考文档](/reference/js/blockly.events_namespace.html) 以获取有关各个事件的信息。
 
-<!-- 所有事件共享以下常见属性：
-
-| 名称        | 类型   | 描述                                                                                                       |
-| ----------- | ------ | ---------------------------------------------------------------------------------------------------------- |
-| type        | 字符串 | `Blockly.Events.CREATE`，`Blockly.Events.DELETE`，`Blockly.Events.CHANGE`，`Blockly.Events.MOVE` 之一      |
-| isUiEvent   | 布尔值 | 该事件是否是 UI 事件（例如，滚动，单击，选择，块拖动）。                                                   |
-| workspaceId | 字符串 | 工作区的 UUID。通过 `Blockly.Workspace.getById(event.workspaceId)` 可以找到工作区。                        |
-| blockId     | 字符串 | 块的 UUID。通过 `workspace.getBlockById(event.blockId`) 可以找到块                                         |
-| group       | 字符串 | 组的 UUID。某些事件属于不可分割的组，正如在堆栈中插入语句这种情形。这用于将事件组合在一起以进行撤消/重做。 |
-
 ### 工作区事件
 
 #### Blockly.Events.FINISHED_LOADING
