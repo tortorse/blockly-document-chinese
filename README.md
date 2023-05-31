@@ -114,79 +114,79 @@ Blockly 官方站点: <https://developers.google.com/blockly>
 - Reference 参考
   - [ ] [Overview](./docs/reference/js/blockly.md)
   - Classes
-    - [ ] [ASTNode](./docs/reference/js/blockly.astnode_class.md)
-    - [ ] [BasicCursor](./docs/reference/js/blockly.basiccursor_class.md)
-    - [ ] [Block](./docs/reference/js/blockly.block_class.md)
-    - [ ] [BlockDragger](./docs/reference/js/blockly.blockdragger_class.md)
-    - [ ] [BlockDragSurfaceSvg](./docs/reference/js/blockly.blockdragsurfacesvg_class.md)
-    - [ ] [BlockSvg](./docs/reference/js/blockly.blocksvg_class.md)
-    - [ ] [Bubble](./docs/reference/js/blockly.bubble_class.md)
-    - [ ] [BubbleDragger](./docs/reference/js/blockly.bubbledragger_class.md)
-    - [ ] [CodeGenerator](./docs/reference/js/blockly.codegenerator_class.md)
-    - [ ] [CollapsibleToolboxCategory](./docs/reference/js/blockly.collapsibletoolboxcategory_class.md)
-    - [ ] [Comment](./docs/reference/js/blockly.comment_class.md)
-    - [ ] [ComponentManager](./docs/reference/js/blockly.componentmanager_class.md)
-    - [ ] [Connection](./docs/reference/js/blockly.connection_class.md)
-    - [ ] [ConnectionChecker](./docs/reference/js/blockly.connectionchecker_class.md)
-    - [ ] [ConnectionDB](./docs/reference/js/blockly.connectiondb_class.md)
-    - [ ] [ContextMenuRegistry](./docs/reference/js/blockly.contextmenuregistry_class.md)
-    - [ ] [Cursor](./docs/reference/js/blockly.cursor_class.md)
-    - [ ] [DeleteArea](./docs/reference/js/blockly.deletearea_class.md)
-    - [ ] [DragTarget](./docs/reference/js/blockly.dragtarget_class.md)
-    - [ ] [Field](./docs/reference/js/blockly.field_class.md)
-    - [ ] [FieldAngle](./docs/reference/js/blockly.fieldangle_class.md)
-    - [ ] [FieldCheckbox](./docs/reference/js/blockly.fieldcheckbox_class.md)
-    - [ ] [FieldColour](./docs/reference/js/blockly.fieldcolour_class.md)
-    - [ ] [FieldDropdown](./docs/reference/js/blockly.fielddropdown_class.md)
-    - [ ] [FieldImage](./docs/reference/js/blockly.fieldimage_class.md)
-    - [ ] [FieldLabel](./docs/reference/js/blockly.fieldlabel_class.md)
-    - [ ] [FieldLabelSerializable](./docs/reference/js/blockly.fieldlabelserializable_class.md)
-    - [ ] [FieldMultilineInput](./docs/reference/js/blockly.fieldmultilineinput_class.md)
-    - [ ] [FieldNumber](./docs/reference/js/blockly.fieldnumber_class.md)
-    - [ ] [FieldTextInput](./docs/reference/js/blockly.fieldtextinput_class.md)
-    - [ ] [FieldVariable](./docs/reference/js/blockly.fieldvariable_class.md)
-    - [ ] [Flyout](./docs/reference/js/blockly.flyout_class.md)
-    - [ ] [FlyoutButton](./docs/reference/js/blockly.flyoutbutton_class.md)
-    - [ ] [FlyoutMetricsManager](./docs/reference/js/blockly.flyoutmetricsmanager_class.md)
-    - [ ] [Gesture](./docs/reference/js/blockly.gesture_class.md)
-    - [ ] [Grid](./docs/reference/js/blockly.grid_class.md)
-    - [ ] [HorizontalFlyout](./docs/reference/js/blockly.horizontalflyout_class.md)
-    - [ ] [Icon](./docs/reference/js/blockly.icon_class.md)
-    - [ ] [Input](./docs/reference/js/blockly.input_class.md)
-    - [ ] [InsertionMarkerManager](./docs/reference/js/blockly.insertionmarkermanager_class.md)
-    - [ ] [Marker](./docs/reference/js/blockly.marker_class.md)
-    - [ ] [MarkerManager](./docs/reference/js/blockly.markermanager_class.md)
-    - [ ] [Menu](./docs/reference/js/blockly.menu_class.md)
-    - [ ] [MenuItem](./docs/reference/js/blockly.menuitem_class.md)
-    - [ ] [MetricsManager](./docs/reference/js/blockly.metricsmanager_class.md)
-    - [ ] [Mutator](./docs/reference/js/blockly.mutator_class.md)
-    - [ ] [Names](./docs/reference/js/blockly.names_class.md)
-    - [ ] [Options](./docs/reference/js/blockly.options_class.md)
-    - [ ] [RenderedConnection](./docs/reference/js/blockly.renderedconnection_class.md)
-    - [ ] [Scrollbar](./docs/reference/js/blockly.scrollbar_class.md)
-    - [ ] [ScrollbarPair](./docs/reference/js/blockly.scrollbarpair_class.md)
-    - [ ] [ShortcutRegistry](./docs/reference/js/blockly.shortcutregistry_class.md)
-    - [ ] [TabNavigateCursor](./docs/reference/js/blockly.tabnavigatecursor_class.md)
-    - [ ] [Theme](./docs/reference/js/blockly.theme_class.md)
-    - [ ] [ThemeManager](./docs/reference/js/blockly.thememanager_class.md)
-    - [ ] [Toolbox](./docs/reference/js/blockly.toolbox_class.md)
-    - [ ] [ToolboxCategory](./docs/reference/js/blockly.toolboxcategory_class.md)
-    - [ ] [ToolboxItem](./docs/reference/js/blockly.toolboxitem_class.md)
-    - [ ] [ToolboxSeparator](./docs/reference/js/blockly.toolboxseparator_class.md)
-    - [ ] [Trashcan](./docs/reference/js/blockly.trashcan_class.md)
-    - [ ] [UnattachedFieldError](./docs/reference/js/blockly.unattachedfielderror_class.md)
-    - [ ] [VariableMap](./docs/reference/js/blockly.variablemap_class.md)
-    - [ ] [VariableModel](./docs/reference/js/blockly.variablemodel_class.md)
-    - [ ] [VerticalFlyout](./docs/reference/js/blockly.verticalflyout_class.md)
-    - [ ] [Warning](./docs/reference/js/blockly.warning_class.md)
-    - [ ] [Workspace](./docs/reference/js/blockly.workspace_class.md)
-    - [ ] [WorkspaceAudio](./docs/reference/js/blockly.workspaceaudio_class.md)
-    - [ ] [WorkspaceComment](./docs/reference/js/blockly.workspacecomment_class.md)
-    - [ ] [WorkspaceCommentSvg](./docs/reference/js/blockly.workspacecommentsvg_class.md)
-    - [ ] [WorkspaceDragger](./docs/reference/js/blockly.workspacedragger_class.md)
-    - [ ] [WorkspaceDragSurfaceSvg](./docs/reference/js/blockly.workspacedragsurfacesvg_class.md)
-    - [ ] [WorkspaceSvg](./docs/reference/js/blockly.workspacesvg_class.md)
-    - [ ] [ZoomControls](./docs/reference/js/blockly.zoomcontrols_class.md)
+    - [ ] [ASTNode](./docs/reference/js/blockly.astnode_class.md) 🗄️
+    - [ ] [BasicCursor](./docs/reference/js/blockly.basiccursor_class.md) 🗄️
+    - [ ] [Block](./docs/reference/js/blockly.block_class.md) 🗄️
+    - [ ] [BlockDragger](./docs/reference/js/blockly.blockdragger_class.md) 🗄️
+    - [ ] [BlockDragSurfaceSvg](./docs/reference/js/blockly.blockdragsurfacesvg_class.md) 🗄️
+    - [ ] [BlockSvg](./docs/reference/js/blockly.blocksvg_class.md) 🗄️
+    - [ ] [Bubble](./docs/reference/js/blockly.bubble_class.md) 🗄️
+    - [ ] [BubbleDragger](./docs/reference/js/blockly.bubbledragger_class.md) 🗄️
+    - [ ] [CodeGenerator](./docs/reference/js/blockly.codegenerator_class.md) 🗄️
+    - [ ] [CollapsibleToolboxCategory](./docs/reference/js/blockly.collapsibletoolboxcategory_class.md) 🗄️
+    - [ ] [Comment](./docs/reference/js/blockly.comment_class.md) 🗄️
+    - [ ] [ComponentManager](./docs/reference/js/blockly.componentmanager_class.md) 🗄️
+    - [ ] [Connection](./docs/reference/js/blockly.connection_class.md) 🗄️
+    - [ ] [ConnectionChecker](./docs/reference/js/blockly.connectionchecker_class.md) 🗄️
+    - [ ] [ConnectionDB](./docs/reference/js/blockly.connectiondb_class.md) 🗄️
+    - [ ] [ContextMenuRegistry](./docs/reference/js/blockly.contextmenuregistry_class.md) 🗄️
+    - [ ] [Cursor](./docs/reference/js/blockly.cursor_class.md) 🗄️
+    - [ ] [DeleteArea](./docs/reference/js/blockly.deletearea_class.md) 🗄️
+    - [ ] [DragTarget](./docs/reference/js/blockly.dragtarget_class.md) 🗄️
+    - [ ] [Field](./docs/reference/js/blockly.field_class.md) 🗄️
+    - [ ] [FieldAngle](./docs/reference/js/blockly.fieldangle_class.md) 🗄️
+    - [ ] [FieldCheckbox](./docs/reference/js/blockly.fieldcheckbox_class.md) 🗄️
+    - [ ] [FieldColour](./docs/reference/js/blockly.fieldcolour_class.md) 🗄️
+    - [ ] [FieldDropdown](./docs/reference/js/blockly.fielddropdown_class.md) 🗄️
+    - [ ] [FieldImage](./docs/reference/js/blockly.fieldimage_class.md) 🗄️
+    - [ ] [FieldLabel](./docs/reference/js/blockly.fieldlabel_class.md) 🗄️
+    - [ ] [FieldLabelSerializable](./docs/reference/js/blockly.fieldlabelserializable_class.md) 🗄️
+    - [ ] [FieldMultilineInput](./docs/reference/js/blockly.fieldmultilineinput_class.md) 🗄️
+    - [ ] [FieldNumber](./docs/reference/js/blockly.fieldnumber_class.md) 🗄️
+    - [ ] [FieldTextInput](./docs/reference/js/blockly.fieldtextinput_class.md) 🗄️
+    - [ ] [FieldVariable](./docs/reference/js/blockly.fieldvariable_class.md) 🗄️
+    - [ ] [Flyout](./docs/reference/js/blockly.flyout_class.md) 🗄️
+    - [ ] [FlyoutButton](./docs/reference/js/blockly.flyoutbutton_class.md) 🗄️
+    - [ ] [FlyoutMetricsManager](./docs/reference/js/blockly.flyoutmetricsmanager_class.md) 🗄️
+    - [ ] [Gesture](./docs/reference/js/blockly.gesture_class.md) 🗄️
+    - [ ] [Grid](./docs/reference/js/blockly.grid_class.md) 🗄️
+    - [ ] [HorizontalFlyout](./docs/reference/js/blockly.horizontalflyout_class.md) 🗄️
+    - [ ] [Icon](./docs/reference/js/blockly.icon_class.md) 🗄️
+    - [ ] [Input](./docs/reference/js/blockly.input_class.md) 🗄️
+    - [ ] [InsertionMarkerManager](./docs/reference/js/blockly.insertionmarkermanager_class.md) 🗄️
+    - [ ] [Marker](./docs/reference/js/blockly.marker_class.md) 🗄️
+    - [ ] [MarkerManager](./docs/reference/js/blockly.markermanager_class.md) 🗄️
+    - [ ] [Menu](./docs/reference/js/blockly.menu_class.md) 🗄️
+    - [ ] [MenuItem](./docs/reference/js/blockly.menuitem_class.md) 🗄️
+    - [ ] [MetricsManager](./docs/reference/js/blockly.metricsmanager_class.md) 🗄️
+    - [ ] [Mutator](./docs/reference/js/blockly.mutator_class.md) 🗄️
+    - [ ] [Names](./docs/reference/js/blockly.names_class.md) 🗄️
+    - [ ] [Options](./docs/reference/js/blockly.options_class.md) 🗄️
+    - [ ] [RenderedConnection](./docs/reference/js/blockly.renderedconnection_class.md) 🗄️
+    - [ ] [Scrollbar](./docs/reference/js/blockly.scrollbar_class.md) 🗄️
+    - [ ] [ScrollbarPair](./docs/reference/js/blockly.scrollbarpair_class.md) 🗄️
+    - [ ] [ShortcutRegistry](./docs/reference/js/blockly.shortcutregistry_class.md) 🗄️
+    - [ ] [TabNavigateCursor](./docs/reference/js/blockly.tabnavigatecursor_class.md) 🗄️
+    - [ ] [Theme](./docs/reference/js/blockly.theme_class.md) 🗄️
+    - [ ] [ThemeManager](./docs/reference/js/blockly.thememanager_class.md) 🗄️
+    - [ ] [Toolbox](./docs/reference/js/blockly.toolbox_class.md) 🗄️
+    - [ ] [ToolboxCategory](./docs/reference/js/blockly.toolboxcategory_class.md) 🗄️
+    - [ ] [ToolboxItem](./docs/reference/js/blockly.toolboxitem_class.md) 🗄️
+    - [ ] [ToolboxSeparator](./docs/reference/js/blockly.toolboxseparator_class.md) 🗄️
+    - [ ] [Trashcan](./docs/reference/js/blockly.trashcan_class.md) 🗄️
+    - [ ] [UnattachedFieldError](./docs/reference/js/blockly.unattachedfielderror_class.md) 🗄️
+    - [ ] [VariableMap](./docs/reference/js/blockly.variablemap_class.md) 🗄️
+    - [ ] [VariableModel](./docs/reference/js/blockly.variablemodel_class.md) 🗄️
+    - [ ] [VerticalFlyout](./docs/reference/js/blockly.verticalflyout_class.md) 🗄️
+    - [ ] [Warning](./docs/reference/js/blockly.warning_class.md) 🗄️
+    - [ ] [Workspace](./docs/reference/js/blockly.workspace_class.md) 🗄️
+    - [ ] [WorkspaceAudio](./docs/reference/js/blockly.workspaceaudio_class.md) 🗄️
+    - [ ] [WorkspaceComment](./docs/reference/js/blockly.workspacecomment_class.md) 🗄️
+    - [ ] [WorkspaceCommentSvg](./docs/reference/js/blockly.workspacecommentsvg_class.md) 🗄️
+    - [ ] [WorkspaceDragger](./docs/reference/js/blockly.workspacedragger_class.md) 🗄️
+    - [ ] [WorkspaceDragSurfaceSvg](./docs/reference/js/blockly.workspacedragsurfacesvg_class.md) 🗄️
+    - [ ] [WorkspaceSvg](./docs/reference/js/blockly.workspacesvg_class.md) 🗄️
+    - [ ] [ZoomControls](./docs/reference/js/blockly.zoomcontrols_class.md) 🗄️
   - Enumerations
     - [ ] [ConnectionType](./docs/reference/js/blockly.connectiontype_enum.md)
     - [ ] [inputTypes](./docs/reference/js/blockly.inputtypes_enum.md)
@@ -336,18 +336,18 @@ Blockly 官方站点: <https://developers.google.com/blockly>
     - [ ] [TOOLBOX_AT_RIGHT](./docs/reference/js/blockly.toolbox_at_right_variable.md)
     - [ ] [TOOLBOX_AT_TOP](./docs/reference/js/blockly.toolbox_at_top_variable.md)
     - [ ] [VARIABLE_CATEGORY_NAME](./docs/reference/js/blockly.variable_category_name_variable.md)
-    - [ ] [VARIABLE_DYNAMIC_CATEGORY_NAME](./docs/reference/js/blockly.variable_dynamic_category_name_variable.md)
-    - [ ] [VERSION](./docs/reference/js/blockly.version_variable.md)
+    - [ ] [VARIABLE_DYNAMIC_CATEGORY_NAME](./docs/reference/js/blockly.variable_dynamic_category_name_variable.md) 🗄️
+    - [ ] [VERSION](./docs/reference/js/blockly.version_variable.md) 🗄️
   - Type Aliases
-    - [ ] [FieldAngleValidator](./docs/reference/js/blockly.fieldanglevalidator_typealias.md)
-    - [ ] [FieldCheckboxValidator](./docs/reference/js/blockly.fieldcheckboxvalidator_typealias.md)
-    - [ ] [FieldColourValidator](./docs/reference/js/blockly.fieldcolourvalidator_typealias.md)
-    - [ ] [FieldDropdownConfig](./docs/reference/js/blockly.fielddropdownconfig_typealias.md)
-    - [ ] [FieldDropdownValidator](./docs/reference/js/blockly.fielddropdownvalidator_typealias.md)
-    - [ ] [FieldMultilineInputValidator](./docs/reference/js/blockly.fieldmultilineinputvalidator_typealias.md)
-    - [ ] [FieldNumberValidator](./docs/reference/js/blockly.fieldnumbervalidator_typealias.md)
-    - [ ] [FieldTextInputConfig](./docs/reference/js/blockly.fieldtextinputconfig_typealias.md)
-    - [ ] [FieldTextInputValidator](./docs/reference/js/blockly.fieldtextinputvalidator_typealias.md)
+    - [ ] [FieldAngleValidator](./docs/reference/js/blockly.fieldanglevalidator_typealias.md) 🗄️
+    - [ ] [FieldCheckboxValidator](./docs/reference/js/blockly.fieldcheckboxvalidator_typealias.md) 🗄️
+    - [ ] [FieldColourValidator](./docs/reference/js/blockly.fieldcolourvalidator_typealias.md) 🗄️
+    - [ ] [FieldDropdownConfig](./docs/reference/js/blockly.fielddropdownconfig_typealias.md) 🗄️
+    - [ ] [FieldDropdownValidator](./docs/reference/js/blockly.fielddropdownvalidator_typealias.md) 🗄️
+    - [ ] [FieldMultilineInputValidator](./docs/reference/js/blockly.fieldmultilineinputvalidator_typealias.md) 🗄️
+    - [ ] [FieldNumberValidator](./docs/reference/js/blockly.fieldnumbervalidator_typealias.md) 🗄️
+    - [ ] [FieldTextInputConfig](./docs/reference/js/blockly.fieldtextinputconfig_typealias.md) 🗄️
+    - [ ] [FieldTextInputValidator](./docs/reference/js/blockly.fieldtextinputvalidator_typealias.md) 🗄️
     - [ ] [FieldValidator](./docs/reference/js/blockly.fieldvalidator_typealias.md) (原文)
     - [ ] [FieldVariableValidator](./docs/reference/js/blockly.fieldvariablevalidator_typealias.md) (原文)
     - [ ] [MenuGenerator](./docs/reference/js/blockly.menugenerator_typealias.md) (原文)
