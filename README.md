@@ -205,18 +205,18 @@ Blockly 官方站点: <https://developers.google.com/blockly>
   - Interfaces
     - [ ] [BlocklyOptions](./docs/reference/js/blockly.blocklyoptions_interface.md) 🗄️
     - [ ] [FieldAngleConfig](./docs/reference/js/blockly.fieldangleconfig_interface.md) 🗄️
-    - [ ] [FieldAngleFromJsonConfig](./docs/reference/js/blockly.fieldanglefromjsonconfig_interface.md)
-    - [ ] [FieldCheckboxConfig](./docs/reference/js/blockly.fieldcheckboxconfig_interface.md)
-    - [ ] [FieldCheckboxFromJsonConfig](./docs/reference/js/blockly.fieldcheckboxfromjsonconfig_interface.md)
-    - [ ] [FieldColourConfig](./docs/reference/js/blockly.fieldcolourconfig_interface.md)
-    - [ ] [FieldColourFromJsonConfig](./docs/reference/js/blockly.fieldcolourfromjsonconfig_interface.md)
-    - [ ] [FieldConfig](./docs/reference/js/blockly.fieldconfig_interface.md)
-    - [ ] [FieldDropdownFromJsonConfig](./docs/reference/js/blockly.fielddropdownfromjsonconfig_interface.md)
-    - [ ] [FieldImageConfig](./docs/reference/js/blockly.fieldimageconfig_interface.md)
-    - [ ] [FieldImageFromJsonConfig](./docs/reference/js/blockly.fieldimagefromjsonconfig_interface.md)
-    - [ ] [FieldLabelConfig](./docs/reference/js/blockly.fieldlabelconfig_interface.md)
-    - [ ] [FieldLabelFromJsonConfig](./docs/reference/js/blockly.fieldlabelfromjsonconfig_interface.md)
-    - [ ] [FieldMultilineInputConfig](./docs/reference/js/blockly.fieldmultilineinputconfig_interface.md)
+    - [ ] [FieldAngleFromJsonConfig](./docs/reference/js/blockly.fieldanglefromjsonconfig_interface.md) 🗄️
+    - [ ] [FieldCheckboxConfig](./docs/reference/js/blockly.fieldcheckboxconfig_interface.md) 🗄️
+    - [ ] [FieldCheckboxFromJsonConfig](./docs/reference/js/blockly.fieldcheckboxfromjsonconfig_interface.md) 🗄️
+    - [ ] [FieldColourConfig](./docs/reference/js/blockly.fieldcolourconfig_interface.md) 🗄️
+    - [ ] [FieldColourFromJsonConfig](./docs/reference/js/blockly.fieldcolourfromjsonconfig_interface.md) 🗄️
+    - [ ] [FieldConfig](./docs/reference/js/blockly.fieldconfig_interface.md) 🗄️
+    - [ ] [FieldDropdownFromJsonConfig](./docs/reference/js/blockly.fielddropdownfromjsonconfig_interface.md) 🗄️
+    - [ ] [FieldImageConfig](./docs/reference/js/blockly.fieldimageconfig_interface.md) 🗄️
+    - [ ] [FieldImageFromJsonConfig](./docs/reference/js/blockly.fieldimagefromjsonconfig_interface.md) 🗄️
+    - [ ] [FieldLabelConfig](./docs/reference/js/blockly.fieldlabelconfig_interface.md) 🗄️
+    - [ ] [FieldLabelFromJsonConfig](./docs/reference/js/blockly.fieldlabelfromjsonconfig_interface.md) 🗄️
+    - [ ] [FieldMultilineInputConfig](./docs/reference/js/blockly.fieldmultilineinputconfig_interface.md) 🗄️
     - [ ] [FieldMultilineInputFromJsonConfig](./docs/reference/js/blockly.fieldmultilineinputfromjsonconfig_interface.md)
     - [ ] [FieldNumberConfig](./docs/reference/js/blockly.fieldnumberconfig_interface.md)
     - [ ] [FieldNumberFromJsonConfig](./docs/reference/js/blockly.fieldnumberfromjsonconfig_interface.md)
