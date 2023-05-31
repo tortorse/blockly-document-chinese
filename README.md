@@ -188,23 +188,23 @@ Blockly 官方站点: <https://developers.google.com/blockly>
     - [ ] [WorkspaceSvg](./docs/reference/js/blockly.workspacesvg_class.md) 🗄️
     - [ ] [ZoomControls](./docs/reference/js/blockly.zoomcontrols_class.md) 🗄️
   - Enumerations
-    - [ ] [ConnectionType](./docs/reference/js/blockly.connectiontype_enum.md)
-    - [ ] [inputTypes](./docs/reference/js/blockly.inputtypes_enum.md)
+    - [ ] [ConnectionType](./docs/reference/js/blockly.connectiontype_enum.md) 🗄️
+    - [ ] [inputTypes](./docs/reference/js/blockly.inputtypes_enum.md) 🗄️
   - Functions
-    - [ ] [bindEvent\_(node, name, thisObject,func)](./docs/reference/js/blockly.bindevent__1_function.md)
-    - [ ] [bindEventWithChecks\_(node, name,thisObject, func,opt_noCaptureIdentifier,\_opt_noPreventDefault)](./docs/reference/js/blockly.bindeventwithchecks__1_function.md)
-    - [ ] [copy(toCopy)](./docs/reference/js/blockly.copy_1_function.md)
-    - [ ] [duplicate(toDuplicate)](./docs/reference/js/blockly.duplicate_1_function.md)
-    - [ ] [hideChaff(opt_onlyClosePopups)](./docs/reference/js/blockly.hidechaff_1_function.md)
-    - [ ] [hueToHex(hue)](./docs/reference/js/blockly.huetohex_1_function.md)
-    - [ ] [inject(container, opt_options)](./docs/reference/js/blockly.inject_1_function.md)
-    - [ ] [isNumber(str)](./docs/reference/js/blockly.isnumber_1_function.md)
-    - [ ] [isVariableBackedParameterModel(param)](./docs/reference/js/blockly.isvariablebackedparametermodel_1_function.md)
-    - [ ] [paste()](./docs/reference/js/blockly.paste_1_function.md)
-    - [ ] [unbindEvent\_(bindData)](./docs/reference/js/blockly.unbindevent__1_function.md)
+    - [ ] [bindEvent\_(node, name, thisObject,func)](./docs/reference/js/blockly.bindevent__1_function.md) 🗄️
+    - [ ] [bindEventWithChecks\_(node, name,thisObject, func,opt_noCaptureIdentifier,\_opt_noPreventDefault)](./docs/reference/js/blockly.bindeventwithchecks__1_function.md) 🗄️
+    - [ ] [copy(toCopy)](./docs/reference/js/blockly.copy_1_function.md) 🗄️
+    - [ ] [duplicate(toDuplicate)](./docs/reference/js/blockly.duplicate_1_function.md) 🗄️
+    - [ ] [hideChaff(opt_onlyClosePopups)](./docs/reference/js/blockly.hidechaff_1_function.md) 🗄️
+    - [ ] [hueToHex(hue)](./docs/reference/js/blockly.huetohex_1_function.md) 🗄️
+    - [ ] [inject(container, opt_options)](./docs/reference/js/blockly.inject_1_function.md) 🗄️
+    - [ ] [isNumber(str)](./docs/reference/js/blockly.isnumber_1_function.md) 🗄️
+    - [ ] [isVariableBackedParameterModel(param)](./docs/reference/js/blockly.isvariablebackedparametermodel_1_function.md) 🗄️
+    - [ ] [paste()](./docs/reference/js/blockly.paste_1_function.md) 🗄️
+    - [ ] [unbindEvent\_(bindData)](./docs/reference/js/blockly.unbindevent__1_function.md) 🗄️
   - Interfaces
-    - [ ] [BlocklyOptions](./docs/reference/js/blockly.blocklyoptions_interface.md)
-    - [ ] [FieldAngleConfig](./docs/reference/js/blockly.fieldangleconfig_interface.md)
+    - [ ] [BlocklyOptions](./docs/reference/js/blockly.blocklyoptions_interface.md) 🗄️
+    - [ ] [FieldAngleConfig](./docs/reference/js/blockly.fieldangleconfig_interface.md) 🗄️
     - [ ] [FieldAngleFromJsonConfig](./docs/reference/js/blockly.fieldanglefromjsonconfig_interface.md)
     - [ ] [FieldCheckboxConfig](./docs/reference/js/blockly.fieldcheckboxconfig_interface.md)
     - [ ] [FieldCheckboxFromJsonConfig](./docs/reference/js/blockly.fieldcheckboxfromjsonconfig_interface.md)
