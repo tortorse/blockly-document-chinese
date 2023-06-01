@@ -217,7 +217,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
     - [ ] [FieldLabelConfig](./docs/reference/js/blockly.fieldlabelconfig_interface.md) 🗄️
     - [ ] [FieldLabelFromJsonConfig](./docs/reference/js/blockly.fieldlabelfromjsonconfig_interface.md) 🗄️
     - [ ] [FieldMultilineInputConfig](./docs/reference/js/blockly.fieldmultilineinputconfig_interface.md) 🗄️
-    - [ ] [FieldMultilineInputFromJsonConfig](./docs/reference/js/blockly.fieldmultilineinputfromjsonconfig_interface.md)
+    - [ ] [FieldMultilineInputFromJsonConfig](./docs/reference/js/blockly.fieldmultilineinputfromjsonconfig_interface.md) 🗄️
     - [ ] [FieldNumberConfig](./docs/reference/js/blockly.fieldnumberconfig_interface.md)
     - [ ] [FieldNumberFromJsonConfig](./docs/reference/js/blockly.fieldnumberfromjsonconfig_interface.md)
     - [ ] [FieldTextInputFromJsonConfig](./docs/reference/js/blockly.fieldtextinputfromjsonconfig_interface.md)
@@ -329,13 +329,13 @@ Blockly 官方站点: <https://developers.google.com/blockly>
     - [ ] [RENAME_VARIABLE_ID](./docs/reference/js/blockly.rename_variable_id_variable.md)
     - [ ] [resizeSvgContents](./docs/reference/js/blockly.resizesvgcontents_variable.md)
     - [ ] [setLocale](./docs/reference/js/blockly.setlocale_variable.md)
-    - [ ] [setParentContainer](./docs/reference/js/blockly.setparentcontainer_variable.md)
-    - [ ] [svgResize](./docs/reference/js/blockly.svgresize_variable.md)
-    - [ ] [TOOLBOX_AT_BOTTOM](./docs/reference/js/blockly.toolbox_at_bottom_variable.md)
-    - [ ] [TOOLBOX_AT_LEFT](./docs/reference/js/blockly.toolbox_at_left_variable.md)
-    - [ ] [TOOLBOX_AT_RIGHT](./docs/reference/js/blockly.toolbox_at_right_variable.md)
-    - [ ] [TOOLBOX_AT_TOP](./docs/reference/js/blockly.toolbox_at_top_variable.md)
-    - [ ] [VARIABLE_CATEGORY_NAME](./docs/reference/js/blockly.variable_category_name_variable.md)
+    - [ ] [setParentContainer](./docs/reference/js/blockly.setparentcontainer_variable.md) 🗄️
+    - [ ] [svgResize](./docs/reference/js/blockly.svgresize_variable.md) 🗄️
+    - [ ] [TOOLBOX_AT_BOTTOM](./docs/reference/js/blockly.toolbox_at_bottom_variable.md) 🗄️
+    - [ ] [TOOLBOX_AT_LEFT](./docs/reference/js/blockly.toolbox_at_left_variable.md) 🗄️
+    - [ ] [TOOLBOX_AT_RIGHT](./docs/reference/js/blockly.toolbox_at_right_variable.md) 🗄️
+    - [ ] [TOOLBOX_AT_TOP](./docs/reference/js/blockly.toolbox_at_top_variable.md) 🗄️
+    - [ ] [VARIABLE_CATEGORY_NAME](./docs/reference/js/blockly.variable_category_name_variable.md) 🗄️
     - [ ] [VARIABLE_DYNAMIC_CATEGORY_NAME](./docs/reference/js/blockly.variable_dynamic_category_name_variable.md) 🗄️
     - [ ] [VERSION](./docs/reference/js/blockly.version_variable.md) 🗄️
   - Type Aliases
