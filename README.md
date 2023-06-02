@@ -252,8 +252,8 @@ Blockly 官方站点: <https://developers.google.com/blockly>
     - [ ] [IToolboxItem](./docs/reference/js/blockly.itoolboxitem_interface.md)
     - [ ] [IVariableBackedParameterModel](./docs/reference/js/blockly.ivariablebackedparametermodel_interface.md)
   - Namespaces
-    - [ ] [ASTNode](./docs/reference/js/blockly.astnode_namespace.md)
-    - [ ] [Block](./docs/reference/js/blockly.block_namespace.md)
+    - [ ] [ASTNode](./docs/reference/js/blockly.astnode_namespace.md) 🗄️
+    - [ ] [Block](./docs/reference/js/blockly.block_namespace.md) 🗄️
     - [ ] [blockAnimations](./docs/reference/js/blockly.blockanimations_namespace.md)
     - [ ] [blockRendering](./docs/reference/js/blockly.blockrendering_namespace.md)
     - [ ] [browserEvents](./docs/reference/js/blockly.browserevents_namespace.md)
@@ -299,36 +299,36 @@ Blockly 官方站点: <https://developers.google.com/blockly>
     - [ ] [Variables](./docs/reference/js/blockly.variables_namespace.md)
     - [ ] [VariablesDynamic](./docs/reference/js/blockly.variablesdynamic_namespace.md)
     - [ ] [WidgetDiv](./docs/reference/js/blockly.widgetdiv_namespace.md)
-    - [ ] [Xml](./docs/reference/js/blockly.xml_namespace.md)
-    - [ ] [zelos](./docs/reference/js/blockly.zelos_namespace.md)
+    - [ ] [Xml](./docs/reference/js/blockly.xml_namespace.md) 🗄️
+    - [ ] [zelos](./docs/reference/js/blockly.zelos_namespace.md) 🗄️
   - Variables
-    - [ ] [ALIGN_CENTRE](./docs/reference/js/blockly.align_centre_variable.md)
-    - [ ] [ALIGN_LEFT](./docs/reference/js/blockly.align_left_variable.md)
-    - [ ] [ALIGN_RIGHT](./docs/reference/js/blockly.align_right_variable.md)
-    - [ ] [Blocks](./docs/reference/js/blockly.blocks_variable.md)
-    - [ ] [COLLAPSE_CHARS](./docs/reference/js/blockly.collapse_chars_variable.md)
-    - [ ] [COLLAPSED_FIELD_NAME](./docs/reference/js/blockly.collapsed_field_name_variable.md)
-    - [ ] [COLLAPSED_INPUT_NAME](./docs/reference/js/blockly.collapsed_input_name_variable.md)
-    - [ ] [config](./docs/reference/js/blockly.config_variable.md)
-    - [ ] [connectionTypes](./docs/reference/js/blockly.connectiontypes_variable.md)
-    - [ ] [defineBlocksWithJsonArray](./docs/reference/js/blockly.defineblockswithjsonarray_variable.md)
-    - [ ] [DELETE_VARIABLE_ID](./docs/reference/js/blockly.delete_variable_id_variable.md)
-    - [ ] [DRAG_STACK](./docs/reference/js/blockly.drag_stack_variable.md)
-    - [ ] [DropDownDiv](./docs/reference/js/blockly.dropdowndiv_variable.md)
-    - [ ] [DUMMY_INPUT](./docs/reference/js/blockly.dummy_input_variable.md)
-    - [ ] [getMainWorkspace](./docs/reference/js/blockly.getmainworkspace_variable.md)
-    - [ ] [getSelected](./docs/reference/js/blockly.getselected_variable.md)
-    - [ ] [INPUT_VALUE](./docs/reference/js/blockly.input_value_variable.md)
-    - [ ] [JavaScript](./docs/reference/js/blockly.javascript_variable.md)
-    - [ ] [Msg](./docs/reference/js/blockly.msg_variable.md)
-    - [ ] [NEXT_STATEMENT](./docs/reference/js/blockly.next_statement_variable.md)
-    - [ ] [OPPOSITE_TYPE](./docs/reference/js/blockly.opposite_type_variable.md)
-    - [ ] [OUTPUT_VALUE](./docs/reference/js/blockly.output_value_variable.md)
-    - [ ] [PREVIOUS_STATEMENT](./docs/reference/js/blockly.previous_statement_variable.md)
-    - [ ] [PROCEDURE_CATEGORY_NAME](./docs/reference/js/blockly.procedure_category_name_variable.md)
-    - [ ] [RENAME_VARIABLE_ID](./docs/reference/js/blockly.rename_variable_id_variable.md)
-    - [ ] [resizeSvgContents](./docs/reference/js/blockly.resizesvgcontents_variable.md)
-    - [ ] [setLocale](./docs/reference/js/blockly.setlocale_variable.md)
+    - [ ] [ALIGN_CENTRE](./docs/reference/js/blockly.align_centre_variable.md) 🗄️
+    - [ ] [ALIGN_LEFT](./docs/reference/js/blockly.align_left_variable.md) 🗄️
+    - [ ] [ALIGN_RIGHT](./docs/reference/js/blockly.align_right_variable.md) 🗄️
+    - [ ] [Blocks](./docs/reference/js/blockly.blocks_variable.md) 🗄️
+    - [ ] [COLLAPSE_CHARS](./docs/reference/js/blockly.collapse_chars_variable.md) 🗄️
+    - [ ] [COLLAPSED_FIELD_NAME](./docs/reference/js/blockly.collapsed_field_name_variable.md) 🗄️
+    - [ ] [COLLAPSED_INPUT_NAME](./docs/reference/js/blockly.collapsed_input_name_variable.md) 🗄️
+    - [ ] [config](./docs/reference/js/blockly.config_variable.md) 🗄️
+    - [ ] [connectionTypes](./docs/reference/js/blockly.connectiontypes_variable.md) 🗄️
+    - [ ] [defineBlocksWithJsonArray](./docs/reference/js/blockly.defineblockswithjsonarray_variable.md) 🗄️
+    - [ ] [DELETE_VARIABLE_ID](./docs/reference/js/blockly.delete_variable_id_variable.md) 🗄️
+    - [ ] [DRAG_STACK](./docs/reference/js/blockly.drag_stack_variable.md) 🗄️
+    - [ ] [DropDownDiv](./docs/reference/js/blockly.dropdowndiv_variable.md) 🗄️
+    - [ ] [DUMMY_INPUT](./docs/reference/js/blockly.dummy_input_variable.md) 🗄️
+    - [ ] [getMainWorkspace](./docs/reference/js/blockly.getmainworkspace_variable.md) 🗄️
+    - [ ] [getSelected](./docs/reference/js/blockly.getselected_variable.md) 🗄️
+    - [ ] [INPUT_VALUE](./docs/reference/js/blockly.input_value_variable.md) 🗄️
+    - [ ] [JavaScript](./docs/reference/js/blockly.javascript_variable.md) 🗄️
+    - [ ] [Msg](./docs/reference/js/blockly.msg_variable.md) 🗄️
+    - [ ] [NEXT_STATEMENT](./docs/reference/js/blockly.next_statement_variable.md) 🗄️
+    - [ ] [OPPOSITE_TYPE](./docs/reference/js/blockly.opposite_type_variable.md) 🗄️
+    - [ ] [OUTPUT_VALUE](./docs/reference/js/blockly.output_value_variable.md) 🗄️
+    - [ ] [PREVIOUS_STATEMENT](./docs/reference/js/blockly.previous_statement_variable.md) 🗄️
+    - [ ] [PROCEDURE_CATEGORY_NAME](./docs/reference/js/blockly.procedure_category_name_variable.md) 🗄️
+    - [ ] [RENAME_VARIABLE_ID](./docs/reference/js/blockly.rename_variable_id_variable.md) 🗄️
+    - [ ] [resizeSvgContents](./docs/reference/js/blockly.resizesvgcontents_variable.md) 🗄️
+    - [ ] [setLocale](./docs/reference/js/blockly.setlocale_variable.md) 🗄️
     - [ ] [setParentContainer](./docs/reference/js/blockly.setparentcontainer_variable.md) 🗄️
     - [ ] [svgResize](./docs/reference/js/blockly.svgresize_variable.md) 🗄️
     - [ ] [TOOLBOX_AT_BOTTOM](./docs/reference/js/blockly.toolbox_at_bottom_variable.md) 🗄️
