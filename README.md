@@ -218,87 +218,87 @@ Blockly 官方站点: <https://developers.google.com/blockly>
     - [ ] [FieldLabelFromJsonConfig](./docs/reference/js/blockly.fieldlabelfromjsonconfig_interface.md) 🗄️
     - [ ] [FieldMultilineInputConfig](./docs/reference/js/blockly.fieldmultilineinputconfig_interface.md) 🗄️
     - [ ] [FieldMultilineInputFromJsonConfig](./docs/reference/js/blockly.fieldmultilineinputfromjsonconfig_interface.md) 🗄️
-    - [ ] [FieldNumberConfig](./docs/reference/js/blockly.fieldnumberconfig_interface.md)
-    - [ ] [FieldNumberFromJsonConfig](./docs/reference/js/blockly.fieldnumberfromjsonconfig_interface.md)
-    - [ ] [FieldTextInputFromJsonConfig](./docs/reference/js/blockly.fieldtextinputfromjsonconfig_interface.md)
-    - [ ] [FieldVariableConfig](./docs/reference/js/blockly.fieldvariableconfig_interface.md)
-    - [ ] [FieldVariableFromJsonConfig](./docs/reference/js/blockly.fieldvariablefromjsonconfig_interface.md)
-    - [ ] [IASTNodeLocation](./docs/reference/js/blockly.iastnodelocation_interface.md)
-    - [ ] [IASTNodeLocationSvg](./docs/reference/js/blockly.iastnodelocationsvg_interface.md)
-    - [ ] [IASTNodeLocationWithBlock](./docs/reference/js/blockly.iastnodelocationwithblock_interface.md)
-    - [ ] [IAutoHideable](./docs/reference/js/blockly.iautohideable_interface.md)
-    - [ ] [IBlockDragger](./docs/reference/js/blockly.iblockdragger_interface.md)
-    - [ ] [IBoundedElement](./docs/reference/js/blockly.iboundedelement_interface.md)
-    - [ ] [IBubble](./docs/reference/js/blockly.ibubble_interface.md)
-    - [ ] [ICollapsibleToolboxItem](./docs/reference/js/blockly.icollapsibletoolboxitem_interface.md)
-    - [ ] [IComponent](./docs/reference/js/blockly.icomponent_interface.md)
-    - [ ] [IConnectionChecker](./docs/reference/js/blockly.iconnectionchecker_interface.md)
-    - [ ] [IContextMenu](./docs/reference/js/blockly.icontextmenu_interface.md)
-    - [ ] [ICopyable](./docs/reference/js/blockly.icopyable_interface.md)
-    - [ ] [IDeletable](./docs/reference/js/blockly.ideletable_interface.md)
-    - [ ] [IDeleteArea](./docs/reference/js/blockly.ideletearea_interface.md)
-    - [ ] [IDraggable](./docs/reference/js/blockly.idraggable_interface.md)
-    - [ ] [IDragTarget](./docs/reference/js/blockly.idragtarget_interface.md)
-    - [ ] [IFlyout](./docs/reference/js/blockly.iflyout_interface.md)
-    - [ ] [IKeyboardAccessible](./docs/reference/js/blockly.ikeyboardaccessible_interface.md)
-    - [ ] [IMetricsManager](./docs/reference/js/blockly.imetricsmanager_interface.md)
-    - [ ] [IMovable](./docs/reference/js/blockly.imovable_interface.md)
-    - [ ] [IPositionable](./docs/reference/js/blockly.ipositionable_interface.md)
-    - [ ] [IRegistrable](./docs/reference/js/blockly.iregistrable_interface.md)
-    - [ ] [ISelectable](./docs/reference/js/blockly.iselectable_interface.md)
-    - [ ] [ISelectableToolboxItem](./docs/reference/js/blockly.iselectabletoolboxitem_interface.md)
-    - [ ] [IStyleable](./docs/reference/js/blockly.istyleable_interface.md)
-    - [ ] [IToolbox](./docs/reference/js/blockly.itoolbox_interface.md)
-    - [ ] [IToolboxItem](./docs/reference/js/blockly.itoolboxitem_interface.md)
-    - [ ] [IVariableBackedParameterModel](./docs/reference/js/blockly.ivariablebackedparametermodel_interface.md)
+    - [ ] [FieldNumberConfig](./docs/reference/js/blockly.fieldnumberconfig_interface.md) 🗄️
+    - [ ] [FieldNumberFromJsonConfig](./docs/reference/js/blockly.fieldnumberfromjsonconfig_interface.md) 🗄️
+    - [ ] [FieldTextInputFromJsonConfig](./docs/reference/js/blockly.fieldtextinputfromjsonconfig_interface.md) 🗄️
+    - [ ] [FieldVariableConfig](./docs/reference/js/blockly.fieldvariableconfig_interface.md) 🗄️
+    - [ ] [FieldVariableFromJsonConfig](./docs/reference/js/blockly.fieldvariablefromjsonconfig_interface.md) 🗄️
+    - [ ] [IASTNodeLocation](./docs/reference/js/blockly.iastnodelocation_interface.md) 🗄️
+    - [ ] [IASTNodeLocationSvg](./docs/reference/js/blockly.iastnodelocationsvg_interface.md) 🗄️
+    - [ ] [IASTNodeLocationWithBlock](./docs/reference/js/blockly.iastnodelocationwithblock_interface.md) 🗄️
+    - [ ] [IAutoHideable](./docs/reference/js/blockly.iautohideable_interface.md) 🗄️
+    - [ ] [IBlockDragger](./docs/reference/js/blockly.iblockdragger_interface.md) 🗄️
+    - [ ] [IBoundedElement](./docs/reference/js/blockly.iboundedelement_interface.md) 🗄️
+    - [ ] [IBubble](./docs/reference/js/blockly.ibubble_interface.md) 🗄️
+    - [ ] [ICollapsibleToolboxItem](./docs/reference/js/blockly.icollapsibletoolboxitem_interface.md) 🗄️
+    - [ ] [IComponent](./docs/reference/js/blockly.icomponent_interface.md) 🗄️
+    - [ ] [IConnectionChecker](./docs/reference/js/blockly.iconnectionchecker_interface.md) 🗄️
+    - [ ] [IContextMenu](./docs/reference/js/blockly.icontextmenu_interface.md) 🗄️
+    - [ ] [ICopyable](./docs/reference/js/blockly.icopyable_interface.md) 🗄️
+    - [ ] [IDeletable](./docs/reference/js/blockly.ideletable_interface.md) 🗄️
+    - [ ] [IDeleteArea](./docs/reference/js/blockly.ideletearea_interface.md) 🗄️
+    - [ ] [IDraggable](./docs/reference/js/blockly.idraggable_interface.md) 🗄️
+    - [ ] [IDragTarget](./docs/reference/js/blockly.idragtarget_interface.md) 🗄️
+    - [ ] [IFlyout](./docs/reference/js/blockly.iflyout_interface.md) 🗄️
+    - [ ] [IKeyboardAccessible](./docs/reference/js/blockly.ikeyboardaccessible_interface.md) 🗄️
+    - [ ] [IMetricsManager](./docs/reference/js/blockly.imetricsmanager_interface.md) 🗄️
+    - [ ] [IMovable](./docs/reference/js/blockly.imovable_interface.md) 🗄️
+    - [ ] [IPositionable](./docs/reference/js/blockly.ipositionable_interface.md) 🗄️
+    - [ ] [IRegistrable](./docs/reference/js/blockly.iregistrable_interface.md) 🗄️
+    - [ ] [ISelectable](./docs/reference/js/blockly.iselectable_interface.md) 🗄️
+    - [ ] [ISelectableToolboxItem](./docs/reference/js/blockly.iselectabletoolboxitem_interface.md) 🗄️
+    - [ ] [IStyleable](./docs/reference/js/blockly.istyleable_interface.md) 🗄️
+    - [ ] [IToolbox](./docs/reference/js/blockly.itoolbox_interface.md) 🗄️
+    - [ ] [IToolboxItem](./docs/reference/js/blockly.itoolboxitem_interface.md) 🗄️
+    - [ ] [IVariableBackedParameterModel](./docs/reference/js/blockly.ivariablebackedparametermodel_interface.md) 🗄️
   - Namespaces
     - [ ] [ASTNode](./docs/reference/js/blockly.astnode_namespace.md) 🗄️
     - [ ] [Block](./docs/reference/js/blockly.block_namespace.md) 🗄️
-    - [ ] [blockAnimations](./docs/reference/js/blockly.blockanimations_namespace.md)
-    - [ ] [blockRendering](./docs/reference/js/blockly.blockrendering_namespace.md)
-    - [ ] [browserEvents](./docs/reference/js/blockly.browserevents_namespace.md)
-    - [ ] [bumpObjects](./docs/reference/js/blockly.bumpobjects_namespace.md)
-    - [ ] [clipboard](./docs/reference/js/blockly.clipboard_namespace.md)
-    - [ ] [CollapsibleToolboxCategory](./docs/reference/js/blockly.collapsibletoolboxcategory_namespace.md)
-    - [ ] [common](./docs/reference/js/blockly.common_namespace.md)
-    - [ ] [ComponentManager](./docs/reference/js/blockly.componentmanager_namespace.md)
-    - [ ] [constants](./docs/reference/js/blockly.constants_namespace.md)
-    - [ ] [ContextMenu](./docs/reference/js/blockly.contextmenu_namespace.md)
-    - [ ] [ContextMenuItems](./docs/reference/js/blockly.contextmenuitems_namespace.md)
-    - [ ] [ContextMenuRegistry](./docs/reference/js/blockly.contextmenuregistry_namespace.md)
-    - [ ] [Css](./docs/reference/js/blockly.css_namespace.md)
-    - [ ] [dialog](./docs/reference/js/blockly.dialog_namespace.md)
-    - [ ] [Events](./docs/reference/js/blockly.events_namespace.md)
-    - [ ] [Extensions](./docs/reference/js/blockly.extensions_namespace.md)
-    - [ ] [fieldRegistry](./docs/reference/js/blockly.fieldregistry_namespace.md)
-    - [ ] [geras](./docs/reference/js/blockly.geras_namespace.md)
-    - [ ] [ICopyable](./docs/reference/js/blockly.icopyable_namespace.md)
-    - [ ] [Input](./docs/reference/js/blockly.input_namespace.md)
-    - [ ] [InsertionMarkerManager](./docs/reference/js/blockly.insertionmarkermanager_namespace.md)
-    - [ ] [libraryBlocks](./docs/reference/js/blockly.libraryblocks_namespace.md)
-    - [ ] [MetricsManager](./docs/reference/js/blockly.metricsmanager_namespace.md)
-    - [ ] [minimalist](./docs/reference/js/blockly.minimalist_namespace.md)
-    - [ ] [Names](./docs/reference/js/blockly.names_namespace.md)
-    - [ ] [Options](./docs/reference/js/blockly.options_namespace.md)
-    - [ ] [Procedures](./docs/reference/js/blockly.procedures_namespace.md)
-    - [ ] [registry](./docs/reference/js/blockly.registry_namespace.md)
-    - [ ] [RenderedConnection](./docs/reference/js/blockly.renderedconnection_namespace.md)
-    - [ ] [serialization](./docs/reference/js/blockly.serialization_namespace.md)
-    - [ ] [ShortcutItems](./docs/reference/js/blockly.shortcutitems_namespace.md)
-    - [ ] [ShortcutRegistry](./docs/reference/js/blockly.shortcutregistry_namespace.md)
-    - [ ] [Theme](./docs/reference/js/blockly.theme_namespace.md)
-    - [ ] [ThemeManager](./docs/reference/js/blockly.thememanager_namespace.md)
-    - [ ] [Themes](./docs/reference/js/blockly.themes_namespace.md)
-    - [ ] [thrasos](./docs/reference/js/blockly.thrasos_namespace.md)
-    - [ ] [ToolboxCategory](./docs/reference/js/blockly.toolboxcategory_namespace.md)
-    - [ ] [ToolboxSeparator](./docs/reference/js/blockly.toolboxseparator_namespace.md)
-    - [ ] [Tooltip](./docs/reference/js/blockly.tooltip_namespace.md)
-    - [ ] [Touch](./docs/reference/js/blockly.touch_namespace.md)
-    - [ ] [uiPosition](./docs/reference/js/blockly.uiposition_namespace.md)
-    - [ ] [utils](./docs/reference/js/blockly.utils_namespace.md)
-    - [ ] [Variables](./docs/reference/js/blockly.variables_namespace.md)
-    - [ ] [VariablesDynamic](./docs/reference/js/blockly.variablesdynamic_namespace.md)
-    - [ ] [WidgetDiv](./docs/reference/js/blockly.widgetdiv_namespace.md)
+    - [ ] [blockAnimations](./docs/reference/js/blockly.blockanimations_namespace.md) 🗄️
+    - [ ] [blockRendering](./docs/reference/js/blockly.blockrendering_namespace.md) 🗄️
+    - [ ] [browserEvents](./docs/reference/js/blockly.browserevents_namespace.md) 🗄️
+    - [ ] [bumpObjects](./docs/reference/js/blockly.bumpobjects_namespace.md) 🗄️
+    - [ ] [clipboard](./docs/reference/js/blockly.clipboard_namespace.md) 🗄️
+    - [ ] [CollapsibleToolboxCategory](./docs/reference/js/blockly.collapsibletoolboxcategory_namespace.md) 🗄️
+    - [ ] [common](./docs/reference/js/blockly.common_namespace.md) 🗄️
+    - [ ] [ComponentManager](./docs/reference/js/blockly.componentmanager_namespace.md) 🗄️
+    - [ ] [constants](./docs/reference/js/blockly.constants_namespace.md) 🗄️
+    - [ ] [ContextMenu](./docs/reference/js/blockly.contextmenu_namespace.md) 🗄️
+    - [ ] [ContextMenuItems](./docs/reference/js/blockly.contextmenuitems_namespace.md) 🗄️
+    - [ ] [ContextMenuRegistry](./docs/reference/js/blockly.contextmenuregistry_namespace.md) 🗄️
+    - [ ] [Css](./docs/reference/js/blockly.css_namespace.md) 🗄️
+    - [ ] [dialog](./docs/reference/js/blockly.dialog_namespace.md) 🗄️
+    - [ ] [Events](./docs/reference/js/blockly.events_namespace.md) 🗄️
+    - [ ] [Extensions](./docs/reference/js/blockly.extensions_namespace.md) 🗄️
+    - [ ] [fieldRegistry](./docs/reference/js/blockly.fieldregistry_namespace.md) 🗄️
+    - [ ] [geras](./docs/reference/js/blockly.geras_namespace.md) 🗄️
+    - [ ] [ICopyable](./docs/reference/js/blockly.icopyable_namespace.md) 🗄️
+    - [ ] [Input](./docs/reference/js/blockly.input_namespace.md) 🗄️
+    - [ ] [InsertionMarkerManager](./docs/reference/js/blockly.insertionmarkermanager_namespace.md) 🗄️
+    - [ ] [libraryBlocks](./docs/reference/js/blockly.libraryblocks_namespace.md) 🗄️
+    - [ ] [MetricsManager](./docs/reference/js/blockly.metricsmanager_namespace.md) 🗄️
+    - [ ] [minimalist](./docs/reference/js/blockly.minimalist_namespace.md) 🗄️
+    - [ ] [Names](./docs/reference/js/blockly.names_namespace.md) 🗄️
+    - [ ] [Options](./docs/reference/js/blockly.options_namespace.md) 🗄️
+    - [ ] [Procedures](./docs/reference/js/blockly.procedures_namespace.md) 🗄️
+    - [ ] [registry](./docs/reference/js/blockly.registry_namespace.md) 🗄️
+    - [ ] [RenderedConnection](./docs/reference/js/blockly.renderedconnection_namespace.md) 🗄️
+    - [ ] [serialization](./docs/reference/js/blockly.serialization_namespace.md) 🗄️
+    - [ ] [ShortcutItems](./docs/reference/js/blockly.shortcutitems_namespace.md) 🗄️
+    - [ ] [ShortcutRegistry](./docs/reference/js/blockly.shortcutregistry_namespace.md) 🗄️
+    - [ ] [Theme](./docs/reference/js/blockly.theme_namespace.md) 🗄️
+    - [ ] [ThemeManager](./docs/reference/js/blockly.thememanager_namespace.md) 🗄️
+    - [ ] [Themes](./docs/reference/js/blockly.themes_namespace.md) 🗄️
+    - [ ] [thrasos](./docs/reference/js/blockly.thrasos_namespace.md) 🗄️
+    - [ ] [ToolboxCategory](./docs/reference/js/blockly.toolboxcategory_namespace.md) 🗄️
+    - [ ] [ToolboxSeparator](./docs/reference/js/blockly.toolboxseparator_namespace.md) 🗄️
+    - [ ] [Tooltip](./docs/reference/js/blockly.tooltip_namespace.md) 🗄️
+    - [ ] [Touch](./docs/reference/js/blockly.touch_namespace.md) 🗄️
+    - [ ] [uiPosition](./docs/reference/js/blockly.uiposition_namespace.md) 🗄️
+    - [ ] [utils](./docs/reference/js/blockly.utils_namespace.md) 🗄️
+    - [ ] [Variables](./docs/reference/js/blockly.variables_namespace.md) 🗄️
+    - [ ] [VariablesDynamic](./docs/reference/js/blockly.variablesdynamic_namespace.md) 🗄️
+    - [ ] [WidgetDiv](./docs/reference/js/blockly.widgetdiv_namespace.md) 🗄️
     - [ ] [Xml](./docs/reference/js/blockly.xml_namespace.md) 🗄️
     - [ ] [zelos](./docs/reference/js/blockly.zelos_namespace.md) 🗄️
   - Variables
