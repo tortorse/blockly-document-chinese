@@ -112,9 +112,26 @@ Blockly 官方站点: <https://developers.google.com/blockly>
       - [x] [Debugging 调试](./docs/guides/contribute/samples/debugging.md) (粗翻)
       - [x] [Writing a Codelab 编写 Codelab](./docs/guides/contribute/samples/write_a_codelab) (粗翻)
 - Reference 参考
-  - [ ] [Overview](./docs/reference/js/blockly.md)
+  - [x] [Overview](./docs/reference/js/blockly.md)
   - Classes
-    - [ ] [ASTNode](./docs/reference/js/blockly.astnode_class.md) 🗄️
+    - [ ] [ASTNode](./docs/reference/js/blockly.astnode_class.md) 🗄️ (原文)
+      - [ ] [(constructor)(type, location, opt_params)](./docs/reference/js/blockly.astnode_class._constructor__1_constructor.md) 🗄️ (原文)
+      - [ ] [NAVIGATE_ALL_FIELDS](./docs/reference/js/blockly.astnode_class.navigate_all_fields_property.md) 🗄️ (原文)
+      - [ ] [createBlockNode(block)](./docs/reference/js/blockly.astnode_class.createblocknode_1_method.md) 🗄️ (原文)
+      - [ ] [createConnectionNode(connection)](./docs/reference/js/blockly.astnode_class.createconnectionnode_1_method.md) 🗄️ (原文)
+      - [ ] [createFieldNode(field)](./docs/reference/js/blockly.astnode_class.createfieldnode_1_method.md) 🗄️ 
+      - [ ] [createInputNode(input)](./docs/reference/js/blockly.astnode_class.createinputnode_1_method.md) 🗄️
+      - [ ] [createStackNode(topBlock)](./docs/reference/js/blockly.astnode_class.createstacknode_1_method.md) 🗄️
+      - [ ] [createTopNode(block)](./docs/reference/js/blockly.astnode_class.createtopnode_1_method.md) 🗄️
+      - [ ] [createWorkspaceNode(workspace, wsCoordinate)](./docs/reference/js/blockly.astnode_class.createworkspacenode_1_method.md) 🗄️
+      - [ ] [getLocation()](./docs/reference/js/blockly.astnode_class.getlocation_1_method.md) 🗄️
+      - [ ] [getSourceBlock()](./docs/reference/js/blockly.astnode_class.getsourceblock_1_method.md) 🗄️
+      - [ ] [getType()](./docs/reference/js/blockly.astnode_class.gettype_1_method.md) 🗄️
+      - [ ] [getWsCoordinate()](./docs/reference/js/blockly.astnode_class.getwscoordinate_1_method.md) 🗄️
+      - [ ] [in()](./docs/reference/js/blockly.astnode_class.in_1_method.md) 🗄️
+      - [ ] [next()](./docs/reference/js/blockly.astnode_class.next_1_method.md) 🗄️
+      - [ ] [out()](./docs/reference/js/blockly.astnode_class.out_1_method.md) 🗄️
+      - [ ] [prev()](./docs/reference/js/blockly.astnode_class.prev_1_method.md) 🗄️
     - [ ] [BasicCursor](./docs/reference/js/blockly.basiccursor_class.md) 🗄️
     - [ ] [Block](./docs/reference/js/blockly.block_class.md) 🗄️
     - [ ] [BlockDragger](./docs/reference/js/blockly.blockdragger_class.md) 🗄️
