@@ -28,5 +28,6 @@
     "vuepress": "^1.9.7",
     "vuepress-plugin-element-tabs-less": "^0.2.12",
     "vuepress-plugin-sitemap": "^2.3.1"
-  }
+  },
+  "dependencies": {}
 }
