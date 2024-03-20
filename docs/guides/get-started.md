@@ -12,12 +12,12 @@ Blockly 是 100％ 的客户端，不需要服务器的任何支持（除非有�
 
 ### 推荐使用: npm
 
-Blockly 已在 [npm](https://www.npmjs.com/package/blockly) 和 [yarn](https://yarnpkg.com/package/blockly) 上发布。 我们建议通过 npm 获取 Blockly，因为：
+Blockly 已在 [npm](https://www.npmjs.com/package/blockly) 和 [yarn](https://yarnpkg.com/package/blockly) 上发布。 我们建议通过包管理器获取 Blockly，因为：
 
 - 可以随时获取最新版本的 Blockly
 - 鼓励 [使用插件](/guides/plugins/overview.html) 而非脏补丁
 
-如果您已经在使用 npm，则可以通过以下方式安装 Blockly
+如果您已经在使用包管理器，则可以通过以下方式安装 Blockly
 
 ```bash
 npm install --save blockly
@@ -43,27 +43,29 @@ Unpkg 会获取已发布代码的最新版本，因此使用此方法将不会�
 
 ### GitHub
 
-您还可以从 GitHub 复制整个源代码。 但是，您将必须定期手动同步到我们的代码仓库，以便接收最新的更新和对 Blockly 的修复。
+您还可以从我们的 [GitHub发布版本](https://github.com/google/blockly/releases) 中下载压缩后的代码。然而，这需要您定期手动下载代码以获取Blockly的最新更新和修复。
 
-首先，从 GitHub 下载源代码。 如果您知道如何使用 Git 或 Subversion，我们强烈建议您从存储库中进行同步，以使您的代码保持最新状态。
-
-- [下载 zip](https://github.com/google/blockly/zipball/master)
-- [下载 TAR Ball](https://github.com/google/blockly/tarball/master)
-- [GitHub](https://github.com/google/blockly)
-
-获得代码后，将浏览器指向 `demos/fixed/index.html` 并验证是否可以拖动块。
-
-在您的应用程序代码中，您可以使用以下方式加载 Blockly：
+下载好Blockly后，您可以将以下内容添加到应用程序代码中以加载它：
 
 ```html
 <script src="blockly_compressed.js"></script>
 ```
 
-您可能还需要引入其他文件，这些文件将在下一节链接的“注入 Blockly”指南中进行说明。
+您可能还需要加载Blockly的内置模块，至少一个语言生成器和至少一个语言文件。
+
+```html
+<script src="blocks_compressed.js"></script>
+<script src="javascript_compressed.js"></script>
+<script src="msg/js/en.js"></script>
+```
+
+:::warning 警告
+GitHub下载仅为方便先前对Blockly进行复刻的开发人员提供。如果您是新开发人员，您应该使用 NPM 或 unpkg。
+:::
 
 ## 注入 Blockly
 
-验证 Blockly 安装无误后，使用固定大小的 `div` 将 Blockly 注入网页中。
+在获取了Blockly之后，您需要将其注入到应用页面上的一个 div 中。
 
 → 详细信息见 [注入固定尺寸的 Blockly...](/guides/configure/fixed-size.html)
 
@@ -93,24 +95,14 @@ Blockly 不是一种编程语言，无法“运行” Blockly 程序。 相反�
 
 ## 导入和导出块
 
-如果您的应用程序需要保存和存储用户的块并在以后访问时恢复它们，请使用此调用导出到 XML：
+如果您的应用程序需要保存和存储用户的模块，并在以后的访问中恢复它们，请使用此调用将其序列化为JSON：
 
 ```javascript
-var xml = Blockly.Xml.workspaceToDom(workspace);
-var xml_text = Blockly.Xml.domToText(xml);
+var json = Blockly.serialization.workspaces.save(workspace);
 ```
 
-这将产生一个最小（但难看）的字符串，其中包含用户块的 XML。 如果希望获取更易读（但更大）的字符串，请改用 `Blockly.Xml.domToPrettyText`。
-
-从 XML 字符串还原到块很简单：
+将JSON反序列化为模块同样容易：
 
 ```javascript
-var xml = Blockly.Xml.textToDom(xml_text);
-Blockly.Xml.domToWorkspace(xml, workspace);
+Blockly.serialization.workspaces.load(json);
 ```
-
-## 云存储
-
-Blockly 带有可选的云存储功能。 它使用户可以保存，加载，共享和发布他们的程序。 如果您的项目托管在 App Engine 上，则可以利用此服务。
-
-→ 详细信息见 [云存储...](/guides/configure/cloud-storage.html)
