@@ -114,7 +114,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
 - Reference 参考
   - [x] [Overview](./docs/reference/js/blockly.md)
   - Classes
-    - [ ] [ASTNode](./docs/reference/js/blockly.astnode_class.md) 🗄️ (原文)
+    - [x] [ASTNode](./docs/reference/js/blockly.astnode_class.md) 🗄️ (粗翻)
       - [ ] [(constructor)(type, location, opt_params)](./docs/reference/js/blockly.astnode_class._constructor__1_constructor.md) 🗄️ (原文)
       - [ ] [NAVIGATE_ALL_FIELDS](./docs/reference/js/blockly.astnode_class.navigate_all_fields_property.md) 🗄️ (原文)
       - [ ] [createBlockNode(block)](./docs/reference/js/blockly.astnode_class.createblocknode_1_method.md) 🗄️ (原文)
