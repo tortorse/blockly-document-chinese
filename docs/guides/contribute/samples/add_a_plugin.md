@@ -2,7 +2,7 @@
 
 详细了解 [插件](/guides/contribute/samples/plugin_overview.html)
 
-# 流程
+## 流程
 
 插件需要经历四个阶段：[建议](#建议)、[讨论](#讨论)、[实现](#实现) 和 [发布](#发布)。
 

@@ -1,41 +1,35 @@
-## BasicCursor class
+# BasicCursor 类
 
-Class for a basic cursor. This will allow the user to get to all nodes in the AST by hitting next or previous.
+基本光标类。这将允许用户通过点击“下一个”或“上一个”来访问 AST 中的所有节点。
 
-**Signature:**
+**签名:**
 
-```
+```javascript
 export declare class BasicCursor extends Cursor
 ```
 
-**Extends:** [Cursor](/reference/js/blockly.cursor_class.md)
+**继承自:** [Cursor](/reference/js/blockly.cursor_class.md)
 
-## Constructors
+## 构造器
 
-| Constructor                                                                               | Modifiers | Description                                          |
-| ----------------------------------------------------------------------------------------- | --------- | ---------------------------------------------------- |
-| [(constructor)()](/reference/js/blockly.basiccursor_class._constructor__1_constructor.md) |           | Constructs a new instance of the `BasicCursor` class |
+| 构造器                                                                                    | 修饰符 | 描述                          |
+| ----------------------------------------------------------------------------------------- | ------ | ----------------------------- |
+| [(constructor)()](/reference/js/blockly.basiccursor_class._constructor__1_constructor.md) |        | 构造 `BasicCursor` 类的新实例 |
 
-## Properties
+## 属性
 
-| Property                                                                                 | Modifiers | Type | Description |
-| ---------------------------------------------------------------------------------------- | --------- | ---- | ----------- |
-| [registrationName](/reference/js/blockly.basiccursor_class.registrationname_property.md) |
+| 属性                                                                                     | 修饰符              | 类型     | 描述                     |
+| ---------------------------------------------------------------------------------------- | ------------------- | -------- | ------------------------ |
+| [registrationName](/reference/js/blockly.basiccursor_class.registrationname_property.md) | `readonly` `static` | (未声明) | 用于注册基本光标的名称。 |
 
-`readonly`
+## 方法
 
-`static`
-
-| (not declared) | Name used for registering a basic cursor. |
-
-## Methods
-
-| Method                                                                                                   | Modifiers   | Description                                                                                                                                                                               |
-| -------------------------------------------------------------------------------------------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [getNextNode\_(node, isValid)](/reference/js/blockly.basiccursor_class.getnextnode__1_method.md)         | `protected` | Uses pre order traversal to navigate the Blockly AST. This will allow a user to easily navigate the entire Blockly AST without having to go in and out levels on the tree.                |
-| [getPreviousNode\_(node, isValid)](/reference/js/blockly.basiccursor_class.getpreviousnode__1_method.md) | `protected` | Reverses the pre order traversal in order to find the previous node. This will allow a user to easily navigate the entire Blockly AST without having to go in and out levels on the tree. |
-| [in()](/reference/js/blockly.basiccursor_class.in_1_method.md)                                           |             | For a basic cursor we only have the ability to go next and previous, so in will also allow the user to get to the next node in the pre order traversal.                                   |
-| [next()](/reference/js/blockly.basiccursor_class.next_1_method.md)                                       |             | Find the next node in the pre order traversal.                                                                                                                                            |
-| [out()](/reference/js/blockly.basiccursor_class.out_1_method.md)                                         |             | For a basic cursor we only have the ability to go next and previous, so out will allow the user to get to the previous node in the pre order traversal.                                   |
-| [prev()](/reference/js/blockly.basiccursor_class.prev_1_method.md)                                       |             | Find the previous node in the pre order traversal.                                                                                                                                        |
-| [validNode\_(node)](/reference/js/blockly.basiccursor_class.validnode__1_method.md)                      | `protected` | Decides what nodes to traverse and which ones to skip. Currently, it skips output, stack and workspace nodes.                                                                             |
+| 方法                                                                                                     | 修饰符      | 描述                                                                                               |
+| -------------------------------------------------------------------------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------- |
+| [getNextNode\_(node, isValid)](/reference/js/blockly.basiccursor_class.getnextnode__1_method.md)         | `protected` | 使用前序遍历导航 Blockly AST。这将允许用户轻松地导航整个 Blockly AST，而无需在树的不同层级中进出。 |
+| [getPreviousNode\_(node, isValid)](/reference/js/blockly.basiccursor_class.getpreviousnode__1_method.md) | `protected` | 反转前序遍历以找到前一个节点。这将允许用户轻松地导航整个 Blockly AST，而无需在树的不同层级中进出   |
+| [in()](/reference/js/blockly.basiccursor_class.in_1_method.md)                                           |             | 对于基本光标，我们只有能力去下一个和上一个，所以 in 也将允许用户在前序遍历中获得下一个节点。       |
+| [next()](/reference/js/blockly.basiccursor_class.next_1_method.md)                                       |             | 查找前序遍历中的下一个节点。                                                                       |
+| [out()](/reference/js/blockly.basiccursor_class.out_1_method.md)                                         |             | 对于基本光标，我们只有能力去下一个和上一个，所以 out 将允许用户在前序遍历中获得前一个节点。        |
+| [prev()](/reference/js/blockly.basiccursor_class.prev_1_method.md)                                       |             | 查找前序遍历中的前一个节点。                                                                       |
+| [validNode\_(node)](/reference/js/blockly.basiccursor_class.validnode__1_method.md)                      | `protected` | 决定要遍历哪些节点以及要跳过哪些节点。目前，它跳过输出、栈和工作区节点。                           |

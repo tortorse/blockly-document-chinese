@@ -537,239 +537,249 @@ module.exports = {
         }
       ],
       '/reference': [
-        // { title: 'Overview', path: '/reference/js/blockly' },
-        // {
-        //   title: 'Classes',
-        //   collapsable: false,
-        //   children: [
-        //     { title: 'ASTNode', path: '/reference/js/blockly.astnode_class' },
-        //     {
-        //       title: 'BasicCursor',
-        //       path: '/reference/js/blockly.basiccursor_class'
-        //     },
-        //     { title: 'Block', path: '/reference/js/blockly.block_class' },
-        //     {
-        //       title: 'BlockDragger',
-        //       path: '/reference/js/blockly.blockdragger_class'
-        //     },
-        //     {
-        //       title: 'BlockDragSurfaceSvg',
-        //       path: '/reference/js/blockly.blockdragsurfacesvg_class'
-        //     },
-        //     { title: 'BlockSvg', path: '/reference/js/blockly.blocksvg_class' },
-        //     { title: 'Bubble', path: '/reference/js/blockly.bubble_class' },
-        //     {
-        //       title: 'BubbleDragger',
-        //       path: '/reference/js/blockly.bubbledragger_class'
-        //     },
-        //     {
-        //       title: 'CodeGenerator',
-        //       path: '/reference/js/blockly.codegenerator_class'
-        //     },
-        //     {
-        //       title: 'CollapsibleToolboxCategory',
-        //       path: '/reference/js/blockly.collapsibletoolboxcategory_class'
-        //     },
-        //     { title: 'Comment', path: '/reference/js/blockly.comment_class' },
-        //     {
-        //       title: 'ComponentManager',
-        //       path: '/reference/js/blockly.componentmanager_class'
-        //     },
-        //     {
-        //       title: 'Connection',
-        //       path: '/reference/js/blockly.connection_class'
-        //     },
-        //     {
-        //       title: 'ConnectionChecker',
-        //       path: '/reference/js/blockly.connectionchecker_class'
-        //     },
-        //     {
-        //       title: 'ConnectionDB',
-        //       path: '/reference/js/blockly.connectiondb_class'
-        //     },
-        //     {
-        //       title: 'ContextMenuRegistry',
-        //       path: '/reference/js/blockly.contextmenuregistry_class'
-        //     },
-        //     { title: 'Cursor', path: '/reference/js/blockly.cursor_class' },
-        //     {
-        //       title: 'DeleteArea',
-        //       path: '/reference/js/blockly.deletearea_class'
-        //     },
-        //     {
-        //       title: 'DragTarget',
-        //       path: '/reference/js/blockly.dragtarget_class'
-        //     },
-        //     { title: 'Field', path: '/reference/js/blockly.field_class' },
-        //     {
-        //       title: 'FieldAngle',
-        //       path: '/reference/js/blockly.fieldangle_class'
-        //     },
-        //     {
-        //       title: 'FieldCheckbox',
-        //       path: '/reference/js/blockly.fieldcheckbox_class'
-        //     },
-        //     {
-        //       title: 'FieldColour',
-        //       path: '/reference/js/blockly.fieldcolour_class'
-        //     },
-        //     {
-        //       title: 'FieldDropdown',
-        //       path: '/reference/js/blockly.fielddropdown_class'
-        //     },
-        //     {
-        //       title: 'FieldImage',
-        //       path: '/reference/js/blockly.fieldimage_class'
-        //     },
-        //     {
-        //       title: 'FieldLabel',
-        //       path: '/reference/js/blockly.fieldlabel_class'
-        //     },
-        //     {
-        //       title: 'FieldLabelSerializable',
-        //       path: '/reference/js/blockly.fieldlabelserializable_class'
-        //     },
-        //     {
-        //       title: 'FieldMultilineInput',
-        //       path: '/reference/js/blockly.fieldmultilineinput_class'
-        //     },
-        //     {
-        //       title: 'FieldNumber',
-        //       path: '/reference/js/blockly.fieldnumber_class'
-        //     },
-        //     {
-        //       title: 'FieldTextInput',
-        //       path: '/reference/js/blockly.fieldtextinput_class'
-        //     },
-        //     {
-        //       title: 'FieldVariable',
-        //       path: '/reference/js/blockly.fieldvariable_class'
-        //     },
-        //     { title: 'Flyout', path: '/reference/js/blockly.flyout_class' },
-        //     {
-        //       title: 'FlyoutButton',
-        //       path: '/reference/js/blockly.flyoutbutton_class'
-        //     },
-        //     {
-        //       title: 'FlyoutMetricsManager',
-        //       path: '/reference/js/blockly.flyoutmetricsmanager_class'
-        //     },
-        //     { title: 'Gesture', path: '/reference/js/blockly.gesture_class' },
-        //     { title: 'Grid', path: '/reference/js/blockly.grid_class' },
-        //     {
-        //       title: 'HorizontalFlyout',
-        //       path: '/reference/js/blockly.horizontalflyout_class'
-        //     },
-        //     { title: 'Icon', path: '/reference/js/blockly.icon_class' },
-        //     { title: 'Input', path: '/reference/js/blockly.input_class' },
-        //     {
-        //       title: 'InsertionMarkerManager',
-        //       path: '/reference/js/blockly.insertionmarkermanager_class'
-        //     },
-        //     { title: 'Marker', path: '/reference/js/blockly.marker_class' },
-        //     {
-        //       title: 'MarkerManager',
-        //       path: '/reference/js/blockly.markermanager_class'
-        //     },
-        //     { title: 'Menu', path: '/reference/js/blockly.menu_class' },
-        //     { title: 'MenuItem', path: '/reference/js/blockly.menuitem_class' },
-        //     {
-        //       title: 'MetricsManager',
-        //       path: '/reference/js/blockly.metricsmanager_class'
-        //     },
-        //     { title: 'Mutator', path: '/reference/js/blockly.mutator_class' },
-        //     { title: 'Names', path: '/reference/js/blockly.names_class' },
-        //     { title: 'Options', path: '/reference/js/blockly.options_class' },
-        //     {
-        //       title: 'RenderedConnection',
-        //       path: '/reference/js/blockly.renderedconnection_class'
-        //     },
-        //     {
-        //       title: 'Scrollbar',
-        //       path: '/reference/js/blockly.scrollbar_class'
-        //     },
-        //     {
-        //       title: 'ScrollbarPair',
-        //       path: '/reference/js/blockly.scrollbarpair_class'
-        //     },
-        //     {
-        //       title: 'ShortcutRegistry',
-        //       path: '/reference/js/blockly.shortcutregistry_class'
-        //     },
-        //     {
-        //       title: 'TabNavigateCursor',
-        //       path: '/reference/js/blockly.tabnavigatecursor_class'
-        //     },
-        //     { title: 'Theme', path: '/reference/js/blockly.theme_class' },
-        //     {
-        //       title: 'ThemeManager',
-        //       path: '/reference/js/blockly.thememanager_class'
-        //     },
-        //     { title: 'Toolbox', path: '/reference/js/blockly.toolbox_class' },
-        //     {
-        //       title: 'ToolboxCategory',
-        //       path: '/reference/js/blockly.toolboxcategory_class'
-        //     },
-        //     {
-        //       title: 'ToolboxItem',
-        //       path: '/reference/js/blockly.toolboxitem_class'
-        //     },
-        //     {
-        //       title: 'ToolboxSeparator',
-        //       path: '/reference/js/blockly.toolboxseparator_class'
-        //     },
-        //     { title: 'Trashcan', path: '/reference/js/blockly.trashcan_class' },
-        //     {
-        //       title: 'UnattachedFieldError',
-        //       path: '/reference/js/blockly.unattachedfielderror_class'
-        //     },
-        //     {
-        //       title: 'VariableMap',
-        //       path: '/reference/js/blockly.variablemap_class'
-        //     },
-        //     {
-        //       title: 'VariableModel',
-        //       path: '/reference/js/blockly.variablemodel_class'
-        //     },
-        //     {
-        //       title: 'VerticalFlyout',
-        //       path: '/reference/js/blockly.verticalflyout_class'
-        //     },
-        //     { title: 'Warning', path: '/reference/js/blockly.warning_class' },
-        //     {
-        //       title: 'Workspace',
-        //       path: '/reference/js/blockly.workspace_class'
-        //     },
-        //     {
-        //       title: 'WorkspaceAudio',
-        //       path: '/reference/js/blockly.workspaceaudio_class'
-        //     },
-        //     {
-        //       title: 'WorkspaceComment',
-        //       path: '/reference/js/blockly.workspacecomment_class'
-        //     },
-        //     {
-        //       title: 'WorkspaceCommentSvg',
-        //       path: '/reference/js/blockly.workspacecommentsvg_class'
-        //     },
-        //     {
-        //       title: 'WorkspaceDragger',
-        //       path: '/reference/js/blockly.workspacedragger_class'
-        //     },
-        //     {
-        //       title: 'WorkspaceDragSurfaceSvg',
-        //       path: '/reference/js/blockly.workspacedragsurfacesvg_class'
-        //     },
-        //     {
-        //       title: 'WorkspaceSvg',
-        //       path: '/reference/js/blockly.workspacesvg_class'
-        //     },
-        //     {
-        //       title: 'ZoomControls',
-        //       path: '/reference/js/blockly.zoomcontrols_class'
-        //     }
-        //   ]
-        // },
+        {
+          title: '总览',
+          path: '/reference/js/blockly'
+        },
+        {
+          title: '类',
+          collapsable: false,
+          children: [
+            {
+              title: 'ASTNode',
+              path: '/reference/js/blockly.astnode_class'
+            },
+            {
+              title: 'BasicCursor',
+              path: '/reference/js/blockly.basiccursor_class'
+            },
+
+            {
+              title: 'Block',
+              path: '/reference/js/blockly.block_class'
+            },
+            {
+              title: 'BlockDragger',
+              path: '/reference/js/blockly.blockdragger_class'
+            }
+            // {
+            //   title: 'BlockDragSurfaceSvg',
+            //   path: '/reference/js/blockly.blockdragsurfacesvg_class'
+            // },
+            // { title: 'BlockSvg', path: '/reference/js/blockly.blocksvg_class' },
+            // { title: 'Bubble', path: '/reference/js/blockly.bubble_class' },
+            // {
+            //   title: 'BubbleDragger',
+            //   path: '/reference/js/blockly.bubbledragger_class'
+            // },
+            // {
+            //   title: 'CodeGenerator',
+            //   path: '/reference/js/blockly.codegenerator_class'
+            // },
+            // {
+            //   title: 'CollapsibleToolboxCategory',
+            //   path: '/reference/js/blockly.collapsibletoolboxcategory_class'
+            // },
+            // { title: 'Comment', path: '/reference/js/blockly.comment_class' },
+            // {
+            //   title: 'ComponentManager',
+            //   path: '/reference/js/blockly.componentmanager_class'
+            // },
+            // {
+            //   title: 'Connection',
+            //   path: '/reference/js/blockly.connection_class'
+            // },
+            // {
+            //   title: 'ConnectionChecker',
+            //   path: '/reference/js/blockly.connectionchecker_class'
+            // },
+            // {
+            //   title: 'ConnectionDB',
+            //   path: '/reference/js/blockly.connectiondb_class'
+            // },
+            // {
+            //   title: 'ContextMenuRegistry',
+            //   path: '/reference/js/blockly.contextmenuregistry_class'
+            // },
+            // { title: 'Cursor', path: '/reference/js/blockly.cursor_class' },
+            // {
+            //   title: 'DeleteArea',
+            //   path: '/reference/js/blockly.deletearea_class'
+            // },
+            // {
+            //   title: 'DragTarget',
+            //   path: '/reference/js/blockly.dragtarget_class'
+            // },
+            // { title: 'Field', path: '/reference/js/blockly.field_class' },
+            // {
+            //   title: 'FieldAngle',
+            //   path: '/reference/js/blockly.fieldangle_class'
+            // },
+            // {
+            //   title: 'FieldCheckbox',
+            //   path: '/reference/js/blockly.fieldcheckbox_class'
+            // },
+            // {
+            //   title: 'FieldColour',
+            //   path: '/reference/js/blockly.fieldcolour_class'
+            // },
+            // {
+            //   title: 'FieldDropdown',
+            //   path: '/reference/js/blockly.fielddropdown_class'
+            // },
+            // {
+            //   title: 'FieldImage',
+            //   path: '/reference/js/blockly.fieldimage_class'
+            // },
+            // {
+            //   title: 'FieldLabel',
+            //   path: '/reference/js/blockly.fieldlabel_class'
+            // },
+            // {
+            //   title: 'FieldLabelSerializable',
+            //   path: '/reference/js/blockly.fieldlabelserializable_class'
+            // },
+            // {
+            //   title: 'FieldMultilineInput',
+            //   path: '/reference/js/blockly.fieldmultilineinput_class'
+            // },
+            // {
+            //   title: 'FieldNumber',
+            //   path: '/reference/js/blockly.fieldnumber_class'
+            // },
+            // {
+            //   title: 'FieldTextInput',
+            //   path: '/reference/js/blockly.fieldtextinput_class'
+            // },
+            // {
+            //   title: 'FieldVariable',
+            //   path: '/reference/js/blockly.fieldvariable_class'
+            // },
+            // { title: 'Flyout', path: '/reference/js/blockly.flyout_class' },
+            // {
+            //   title: 'FlyoutButton',
+            //   path: '/reference/js/blockly.flyoutbutton_class'
+            // },
+            // {
+            //   title: 'FlyoutMetricsManager',
+            //   path: '/reference/js/blockly.flyoutmetricsmanager_class'
+            // },
+            // { title: 'Gesture', path: '/reference/js/blockly.gesture_class' },
+            // { title: 'Grid', path: '/reference/js/blockly.grid_class' },
+            // {
+            //   title: 'HorizontalFlyout',
+            //   path: '/reference/js/blockly.horizontalflyout_class'
+            // },
+            // { title: 'Icon', path: '/reference/js/blockly.icon_class' },
+            // { title: 'Input', path: '/reference/js/blockly.input_class' },
+            // {
+            //   title: 'InsertionMarkerManager',
+            //   path: '/reference/js/blockly.insertionmarkermanager_class'
+            // },
+            // { title: 'Marker', path: '/reference/js/blockly.marker_class' },
+            // {
+            //   title: 'MarkerManager',
+            //   path: '/reference/js/blockly.markermanager_class'
+            // },
+            // { title: 'Menu', path: '/reference/js/blockly.menu_class' },
+            // { title: 'MenuItem', path: '/reference/js/blockly.menuitem_class' },
+            // {
+            //   title: 'MetricsManager',
+            //   path: '/reference/js/blockly.metricsmanager_class'
+            // },
+            // { title: 'Mutator', path: '/reference/js/blockly.mutator_class' },
+            // { title: 'Names', path: '/reference/js/blockly.names_class' },
+            // { title: 'Options', path: '/reference/js/blockly.options_class' },
+            // {
+            //   title: 'RenderedConnection',
+            //   path: '/reference/js/blockly.renderedconnection_class'
+            // },
+            // {
+            //   title: 'Scrollbar',
+            //   path: '/reference/js/blockly.scrollbar_class'
+            // },
+            // {
+            //   title: 'ScrollbarPair',
+            //   path: '/reference/js/blockly.scrollbarpair_class'
+            // },
+            // {
+            //   title: 'ShortcutRegistry',
+            //   path: '/reference/js/blockly.shortcutregistry_class'
+            // },
+            // {
+            //   title: 'TabNavigateCursor',
+            //   path: '/reference/js/blockly.tabnavigatecursor_class'
+            // },
+            // { title: 'Theme', path: '/reference/js/blockly.theme_class' },
+            // {
+            //   title: 'ThemeManager',
+            //   path: '/reference/js/blockly.thememanager_class'
+            // },
+            // { title: 'Toolbox', path: '/reference/js/blockly.toolbox_class' },
+            // {
+            //   title: 'ToolboxCategory',
+            //   path: '/reference/js/blockly.toolboxcategory_class'
+            // },
+            // {
+            //   title: 'ToolboxItem',
+            //   path: '/reference/js/blockly.toolboxitem_class'
+            // },
+            // {
+            //   title: 'ToolboxSeparator',
+            //   path: '/reference/js/blockly.toolboxseparator_class'
+            // },
+            // { title: 'Trashcan', path: '/reference/js/blockly.trashcan_class' },
+            // {
+            //   title: 'UnattachedFieldError',
+            //   path: '/reference/js/blockly.unattachedfielderror_class'
+            // },
+            // {
+            //   title: 'VariableMap',
+            //   path: '/reference/js/blockly.variablemap_class'
+            // },
+            // {
+            //   title: 'VariableModel',
+            //   path: '/reference/js/blockly.variablemodel_class'
+            // },
+            // {
+            //   title: 'VerticalFlyout',
+            //   path: '/reference/js/blockly.verticalflyout_class'
+            // },
+            // { title: 'Warning', path: '/reference/js/blockly.warning_class' },
+            // {
+            //   title: 'Workspace',
+            //   path: '/reference/js/blockly.workspace_class'
+            // },
+            // {
+            //   title: 'WorkspaceAudio',
+            //   path: '/reference/js/blockly.workspaceaudio_class'
+            // },
+            // {
+            //   title: 'WorkspaceComment',
+            //   path: '/reference/js/blockly.workspacecomment_class'
+            // },
+            // {
+            //   title: 'WorkspaceCommentSvg',
+            //   path: '/reference/js/blockly.workspacecommentsvg_class'
+            // },
+            // {
+            //   title: 'WorkspaceDragger',
+            //   path: '/reference/js/blockly.workspacedragger_class'
+            // },
+            // {
+            //   title: 'WorkspaceDragSurfaceSvg',
+            //   path: '/reference/js/blockly.workspacedragsurfacesvg_class'
+            // },
+            // {
+            //   title: 'WorkspaceSvg',
+            //   path: '/reference/js/blockly.workspacesvg_class'
+            // },
+            // {
+            //   title: 'ZoomControls',
+            //   path: '/reference/js/blockly.zoomcontrols_class'
+            // }
+          ]
+        }
         // {
         //   title: 'Enumerations',
         //   collapsable: false,

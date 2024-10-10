@@ -132,8 +132,8 @@ Blockly 官方站点: <https://developers.google.com/blockly>
       - [ ] [next()](./docs/reference/js/blockly.astnode_class.next_1_method.md) 🗄️
       - [ ] [out()](./docs/reference/js/blockly.astnode_class.out_1_method.md) 🗄️
       - [ ] [prev()](./docs/reference/js/blockly.astnode_class.prev_1_method.md) 🗄️
-    - [ ] [BasicCursor](./docs/reference/js/blockly.basiccursor_class.md) 🗄️
-    - [ ] [Block](./docs/reference/js/blockly.block_class.md) 🗄️
+    - [x] [BasicCursor](./docs/reference/js/blockly.basiccursor_class.md) 🗄️ (粗翻)
+    - [ ] [Block](./docs/reference/js/blockly.block_class.md) 🗄️ 
     - [ ] [BlockDragger](./docs/reference/js/blockly.blockdragger_class.md) 🗄️
     - [ ] [BlockDragSurfaceSvg](./docs/reference/js/blockly.blockdragsurfacesvg_class.md) 🗄️
     - [ ] [BlockSvg](./docs/reference/js/blockly.blocksvg_class.md) 🗄️
