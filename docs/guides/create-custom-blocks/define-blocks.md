@@ -92,7 +92,7 @@ Blockly.Blocks['math_change'] = {
 
 ## 块颜色
 
-块的主色由 JSON `colour` 属性，[block.setColour(...)](https://developers.google.com/blockly/reference/js/Blockly.Block#setColour) 函数定义，或通过使用 [主题](/guides/configure/web/themes.html) 并定义块样式来定义。
+块的主色由 JSON `colour` 属性，[block.setColour(...)](https://developers.google.com/blockly/reference/js/Blockly.Block#setColour) 函数定义，或通过使用 [主题](/guides/configure/themes.html) 并定义块样式来定义。
 
 :::: tabs
 ::: tab JSON
