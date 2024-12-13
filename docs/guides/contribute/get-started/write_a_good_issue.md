@@ -103,7 +103,7 @@ bug 只有在可重现时才能修复，因此在提交问题之前，请确保�
 
 以下是不同类别的项目准则：
 
-- [Blockly core](/guides/contribute.html)
+- [Blockly core](/guides/contribute/core/)
 - [Plugins](/guides/contribute/samples/plugin_overview.html#第一方标准)
 - 示例：展示如何仅使用一个或两个 Blockly 功能。
 - Codelab：展示如何完成单个任务或实现单个行为。
