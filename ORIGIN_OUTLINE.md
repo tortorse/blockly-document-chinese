@@ -18,8 +18,8 @@
   - [Application design](./docs/guides/design/applications.md) ✅
   - [Educational applications](./docs/guides/design/education.md) ✅
   - [Block design](./docs/guides/design/blocks.md) ✅
-  - [Block- vs. text-based languages](./docs/guides/design/languages.md)
-  - [Block appearance](./docs/guides/design/appearance.md)
+  - [Block- vs. text-based languages](./docs/guides/design/languages.md) ✅
+  - [Block appearance](./docs/guides/design/appearance.md) ✅
 
 - **Programming considerations**
   - [API visibility](./docs/guides/programming/using_blockly_apis.md)
