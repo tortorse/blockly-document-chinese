@@ -115,16 +115,24 @@ module.exports = {
               title: '基本步骤',
               children: [
                 {
-                  title: '工作区创建',
+                  title: '创建工作区',
                   path: '/guides/get-started/workspace-creation',
                 },
                 {
-                  title: '工具箱',
-                  path: '/guides/configure/toolbox',
+                  title: '添加工具箱',
+                  path: '/guides/get-started/toolbox',
                 },
                 {
-                  title: '块',
+                  title: '定义块',
                   path: '/guides/get-started/blocks',
+                },
+                {
+                  title: '生成代码',
+                  path: '/guides/get-started/code-generation',
+                },
+                {
+                  title: '保存和加载',
+                  path: '/guides/get-started/save-and-load',
                 },
               ],
             },

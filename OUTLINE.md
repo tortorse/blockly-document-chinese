@@ -2,13 +2,13 @@
 
 - Get Started | 开始
 
-  - What is Blockly? | [什么是 Blockly？](./docs/guides/get-started/what-is-blockly.md)
-  - Why Blockly? | [为何选择 Blockly？](./docs/guides/get-started/why-blockly.md)
-  - Get the Code | [获取代码](./docs/guides/get-started/get-the-code.md)
-  - Workspace Anatomy | [可视化术语表](./docs/guides/get-started/workspace-anatomy.md)
+  - What is Blockly? | [什么是 Blockly？](./docs/guides/get-started/what-is-blockly.md) 
+  - Why Blockly? | [为何选择 Blockly？](./docs/guides/get-started/why-blockly.md) 
+  - Get the Code | [获取代码](./docs/guides/get-started/get-the-code.md) 
+  - Workspace Anatomy | [可视化术语表](./docs/guides/get-started/workspace-anatomy.md) 
   - Basic Steps | 基本步骤
-    - Create a Workspace | [工作区创建](./docs/guides/get-started/workspace-creation.md)
-    - Toolbox | [工具箱](./docs/guides/configure/toolbox.md)
+    - Create a Workspace | [工作区创建](./docs/guides/get-started/workspace-creation.md) 
+    - Toolbox | [工具箱](./docs/guides/configure/toolbox.md) 
     - Blocks | [块](./docs/guides/get-started/blocks.md)
 
 - Overview | [总览](./docs/guides/overview.md)
