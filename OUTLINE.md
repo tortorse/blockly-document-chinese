@@ -1,11 +1,13 @@
 ## /guide
+
 - Get Started | 开始
+
   - What is Blockly? | [什么是 Blockly？](./docs/guides/get-started/what-is-blockly.md)
   - Why Blockly? | [为何选择 Blockly？](./docs/guides/get-started/why-blockly.md)
   - Get the Code | [获取代码](./docs/guides/get-started/get-the-code.md)
   - Workspace Anatomy | [可视化术语表](./docs/guides/get-started/workspace-anatomy.md)
   - Basic Steps | 基本步骤
-    - Create a Workspace | 工作区创建
+    - Create a Workspace | [工作区创建](./docs/guides/get-started/workspace-creation.md)
     - Toolbox | [工具箱](./docs/guides/configure/toolbox.md)
     - Blocks | [块](./docs/guides/get-started/blocks.md)
 
@@ -14,6 +16,7 @@
 - Get Started | [入门](./docs/guides/get-started.md)
 
 - Configure Blockly | 配置 Blockly
+
   - Injection Options | 注入选项
     - Configuration Struct | [配置结构](./docs/guides/configure/configuration_struct.md)
     - Grid | [栅格](./docs/guides/configure/grid.md)
@@ -39,6 +42,7 @@
       - Metrics Manager | 度量管理器(./docs/guides/configure/advanced/interfaces/metrics_manager.md)
 
 - Create Custom Blocks | 创建自定义块
+
   - Overview | [总览](./docs/guides/create-custom-blocks/overview.md)
   - Blockly Developer Tools | [Blockly 开发者工具](./docs/guides/create-custom-blocks/blockly-developer-tools.md)
   - Define Blocks | [定义块](./docs/guides/create-custom-blocks/define-blocks.md)
@@ -53,6 +57,7 @@
   - Extensions and Mutators | [扩展和变形器](./docs/guides/create-custom-blocks/extensions.md)
   - Variables | [变量](./docs/guides/create-custom-blocks/variables.md)
   - Fields | 字段
+
     - Overview | [总览](./docs/guides/create-custom-blocks/fields/overview.md)
     - Anatomy of a Field | [字段解析](./docs/guides/create-custom-blocks/fields/anatomy-of-a-field.md)
     - Validators | [校验器](./docs/guides/create-custom-blocks/fields/validators.md)
@@ -83,6 +88,7 @@
     - Creating Custom Procedure Data Models | [创建自定义过程数据模型](./docs/guides/create-custom-blocks/procedures/creating-custom-procedure-data-models.md)
 
 - Application Integration | 应用集成
+
   - Best Practices | [最佳实践](./docs/guides/app-integration/best-practices.md)
   - Generating and Running JavaScript | [生成并运行 JavaScript](./docs/guides/app-integration/running-javascript.md)
   - Attributing Blockly | [整体归因](./docs/guides/app-integration/attribution.md)
@@ -117,9 +123,11 @@
     - Writing a Codelab | [编写 Codelab](./docs/guides/contribute/samples/write_a_codelab.md)
 
 ## /reference
+
 - Overview | [总览](./docs/reference/js/blockly.md)
 
 - Classes | 类 (已翻译)
+
   - ASTNode (./docs/reference/js/blockly.astnode_class.md)
   - BasicCursor (./docs/reference/js/blockly.basiccursor_class.md)
   - Block (./docs/reference/js/blockly.block_class.md)

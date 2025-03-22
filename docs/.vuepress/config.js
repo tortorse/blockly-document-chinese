@@ -116,7 +116,7 @@ module.exports = {
               children: [
                 {
                   title: '工作区创建',
-                  path: '',
+                  path: '/guides/get-started/workspace-creation',
                 },
                 {
                   title: '工具箱',
