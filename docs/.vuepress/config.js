@@ -93,7 +93,7 @@ module.exports = {
     sidebar: {
       '/guide': [
         {
-          title: '开始',
+          title: '入门',
           children: [
             {
               title: '什么是 Blockly？',
@@ -152,6 +152,31 @@ module.exports = {
                   path: 'https://google.github.io/blockly-samples/examples/developer-tools/index.html',
                 },
               ],
+            },
+          ],
+        },
+        {
+          title: '设计考量',
+          children: [
+            {
+              title: '应用设计',
+              path: '/guides/design/applications',
+            },
+            {
+              title: '教育应用',
+              path: '/guides/design/education',
+            },
+            {
+              title: '块设计',
+              path: '/guides/design/blocks',
+            },
+            {
+              title: '块语言 vs 文本语言',
+              path: '/guides/design/languages',
+            },
+            {
+              title: '块外观',
+              path: '/guides/design/appearance',
             },
           ],
         },
