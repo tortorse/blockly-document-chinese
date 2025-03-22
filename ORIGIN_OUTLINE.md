@@ -29,56 +29,56 @@
 - **Build your editor**
   - **Workspaces**
     - **Create a workspace**
-      - [Create a workspace](./docs/guides/configure/web/configuration_struct.md)
-      - [Grid option](./docs/guides/configure/web/grid.md)
-      - [Media folder option](./docs/guides/configure/web/media.md)
-      - [Move option](./docs/guides/configure/web/move.md)
-      - [Zoom option](./docs/guides/configure/web/zoom.md)
+      - [Create a workspace](./docs/guides/configure/configuration_struct.md)
+      - [Grid option](./docs/guides/configure/grid.md)
+      - [Media folder option](./docs/guides/configure/media.md)
+      - [Move option](./docs/guides/configure/move.md)
+      - [Zoom option](./docs/guides/configure/zoom.md)
     - **Workspace size**
-      - [Fixed size workspace](./docs/guides/configure/web/fixed-size.md)
-      - [Resizable workspace](./docs/guides/configure/web/resizable.md)
-      - [Metrics Manager](./docs/guides/configure/web/metrics_manager.md)
+      - [Fixed size workspace](./docs/guides/configure/fixed-size.md)
+      - [Resizable workspace](./docs/guides/configure/resizable.md)
+      - [Metrics Manager](./docs/guides/configure/metrics_manager.md)
   - **Toolboxes**
-    - [Overview](./docs/guides/configure/web/toolboxes/toolbox.md)
+    - [Overview](./docs/guides/configure/toolboxes/toolbox.md)
     - **Flyout toolboxes**
-      - [Define a flyout toolbox](./docs/guides/configure/web/toolboxes/flyout.md)
+      - [Define a flyout toolbox](./docs/guides/configure/toolboxes/flyout.md)
     - **Category toolboxes**
-      - [Define a category toolbox](./docs/guides/configure/web/toolboxes/category.md)
-      - [Nested categories](./docs/guides/configure/web/toolboxes/nested.md)
-      - [Dynamic categories](./docs/guides/configure/web/toolboxes/dynamic.md)
-      - [Disable, hide, or expand categories](./docs/guides/configure/web/toolboxes/disable-categories.md)
-      - [Category appearance](./docs/guides/configure/web/toolboxes/appearance.md)
-      - [Programmatic access](./docs/guides/configure/web/toolboxes/programmatic.md)
-    - [Preset blocks](./docs/guides/configure/web/toolboxes/preset.md)
-    - [Separators](./docs/guides/configure/web/toolboxes/separators.md)
-    - [Buttons and labels](./docs/guides/configure/web/toolboxes/buttons.md)
-    - [Modify toolboxes](./docs/guides/configure/web/toolboxes/modify.md)
+      - [Define a category toolbox](./docs/guides/configure/toolboxes/category.md)
+      - [Nested categories](./docs/guides/configure/toolboxes/nested.md)
+      - [Dynamic categories](./docs/guides/configure/toolboxes/dynamic.md)
+      - [Disable, hide, or expand categories](./docs/guides/configure/toolboxes/disable-categories.md)
+      - [Category appearance](./docs/guides/configure/toolboxes/appearance.md)
+      - [Programmatic access](./docs/guides/configure/toolboxes/programmatic.md)
+    - [Preset blocks](./docs/guides/configure/toolboxes/preset.md)
+    - [Separators](./docs/guides/configure/toolboxes/separators.md)
+    - [Buttons and labels](./docs/guides/configure/toolboxes/buttons.md)
+    - [Modify toolboxes](./docs/guides/configure/toolboxes/modify.md)
 
 - **Colours and themes**
-  - [Colour formats](./docs/guides/configure/web/appearance/colour-formats.md)
-  - [Block colours](./docs/guides/configure/web/appearance/block-colour.md)
-  - [Themes](./docs/guides/configure/web/appearance/themes.md)
+  - [Colour formats](./docs/guides/configure/appearance/colour-formats.md)
+  - [Block colours](./docs/guides/configure/appearance/block-colour.md)
+  - [Themes](./docs/guides/configure/appearance/themes.md)
 
 - **Save and load**
-  - [Serialization](./docs/guides/configure/web/serialization.md)
+  - [Serialization](./docs/guides/configure/serialization.md)
 
 - **Events**
-  - [Events](./docs/guides/configure/web/events.md)
+  - [Events](./docs/guides/configure/events.md)
 
 - **Shortcuts and context menus**
-  - [Copy and paste](./docs/guides/configure/web/copy-paste.md)
+  - [Copy and paste](./docs/guides/configure/copy-paste.md)
   - **Drag and drop**
-    - [Custom draggables](./docs/guides/configure/web/dragging/draggable.md)
-    - [Custom block drag strategies](./docs/guides/configure/web/dragging/block-drag-strategies.md)
-    - [Custom draggers](./docs/guides/configure/web/dragging/dragger.md)
-  - [Context menus](./docs/guides/configure/web/context-menus.md)
+    - [Custom draggables](./docs/guides/configure/dragging/draggable.md)
+    - [Custom block drag strategies](./docs/guides/configure/dragging/block-drag-strategies.md)
+    - [Custom draggers](./docs/guides/configure/dragging/dragger.md)
+  - [Context menus](./docs/guides/configure/context-menus.md)
 
 - **Comments**
-  - [Workspace comments](./docs/guides/configure/web/workspace_comment.md)
-  - [Block comments](./docs/guides/configure/web/block_comment.md)
+  - [Workspace comments](./docs/guides/configure/workspace_comment.md)
+  - [Block comments](./docs/guides/configure/block_comment.md)
 
 - **Localization**
-  - [Translations](./docs/guides/configure/web/translations.md)
+  - [Translations](./docs/guides/configure/translations.md)
 
 - **Add Custom Blocks**
   - [Overview](./docs/guides/create-custom-blocks/overview.md)
