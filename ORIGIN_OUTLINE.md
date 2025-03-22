@@ -1,18 +1,18 @@
 - **Get started**
-  - [What is Blockly?](./docs/guides/get-started/what-is-blockly.md)
-  - [Why Blockly?](./docs/guides/get-started/why-blockly.md)
-  - [Get the code](./docs/guides/get-started/get-the-code.md)
-  - [Visual glossary](./docs/guides/get-started/workspace-anatomy.md)
+  - [What is Blockly?](./docs/guides/get-started/what-is-blockly.md) ✅
+  - [Why Blockly?](./docs/guides/get-started/why-blockly.md) ✅
+  - [Get the code](./docs/guides/get-started/get-the-code.md) ✅
+  - [Visual glossary](./docs/guides/get-started/workspace-anatomy.md) ✅
   - **Basic steps**
-    - [Create a workspace](./docs/guides/get-started/workspace-creation.md)
-    - [Add a toolbox](./docs/guides/get-started/toolbox.md)
-    - [Define custom blocks](./docs/guides/get-started/blocks.md)
-    - [Generate code](./docs/guides/get-started/code-generation.md)
-    - [Save and load](./docs/guides/get-started/save-and-load.md)
+    - [Create a workspace](./docs/guides/get-started/workspace-creation.md) ✅
+    - [Add a toolbox](./docs/guides/get-started/toolbox.md) ✅
+    - [Define custom blocks](./docs/guides/get-started/blocks.md) ✅
+    - [Generate code](./docs/guides/get-started/code-generation.md) ✅
+    - [Save and load](./docs/guides/get-started/save-and-load.md) ✅
   - **Try Blockly**
-    - [Get started codelab](https://blocklycodelabs.dev/codelabs/getting-started/index.html?index=..%2F..index#0)
-    - [Blockly Playground](https://blockly-demo.appspot.com/static/tests/playground.html)
-    - [Block Factory](https://google.github.io/blockly-samples/examples/developer-tools/index.html)
+    - [Get started codelab](https://blocklycodelabs.dev/codelabs/getting-started/index.html?index=..%2F..index#0) ✅
+    - [Blockly Playground](https://blockly-demo.appspot.com/static/tests/playground.html) ✅
+    - [Block Factory](https://google.github.io/blockly-samples/examples/developer-tools/index.html) ✅
 
 - **Design considerations**
   - [Application design](./docs/guides/design/applications.md)

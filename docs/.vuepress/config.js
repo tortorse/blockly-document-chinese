@@ -136,6 +136,23 @@ module.exports = {
                 },
               ],
             },
+            {
+              title: '尝试 Blockly',
+              children: [
+                {
+                  title: '入门教程',
+                  path: 'https://blocklycodelabs.dev/codelabs/getting-started/index.html?index=..%2F..index#0',
+                },
+                {
+                  title: 'Blockly 训练场',
+                  path: 'https://blockly-demo.appspot.com/static/tests/playground.html',
+                },
+                {
+                  title: '块工厂',
+                  path: 'https://google.github.io/blockly-samples/examples/developer-tools/index.html',
+                },
+              ],
+            },
           ],
         },
         {
