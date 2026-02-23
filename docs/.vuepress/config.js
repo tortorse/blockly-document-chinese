@@ -769,15 +769,20 @@ module.exports = {
           title: '构建应用',
           children: [
             {
-              title: '最佳实践',
-              path: '/guides/app-integration/best-practices',
+              title: '生成并运行代码',
+              children: [
+                {
+                  title: '生成并运行代码',
+                  path: '/guides/app-integration/run-code',
+                },
+                {
+                  title: '生成并运行 JavaScript',
+                  path: '/guides/app-integration/running-javascript',
+                },
+              ],
             },
             {
-              title: '生成并运行 JavaScript',
-              path: '/guides/app-integration/running-javascript',
-            },
-            {
-              title: '整体归因',
+              title: '归因 Blockly',
               path: '/guides/app-integration/attribution',
             },
           ],
