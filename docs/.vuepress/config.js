@@ -209,56 +209,215 @@ module.exports = {
           title: '构建编辑器',
           children: [
             {
-              title: '配置结构',
-              path: '/guides/configure/configuration_struct',
+              title: '工作区',
+              children: [
+                {
+                  title: '创建工作区',
+                  children: [
+                    {
+                      title: '创建工作区',
+                      path: '/guides/configure/configuration_struct',
+                    },
+                    {
+                      title: '栅格选项',
+                      path: '/guides/configure/grid',
+                    },
+                    {
+                      title: '媒体文件夹选项',
+                      path: '/guides/configure/media',
+                    },
+                    {
+                      title: '移动选项',
+                      path: '/guides/configure/move',
+                    },
+                    {
+                      title: '缩放选项',
+                      path: '/guides/configure/zoom',
+                    },
+                  ],
+                },
+                {
+                  title: '工作区尺寸',
+                  children: [
+                    {
+                      title: '固定尺寸工作区',
+                      path: '/guides/configure/fixed-size',
+                    },
+                    {
+                      title: '可调整尺寸工作区',
+                      path: '/guides/configure/resizable',
+                    },
+                    {
+                      title: '度量管理器',
+                      path: '/guides/configure/metrics_manager',
+                    },
+                  ],
+                },
+              ],
             },
             {
-              title: '栅格',
-              path: '/guides/configure/grid',
+              title: '工具箱',
+              children: [
+                {
+                  title: '总览',
+                  path: '/guides/configure/toolboxes/toolbox',
+                },
+                {
+                  title: '弹出工具箱',
+                  children: [
+                    {
+                      title: '定义弹出工具箱',
+                      path: '/guides/configure/toolboxes/flyout',
+                    },
+                  ],
+                },
+                {
+                  title: '分类工具箱',
+                  children: [
+                    {
+                      title: '定义分类工具箱',
+                      path: '/guides/configure/toolboxes/category',
+                    },
+                    {
+                      title: '嵌套分类',
+                      path: '/guides/configure/toolboxes/nested',
+                    },
+                    {
+                      title: '动态分类',
+                      path: '/guides/configure/toolboxes/dynamic',
+                    },
+                    {
+                      title: '禁用、隐藏或展开分类',
+                      path: '/guides/configure/toolboxes/disable-categories',
+                    },
+                    {
+                      title: '分类外观',
+                      path: '/guides/configure/toolboxes/appearance',
+                    },
+                    {
+                      title: '编程式访问',
+                      path: '/guides/configure/toolboxes/programmatic',
+                    },
+                  ],
+                },
+                {
+                  title: '预设块',
+                  path: '/guides/configure/toolboxes/preset',
+                },
+                {
+                  title: '分隔符',
+                  path: '/guides/configure/toolboxes/separators',
+                },
+                {
+                  title: '按钮与标签',
+                  path: '/guides/configure/toolboxes/buttons',
+                },
+                {
+                  title: '修改工具箱',
+                  path: '/guides/configure/toolboxes/modify',
+                },
+              ],
             },
             {
-              title: '移动',
-              path: '/guides/configure/move',
+              title: '外观',
+              children: [
+                {
+                  title: '主题',
+                  path: '/guides/configure/appearance/themes',
+                },
+                {
+                  title: '颜色格式',
+                  path: '/guides/configure/appearance/colour-formats',
+                },
+                {
+                  title: '块颜色',
+                  path: '/guides/configure/appearance/block-colour',
+                },
+                {
+                  title: '使用 CSS 样式',
+                  path: '/guides/configure/appearance/css',
+                },
+              ],
             },
             {
-              title: '缩放',
-              path: '/guides/configure/zoom',
-            },
-            {
-              title: '固定尺寸的工作区',
-              path: '/guides/configure/fixed-size',
-            },
-            {
-              title: '可调整尺寸的工作区',
-              path: '/guides/configure/resizable',
-            },
-            {
-              title: '代码生成器',
-              path: '/guides/configure/code-generators',
+              title: '保存和加载',
+              path: '/guides/configure/serialization',
             },
             {
               title: '事件',
               path: '/guides/configure/events',
             },
             {
-              title: '序列化',
-              path: '/guides/configure/serialization',
+              title: '快捷键与上下文菜单',
+              children: [
+                {
+                  title: '键盘快捷键',
+                  path: '/guides/configure/keyboard-shortcuts',
+                },
+                {
+                  title: '复制与粘贴',
+                  path: '/guides/configure/copy-paste',
+                },
+                {
+                  title: '上下文菜单',
+                  path: '/guides/configure/context-menus',
+                },
+              ],
             },
             {
-              title: '主题',
-              path: '/guides/configure/themes',
+              title: '拖放',
+              children: [
+                {
+                  title: '自定义可拖拽对象',
+                  path: '/guides/configure/dragging/draggable',
+                },
+                {
+                  title: '自定义块拖拽策略',
+                  path: '/guides/configure/dragging/block-drag-strategies',
+                },
+                {
+                  title: '自定义拖拽器',
+                  path: '/guides/configure/dragging/dragger',
+                },
+              ],
             },
             {
-              title: '上下文菜单',
-              path: '/guides/configure/context-menus',
+              title: '注释',
+              children: [
+                {
+                  title: '工作区注释',
+                  path: '/guides/configure/workspace_comment',
+                },
+                {
+                  title: '块注释',
+                  path: '/guides/configure/block_comment',
+                },
+              ],
             },
             {
-              title: '连接检查器',
-              path: '/guides/configure/advanced/interfaces/connection_checker',
+              title: '本地化',
+              path: '/guides/configure/translations',
             },
             {
-              title: '度量管理器',
-              path: '/guides/configure/advanced/interfaces/metrics_manager',
+              title: '焦点系统',
+              path: '/guides/configure/focus',
+            },
+            {
+              title: '高级定制',
+              path: '/guides/configure/customization',
+            },
+            {
+              title: '无障碍',
+              children: [
+                {
+                  title: '键盘导航',
+                  path: '/guides/configure/keyboard-nav',
+                },
+                {
+                  title: '颜色与无障碍',
+                  path: '/guides/configure/colour-a11y',
+                },
+              ],
             },
           ],
         },
