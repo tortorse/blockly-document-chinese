@@ -1,28 +1,28 @@
 # 下拉菜单字段
 
-下拉菜单字段存储一个字符串作为其值，并存储一个字符串作为其文本。该值是一个语言中性键，将用于访问文本，不会在 Blockly 之间切换语言时进行翻译。该文本是用户可理解的字符串。
+下拉菜单字段把值和文本都存为字符串。值是语言无关键，用于读取对应文本；当 Blockly 在不同语言间切换时，这个值不会被翻译。文本是展示给用户的人类可读字符串。
 
 #### 下拉菜单字段
 
 ![](./dropdown/on_block.png)
 
-#### 打开编辑器的下拉字段
+#### 打开编辑器的下拉菜单字段
 
 ![](./dropdown/with_editor.png)
 
-#### 收起的块上的下拉字段
+#### 折叠块上的下拉菜单字段
 
 ![](./dropdown/collapsed.png)
 
 ## 创建
 
-下拉菜单构造函数可接受菜单生成器和可选的 [校验器](#创建下拉菜单校验器)。菜单生成器具有很大的灵活性，但本质上是选项数组，每个选项都包含一个人类可读懂的部分和一个语言中性字符串。
+下拉菜单构造函数接收一个菜单生成器和一个可选[校验器](#创建下拉菜单校验器)。菜单生成器可以是选项数组（每个选项包含可读部分和语言无关字符串），也可以是返回选项数组的函数。选项的可读部分可以是字符串、图片或 HTML 元素，并且可在同一数组中混用。
 
-### 简单的文本下拉菜单
+### 简单文本下拉菜单
 
-![Open dropdown with two text options](./dropdown/with_editor.png)
+![](./dropdown/with_editor.png)
 
-:::: tabs
+::::tabs
 ::: tab JSON
 
 ```json
@@ -49,14 +49,11 @@
 Blockly.Blocks['example_dropdown'] = {
   init: function() {
     this.appendDummyInput()
-      .appendField('drop down:')
-      .appendField(
-        new Blockly.FieldDropdown([
-          ['first item', 'ITEM1'],
-          ['second item', 'ITEM2']
-        ]),
-        'FIELDNAME'
-      );
+        .appendField('drop down:')
+        .appendField(new Blockly.FieldDropdown([
+            ['first item', 'ITEM1'],
+            ['second item', 'ITEM2']
+        ]), 'FIELDNAME');
   }
 };
 ```
@@ -64,15 +61,13 @@ Blockly.Blocks['example_dropdown'] = {
 :::
 ::::
 
-通过让人类可读的信息与语言中立键分开，可以在不同语言之间保留下拉菜单的设置。例如，英语版本的块可以定义 `[['left', 'LEFT'], ['right', 'RIGHT]]`，而相同块的德语版本可以定义 `[['links', 'LEFT'], ['rechts', 'RIGHT]]`。
+把可读文本和语言无关键分开后，下拉菜单设置可以跨语言保持一致。例如同一个块，英文可定义 `[['left', 'LEFT'], ['right', 'RIGHT']]`，德文可定义 `[['links', 'LEFT'], ['rechts', 'RIGHT']]`。
 
 ### 图片下拉菜单
 
-下拉菜单中的选项可能是图片，而不是文本。映像对象通过 `src`、`width`、`height` 和 `alt` 属性指定。
+下拉菜单选项也可以是图片。图片选项通过 `src`、`width`、`height`、`alt` 属性描述。
 
-请注意，尽管某个下拉列表可以同时包含文本选项和图片选项，但单个选项目前不能同时包含图片和文字。
-
-![Dropdown field containing images and text](./dropdown/with_images.png)
+![](./dropdown/with_images.png)
 
 ::::tabs
 ::: tab JSON
@@ -108,12 +103,13 @@ Blockly.Blocks['example_dropdown'] = {
 ```javascript
 Blockly.Blocks['image_dropdown'] = {
   init: function() {
-    var input = this.appendDummyInput().appendField('flag');
+    var input = this.appendDummyInput()
+        .appendField('flag');
     var options = [
       ['none', 'NONE'],
-      [{ src: 'canada.png', width: 50, height: 25, alt: 'Canada' }, 'CANADA'],
-      [{ src: 'usa.png', width: 50, height: 25, alt: 'USA' }, 'USA'],
-      [{ src: 'mexico.png', width: 50, height: 25, alt: 'Mexico' }, 'MEXICO']
+      [{src: 'canada.png', width: 50, height: 25, alt: 'Canada'}, 'CANADA'],
+      [{src: 'usa.png', width: 50, height: 25, alt: 'USA'}, 'USA'],
+      [{src: 'mexico.png', width: 50, height: 25, alt: 'Mexico'}, 'MEXICO']
     ];
     input.appendField(new Blockly.FieldDropdown(options), 'FLAG');
   }
@@ -123,9 +119,112 @@ Blockly.Blocks['image_dropdown'] = {
 :::
 ::::
 
-### 动态下拉列表
+### HTML 下拉菜单
 
-![Dropdown field with days of the week](./dropdown/dynamic.png)
+选项也可以是任意 HTML 元素，但不能太大，也不应尝试处理鼠标或键盘事件。这个约束需要你自行遵守，Blockly 不会强制校验。
+
+下拉打开时会展示 HTML 元素本体。下拉关闭且该项被选中时，会按优先级显示元素的 `title`、`aria-label` 或 `innerText`。
+
+![](./dropdown/with_html.png)
+
+::::tabs
+::: tab JSON
+
+```json
+{
+  "type": "flags_with_text_dropdown",
+  "message0": "flag with text %1",
+  "args0": [
+    {
+      "type": "field_dropdown",
+      "name": "FLAG_WITH_TEXT",
+      "options": [
+        ["x", "X"]
+      ]
+    }
+  ],
+  "extensions": ["flag_with_text_extension"]
+}
+```
+
+```javascript
+Blockly.Extensions.register('flag_with_text_extension',
+  function() {
+    function createFlagWithTextDiv(text, src) {
+      const div = document.createElement('div');
+      div.setAttribute('style', 'width: 75px;');
+      div.setAttribute('title', text);
+      const img = document.createElement('img');
+      img.setAttribute('src', src);
+      img.setAttribute('style', 'height: 25px; display: block; margin: auto;');
+      div.appendChild(img);
+      const para = document.createElement('p');
+      para.innerText = text;
+      para.setAttribute('style', 'text-align: center; margin: 5px;');
+      div.appendChild(para);
+      return div;
+    }
+
+    const canadaDiv = createFlagWithTextDiv('Canada', 'canada.png');
+    const usaDiv = createFlagWithTextDiv('USA', 'usa.png');
+    const mexicoDiv = createFlagWithTextDiv('Mexico', 'mexico.png');
+    const options = [
+      ['none', 'NONE'],
+      [canadaDiv, 'CANADA'],
+      [usaDiv, 'USA'],
+      [mexicoDiv, 'MEXICO']
+    ];
+    this.getField('FLAG_WITH_TEXT').setOptions(options);
+  });
+```
+
+这通过 JSON [扩展](/guides/create-custom-blocks/define/extensions)实现。
+
+:::
+::: tab JavaScript
+
+```javascript
+function createFlagWithTextDiv(text, src) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'width: 75px;');
+  div.setAttribute('title', text);
+  const img = document.createElement('img');
+  img.setAttribute('src', src);
+  img.setAttribute('style', 'height: 25px; display: block; margin: auto;');
+  div.appendChild(img);
+  const para = document.createElement('p');
+  para.innerText = text;
+  para.setAttribute('style', 'text-align: center; margin: 5px;');
+  div.appendChild(para);
+  return div;
+}
+
+const canadaDiv = createFlagWithTextDiv('Canada', 'canada.png');
+const usaDiv = createFlagWithTextDiv('USA', 'usa.png');
+const mexicoDiv = createFlagWithTextDiv('Mexico', 'mexico.png');
+
+Blockly.Blocks['flags_with_text_dropdown'] = {
+  init: function() {
+    const input = this.appendDummyInput()
+        .appendField('flag with text');
+    const options = [
+      ['none', 'NONE'],
+      [canadaDiv, 'CANADA'],
+      [usaDiv, 'USA'],
+      [mexicoDiv, 'MEXICO']
+    ];
+    input.appendField(new Blockly.FieldDropdown(options), 'FLAG_WITH_TEXT');
+  }
+};
+```
+
+:::
+::::
+
+### 动态下拉菜单
+
+![](./dropdown/dynamic.png)
+
 ::::tabs
 ::: tab JSON
 
@@ -135,8 +234,11 @@ Blockly.Blocks['image_dropdown'] = {
   "message0": "day %1",
   "args0": [
     {
-      "type": "input_dummy",
-      "name": "INPUT"
+      "type": "field_dropdown",
+      "name": "DAY",
+      "options": [
+        ["x", "X"]
+      ]
     }
   ],
   "extensions": ["dynamic_menu_extension"]
@@ -144,9 +246,9 @@ Blockly.Blocks['image_dropdown'] = {
 ```
 
 ```javascript
-Blockly.Extensions.register('dynamic_menu_extension', function() {
-  this.getInput('INPUT').appendField(
-    new Blockly.FieldDropdown(function() {
+Blockly.Extensions.register('dynamic_menu_extension',
+  function() {
+    this.getField('DAY').setOptions(function() {
       var options = [];
       var now = Date.now();
       for (var i = 0; i < 7; i++) {
@@ -155,12 +257,12 @@ Blockly.Extensions.register('dynamic_menu_extension', function() {
         now += 24 * 60 * 60 * 1000;
       }
       return options;
-    }),
-    'DAY'
-  );
-});
+    });
+  });
 ```
-此操作使用 JSON [扩展程序](/guides/create-custom-blocks/extensions.html) 完成。
+
+这通过 JSON [扩展](/guides/create-custom-blocks/define/extensions)实现。
+
 :::
 ::: tab JavaScript
 
@@ -169,7 +271,8 @@ Blockly.Blocks['dynamic_dropdown'] = {
   init: function() {
     var input = this.appendDummyInput()
       .appendField('day')
-      .appendField(new Blockly.FieldDropdown(this.generateOptions), 'DAY');
+      .appendField(new Blockly.FieldDropdown(
+        this.generateOptions), 'DAY');
   },
 
   generateOptions: function() {
@@ -187,17 +290,70 @@ Blockly.Blocks['dynamic_dropdown'] = {
 
 :::
 ::::
-系统还可以为函数提供下拉菜单，而不是静态列表，从而使选项可以动态变化。该函数应返回一个采用静态选项的 `[human-readable-value, language-neutral-key]` 格式的选项数组。每次点击下拉菜单，系统都会运行函数并重新计算选项。
 
-:::tip
-**注意**：动态下拉菜单不会发生 [前缀后缀匹配](#前缀后缀匹配)。
+下拉菜单也可以传入函数而非静态选项列表，使选项动态生成。该函数应返回与静态选项相同格式的数组：`[可读值, 语言无关键]`。每次点击下拉菜单都会重新执行函数并重新计算选项。
+
+::: tip 提示
+动态下拉菜单不会触发[前缀/后缀匹配](#前缀后缀匹配)。
 :::
+
+### 分隔线
+
+在选项数组中使用字符串 `'separator'`，可以在下拉菜单项之间添加分隔线。
+
+![](./dropdown/with_separator.png)
+
+::::tabs
+::: tab JSON
+
+```json
+{
+  "type": "separator_dropdown",
+  "message0": "food %1",
+  "args0": [
+    {
+      "type": "field_dropdown",
+      "name": "FOOD",
+      "options": [
+        ["water", "WATER"],
+        ["juice", "JUICE"],
+        "separator",
+        ["salad", "SALAD"],
+        ["soup", "SOUP"]
+      ]
+    }
+  ]
+}
+```
+
+:::
+::: tab JavaScript
+
+```javascript
+Blockly.Blocks["separator_dropdown"] = {
+  init: function() {
+    var input = this.appendDummyInput()
+        .appendField("food");
+    var options = [
+      ["water", "WATER"],
+      ["juice", "JUICE"],
+      "separator",
+      ["salad", "SALAD"],
+      ["soup", "SOUP"],
+    ];
+    input.appendField(new Blockly.FieldDropdown(options), "FOOD");
+  }
+};
+```
+
+:::
+::::
 
 ## 序列化
 
 ::::tabs
 ::: tab JSON
-下拉菜单字段的 JSON 如下所示：
+下拉菜单字段的 JSON 如下：
 
 ```json
 {
@@ -207,16 +363,17 @@ Blockly.Blocks['dynamic_dropdown'] = {
 }
 ```
 
-其中 `FIELDNAME` 是引用下拉菜单字段的字符串，值是应用于该字段的值。该值应为中性选项键。
+其中 `FIELDNAME` 是引用下拉菜单字段的字符串，值是应用到该字段的值。该值应为语言无关选项键。
+
 :::
 ::: tab XML
-下拉菜单字段的 XML 如下所示：
+下拉菜单字段的 XML 如下：
 
 ```xml
 <field name="FIELDNAME">LANGUAGE-NEUTRAL-KEY</field>
 ```
 
-其中，字段的 `name` 属性包含引用下拉菜单字段的字符串，内部文本是应用于该字段的值。内部文本应为有效的语言中性选项键。
+其中字段的 `name` 属性是引用下拉菜单字段的字符串，内部文本是应用到该字段的值。内部文本应为有效的语言无关选项键。
 
 :::
 ::::
@@ -225,27 +382,28 @@ Blockly.Blocks['dynamic_dropdown'] = {
 
 ### 下拉箭头
 
-`Blockly.FieldDropdown.ARROW_CHAR` 属性可用于更改表示下拉箭头的 Unicode 字符。
+`Blockly.FieldDropdown.ARROW_CHAR` 属性可用于修改下拉箭头对应的 Unicode 字符。
 
-![Dropdown field with custom arrow](./dropdown/customized_arrow.png)
+![](./dropdown/customized_arrow.png)
 
-`ARROW_CHAR` 属性在 Android 上默认为 `\u25BC` (▼)，在其他情况下默认为 `\u25BE` (▾)。
+`ARROW_CHAR` 默认值在 Android 上是 `\u25BC`（▼），其他平台是 `\u25BE`（▾）。
 
-这是一个全局属性，因此会在设置时修改所有下拉菜单字段。
+这是全局属性，设置后会影响所有下拉菜单字段。
 
 ### 菜单高度
 
-`Blockly.FieldDropdown.MAX_MENU_HEIGHT_VH` 属性可用于更改菜单的最大高度。它定义为视口高度的百分比，视口就是窗口。
+`Blockly.FieldDropdown.MAX_MENU_HEIGHT_VH` 属性可用于修改菜单最大高度。它是相对于视口高度（浏览器窗口高度）的比例值。
 
-`MAX_MENU_HEIGHT_VH` 属性默认为 0.45。
+`MAX_MENU_HEIGHT_VH` 默认值是 `0.45`。
 
-这是一个全局属性，因此会在设置时修改所有下拉菜单字段。
+这是全局属性，设置后会影响所有下拉菜单字段。
 
-## 前缀后缀匹配
+## 前缀/后缀匹配
 
-如果所有下拉菜单选项共用相同的前缀和/或后缀字词，系统会自动分离这些字词并将其作为静态文本插入。例如，您可以通过以下两种方法创建相同的块（第一种方式没有后缀匹配，第二种方式使用后缀）：
+如果下拉菜单选项共享相同前缀和/或后缀词，系统会自动提取这些公共词并作为静态文本展示。下面给出两个创建相同块的方式（第一个不使用后缀匹配，第二个使用后缀匹配）：
 
-没有后缀匹配：
+不使用后缀匹配：
+
 ::::tabs
 ::: tab JSON
 
@@ -278,8 +436,8 @@ Blockly.Blocks['dropdown_no_matching'] = {
     ];
 
     this.appendDummyInput()
-      .appendField('hello')
-      .appendField(new Blockly.FieldDropdown(options), 'MODE');
+        .appendField('hello')
+        .appendField(new Blockly.FieldDropdown(options), 'MODE');
   }
 };
 ```
@@ -287,7 +445,7 @@ Blockly.Blocks['dropdown_no_matching'] = {
 :::
 ::::
 
-使用后缀匹配时：
+使用后缀匹配：
 
 ::::tabs
 ::: tab JSON
@@ -320,36 +478,36 @@ Blockly.Blocks['dropdown_with_matching'] = {
       ['hello computer', 'CPU']
     ];
 
-    this.appendDummyInput().appendField(
-      new Blockly.FieldDropdown(options),
-      'MODE'
-    );
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown(options), 'MODE');
   }
 };
 ```
 
 :::
 ::::
-![Dropdown field with "hello" as a label and "world", "computer" as options](./dropdown/prefix_matched.png)
 
-这种方法的一个优势是，该代码块更易于翻译成其他语言。之前的代码具有字符串 `'hello'`、`'world'` 和 `'computer'`，而修改后的代码具有字符串 `'hello world'` 和 `'hello computer'`。译员翻译短语的时间要比单独翻译短语容易得多。
+![](./dropdown/prefix_matched.png)
 
-这种方法的另一个优势是，字词顺序往往因语言而异。假设某个语言使用 `'world hello'` 和 `'computer hello'`。后缀匹配算法会检测通用 `'hello'`，并在下拉菜单后面显示该匹配项。
+这种写法的一个优点是更容易做多语言翻译。之前代码里有 `'hello'`、`'world'`、`'computer'` 三段独立词，而改写后是 `'hello world'` 和 `'hello computer'` 两个完整短语，翻译器更容易处理短语而不是孤立单词。
 
-但是，前缀/后缀匹配有时会失败。在某些情况下，两个单词应始终组合在一起，并且不应考虑前缀。例如，`'drive red car'` 和 `'drive red truck'` 应该只有 `'drive'` 被分解，而没有 `'drive red'`。Unicode 不间断空格 `'\u00A0'` 可以代替常规空格来抑制前缀/后缀匹配器。因此，可以使用 `'drive red\u00A0car'` 和 `'drive red\u00A0truck'` 修复上面的示例。
+另一个优点是很多语言的词序和英语不同。假设某种语言写作 `'world hello'` 和 `'computer hello'`，后缀匹配算法会识别公共后缀 `'hello'`，并把它显示在下拉菜单后面。
 
-前缀/后缀匹配失败的另一个位置是语言，不以空格分隔各个字词。中文就是一个很好的例子。字符串 `'訪問中國'` 表示 `'visit China'`，请注意字词之间缺少空格。后两个字符 (`'中國'`) 共同表示 `'China'` 的单词，但如果拆分，这两个符号分别表示 `'centre'` 和 `'country'`。为了使前缀/后缀匹配在中文等语言中正常工作，只需在空格处插入一个空格即可。例如，`'訪問 中國'` 和 `'訪問 美國'` 会生成 `"visit [China/USA]"`，而 `'訪問 中 國'` 和 `'訪問 美 國'` 会生成 `"visit [centre/beautiful] country"`。
+但前缀/后缀匹配有时会失败。有些词组应该始终绑定在一起，前缀不应继续拆分。比如 `'drive red car'` 和 `'drive red truck'` 更合理的拆分是只提取 `'drive'`，而不是 `'drive red'`。可以把普通空格替换为 Unicode 不换行空格 `'\u00A0'` 来抑制匹配，因此可改写为 `'drive red\u00A0car'` 和 `'drive red\u00A0truck'`。
+
+另一个失败场景是不用空格分词的语言，比如中文。字符串 `'訪問中國'` 表示 `'visit China'`，其中 `'中國'` 两个字符合起来才是 `'China'`。若被拆开，就会变成 `'centre'` 和 `'country'` 两个独立含义。要让前缀/后缀匹配在中文等语言中正常工作，只需在人为希望切分的位置插入空格。例如 `'訪問 中國'` 和 `'訪問 美國'` 会得到 `"visit [China/USA]"`，而 `'訪問 中 國'` 和 `'訪問 美 國'` 会得到 `"visit [centre/beautiful] country"`。
 
 ## 创建下拉菜单校验器
 
-:::tip
-**注意**：如需查看有关校验器的一般信息，请参阅 [校验器](/guides/create-custom-blocks/fields/validators.html)。
+::: tip 提示
+校验器通用规则见[校验器](/guides/create-custom-blocks/fields/validators)。
 :::
-下拉菜单字段的值是与语言无关的字符串，因此任何验证工具都必须接受字符串并返回字符串_这是一个可用选项_、`null` 或 `undefined`。
 
-如果校验器返回任何其他内容，Blockly 的行为将处于未定义状态，并且程序可能会崩溃。
+下拉菜单字段的值是语言无关字符串，因此校验器必须接收字符串，并返回“可用选项之一的字符串”、`null` 或 `undefined`。
 
-例如，您可以使用三个选项和一个校验器定义下拉菜单字段，如下所示：
+如果校验器返回其他类型，Blockly 行为是未定义的，程序可能崩溃。
+
+例如你可以这样定义一个带三个选项和校验器的下拉菜单字段：
 
 ```javascript
 validate: function(newValue) {
@@ -365,12 +523,11 @@ init: function() {
   ];
 
   this.appendDummyInput()
-  // Pass the field constructor the options list, the validator, and the name.
       .appendField(new Blockly.FieldDropdown(options, this.validate), 'MODE');
 }
 ```
 
-`validate` 始终返回所传递的值，但它会调用辅助函数 `updateConnection`，该函数会根据下拉菜单值添加或移除输入：
+`validate` 始终返回传入值，同时调用辅助函数 `updateConnections`，根据下拉值增删输入：
 
 ```javascript
 updateConnections: function(newValue) {

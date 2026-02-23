@@ -1,21 +1,26 @@
-<!--
- * @Date: 2021-04-07 14:21:00
- * @LastEditors: tortorse
- * @LastEditTime: 2021-10-20 17:04:47
- * @FilePath: \blockly-document-chinese\docs\guides\create-custom-blocks\fields\overview.md
--->
-# 字段 
+# 字段
 
-字段用于定义块上的 UI 元素。其中包括字符串标签、图像、字符串和数字等文字数据的输入，以及日期选择器和角度选择器等丰富的编辑器。
+字段用于定义块上的大部分界面元素，例如字符串标签、图片、字符串和数字等字面量输入，以及日期选择器、角度选择器这类富编辑器。
 
-Blockly 默认提供了几个字段来处理各种用户输入。这些可以通过特定于字段的配置或使用验证器进行定制，这些验证器告诉一个字段如何在标准编辑器中处理特定内容。
+最简单的字段示例是 `math_number` 块，它使用 `field_number` 让用户输入数字。
 
-→ 有关 [内置字段](/guides/create-custom-blocks/fields/built-in-fields/overview) 的更多信息。
+![数字字段示例块](/static/blockly/images/math-number.png)
 
-→ 有关 [验证器](/guides/create-custom-blocks/fields/validators) 的更多信息。
+::: tip 说明
+如果你要展示的是块的元信息，通常更适合使用图标。  
+详见[字段与图标](/guides/create-custom-blocks/fields/fields-vs-icons)。
+:::
 
-如果您需要一个完全自定义的字段，则需要做更多的工作，并且您需要阅读大部分字段文档。首先了解组成字段的部分或创建自定义字段的概述。
+Blockly 内置了多种字段来处理不同类型的用户输入。  
+它们可以通过字段自身配置或校验器进行定制。校验器用于定义字段在标准编辑器中如何处理特定内容。
 
-→ 有关 [字段解析](/guides/create-custom-blocks/fields/anatomy-of-a-field) 的更多信息。
+→ 更多见[内置字段](/guides/create-custom-blocks/fields/built-in-fields/overview)。
 
-→ 有关 [创建自定义字段](/guides/create-custom-blocks/fields/customizing-fields/overview) 的更多信息。
+→ 更多见[校验器](/guides/create-custom-blocks/fields/validators)。
+
+如果你需要完全自定义字段，工作量会更大，通常需要阅读更多字段文档。  
+建议先理解字段组成，再进入自定义字段实现。
+
+→ 更多见[字段解析](/guides/create-custom-blocks/fields/anatomy-of-a-field)。
+
+→ 更多见[自定义字段总览](/guides/create-custom-blocks/fields/customizing-fields/overview)。

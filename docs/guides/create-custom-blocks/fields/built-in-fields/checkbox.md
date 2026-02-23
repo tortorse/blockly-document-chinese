@@ -1,12 +1,12 @@
 # 复选框字段
 
-复选框字段存储字符串作为其值，存储字符串作为其文本。其值为 `'TRUE'` 或 `'FALSE'`，并且其文本为 `'true'` 或 `'false'`。
+复选框字段会把值和文本都存为字符串。它的值是 `'TRUE'` 或 `'FALSE'`，文本是 `'true'` 或 `'false'`。
 
 #### 复选框字段
 
 ![](./checkbox/on_block.png)
 
-#### 收起的块上的复选框字段
+#### 折叠块上的复选框字段
 
 ![](./checkbox/collapsed.png)
 
@@ -36,8 +36,8 @@
 Blockly.Blocks['example_checkbox'] = {
   init: function() {
     this.appendDummyInput()
-      .appendField('checkbox:')
-      .appendField(new Blockly.FieldCheckbox(true), 'FIELDNAME');
+        .appendField('checkbox:')
+        .appendField(new Blockly.FieldCheckbox(true), 'FIELDNAME');
   }
 };
 ```
@@ -45,13 +45,14 @@ Blockly.Blocks['example_checkbox'] = {
 :::
 ::::
 
-复选框构造函数会接收一个可选值和一个可选的[验证器](#创建复选框验证程序)。可选值应为 `'TRUE'`、`'FALSE'` 或布尔值，否则默认值为 `false`。
+复选框构造函数接收一个可选值和一个可选[校验器](#创建复选框校验器)。可选值应为 `'TRUE'`、`'FALSE'` 或布尔值，否则默认值为 `false`。
 
 ## 序列化
 
-:::: tabs
+::::tabs
 ::: tab JSON
-复选框字段的 JSON 如下所示：
+复选框字段的 JSON 如下：
+
 ```json
 {
   "fields": {
@@ -60,10 +61,11 @@ Blockly.Blocks['example_checkbox'] = {
 }
 ```
 
-其中 `name` 属性包含引用复选框字段的字符串，而内部文本是要应用于该字段的值。内部文本值遵循与构造函数值相同的规则。
+其中 `FIELDNAME` 是引用复选框字段的字符串，值是应用到该字段的值。这里的值必须是布尔值。
+
 :::
 ::: tab XML
-复选框字段的 XML 如下所示：
+复选框字段的 XML 如下：
 
 ```xml
 <field name="FIELDNAME">TRUE</field>
@@ -74,58 +76,63 @@ Blockly.Blocks['example_checkbox'] = {
 ```xml
 <field name="FIELDNAME">true</field>
 ```
-:::tip
-注意：无需对内部文本应用引号。
-:::
-其中 `name` 属性包含引用复选框字段的字符串，而内部文本是要应用于该字段的值。内部文本值遵循与构造函数值相同的规则。
 
-请注意，在反序列化和重新序列化后，所有内部文本值都将处于上限值（`'TRUE'` 或 `'FALSE'`）。这在区分工作区时有时很重要。
+::: tip 提示
+内部文本不需要加引号。
+:::
+
+其中 `name` 属性是引用复选框字段的字符串，内部文本是应用到该字段的值。内部文本值遵循与构造函数值相同的规则。
+
+注意，反序列化再序列化后，所有内部文本会统一为大写（`'TRUE'` 或 `'FALSE'`）。在对工作区做差异比较时，这一点有时很重要。
+
 :::
 ::::
 
 ## 自定义
 
-### 对勾标记字符
+### 对勾字符
 
-`Blockly.FieldCheckbox.CHECK_CHAR` 属性可用于更改对勾标记的外观。该值应为包含 Unicode 字符的字符串。
+`Blockly.FieldCheckbox.CHECK_CHAR` 属性可用于修改对勾字符显示。该值应为包含 Unicode 字符的字符串。
 
 ![Checkbox field with heart instead of check](./checkbox/customized.png)
 
-`CHECK_CHAR` 属性默认为 '\\u2713' 或 ✓。
+`CHECK_CHAR` 默认值是 `\u2713`，也就是 ✓。
 
-这是一个全局属性，因此会在设置时修改所有复选框字段。
+这是全局属性，设置后会影响所有复选框字段。
 
-## 创建复选框验证程序
+## 创建复选框校验器
 
-:::tip
-**注意**：如需查看有关校验器的一般信息，请参阅 [校验器](/guides/create-custom-blocks/fields/validators.html)。
+::: tip 提示
+校验器通用规则见[校验器](/guides/create-custom-blocks/fields/validators)。
 :::
-复选框字段的值为 `'TRUE'` 或 `'FALSE'`，因此验证工具应接受这些值（即字符串），并返回 `'TRUE'`、`'FALSE'`、`null` 或 `undefined`。
 
-:::warning
-**注意**：不应在验证程序中使用 `getValueBoolean` 方法，因为它会根据当前值（而非新值）返回结果。
+复选框字段的值是 `'TRUE'` 或 `'FALSE'`，所以校验器应接收这两种字符串，并返回 `'TRUE'`、`'FALSE'`、`null` 或 `undefined`。
+
+::: warning 注意
+不要在校验器内部使用 `getValueBoolean`，因为它返回的是当前值，而不是新值。
 :::
-以下是一个验证工具示例，该验证程序根据复选框是否已选中来隐藏或显示文本输入字段：
+
+下面示例校验器会根据复选框是否勾选来显示或隐藏文本输入字段：
 
 ```javascript
-  validate: function(newValue) {
-    var sourceBlock = this.getSourceBlock();
-    sourceBlock.showTextField_ = newValue == 'TRUE';
-    sourceBlock.updateTextField();
+validate: function(newValue) {
+  var sourceBlock = this.getSourceBlock();
+  sourceBlock.showTextField_ = newValue == 'TRUE';
+  sourceBlock.updateTextField();
 
-    return newValue;
-  },
+  return newValue;
+},
 
-  updateTextField: function() {
-    var input = this.getInput('DUMMY');
-    if (this.showTextField_ && !this.getField('TEXT')) {
-      input.appendField(new Blockly.FieldTextInput(), 'TEXT');
-    } else if (!this.showTextField_ && this.getField('TEXT')) {
-      input.removeField('TEXT');
-    }
+updateTextField: function() {
+  var input = this.getInput('DUMMY');
+  if (this.showTextField_ && !this.getField('TEXT')) {
+    input.appendField(new Blockly.FieldTextInput(), 'TEXT');
+  } else if (!this.showTextField_ && this.getField('TEXT')) {
+    input.removeField('TEXT');
   }
+}
 ```
 
-#### 包含验证器的复选框字段
+#### 带校验器的复选框字段
 
 ![](./checkbox/validator.gif)
