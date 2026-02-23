@@ -91,7 +91,7 @@ module.exports = {
       },
     ],
     sidebar: {
-      '/guide': [
+      '/guides': [
         {
           title: '入门',
           children: [
@@ -149,7 +149,7 @@ module.exports = {
                 },
                 {
                   title: '块工厂',
-                  path: 'https://google.github.io/blockly-samples/examples/developer-tools/index.html',
+                  path: 'https://raspberrypifoundation.github.io/blockly-samples/examples/developer-tools/index.html',
                 },
               ],
             },
@@ -158,6 +158,10 @@ module.exports = {
         {
           title: '设计考量',
           children: [
+            {
+              title: 'Blockly 应用简介',
+              path: '/guides/design/app-overview',
+            },
             {
               title: '应用设计',
               path: '/guides/design/applications',
@@ -181,36 +185,40 @@ module.exports = {
           ],
         },
         {
-          title: '总览',
-          path: '/guides/overview',
-        },
-        {
-          title: '入门',
-          path: '/guides/get-started',
-        },
-        {
-          title: '配置 Blockly',
+          title: '编程考量',
           children: [
             {
-              title: '注入选项',
-              children: [
-                {
-                  title: '配置结构',
-                  path: '/guides/configure/configuration_struct',
-                },
-                {
-                  title: '栅格',
-                  path: '/guides/configure/grid',
-                },
-                {
-                  title: '移动',
-                  path: '/guides/configure/move',
-                },
-                {
-                  title: '缩放',
-                  path: '/guides/configure/zoom',
-                },
-              ],
+              title: '使用 Blockly API',
+              path: '/guides/programming/using_blockly_apis',
+            },
+            {
+              title: '复刻 Blockly',
+              path: '/guides/programming/forking_blockly',
+            },
+            {
+              title: '退出复刻',
+              path: '/guides/programming/unforking_blockly',
+            },
+          ],
+        },
+        {
+          title: '构建编辑器',
+          children: [
+            {
+              title: '配置结构',
+              path: '/guides/configure/configuration_struct',
+            },
+            {
+              title: '栅格',
+              path: '/guides/configure/grid',
+            },
+            {
+              title: '移动',
+              path: '/guides/configure/move',
+            },
+            {
+              title: '缩放',
+              path: '/guides/configure/zoom',
             },
             {
               title: '固定尺寸的工作区',
@@ -233,63 +241,25 @@ module.exports = {
               path: '/guides/configure/serialization',
             },
             {
-              title: '云存储',
-              path: '/guides/configure/cloud-storage',
-            },
-            {
               title: '主题',
               path: '/guides/configure/themes',
-            },
-            {
-              title: '键盘导航',
-              path: '/guides/configure/keyboard-nav',
-            },
-            {
-              title: '翻译',
-              path: '/guides/configure/translations',
             },
             {
               title: '上下文菜单',
               path: '/guides/configure/context-menus',
             },
             {
-              title: '添加自定义块',
-              path: '/guides/configure/custom-blocks',
+              title: '连接检查器',
+              path: '/guides/configure/advanced/interfaces/connection_checker',
             },
             {
-              title: '高阶定制',
-              children: [
-                {
-                  title: '使用 Blockly API',
-                  path: '/guides/configure/advanced/using_blockly_apis',
-                },
-                {
-                  title: '复刻',
-                  path: '/guides/configure/advanced/forking_blockly',
-                },
-                {
-                  title: '使用接口',
-                  children: [
-                    {
-                      title: '总览',
-                      path: '/guides/configure/advanced/interfaces/overview',
-                    },
-                    {
-                      title: '连接检查器',
-                      path: '/guides/configure/advanced/interfaces/connection_checker',
-                    },
-                    {
-                      title: '度量管理器',
-                      path: '/guides/configure/advanced/interfaces/metrics_manager',
-                    },
-                  ],
-                },
-              ],
+              title: '度量管理器',
+              path: '/guides/configure/advanced/interfaces/metrics_manager',
             },
           ],
         },
         {
-          title: '创建自定义块',
+          title: '构建块',
           children: [
             {
               title: '总览',
@@ -304,38 +274,6 @@ module.exports = {
               path: '/guides/create-custom-blocks/define-blocks',
             },
             {
-              title: '块颜色',
-              path: '/guides/create-custom-blocks/block-colour',
-            },
-            {
-              title: '本地化块',
-              path: '/guides/create-custom-blocks/localize-blocks',
-            },
-            {
-              title: '生成代码',
-              path: '/guides/create-custom-blocks/generating-code',
-            },
-            {
-              title: '块范式',
-              path: '/guides/create-custom-blocks/block-paradigms',
-            },
-            {
-              title: '样式指南',
-              path: '/guides/create-custom-blocks/style-guide',
-            },
-            {
-              title: '操作符优先级',
-              path: '/guides/create-custom-blocks/operator-precedence',
-            },
-            {
-              title: '缓存参数',
-              path: '/guides/create-custom-blocks/caching-arguments',
-            },
-            {
-              title: '类型检查',
-              path: '/guides/create-custom-blocks/type-checks',
-            },
-            {
               title: '扩展和变形器',
               path: '/guides/create-custom-blocks/extensions',
             },
@@ -344,125 +282,17 @@ module.exports = {
               path: '/guides/create-custom-blocks/variables',
             },
             {
-              title: '字段',
-              children: [
-                {
-                  title: '总览',
-                  path: '/guides/create-custom-blocks/fields/overview',
-                },
-                {
-                  title: '字段解析',
-                  path: '/guides/create-custom-blocks/fields/anatomy-of-a-field',
-                },
-                {
-                  title: '校验器',
-                  path: '/guides/create-custom-blocks/fields/validators',
-                },
-                {
-                  title: '内置字段',
-                  children: [
-                    {
-                      title: '总览',
-                      path: '/guides/create-custom-blocks/fields/built-in-fields/overview',
-                    },
-                    {
-                      title: '角度',
-                      path: '/guides/create-custom-blocks/fields/built-in-fields/angle',
-                    },
-                    {
-                      title: '复选框',
-                      path: '/guides/create-custom-blocks/fields/built-in-fields/checkbox',
-                    },
-                    {
-                      title: '颜色',
-                      path: '/guides/create-custom-blocks/fields/built-in-fields/colour',
-                    },
-                    {
-                      title: '日期',
-                      path: '/guides/create-custom-blocks/fields/built-in-fields/date',
-                    },
-                    {
-                      title: '下拉菜单',
-                      path: '/guides/create-custom-blocks/fields/built-in-fields/dropdown',
-                    },
-                    {
-                      title: '图片',
-                      path: '/guides/create-custom-blocks/fields/built-in-fields/image',
-                    },
-                    {
-                      title: '标签',
-                      path: '/guides/create-custom-blocks/fields/built-in-fields/label',
-                    },
-                    {
-                      title: '可序列化标签',
-                      path: '/guides/create-custom-blocks/fields/built-in-fields/label-serializable',
-                    },
-                    {
-                      title: '数字',
-                      path: '/guides/create-custom-blocks/fields/built-in-fields/number',
-                    },
-                    {
-                      title: '文本输入',
-                      path: '/guides/create-custom-blocks/fields/built-in-fields/text-input',
-                    },
-                    {
-                      title: '多行文本',
-                      path: '/guides/create-custom-blocks/fields/built-in-fields/multiline-text-input',
-                    },
-                    {
-                      title: '变量',
-                      path: '/guides/create-custom-blocks/fields/built-in-fields/variable',
-                    },
-                  ],
-                },
-                {
-                  title: '自定义字段',
-                  children: [
-                    {
-                      title: '总览',
-                      path: '/guides/create-custom-blocks/fields/customizing-fields/overview',
-                    },
-                    {
-                      title: '创建自定义字段',
-                      path: '/guides/create-custom-blocks/fields/customizing-fields/creating',
-                    },
-                    {
-                      title: '扩展已有字段',
-                      path: '/guides/create-custom-blocks/fields/customizing-fields/extending',
-                    },
-                    {
-                      title: '升级自定义字段',
-                      path: '/guides/create-custom-blocks/fields/customizing-fields/upgrading',
-                    },
-                  ],
-                },
-              ],
+              title: '字段总览',
+              path: '/guides/create-custom-blocks/fields/overview',
             },
             {
-              title: '过程',
-              children: [
-                {
-                  title: '总览',
-                  path: '/guides/create-custom-blocks/procedures/overview',
-                },
-                {
-                  title: '使用内置过程块',
-                  path: '/guides/create-custom-blocks/procedures/using-procedures',
-                },
-                {
-                  title: '创建自定义过程块',
-                  path: '/guides/create-custom-blocks/procedures/creating-custom-procedure-blocks',
-                },
-                {
-                  title: '创建自定义过程数据模型',
-                  path: '/guides/create-custom-blocks/procedures/creating-custom-procedure-data-models',
-                },
-              ],
+              title: '过程总览',
+              path: '/guides/create-custom-blocks/procedures/overview',
             },
           ],
         },
         {
-          title: '应用集成',
+          title: '构建应用',
           children: [
             {
               title: '最佳实践',
@@ -482,117 +312,20 @@ module.exports = {
           title: '共建 Blockly',
           children: [
             {
-              title: '总览',
+              title: '共建总览',
               path: '/guides/contribute/',
             },
             {
-              title: '入门',
-              children: [
-                {
-                  title: '总览',
-                  path: '/guides/contribute/get-started/',
-                },
-                {
-                  title: '开发工具',
-                  path: '/guides/contribute/get-started/development_tools',
-                },
-                {
-                  title: '提一个好 issue',
-                  path: '/guides/contribute/get-started/write_a_good_issue',
-                },
-
-                {
-                  title: '提一个好的合并请求',
-                  path: '/guides/contribute/get-started/write_a_good_pr',
-                },
-                {
-                  title: '提交信息',
-                  path: '/guides/contribute/get-started/commits',
-                },
-                {
-                  title: '代码评审过程',
-                  path: '/guides/contribute/get-started/pr_review_process',
-                },
-                {
-                  title: 'issue 标签',
-                  path: '/guides/contribute/get-started/issue_labels',
-                },
-                {
-                  title: '使用训练场',
-                  path: '/guides/contribute/get-started/playground',
-                },
-              ],
+              title: '入门总览',
+              path: '/guides/contribute/get-started/',
             },
             {
-              title: '为核心做贡献',
-              children: [
-                {
-                  title: '总览',
-                  path: '/guides/contribute/core/',
-                },
-                {
-                  title: '风格指南',
-                  path: '/guides/contribute/core/style_guide',
-                },
-                {
-                  title: '构建',
-                  path: '/guides/contribute/core/building',
-                },
-                {
-                  title: '进阶编译',
-                  path: '/guides/contribute/core/advanced',
-                },
-                {
-                  title: '翻译',
-                  children: [
-                    {
-                      title: '总览',
-                      path: '/guides/contribute/core/translating',
-                    },
-                    {
-                      title: '克林贡语',
-                      path: '/guides/contribute/core/klingon',
-                    },
-                  ],
-                },
-                {
-                  title: '单元测试',
-                  path: '/guides/contribute/core/unit_testing',
-                },
-              ],
+              title: '核心贡献总览',
+              path: '/guides/contribute/core/',
             },
             {
-              title: '贡献样例',
-              children: [
-                {
-                  title: '总览',
-                  path: '/guides/contribute/samples/',
-                },
-                {
-                  title: '代码仓库文件结构',
-                  path: '/guides/contribute/samples/repository_structure',
-                },
-                {
-                  title: '插件概述',
-                  path: '/guides/contribute/samples/plugin_overview',
-                },
-                {
-                  title: '添加插件',
-                  path: '/guides/contribute/samples/add_a_plugin',
-                },
-                {
-                  title: '命名规则',
-                  path: '/guides/contribute/samples/naming',
-                },
-                {
-                  title: '调试',
-                  path: '/guides/contribute/samples/debugging',
-                },
-                {
-                  title: '编写 Codelab',
-                  path: '/guides/contribute/samples/write_a_codelab',
-                },
-              ],
+              title: '样例贡献总览',
+              path: '/guides/contribute/samples/',
             },
           ],
         },

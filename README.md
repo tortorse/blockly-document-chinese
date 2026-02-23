@@ -8,6 +8,8 @@ Blockly 官方站点: <https://developers.google.com/blockly>
 
 ## 翻译进度(v0.1.0)
 
+> 详细且唯一的统一进度请查看 [`OUTLINE.md`](./OUTLINE.md)。本节保留为历史清单。
+
 - Guide 指南
   - [x] [Overview 总览](./docs/guides/overview.md) (粗翻)
   - [x] [Get Started 入门](./docs/guides/get-started.md) (粗翻)

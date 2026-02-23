@@ -1,5 +1,7 @@
 # 使用 Blockly API
 
+> 本页已迁移到 `/guides/programming/using_blockly_apis`。当前页面保留用于兼容历史链接。
+
 ## 介绍
 
 本页介绍了调用 Blockly 核心函数和访问属性的最佳实践。本页重点介绍插件，但类似的原则适用于任何应用程序集成。

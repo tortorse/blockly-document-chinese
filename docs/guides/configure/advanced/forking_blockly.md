@@ -1,5 +1,7 @@
 # 复刻
 
+> 本页已迁移到 `/guides/programming/forking_blockly`。当前页面保留用于兼容历史链接。
+
 复刻是修改开源项目以使其成为您自己的常用方法。Blockly 有很多成功的分支，包括 pxt-blockly、scratch-blocks 和 App Inventor。
 
 但是，复刻 Blockly 可能会使您难以在核心 Blockly 中获取更新和错误修复。我们强烈建议您使用插件而不是通过复刻来自定义 Blockly。
