@@ -1,44 +1,112 @@
-# 自定义块
+# 构建块总览
 
-本文档面向希望在 Blockly 中创建新块的开发人员。假定有人拥有一个可以编辑的 Blockly 本地副本，一个人通常熟悉 Blockly 的用法，并且一个人对 JavaScript 有基本的了解。
+Blockly 内置了大量预定义块，从数学函数到循环结构都有。但大多数应用都需要为自己的业务领域定义并实现自定义块。  
+例如，绘图应用可能需要“画线”和“画圆”块，机器人应用可能需要“移动机械臂”和“控制夹爪”块。
 
-![logo](./logo.png)
+要定义并使用一种新的块类型，你需要三个部分：
 
-Blockly 附带了大量预定义的块。从数学函数到循环结构的一切。但是，为了与外部应用程序连接，必须创建自定义块以形成 API。例如，在创建绘图程序时，可能需要创建“ *绘制半径为R的圆* ”块。
+- **块定义**：定义该块类型的外观与部分行为。
+- **块代码生成器**：为该块类型生成目标代码字符串。
+- **工具箱引用**：在工具箱中引用该块类型，用户才能把它拖入工作区。
 
-在大多数情况下，最简单的方法是找到一个已经存在的非常相似的块，复制它，并根据需要进行修改。以下文档适用于需要更多帮助的人员。
+## 块定义
 
-## 定义一个块
+**块定义**用于定义一个块的文本、字段、连接和颜色，也可以定义块级行为（例如块专属事件处理）。
 
-第一步是创建一个块; 指定其形状，字段和连接点。使用 Blockly 开发者工具是编写此代码的最简单方法。
+例如，下图这个块：
 
-→ 更多信息可参阅 [Blockly 开发者工具](/guides/create-custom-blocks/blockly-developer-tools.html)...
+![`string_length` 块示意图](./text-length.png)
 
-或者，可以在研究 API 之后手动编写此代码。
+可以用 JSON 或 JavaScript 定义。
 
-→ 更多信息可参阅 [定义块](/guides/create-custom-blocks/define-blocks.html)...
+### JSON
 
-高级块可以响应于用户或其他因素动态地改变它们的形状。
+```javascript
+Blockly.common.defineBlocksWithJsonArray([{
+  "type": "string_length",
+  "message0": "length of %1",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "VALUE",
+      "check": "String"
+    }
+  ],
+  "output": "Number",
+  "colour": 160,
+  "tooltip": "Returns number of letters in the provided text.",
+  "helpUrl": "http://www.w3schools.com/jsref/jsref_length_string.asp"
+}]);
+```
 
-→ 更多信息可参阅 [变形器](/guides/create-custom-blocks/extensions.html)...
+### JavaScript
 
-## 代码生成
+```javascript
+Blockly.Blocks['string_length'] = {
+  init: function() {
+    this.appendValueInput('VALUE')
+        .setCheck('String')
+        .appendField('length of');
+    this.setOutput(true, 'Number');
+    this.setColour(160);
+    this.setTooltip('Returns number of letters in the provided text.');
+    this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp');
+  }
+};
+```
 
-第二步是创建生成器代码以将新块导出为编程语言（例如 JavaScript，Python，PHP，Lua 或 Dart）。
+更多信息见[什么是块定义](/guides/create-custom-blocks/define-blocks)。
 
-→ 更多信息可参阅 [生成代码](/guides/create-custom-blocks/generating-code.html)...
+## 块代码生成器
 
-要生成既干净又正确的代码，必须注意给定语言的操作列表顺序。
+要把块转换为代码，你需要为每种目标语言分别实现一个生成器函数。  
+例如下面这个函数生成 JavaScript 代码：
 
-→ 更多信息可参阅 [操作符优先级](/guides/create-custom-blocks/operator-precedence.html)...
+```javascript
+javascriptGenerator.forBlock['string_length'] = function(block, generator) {
+  var argument0 = generator.valueToCode(block, 'VALUE', Order.FUNCTION_CALL) || '\'\'';
+  return [argument0 + '.length', Order.MEMBER];
+};
+```
 
-创建更复杂的块需要使用临时变量和/或实用程序功能。当输入使用两次并且需要缓存时尤其如此。
+生成器函数会接收当前块和语言生成器；它会为输入连接上的子块（如示例中的 `VALUE`）以及字段生成代码，再拼接成更大的表达式。  
+注意：即使目标语言不是 JavaScript，生成器函数本身也始终使用 JavaScript 编写。
 
-→ 更多信息可参阅 [缓存参数](/guides/create-custom-blocks/caching-arguments.html)...
+更多信息见[块代码生成器](/guides/create-custom-blocks/generating-code)。
 
-## 使用新块
-创建块后，不要忘记将其添加到工具箱中或在工作区中使用它。
+## 工具箱引用
 
-→ 更多信息可参阅 [工具箱](/guides/configure/toolbox.html)...
+定义好块类型后，你需要在工具箱里通过 `type` 引用它，用户才能使用它。
 
+### JSON
+
+```javascript
+var toolbox = {
+  "kind": "categoryToolbox",
+  "contents": [
+    {
+      "kind": "category",
+      "name": "Text",
+      "contents": [
+        {
+          "kind": "block",
+          "type": "string_length"
+        }
+      ]
+    }
+  ]
+};
+```
+
+### XML
+
+```xml
+<xml id="toolbox" style="display: none">
+  <category name="Text">
+    <block type="string_length"></block>
+  </category>
+</xml>
+```
+
+更多信息见[定义弹出工具箱](/guides/configure/toolboxes/flyout)和[定义分类工具箱](/guides/configure/toolboxes/category)。
 

@@ -429,28 +429,339 @@ module.exports = {
               path: '/guides/create-custom-blocks/overview',
             },
             {
-              title: 'Blockly 开发者工具',
-              path: '/guides/create-custom-blocks/blockly-developer-tools',
+              title: '块定义',
+              children: [
+                {
+                  title: '什么是块定义',
+                  path: '/guides/create-custom-blocks/define-blocks',
+                },
+                {
+                  title: '定义块的方法',
+                  children: [
+                    {
+                      title: 'Blockly 开发者工具',
+                      path: '/guides/create-custom-blocks/blockly-developer-tools',
+                    },
+                    {
+                      title: 'JSON 和 JavaScript',
+                      path: '/guides/create-custom-blocks/define/json-and-js',
+                    },
+                    {
+                      title: '扩展和混入',
+                      path: '/guides/create-custom-blocks/extensions',
+                    },
+                    {
+                      title: '修改块定义',
+                      path: '/guides/create-custom-blocks/define/modify-definitions',
+                    },
+                  ],
+                },
+                {
+                  title: '块结构',
+                  children: [
+                    {
+                      title: '块的解剖',
+                      path: '/guides/create-custom-blocks/define/block-anatomy',
+                    },
+                    {
+                      title: '顶层连接',
+                      path: '/guides/create-custom-blocks/define/top-level-connections',
+                    },
+                    {
+                      title: 'JSON 中的块结构',
+                      path: '/guides/create-custom-blocks/define-blocks',
+                    },
+                    {
+                      title: 'JavaScript 中的块结构',
+                      path: '/guides/create-custom-blocks/define-blocks',
+                    },
+                    {
+                      title: '内联与外部输入',
+                      path: '/guides/create-custom-blocks/define-blocks',
+                    },
+                  ],
+                },
+                {
+                  title: '块状态',
+                  path: '/guides/create-custom-blocks/define-blocks',
+                },
+                {
+                  title: '销毁钩子',
+                  path: '/guides/create-custom-blocks/extensions',
+                },
+                {
+                  title: '块帮助',
+                  path: '/guides/create-custom-blocks/define-blocks',
+                },
+              ],
             },
             {
-              title: '定义块',
-              path: '/guides/create-custom-blocks/define-blocks',
+              title: '代码生成',
+              children: [
+                {
+                  title: '总览',
+                  path: '/guides/create-custom-blocks/generating-code',
+                },
+                {
+                  title: '块代码生成器',
+                  path: '/guides/create-custom-blocks/generating-code',
+                },
+                {
+                  title: '转换字段值',
+                  path: '/guides/create-custom-blocks/generating-code',
+                },
+                {
+                  title: '添加括号',
+                  path: '/guides/create-custom-blocks/operator-precedence',
+                },
+                {
+                  title: '缓存内层值块代码',
+                  path: '/guides/create-custom-blocks/caching-arguments',
+                },
+              ],
             },
             {
-              title: '扩展和变形器',
-              path: '/guides/create-custom-blocks/extensions',
+              title: '连接',
+              children: [
+                {
+                  title: '连接检查',
+                  path: '/guides/create-custom-blocks/type-checks',
+                },
+                {
+                  title: '连接检查实践手册',
+                  path: '/guides/create-custom-blocks/type-checks',
+                },
+                {
+                  title: '自定义连接检查器',
+                  path: '/guides/create-custom-blocks/type-checks',
+                },
+                {
+                  title: '连接预览器',
+                  path: '/guides/create-custom-blocks/type-checks',
+                },
+              ],
+            },
+            {
+              title: '输入',
+              children: [
+                {
+                  title: '创建自定义输入',
+                  path: '/guides/create-custom-blocks/inputs/overview',
+                },
+              ],
+            },
+            {
+              title: '字段',
+              children: [
+                {
+                  title: '总览',
+                  path: '/guides/create-custom-blocks/fields/overview',
+                },
+                {
+                  title: '字段与图标',
+                  path: '/guides/create-custom-blocks/fields/overview',
+                },
+                {
+                  title: '字段解析',
+                  path: '/guides/create-custom-blocks/fields/anatomy-of-a-field',
+                },
+                {
+                  title: '校验器',
+                  path: '/guides/create-custom-blocks/fields/validators',
+                },
+                {
+                  title: '内置字段',
+                  children: [
+                    {
+                      title: '总览',
+                      path: '/guides/create-custom-blocks/fields/built-in-fields/overview',
+                    },
+                    {
+                      title: '复选框',
+                      path: '/guides/create-custom-blocks/fields/built-in-fields/checkbox',
+                    },
+                    {
+                      title: '下拉菜单',
+                      path: '/guides/create-custom-blocks/fields/built-in-fields/dropdown',
+                    },
+                    {
+                      title: '图片',
+                      path: '/guides/create-custom-blocks/fields/built-in-fields/image',
+                    },
+                    {
+                      title: '标签',
+                      path: '/guides/create-custom-blocks/fields/built-in-fields/label',
+                    },
+                    {
+                      title: '标签（可序列化）',
+                      path: '/guides/create-custom-blocks/fields/built-in-fields/label-serializable',
+                    },
+                    {
+                      title: '数字',
+                      path: '/guides/create-custom-blocks/fields/built-in-fields/number',
+                    },
+                    {
+                      title: '文本输入',
+                      path: '/guides/create-custom-blocks/fields/built-in-fields/text-input',
+                    },
+                    {
+                      title: '变量',
+                      path: '/guides/create-custom-blocks/fields/built-in-fields/variable',
+                    },
+                  ],
+                },
+                {
+                  title: '自定义字段',
+                  children: [
+                    {
+                      title: '总览',
+                      path: '/guides/create-custom-blocks/fields/customizing-fields/overview',
+                    },
+                    {
+                      title: '扩展现有字段',
+                      path: '/guides/create-custom-blocks/fields/customizing-fields/extending',
+                    },
+                    {
+                      title: '创建自定义字段',
+                      path: '/guides/create-custom-blocks/fields/customizing-fields/creating',
+                    },
+                    {
+                      title: '升级自定义字段',
+                      path: '/guides/create-custom-blocks/fields/customizing-fields/upgrading',
+                    },
+                  ],
+                },
+              ],
             },
             {
               title: '变量',
               path: '/guides/create-custom-blocks/variables',
             },
             {
-              title: '字段总览',
-              path: '/guides/create-custom-blocks/fields/overview',
+              title: '过程',
+              children: [
+                {
+                  title: '总览',
+                  path: '/guides/create-custom-blocks/procedures/overview',
+                },
+                {
+                  title: '使用内置过程块',
+                  path: '/guides/create-custom-blocks/procedures/using-procedures',
+                },
+                {
+                  title: '创建自定义过程块',
+                  path: '/guides/create-custom-blocks/procedures/creating-custom-procedure-blocks',
+                },
+                {
+                  title: '创建自定义过程数据模型',
+                  path: '/guides/create-custom-blocks/procedures/creating-custom-procedure-data-models',
+                },
+              ],
             },
             {
-              title: '过程总览',
-              path: '/guides/create-custom-blocks/procedures/overview',
+              title: '图标',
+              children: [
+                {
+                  title: '总览',
+                  path: '/guides/create-custom-blocks/extensions',
+                },
+                {
+                  title: '字段与图标',
+                  path: '/guides/create-custom-blocks/fields/overview',
+                },
+                {
+                  title: '覆盖注释图标',
+                  path: '/guides/create-custom-blocks/extensions',
+                },
+                {
+                  title: '创建自定义图标',
+                  children: [
+                    {
+                      title: '总览',
+                      path: '/guides/create-custom-blocks/extensions',
+                    },
+                    {
+                      title: '保存和加载图标',
+                      path: '/guides/create-custom-blocks/extensions',
+                    },
+                    {
+                      title: '使用弹出气泡',
+                      path: '/guides/create-custom-blocks/extensions',
+                    },
+                    {
+                      title: '创建自定义气泡',
+                      path: '/guides/create-custom-blocks/extensions',
+                    },
+                    {
+                      title: '使用自定义图标',
+                      path: '/guides/create-custom-blocks/extensions',
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              title: '块形状',
+              children: [
+                {
+                  title: '变形器',
+                  path: '/guides/create-custom-blocks/extensions',
+                },
+                {
+                  title: '渲染器',
+                  children: [
+                    {
+                      title: '总览',
+                      path: '/guides/create-custom-blocks/extensions',
+                    },
+                    {
+                      title: '概念',
+                      children: [
+                        {
+                          title: '总览',
+                          path: '/guides/create-custom-blocks/extensions',
+                        },
+                        {
+                          title: '渲染器',
+                          path: '/guides/create-custom-blocks/extensions',
+                        },
+                        {
+                          title: '常量提供器',
+                          path: '/guides/create-custom-blocks/extensions',
+                        },
+                        {
+                          title: '渲染信息',
+                          path: '/guides/create-custom-blocks/extensions',
+                        },
+                        {
+                          title: '路径对象',
+                          path: '/guides/create-custom-blocks/extensions',
+                        },
+                        {
+                          title: '绘制器',
+                          path: '/guides/create-custom-blocks/extensions',
+                        },
+                        {
+                          title: '行',
+                          path: '/guides/create-custom-blocks/extensions',
+                        },
+                        {
+                          title: '元素',
+                          path: '/guides/create-custom-blocks/extensions',
+                        },
+                      ],
+                    },
+                    {
+                      title: '创建自定义渲染器',
+                      path: '/guides/create-custom-blocks/extensions',
+                    },
+                    {
+                      title: '连接形状',
+                      path: '/guides/create-custom-blocks/extensions',
+                    },
+                  ],
+                },
+              ],
             },
           ],
         },
