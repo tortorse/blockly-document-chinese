@@ -6,7 +6,7 @@ Blockly 中文站点: <https://blockly.tortorse.com>
 
 Blockly 官方站点: <https://developers.google.com/blockly>
 
-## 翻译进度(v0.1.1)
+## 翻译进度(v0.1.0)
 
 - Guide 指南
   - [x] [Overview 总览](./docs/guides/overview.md) (粗翻)
@@ -17,7 +17,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
       - [x] [Grid 栅格](./docs/guides/configure/grid.md) (粗翻)
       - [x] [Move 移动](./docs/guides/configure/move.md) (粗翻)
       - [x] [Zoom 缩放](./docs/guides/configure/zoom.md) (粗翻)
-    - [x] [Fixed Size Workspace 固定尺寸的工作区](./docs/guides/configure/fixed-size) (粗翻)
+    - [x] [Fixed Size Workspace 固定尺寸的工作区](./docs/guides/configure/fixed-size.md) (粗翻)
     - [x] [Resizable Workspace 可调整尺寸的工作区](./docs/guides/configure/resizable.md) (粗翻)
     - [x] [Toolbox 工具箱](./docs/guides/configure/toolbox.md) (粗翻)
     - [x] [Code Generators 代码生成器](./docs/guides/configure/code-generators.md) (粗翻)
@@ -34,14 +34,14 @@ Blockly 官方站点: <https://developers.google.com/blockly>
       - Using Interfaces
         - [x] [Overview 总览](./docs/guides/configure/advanced/interfaces/overview.md) (粗翻)
         - [x] [Connection Checker 连接检查器](./docs/guides/configure/advanced/interfaces/connection_checker.md) (粗翻)
-        - [x] [Metrics Manager 度量管理器](./docs/guides/configure/advanced/interfaces/metrics_manager) (粗翻)
+        - [x] [Metrics Manager 度量管理器](./docs/guides/configure/advanced/interfaces/metrics_manager.md) (粗翻)
           <!-- - [x] Cloud Storage 云存储 (粗翻) -->
   - Create Custom Blocks 创建自定义块
     - [x] [Overview 总览](./docs/guides/create-custom-blocks/overview.md) (粗翻)
     - [x] [Blockly Developer Tools Blockly 开发者工具](./docs/guides/create-custom-blocks/blockly-developer-tools.md) (粗翻)
-    - [x] [Define Blocks 定义块](./docs/guides/create-custom-blocks/blockly-developer-tools.md) (粗翻)
+    - [x] [Define Blocks 定义块](./docs/guides/create-custom-blocks/define-blocks.md) (粗翻)
     - [x] [Block Colour 块颜色](./docs/guides/create-custom-blocks/block-colour.md) (粗翻)
-    - [x] [Localize Blocks 本地化块](./docs/guides/create-custom-blocks/localize-blocks) (粗翻)
+    - [x] [Localize Blocks 本地化块](./docs/guides/create-custom-blocks/localize-blocks.md) (粗翻)
     - [x] [Generating Code 生成代码](./docs/guides/create-custom-blocks/generating-code.md) (粗翻)
     - [x] [Block Paradigms 块范例](./docs/guides/create-custom-blocks/block-paradigms.md) (粗翻)
     - [x] [Style Guide 样式指南](./docs/guides/create-custom-blocks/style-guide.md) (粗翻)
@@ -70,7 +70,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
         - [x] [Variable 变量](./docs/guides/create-custom-blocks/fields/built-in-fields/variable.md)(粗翻)
       - Customizing Fields 自定义字段
         - [x] [Overview 总览](./docs/guides/create-custom-blocks/fields/customizing-fields/overview.md) (粗翻)
-        - [x] [Creating a Custom Field 创建自定义字段](./docs/guides/create-custom-blocks/fields/customizing-fields/creating) (粗翻)
+        - [x] [Creating a Custom Field 创建自定义字段](./docs/guides/create-custom-blocks/fields/customizing-fields/creating.md) (粗翻)
         - [x] [Extending an Existing Field 扩展已有字段](./docs/guides/create-custom-blocks/fields/customizing-fields/extending.md) (粗翻)
         - [x] [Upgrading a Custom Field 升级自定义字段](./docs/guides/create-custom-blocks/fields/customizing-fields/upgrading.md) (粗翻)
       - Procedures 过程
@@ -96,7 +96,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
     - Contributing to Core 为核心做贡献
       - [x] [Overview 总览](./docs/guides/contribute/core/README.md) (粗翻)
       - [x] [Style Guide 风格指南](./docs/guides/contribute/core/style_guide.md) (粗翻)
-      - [x] [Building 构建 构建](./docs//guides/contribute/core/building.md) (粗翻)
+      - [x] [Building 构建 构建](./docs/guides/contribute/core/building.md) (粗翻)
       - [x] [Advanced Compilation 进阶编译](./docs/guides/contribute/core/advanced.md) (粗翻)
       - Translating (粗翻)
         - [x] [overview 总览](./docs/guides/contribute/core/translating.md) (粗翻)
@@ -110,7 +110,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
       - [x] [Adding a Plugin 添加插件](./docs/guides/contribute/samples/add_a_plugin.md) (粗翻)
       - [x] [Naming Conventions 命名规则](./docs/guides/contribute/samples/naming.md) (粗翻)
       - [x] [Debugging 调试](./docs/guides/contribute/samples/debugging.md) (粗翻)
-      - [x] [Writing a Codelab 编写 Codelab](./docs/guides/contribute/samples/write_a_codelab) (粗翻)
+      - [x] [Writing a Codelab 编写 Codelab](./docs/guides/contribute/samples/write_a_codelab.md) (粗翻)
 - Reference 参考
   - [x] [Overview](./docs/reference/js/blockly.md)
   - Classes
@@ -166,7 +166,7 @@ Blockly 官方站点: <https://developers.google.com/blockly>
     - [ ] [FlyoutButton](./docs/reference/js/blockly.flyoutbutton_class.md) 🗄️
     - [ ] [FlyoutMetricsManager](./docs/reference/js/blockly.flyoutmetricsmanager_class.md) 🗄️
     - [ ] [Gesture](./docs/reference/js/blockly.gesture_class.md) 🗄️
-    - [ ] [Grid](./docs/reference/js/blockly.grid_class.md) 🗄️
+    - [ ] Grid (待补充) 🗄️
     - [ ] [HorizontalFlyout](./docs/reference/js/blockly.horizontalflyout_class.md) 🗄️
     - [ ] [Icon](./docs/reference/js/blockly.icon_class.md) 🗄️
     - [ ] [Input](./docs/reference/js/blockly.input_class.md) 🗄️
