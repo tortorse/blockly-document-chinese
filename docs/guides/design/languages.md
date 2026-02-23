@@ -55,7 +55,7 @@ d) 吞掉值。App Inventor 的第一个版本创建了一个特殊的管道块�
 
 _建议：每种策略都有优缺点，选择适合你的用户的方案。_
 
-## ## 生成可读的代码
+## 生成可读的代码
 
 高级 Blockly 用户应该能够查看生成的代码（JavaScript、Python、PHP、Lua、Dart 等）并立即认出他们编写的程序。这意味着需要额外努力使这些机器生成的代码保持可读性。多余的括号、数字变量、压缩的空白和冗长的代码模板都会妨碍生成优雅的代码。生成的代码应该包含注释，并且应该符合 [Google 的风格指南](https://github.com/google/styleguide/blob/gh-pages/README.md).
 

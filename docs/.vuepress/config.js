@@ -188,8 +188,12 @@ module.exports = {
           title: '编程考量',
           children: [
             {
-              title: '使用 Blockly API',
+              title: 'API 可见性',
               path: '/guides/programming/using_blockly_apis',
+            },
+            {
+              title: '插件',
+              path: '/guides/programming/plugin_overview',
             },
             {
               title: '复刻 Blockly',

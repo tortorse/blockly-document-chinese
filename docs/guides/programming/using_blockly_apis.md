@@ -1,165 +1,111 @@
 # 使用 Blockly API
 
-> 对应兼容路径：`/guides/configure/advanced/using_blockly_apis`。后续以当前页面为主。
-
-## 介绍
-
-本页介绍了调用 Blockly 核心函数和访问属性的最佳实践。本页重点介绍插件，但类似的原则适用于任何应用程序集成。
-
-## 子类化和扩展
-
-Blockly 有多种添加功能的范例，包括：
-
-- 子类（例如创建一个新的渲染器）
-- 混合（例如添加块扩展或修改器）
-- 块定义（例如程序块定义）
-
-就本文档而言，所有三种情况都等同于子类化。
-
-### 注入子类
-
-我们支持通过注入方法替换某些类。这些子类必须要么扩展基类，要么实现它们对应的接口。
-
-您可以将您的子类传递给注入方法。
-
-```javascript
-Blockly.inject('blocklyDiv', {
-  plugins: {
-    'metricsManager': CustomMetricsManagerClass
-  }
-}
-```
-
-或者您可以使用注册您的类 `Blockly.registry` 并使用注册名称来注入该类。
-
-```javascript
-Blockly.registry.register(Blockly.registry.Type.METRICS_MANAGER, 'YOUR_NAME', SubClass);
-
-Blockly.inject('blocklyDiv', {
-  plugins: {
-    'metricsManager': 'YOUR_NAME'
-  }
-}
-```
-
-可以替换以下类：
-
-| 注册名称                   | 接口/基类                                                                                                             |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `blockDragger`             | [Blockly.IBlockDragger](https://developers.google.com/blockly/reference/js/Blockly.IBlockDragger)                     |
-| `connectionChecker`        | [Blockly.IConnectionChecker](https://developers.google.com/blockly/reference/js/Blockly.IConnectionChecker)           |
-| `flyoutsVerticalToolbox`   | [Blockly.IFlyout](https://developers.google.com/blockly/reference/js/Blockly.IFlyout)                                 |
-| `flyoutsHorizontalToolbox` | [Blockly.IFlyout](https://developers.google.com/blockly/reference/js/Blockly.IFlyout)                                 |
-| `metricsManager`           | [Blockly.IMetricsManager](https://developers.google.com/blockly/reference/js/Blockly.IMetricsManager)                 |
-| `renderer`                 | [Blockly.blockRendering.Renderer](https://developers.google.com/blockly/reference/js/Blockly.blockRendering.Renderer) |
-| `toolbox`                  | [Blockly.IToolbox](https://developers.google.com/blockly/reference/js/Blockly.IToolbox)                               |
-
-有关接口的更多信息，请查看文档的[接口部分](https://developers.google.com/blockly/guides/plugins/interfaces/overview) 。
-
-::: tip 注意
-注册类上的所有受保护和公共方法都可以被覆盖。但是，不应覆盖未注册类上的受保护方法。
-:::
+本页介绍调用 Blockly 核心（core）函数和访问属性的最佳实践。这些原则适用于为 Blockly 开发[插件（plugin）](https://developers.google.com/blockly/guides/programming/plugin_overview)，也适用于将 Blockly 集成到独立应用中。
 
 ## 可见性
 
-我们使用 Closure 编译器[注解](https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler#visibility-checks) 将核心库中的可见性标记为`public`、`package`、`protected`、`private`或 `deprecated`。
+在 Blockly 核心库中，我们使用 [TypeScript 访问修饰符](https://www.typescriptlang.org/docs/handbook/2/classes.html#member-visibility)标记成员可见性，包括 `public`、`private` 和 `protected`。有些属性还会在 [TsDoc](https://api-extractor.com/pages/tsdoc/tag_internal/) 注释中标记 `@internal`。
 
-所有`public`、`package`和`protected`成员都记录在 Blockly 网站的 [参考](https://developers.google.com/blockly/reference/js)部分。您还可以通过阅读代码中的注释来检查可见性。
+所有 `public` 和 `protected` 属性都记录在 Blockly 网站的[参考（Reference）](https://developers.google.com/blockly/reference/js/blockly)部分。你也可以直接阅读源码来确认可见性。
 
-::: danger 注意：
-虽然 JavaScript 不强制执行这些可见性注释，但您应该避免访问任何不是`public`. Blockly 团队不保证版本之间非公共属性和功能的稳定性。
+::: warning 注意
+虽然 JavaScript 不会强制执行这些可见性标记，但你应避免访问任何非 `public` 成员。Blockly 团队不保证非公开属性和函数在版本间的稳定性。
 :::
-
-## 注解
 
 ### public
 
-任何标记`public`的内容都是我们公共 API 的一部分。
+任何标记为 `public` 的成员，都是公共 API 的一部分。模块中未显式声明可见性的属性，也默认视为 `public`。
 
-我们尽量不要频繁更改我们的公共 API，也不要在没有充分理由和警告的情况下更改。例外情况：我们可能会在 Q1 版本中公开一个新的 API，并在 Q2 版本中修改它以响应早期反馈。之后，您可以考虑公共功能或财产稳定。
+我们通常不会频繁修改公共 API，也不会在没有充分理由和预警的情况下修改。一个例外是：某个 API 可能在一个版本公开后，在下一个版本基于早期反馈进行调整。之后，可将该 `public` 函数或属性视为稳定。
 
-可以从任何地方调用公共函数，并在子类中重写，只要签名不变。
-
-### package
-
-包函数和属性旨在在核心库中使用，而不是在外部使用。我们不保证任何标记的稳定性 `@package`。这意味着任何标记的类型、含义、名称或功能签名`@package`可能会在没有警告的情况下更改。
-
-包函数可以从任何地方调用，并在子类中被覆盖，只要签名没有改变。
+`public` 函数可以在任何位置调用，也可以在子类中重写（前提是签名不变）。
 
 ### protected
 
-受保护的函数和属性只能由定义类或子类访问。
+`protected` 函数和属性只能由定义它的类或其子类访问。
 
-允许子类覆盖受保护的函数和属性，而无需更改类型签名。
+子类可以重写 `protected` 函数和属性，但不能改变类型签名。
 
-例如，扩展基本渲染器类的自定义渲染器可以访问其受保护的属性。
+例如，一个继承基础渲染器类的自定义渲染器，可以访问其 `protected` 属性。
 
-在每种情况下，您都应该确保您了解函数或属性在其余代码中的使用方式。
+无论哪种情况，都应先确认该函数或属性在其余代码中的使用方式。
 
 ### private
 
-这些只能通过与定义相同的文件中的代码访问。直接访问这些属性可能会导致未定义的行为。
+`private` 成员只能在定义所在的同一文件中访问。直接访问这类属性可能导致未定义行为。
 
-不允许子类覆盖私有函数和属性。
+子类不能重写 `private` 函数和属性。
 
-Blockly 使用 `underscore_` 来标识私有属性和函数。
+`private` 属性不属于 Blockly 公共 API，因此可能在无预告情况下变更。
+
+Blockly 中部分函数没有可见性标记，是因为它们没有从模块导出。这些函数本质上是模块内局部变量，不能在模块外使用，应视作等价于 `private` 属性。
 
 ::: tip 注意
-在极少数情况下，私有函数被广泛使用，以至于它们变成了公共的，但没有更改名称。例如，[`Blockly.bindEventWithChecks_`](https://github.com/google/blockly/blob/096d1c46c5066cfa7e59db3b41405b7e854b95d0/core/blockly.js#L455) 是公开的。
+Blockly 过去使用后缀下划线表示私有成员（例如 `example_`）。按照当前 Google 风格指南，新代码已不再沿用该规则，旧代码也可能调整。调用 Blockly 方法前，请确认它在参考文档中可见，或在代码中未标记为 `private`。在极少数情况下，某些原本私有且被广泛使用的函数后来转为公开，所以你会看到少量以 `_` 结尾的公开函数。
 :::
+
+### internal
+
+`internal` 函数和属性用于核心库内部，不用于外部。它们通过 TsDoc 的 `@internal` 标记。
+
+`internal` 成员不属于 Blockly 公共 API，因此可在无预告情况下变更。
+
+`internal` 成员可以在核心库内部任意位置访问，也可在核心库内部子类中重写（前提是签名不变），但不能从核心库外部访问。
 
 ### deprecated
 
-`@deprecated`不应使用任何标记的东西。大多数弃用都包括有关首选代码的说明，无论是在控制台警告中还是在 JSDoc 中。
+凡标记 `@deprecated` 的内容都不应继续使用。多数弃用项会在控制台警告或 TsDoc 中给出推荐替代方案。
 
-在可能的情况下，不推荐使用的函数将记录一个警告，其中包括预期的删除日期和调用替换函数的建议。
+在条件允许时，被弃用函数会输出警告，包含预计删除时间和推荐替代函数。
 
-## 常见问题
+## 常见问题（FAQs）
 
-### 如果我想使用的功能不是公开的怎么办？
+以下是 Blockly 团队常见到的问题。
 
-在核心 Blockly 上提交功能[请求。](https://github.com/google/blockly/issues/new?assignees=&labels=type%3A+feature+request%2C+triage&template=feature_request.md)包括对您的用例的描述以及您希望我们公开的内容的说明。
+### 如果我想用的函数不是 `public`，怎么办？
 
-我们将使用该功能请求讨论是否将其公开，或者是否有其他方式让您获得相同的信息。
+请在 core Blockly 提交 [feature request](https://github.com/RaspberryPiFoundation/blockly/issues/new?assignees=&labels=issue%3A+feature+request%2C+issue%3A+triage&template=feature_request.yaml)，并描述你的使用场景，以及希望公开的具体内容。
 
-如果我们决定将其公开，您或 Blockly 团队将进行适当的更改，并将在下一个季度发布的 Blockly 中上线。
+团队会基于该 feature request 讨论是否公开该能力，或是否有其他方式满足同样需求。
 
-如果您选择在插件中使用非公开成员，请考虑将您的插件标记为 beta 并将信息包含在您的`README`.
+若决定公开，你或 Blockly 团队会提交相应改动，并在下一次 Blockly 发布中上线。
 
-### 猴子补丁呢？
+如果你仍选择在插件中使用非公开成员，建议将插件标记为 beta，并在 `README` 中明确说明。
 
-阅读[猴子补丁](https://en.wikipedia.org/wiki/Monkey_patch#Applications)。
+### 猴子补丁（monkeypatching）怎么办？
 
-在已发布的插件中进行 Monkeypatching 是不安全的，因为您的代码可能与任何其他对相同代码进行猴子补丁的插件交互不佳。出于这个原因，我们**强烈**建议不要在第三方插件中进行猴子补丁，并且不会在第一方插件中接受它。
+可先阅读 [monkeypatching](https://en.wikipedia.org/wiki/Monkey_patch#Applications)。
 
-### 我可以覆盖公共函数吗？
+monkeypatching 不安全，因为它依赖非公开 API，补丁可能在没有通知的情况下失效。尤其在插件中，若多个插件 monkeypatch 同一段代码，兼容性风险更高。因此我们**强烈**不建议在应用和第三方插件中使用 monkeypatching，也不会在第一方插件中接受这类方案。
 
-子类化时：是的。否则：不，那是猴子补丁。
+### 我可以重写 `public` 函数吗？
 
-### 我可以覆盖包函数吗？
+在子类化场景：可以。否则：不可以，那属于 monkeypatching。
 
-子类化时：是的。否则：不，那是猴子补丁。
+### 我可以重写 `protected` 函数吗？
 
-### 我可以覆盖受保护的功能吗？
+在子类化场景：可以。否则：不可以，那属于 monkeypatching。
 
-子类化时：是的。否则：不，那是猴子补丁。
+### 我可以重写 `internal` 或 `private` 函数吗？
 
-### 我什么时候可以直接访问属性？什么时候应该使用 getter 或 setter？
+不可以，那属于 monkeypatching。
 
-如果我们发布 getter 或 setter，请使用它而不是直接访问属性。如果该属性不是公开的，请务必使用 getter 和 setter。
+### 我何时可以直接访问属性？何时应使用 getter/setter？
+
+如果官方提供了 getter 或 setter，请优先使用，而不要直接访问属性。若属性不是 `public`，则更应使用 getter/setter。
 
 ::: tip 注意
-在插件中一致地使用 getter 和 setter 使我们能够灵活地在核心 Blockly 中进行更改，而不会破坏已发布的代码。
+在插件中一致使用 getter/setter，可以让 Blockly 核心在演进时有更大灵活性，同时降低已发布代码被破坏的风险。
 :::
 
-### 如果这个属性没有注解怎么办？
+### 如果属性没有标注可见性怎么办？
 
-默认情况下它是公开的，请给我们留言，以备我们为你安排放置一个 getter/setter
+默认按 `public` 处理。但建议你告诉我们你的用法，我们可能会为该属性补充 getter/setter 配对接口。
 
-### 如果这个函数没有注解怎么办？
+### 如果函数没有标注可见性怎么办？
 
-默认是公开的。
+默认是 `public`。
 
-### 如果我仍然不确定怎么办？
+### 如果我还是不确定怎么办？
 
-[在论坛](https://groups.google.com/forum/#!forum/blockly)上提问 ，我们通常会在一个工作日内回复您。
+可在[论坛](https://groups.google.com/g/blockly)提问，团队通常会在几天内回复。

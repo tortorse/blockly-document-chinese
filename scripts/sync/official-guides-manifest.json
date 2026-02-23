@@ -137,6 +137,7 @@
     "/guides/get-started/workspace-creation",
     "/guides/overview",
     "/guides/programming/forking_blockly",
+    "/guides/programming/plugin_overview",
     "/guides/programming/unforking_blockly",
     "/guides/programming/using_blockly_apis"
   ]

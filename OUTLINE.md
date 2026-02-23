@@ -138,6 +138,7 @@
 | /guides/get-started/workspace-creation | ./docs/guides/get-started/workspace-creation.md | DONE |
 | /guides/overview | ./docs/guides/overview.md | DONE |
 | /guides/programming/forking_blockly | ./docs/guides/programming/forking_blockly.md | DONE |
+| /guides/programming/plugin_overview | ./docs/guides/programming/plugin_overview.md | DONE |
 | /guides/programming/unforking_blockly | ./docs/guides/programming/unforking_blockly.md | DONE |
 | /guides/programming/using_blockly_apis | ./docs/guides/programming/using_blockly_apis.md | DONE |
 
