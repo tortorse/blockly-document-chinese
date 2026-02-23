@@ -791,20 +791,138 @@ module.exports = {
           title: '共建 Blockly',
           children: [
             {
-              title: '共建总览',
+              title: '总览',
               path: '/guides/contribute/',
             },
             {
-              title: '入门总览',
-              path: '/guides/contribute/get-started/',
+              title: '入门',
+              children: [
+                {
+                  title: '总览',
+                  path: '/guides/contribute/get-started/',
+                },
+                {
+                  title: '开发工具',
+                  path: '/guides/contribute/get-started/development_tools',
+                },
+                {
+                  title: '编写优质 Issue',
+                  path: '/guides/contribute/get-started/write_a_good_issue',
+                },
+                {
+                  title: '编写优质拉取请求',
+                  path: '/guides/contribute/get-started/write_a_good_pr',
+                },
+                {
+                  title: '提交信息指南',
+                  path: '/guides/contribute/get-started/commits',
+                },
+                {
+                  title: '代码评审流程',
+                  path: '/guides/contribute/get-started/pr_review_process',
+                },
+                {
+                  title: 'Issue 标签',
+                  path: '/guides/contribute/get-started/issue_labels',
+                },
+                {
+                  title: '使用 Playground',
+                  path: '/guides/contribute/get-started/playground',
+                },
+              ],
             },
             {
-              title: '核心贡献总览',
-              path: '/guides/contribute/core/',
+              title: '贡献核心',
+              children: [
+                {
+                  title: '总览',
+                  path: '/guides/contribute/core/',
+                },
+                {
+                  title: '核心架构',
+                  children: [
+                    {
+                      title: '渲染管理',
+                      path: '/guides/contribute/core/',
+                    },
+                  ],
+                },
+                {
+                  title: '风格指南',
+                  path: '/guides/contribute/core/style_guide',
+                },
+                {
+                  title: '构建脚本',
+                  path: '/guides/contribute/core/building',
+                },
+                {
+                  title: '进阶编译',
+                  path: '/guides/contribute/core/advanced',
+                },
+                {
+                  title: '本地化',
+                  children: [
+                    {
+                      title: '添加新的本地化令牌',
+                      path: '/guides/contribute/core/translating',
+                    },
+                    {
+                      title: '翻译文本',
+                      path: '/guides/contribute/core/translating',
+                    },
+                    {
+                      title: '克林贡语',
+                      path: '/guides/contribute/core/klingon',
+                    },
+                  ],
+                },
+                {
+                  title: '单元测试',
+                  path: '/guides/contribute/core/unit_testing',
+                },
+              ],
             },
             {
-              title: '样例贡献总览',
-              path: '/guides/contribute/samples/',
+              title: '贡献样例',
+              children: [
+                {
+                  title: '总览',
+                  path: '/guides/contribute/samples/',
+                },
+                {
+                  title: '代码仓结构',
+                  path: '/guides/contribute/samples/repository_structure',
+                },
+                {
+                  title: '插件',
+                  children: [
+                    {
+                      title: '添加插件',
+                      path: '/guides/contribute/samples/add_a_plugin',
+                    },
+                    {
+                      title: '插件命名规约',
+                      path: '/guides/contribute/samples/naming',
+                    },
+                    {
+                      title: '调试插件',
+                      path: '/guides/contribute/samples/debugging',
+                    },
+                    {
+                      title: '发布块库',
+                      path: '/guides/contribute/samples/add_a_plugin',
+                    },
+                    {
+                      title: '为 Block Factory 添加插件字段',
+                      path: '/guides/create-custom-blocks/blockly-developer-tools',
+                    },
+                  ],
+                },
+                {
+                  title: '编写 Codelab',
+                  path: '/guides/contribute/samples/write_a_codelab',
+                },
+              ],
             },
           ],
         },
